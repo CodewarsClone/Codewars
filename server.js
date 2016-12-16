@@ -57,7 +57,7 @@ app.get('/auth/github/callback',
     res.redirect('/');
   });
 
-app.post('/solution/:kataId', endPointCtrl.testScript);
+app.post('/solution', endPointCtrl.testScript);
 
 
 app.listen(config.port, function() {

@@ -4,9 +4,10 @@ const testCtrl = require('./testCtrl');
 
 module.exports = {
     testScript: (req, res, next) => {
-        testCtrl.firstTest(script, , (err, user) => {
-            if (err) return res.status(500).json(err);
-            return res.status(200).json(user);
-        })
-    }
+        let script = req.body;
+        console.log(script);
+        let results = testCtrl.firstTest(script);
+        console.log(results);
+        res.json(results);
+     }
 }
