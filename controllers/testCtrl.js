@@ -25,9 +25,8 @@ module.exports = {
 		exec(`docker run --rm codewars/node-runner run -l javascript -c "${script}" -t cw -f "${test}"`,
 	(err, stdout, stderr) => {
 		if (err) console.log('err', err);
-		console.log(typeof stdout);
-		console.log('stdout', stdout);
-		console.log('stderr', stderr);
+		if (stdout) return stdout;
+		if (stderr) return stderr;
 	});
 	} 
 }
