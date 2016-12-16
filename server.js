@@ -8,6 +8,14 @@ var passport = require('passport');
 var GithubStrategy = require('passport-github2').Strategy;
 var connectionString = config.connectionString;
 
+passport.serializeUse((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((obj, done)  => {
+  done(null, obj);
+});
+
 passport.use(new GithubStrategy({
   clientID: config.githubId,
   clientSecret: config.githubSecret,
@@ -18,14 +26,6 @@ passport.use(new GithubStrategy({
     // create user using profile.id
     return done(null/*error*/, profile/*info that goes on session*/);
 }));
-
-passport.serializeUse((user, done) => {
-  done(null, user);
-});
-
-passport.deserializeUser((obj, done)  => {
-  done(null, obj);
-});
 
 var app = module.exports = express();
 
