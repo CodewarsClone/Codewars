@@ -42,7 +42,7 @@ VALUES (8, 'Test.assertEquals(a, 1)', 'a should equal 1', 'var a = 1', 'Sumbit T
 
 INSERT INTO solutions (user_id, kata_id, script)
 VALUES (1, 1, 'var a = 1'),
-(1,2, 'let a = 1');
+(1,1, 'let a = 1');
 
-INSERT INTO rating (user_id, kata_id, solution_id, liked)
-VALUES (1, null, 1, true);
+INSERT INTO rating (user_id, solution_id, liked)
+VALUES (1, 1, true);
