@@ -1,0 +1,20 @@
+{
+  "name": "codewars",
+  "version": "1.0.0",
+  "description": "Codewars clone",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodewarsClone/Codewars.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodewarsClone/Codewars/issues"
+  },
+  "homepage": "https://github.com/CodewarsClone/Codewars#readme"
+}
