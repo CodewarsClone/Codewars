@@ -7,17 +7,27 @@
 
 const exec = require('child_process').exec;
 
-let script = `let addTwo = (x) => {return x+2};`;
+// let script = `let addTwo = (x) => {return x+2};`;
 let test = `Test.assertEquals(addTwo(2), 4)`;
 
 
 // This is where wer run a script.. I have verified that so long as we get it in string format we run unit tests
-exec(`docker run --rm codewars/node-runner run -l javascript -c "${script}" -t cw -f "${test}"`,
+// exec(`docker run --rm codewars/node-runner run -l javascript -c "${script}" -t cw -f "${test}"`,
+// 	(err, stdout, stderr) => {
+// 		if (err) console.log('err', err);
+// 		console.log(typeof stdout);
+// 		console.log('stdout', stdout);
+// 		console.log('stderr', stderr);
+// 	});
+
+module.exports = {
+	firstTest: (script) => {
+		exec(`docker run --rm codewars/node-runner run -l javascript -c "${script}" -t cw -f "${test}"`,
 	(err, stdout, stderr) => {
 		if (err) console.log('err', err);
 		console.log(typeof stdout);
 		console.log('stdout', stdout);
 		console.log('stderr', stderr);
 	});
-
-
+	} 
+}

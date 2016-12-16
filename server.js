@@ -8,7 +8,7 @@ const passport = require('passport');
 const GithubStrategy = require('passport-github2').Strategy;
 const connectionString = config.connectionString;
 
-passport.serializeUse((user, done) => {
+passport.serializeUser((user, done) => {
   done(null, user);
 });
 
@@ -45,20 +45,21 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.set('db', massiveInstance);
-let db = app.get('db');
-let userCtrl = require('./controllers/userCtrl');
+const db = app.get('db');
+const endPointCtrl = require('./controllers/endPointCtrl');
 
 app.get('/auth/github', passport.authenticate('github'));
-app.get('/auth/github/callback', passport.authenticate('github', {
-	successRedirect: '/me',
-	failureRedirect: '/login'
-}), (req, res) => {
-	console.log(req.session);
-});
+
+app.get('/auth/github/callback', 
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
+app.post('/solution/:kataId', endPointCtrl.testScript);
 
 
-
-
-app.listen(config.port, () => {
-  console.log('listening to port', config.port);
+app.listen(config.port, function() {
+  console.log(`listening on port ${this.address().port}`);
 });
