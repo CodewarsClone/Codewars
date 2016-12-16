@@ -1,6 +1,6 @@
-var app = require('../server');
-var db = app.get('db');
+let app = require('../server');
+let db = app.get('db');
 
 module.exports = {
-    
+
 }
