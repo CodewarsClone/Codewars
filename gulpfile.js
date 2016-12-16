@@ -12,7 +12,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     print = require('gulp-print'),
     babel = require('gulp-babel');
-    // Make sure to include babel-preset-es2015 in the npm installs for the build-js function to work properly. 
+    // Make sure to include babel-preset-es2015 in the npm installs for the build-js function to work properly.
 
 
 var CacheBuster = require('gulp-cachebust');
@@ -20,7 +20,7 @@ var cachebust = new CacheBuster();
 
 const paths = {
   jsSource: ['./src/components/**/*.js', './src/components/*.js'],
-  cssFiles: './src/assets/scss/*.scss',
+  cssFiles: ['./src/assets/scss/*.scss', './src/components/**/*.scss', './src/components/*.scss'],
   index: './src/index.html',
   htmlFiles: './src/**/*.html',
   dist: './dist',
