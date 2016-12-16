@@ -27,7 +27,9 @@ passport.use(new GithubStrategy({
     return done(null/*error*/, profile/*info that goes on session*/);
 }));
 
+
 const app = module.exports = express();
+
 
 const massiveInstance = massive.connectSync({connectionString : connectionString});
 
@@ -35,11 +37,13 @@ app.use(express.static(__dirname + '/dist'));
 app.use(bodyParser.json());
 app.use(cors());
 
+
 app.use(session({
   secret: config.sessionSecret,
   saveUninitialized: false,
   resave: false
 }));
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -62,4 +66,6 @@ app.post('/solution', endPointCtrl.testScript);
 
 app.listen(config.port, function() {
   console.log(`listening on port ${this.address().port}`);
+
+
 });
