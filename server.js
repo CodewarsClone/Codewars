@@ -1,22 +1,22 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var cors = require('cors');
-var config = require('./config.js');
-var massive = require('massive');
-var connectionString = config.connectionString;
+const express = require('express');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const cors = require('cors');
+const config = require('./config.js');
+const massive = require('massive');
+const connectionString = config.connectionString;
 
-var app = module.exports = express();
+const app = module.exports = express();
 
-var massiveInstance = massive.connectSync({connectionString : connectionString});
+const massiveInstance = massive.connectSync({connectionString : connectionString});
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/dist'));
 app.use(bodyParser.json());
 app.use(cors());
 
 app.set('db', massiveInstance);
 
-var db = app.get('db');
+let db = app.get('db');
 
 app.use(session({
   secret: config.sessionSecret,
@@ -24,6 +24,6 @@ app.use(session({
   resave: false
 }));
 
-app.listen(config.port, function() {
+app.listen(config.port, () => {
   console.log('listening to port', config.port);
 });
