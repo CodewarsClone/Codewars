@@ -1,5 +1,4 @@
-
-  //1. Make gulpfile
+//1. Make gulpfile
 //2. npm i all dependencies
 //3. check all folder paths used in gulpfile
 //4. Update index.html
@@ -13,7 +12,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     print = require('gulp-print'),
     babel = require('gulp-babel');
-    //babel-preset-es2015
+    // Make sure to include babel-preset-es2015 in the npm installs for the build-js function to work properly. 
 
 
 var CacheBuster = require('gulp-cachebust');
