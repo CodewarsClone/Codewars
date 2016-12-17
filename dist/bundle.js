@@ -35,10 +35,13 @@ angular.module('app').service('mainService', function ($http, $q, $sce) {
 
   // $sce.trustAsResourceUrl('/s');
 
-  this.getTest = function () {
+  this.getTest = function (input) {
     return $http({
       method: 'POST',
-      url: '/solution'
+      url: '/solution',
+      data: {
+        script: input
+      }
     });
   };
 });
@@ -55,12 +58,12 @@ angular.module('app').controller('homeCtrl', function ($scope, $state, mainServi
 
 /**********TRAINING CONTROLLER************/
 
-angular.module('app').controller('trainingCtrl', function ($scope, $state) {
+angular.module('app').controller('trainingCtrl', function ($scope, $state, mainService) {
 
   $scope.sendSolution = function (input) {
-    console.log(input);
+    mainService.getTest(input).then(function (response) {
+      return console.log(response);
+    });
   };
-
-  $scope.this;
 });
 //# sourceMappingURL=bundle.js.map

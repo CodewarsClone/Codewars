@@ -31,6 +31,7 @@ passport.use(new GithubStrategy({
 const app = module.exports = express();
 
 
+
 const massiveInstance = massive.connectSync({connectionString : connectionString});
 
 app.use(express.static(__dirname + '/dist'));

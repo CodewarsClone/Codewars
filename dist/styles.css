@@ -1,2 +1,17 @@
 body {
   background-color: green; }
+
+.next-challenge, .challenge-details {
+  height: 40vh;
+  width: 40vw;
+  background-color: yellow; }
+
+.challenge-details {
+  background-color: red; }
+
+#solution-input {
+  height: 40vh;
+  width: 40vw; }
+
+.training-body {
+  background-color: red; }
