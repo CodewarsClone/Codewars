@@ -6,7 +6,9 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     return $http({
       method: 'POST',
       url: '/solution',
-      data: input
+      data: {
+        script: input
+      }
     });
   };
 
