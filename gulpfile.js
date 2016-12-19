@@ -5,14 +5,14 @@
 //5. Run gulp watch
 
 var gulp = require('gulp'),
-  del = require('del'),
-  sass = require('gulp-sass'),
-  sourcemaps = require('gulp-sourcemaps'),
-  uglify = require('gulp-uglify'),
-  concat = require('gulp-concat'),
-  print = require('gulp-print'),
-  babel = require('gulp-babel');
-//babel-preset-es2015
+    del = require('del'),
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
+    uglify = require('gulp-uglify'),
+    concat = require('gulp-concat'),
+    print = require('gulp-print'),
+    babel = require('gulp-babel');
+    // Make sure to include babel-preset-es2015 in the npm installs for the build-js function to work properly.
 
 
 var CacheBuster = require('gulp-cachebust');
@@ -20,9 +20,10 @@ var cachebust = new CacheBuster();
 
 const paths = {
   jsSource: ['./src/components/**/*.js', './src/components/*.js'],
-  scssFiles: './src/assets/scss/*.scss',
   cssFiles: './src/**/*.css',
   indexFiles: './src/index.html',
+  scssFiles: './src/**/**/*.scss',
+  index: './src/index.html',
   htmlFiles: './src/**/*.html',
   dist: './dist',
 };
