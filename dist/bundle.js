@@ -3,36 +3,67 @@
 angular.module('app', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider.state('home', {
         url: '/',
-        templateUrl: './home/home.html',
+        templateUrl: './components/home/home.html',
         controller: 'homeCtrl'
     }).state('kata_list', {
         url: '/kata_list',
-        templateUrl: './kata_list/kata_list.html',
+        templateUrl: './components/kata_list/kata_list.html',
         controller: 'kata_listCtrl'
     }).state('login', {
         url: '/login',
-        templateUrl: './login/login.html',
+        templateUrl: './components/login/login.html',
         controller: 'loginCtrl'
     }).state('profile', {
         url: '/profile',
-        templateUrl: './profile/profile.html',
+        templateUrl: './components/profile/profile.html',
         controller: 'profileCtrl'
     }).state('solutions', {
         url: '/solutions',
-        templateUrl: './solutions/solutions.html',
+        templateUrl: './components/solutions/solutions.html',
         controller: 'solutionsCtrl'
     }).state('training', {
         url: '/training',
-        templateUrl: './training/training.html',
+        templateUrl: './components/training/training.html',
         controller: 'trainingCtrl'
     });
 
     $urlRouterProvider.otherwise('/');
 });
+'use strict';
+
+angular.module('app').service('mainService', function ($http, $q, $sce) {
+
+  // $sce.trustAsResourceUrl('/s');
+
+  this.getTest = function (input) {
+    return $http({
+      method: 'POST',
+      url: '/solution',
+      data: {
+        script: input
+      }
+    });
+  };
+});
+'use strict';
+
+/***********HOME CONTROLLER***********/
+
+angular.module('app').controller('homeCtrl', function ($scope, $state, mainService) {});
 "use strict";
 "use strict";
 "use strict";
 "use strict";
-"use strict";
-"use strict";
+'use strict';
+
+/**********TRAINING CONTROLLER************/
+
+angular.module('app').controller('trainingCtrl', function ($scope, $state, mainService) {
+
+  $scope.sendSolution = function (input) {
+    mainService.getTest(input).then(function (response) {
+      return console.log(response);
+    });
+  };
+});
 //# sourceMappingURL=bundle.js.map
