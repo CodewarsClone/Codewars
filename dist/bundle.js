@@ -63,7 +63,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
   $scope.sendSolution = function (input) {
     // mainService.getTest(input).then((response) => console.log(response));
     input = JSON.stringify(input);
-    // input = input.replace("\n", " ");
+    input = input.replace("\n", " ");
     console.log(input);
   };
 });
