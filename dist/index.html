@@ -1,15 +1,26 @@
 <html ng-app='app'>
 <header>
-
-
-<link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </header>
+
 <body>
-    
-<div>
+  <div class="side-menu font14-reg">
+    <ul>
+      <li>Home</li>
+      <li>Kata</li>
+      <li>Kumite</li>
+      <li>Forum</li>
+      <li>Docs</li>
+    </ul>
+  </div>
+  <div class="top-menu">
+  </div>
+  <div>
     <ui-view></ui-view>
-</div>
+  </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <script type='text/javascript' src='./bundle.js'></script>
+
 </html>
