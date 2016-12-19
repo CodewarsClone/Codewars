@@ -76,11 +76,6 @@ app.post('/solution/:kataId', kataCtrl.postSolution);
 
 
 
-
-
-
-
-
 app.listen(config.port, function() {
   console.log(`listening on port ${this.address().port}`);
 

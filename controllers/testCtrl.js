@@ -41,11 +41,11 @@ module.exports = {
 		
 	},
 
-	testKata: (res, req, next) => {
+	testKata: (req, res, next) => {
 
     },
 
-	testExamplesKata: (res, req, next) => {
+	testExamplesKata: (req, res, next) => {
 
     },
 
