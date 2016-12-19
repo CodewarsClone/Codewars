@@ -1,2 +1,2 @@
-select * from kata
-where id = $1
+select * from katas
+where id = $1;
