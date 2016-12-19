@@ -1,6 +1,3 @@
-body {
-  background-color: green; }
-
 .next-challenge, .challenge-details {
   height: 40vh;
   width: 40vw;
@@ -15,3 +12,6 @@ body {
 
 .training-body {
   background-color: red; }
+
+body {
+  background-color: green; }
