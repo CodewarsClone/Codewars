@@ -2,23 +2,23 @@ const app = require('../server');
 const db = app.get('db');
 
 module.exports = {
-    getKata: (res, req, next) => {
+    getKata: (req, res, next) => {
 
     },
 
-	postSolution: (res, req, next) => {
+	postSolution: (req, res, next) => {
 
     },
 
-    getRandomKata: (res, req, next) => {
+    getRandomKata: (req, res, next) => {
 
     },
 
-    getCompletedKatas: (res, req, next) => {
+    getCompletedKatas: (req, res, next) => {
 
     },
 
-    getKataSolutions: (res, req, next) => {
+    getKataSolutions: (req, res, next) => {
 
     },
 
