@@ -5,12 +5,6 @@
  *
  */
 
-const exec = require('child_process').exec;
-
-// let script = `let addTwo = (x) => {return x+2};`;
-
-
-
 // This is where wer run a script.. I have verified that so long as we get it in string format we run unit tests
 // exec(`docker run --rm codewars/node-runner run -l javascript -c "${script}" -t cw -f "${test}"`,
 // 	(err, stdout, stderr) => {
@@ -20,20 +14,39 @@ const exec = require('child_process').exec;
 // 		console.log('stderr', stderr);
 // 	});
 
+const app = require('../server');
+const db = app.get('db');
+
+const exec = require('child_process').exec;
+
+let test = `Test.assertEquals(addTwo(2), 4)`;
+
 module.exports = {
-	firstTest: (script) => {
-		console.log(script);
-		 return exec(`docker run --rm codewars/node-runner run -l javascript -c "${script}" -t cw -f "${test}"`,
-	(err, stdout, stderr) => {
-		if (err) {
-			console.log('err', err);
-		} else if (stdout) {
-			console.log('after stdOut');
-			console.log(typeof stdout);
-			return stdout;
-		} else if (stderr) {
-			return stderr;
-		}
-	});
-	} 
-}
+	testScript: (req, res, next) => {
+		let script = req.body.script;
+		
+		exec(`docker run --rm codewars/node-runner run -l javascript -c "${script}" -t cw -f "${test}"`,
+			(err, stdout, stderr) => {
+				if (err) {
+					console.log('err', err);
+				} else if (stdout) {
+					console.log('after stdOut');
+					console.log(typeof stdout);
+					res.json(stdout);
+				} else if (stderr) {
+					res.json(stderr);
+				}
+				return
+			});
+		
+	},
+
+	testKata: (req, res, next) => {
+
+    },
+
+	testExamplesKata: (req, res, next) => {
+
+    },
+
+};
