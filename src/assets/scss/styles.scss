@@ -22,7 +22,12 @@ $blue-color: #6795DE;
 
 
 body {
-    background-color: $main-background;
+    display: flex;
+}
+
+main {
+  background-color: $main-background;
+  width: calc(100vw - 55px);
 }
 
 .font16-reg {
