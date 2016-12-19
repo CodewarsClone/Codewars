@@ -25,7 +25,7 @@ passport.use(new GithubStrategy({
 	// code goes here
 	// go to database and look for profile.id
 	// create user using profile.id
-	return done(null/*error*/, profile/*info that goes on session*/);
+	return done(null, profile);
 }));
 
 
@@ -79,7 +79,6 @@ app.post('/test/:kataId', testCtrl.testKata);
 app.post('/test/examples/:kataId', testCtrl.testExamplesKata);
 app.post('/solution/:kataId', kataCtrl.postSolution);
 
-app.put('/test/:kataId', testCtrl.testScript);
 
 
 
