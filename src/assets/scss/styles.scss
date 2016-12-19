@@ -1,3 +1,71 @@
+$sidebar-color: #222222;
+$main-background: #303133;
+$container1: #262729;
+$container2: #2B2C2E;
+$container3: #3C3C3C;
+$container4: #1D1D1F;
+$blueContainer: #363749;
+
+$font: 'Lato', sans-serif;
+$yellow-color: #ECB613;
+$blue-color: #6795DE;
+
+
+// Thin 100 Italic
+// Light 300
+// Light 300 Italic
+// Regular 400
+// Regular 400 Italic
+// Bold 700
+// Bold 700 Italic
+
+
+
 body {
-    background-color: green;
+    display: flex;
+}
+
+main {
+  background-color: $main-background;
+  width: calc(100vw - 55px);
+}
+
+.font16-reg {
+    color:white;
+    font-family: $font;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+.font14-reg {
+    color:white;
+    font-family: $font;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+.font14-bold {
+    color:white;
+    font-family: $font;
+    font-size: 14px;
+    line-height: 28px;
+    font-weight: 700;
+    position: absolute;
+}
+
+.side-menu {
+    background-color: $sidebar-color;
+    height: 100vh;
+    width: 55px;
+}
+
+.top-menu {
+    background-color: $sidebar-color;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 150px;
+    height: 50px;
 }
