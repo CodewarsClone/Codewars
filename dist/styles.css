@@ -11,10 +11,16 @@
   width: 40vw; }
 
 .training-body {
-  background-color: red; }
+  background-color: red;
+  height: 50vh;
+  width: 50vw; }
 
 body {
-  background-color: #303133; }
+  display: flex; }
+
+main {
+  background-color: #303133;
+  width: calc(100vw - 55px); }
 
 .font16-reg {
   color: white;
