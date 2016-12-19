@@ -3,37 +3,44 @@ const db = app.get('db');
 
 module.exports = {
     getKata: (req, res, next) => {
-        db.get_kata([], (err, user) => {
+        if (dsf) {
+            db.read.get_kata([], (err, kata) => {
 
-        })
-        db.read.kata_by_id([], (err, user) => {
+            }) 
+            
+        } else {
+            db.read.kata_by_id([], (err, kata) => {
 
-        })
+            })
+        }   
     },
 
 	postSolution: (req, res, next) => {
-        db.post_solution([], (err, user) => {
+        db.create.post_solution([], (err, user) => {
             
         })
     },
 
     getRandomKata: (req, res, next) => {
-        db.get_random_kata([], (err, user) => {
-            
-        })
-        db.get_random_by_kyu([], (err, user) => {
-            
-        })
+        if (dsf) {
+            db.read.get_random_kata([], (err, kata) => {
+
+            })
+        } else {
+            db.read.get_random_by_kyu([], (err, kata) => {
+                
+            })
+        }
     },
 
     getCompletedKatas: (req, res, next) => {
-        db.get_completed_katas([], (err, user) => {
+        db.read.get_completed_katas([], (err, user) => {
             
         })
     },
 
     getKataSolutions: (req, res, next) => {
-        db.get_kata_solutions([], (err, user) => {
+        db.read.get_kata_solutions([], (err, user) => {
             
         })
     },
