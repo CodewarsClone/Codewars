@@ -8,6 +8,9 @@ const passport = require('passport');
 const GithubStrategy = require('passport-github2').Strategy;
 const connectionString = config.connectionString;
 
+const testCtrl = require('./controllers/testCtrl');
+const kataCtrl = require('./controllers/kataCtrl');
+
 passport.serializeUser((user, done) => {
   done(null, user);
 });
@@ -38,20 +41,17 @@ app.use(express.static(__dirname + '/dist'));
 app.use(bodyParser.json());
 app.use(cors());
 
-
 app.use(session({
   secret: config.sessionSecret,
   saveUninitialized: false,
   resave: false
 }));
 
-
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.set('db', massiveInstance);
-const db = app.get('db');
-const endPointCtrl = require('./controllers/endPointCtrl');
+const db = app.get('db')
 
 app.get('/auth/github', passport.authenticate('github'));
 
@@ -62,7 +62,23 @@ app.get('/auth/github/callback',
     res.redirect('/');
   });
 
-app.post('/solution', endPointCtrl.testScript);
+
+app.get('/kata', kataCtrl.getKata);
+app.get('/kata/:kataId', kataCtrl.getKata);
+app.get('/kata/completed', kataCtrl.getCompletedKatas);
+app.get('/kata/random', kataCtrl.getRandomKata);
+app.get('/kata/random/:kyu', kataCtrl.getRandomKata);
+app.get('/solutions/:kataId', kataCtrl.getKataSolutions);
+
+app.post('/test/:kataId', testCtrl.testKata);
+app.post('/test/examples/:kataId', testCtrl.testExamplesKata);
+app.post('/solution/:kataId', kataCtrl.postSolution);
+
+
+
+
+
+
 
 
 app.listen(config.port, function() {
