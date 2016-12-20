@@ -6,6 +6,10 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
   $scope.versions = ['Node v0.10.33', 'Node v6.6.0'];
   $scope.output = [];
 
+  //NG-SHOWS
+  $scope.showOutputShow = false;
+  $scope.showInstructionsShow = true;
+
 
   //Examples should be an array of objects. Returned results will be an array with the different tests and their results.
   $scope.testExamples = function(solutions, examples) {
