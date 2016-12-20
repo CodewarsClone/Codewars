@@ -71,14 +71,14 @@
         <div class="solution-div">
           <p>Solution:</p>
           <form>
-            Function: <textarea name="solution" cols="40" rows="5" id="solution-input" ng-init="solutionInput = 'var a = 1;'"ng-model="solutionInput"></textarea>
+            Function: <div contenteditable format-code name="solution" cols="40" rows="5" id="solution-input" ng-init="solutionInput = 'var a = 1;'" ng-model="solutionInput">{{solutionInput}}</div>
           </form>
         </div>
 
         <div class="example-tests-div">
           <p>Example Tests:</p>
           <form>
-            <textarea name="examples" cols="40" rows="5" ng-init="examplesInput = 'Test.assertEquals(a, 1);'" id="example-tests-input" ng-model="examplesInput"></textarea>
+            <div contenteditable name="examples" cols="40" rows="5" ng-init="examplesInput = 'Test.assertEquals(a, 1);'" id="example-tests-input" ng-model="examplesInput"></div>
             <button ng-click="testExamples(solutionInput, examplesInput)" class="test-examples-button font12-reg-blue">RUN EXAMPLES</button>
             <button ng-click="testSuite(solutionInput)" class="test-suite-button font12-reg-black" style=""><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>ATTEMPT</button>
           </form>
