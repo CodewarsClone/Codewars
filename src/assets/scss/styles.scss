@@ -8,15 +8,13 @@ $container3: #3C3C3C;
 $container4: #1D1D1F;
 $blueContainer: #363749;
 $button1: #1E1F21;
-
-$font: 'Lato', sans-serif;
+$font: 'Lato',
+sans-serif;
 $yellow-color: #ECB613;
 $blue-color: #6795DE;
 $orange-color: #CF4B32;
-$clone-wars-color: rgb(217,217,217);
+$clone-wars-color: rgb(217, 217, 217);
 $grey-color: #C0C0C0;
-
-
 // Thin 100 Italic
 // Light 300
 // Light 300 Italic
@@ -24,15 +22,24 @@ $grey-color: #C0C0C0;
 // Regular 400 Italic
 // Bold 700
 // Bold 700 Italic
-
 body {
-    display: flex;
+  display: flex;
+  position: relative;
+  background-color: $main-background;
+  flex-direction: row;
+  display: flex;
 }
 
 main {
-  background-color: $main-background;
-  width: calc(100vw - 55px);
+    width: calc(100vw - 55px);
+    margin-left: 55px;
+//   width: 100vw;
 }
+
+a {
+  text-decoration: none;
+}
+
 
 /*********FONTSFONTSFONTSFONTSFONTS*********/
 
@@ -45,35 +52,36 @@ main {
 }
 
 .font16-reg {
-    color:white;
-    font-family: $font;
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: 400;
+  color: white;
+  font-family: $font;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
 }
 
 .font14-reg {
-    color:white;
-    font-family: $font;
-    font-size: 14px;
-    line-height: 22px;
-    font-weight: 400;
+  color: white;
+  font-family: $font;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
 }
 
 .font14-bold {
-    color:white;
-    font-family: $font;
-    font-size: 14px;
-    line-height: 28px;
-    font-weight: 700;
-    position: absolute;
+  color: white;
+  font-family: $font;
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: 700;
+  position: absolute;
 }
 
 .font12-reg {
-    font-family: $font;
-    font-size: 12px;
-    font-weight: Light;
+  font-family: $font;
+  font-size: 12px;
+  font-weight: Light;
 }
+
 .font14-reg-gray {
   color: #C9C9C9;
   font-family: $font;
@@ -98,6 +106,13 @@ main {
   font-weight: 400;
 }
 
+/**************SIDE MENU**************/
+.view {
+display:flex;
+flex-direction: row;
+
+}
+
 .font12-reg-black {
   color: #131414;
   font-family: $font;
@@ -105,78 +120,126 @@ main {
   line-height: 12px;
   font-weight: 400;
 }
-
 .side-menu {
-    background-color: $sidebar-color;
-    height: 100vh;
-    width: 55px;
+  background-color: $sidebar-color;
+  height: 100%;
+  width: 55px;
+  padding: 5px;
+  float: left;
+  position: fixed;
+  left: 0;
+//   display:none;
 }
+
+.side-menu-icon {
+  width: 35px;
+  height: 35px;
+  margin: auto;
+  align-content: center;
+}
+
+.side-menu-container {
+  background-color: $sidebar-color;
+  height: 100vh;
+  width: 0px;
+  top: 0px;
+  display: flex;
+  overflow: hidden;
+  transition: width 0.5s;
+  position: fixed;
+  left:55px;
+}
+
+.menu-items{
+
+}
+
+/**************TOP MENU**************/
 
 .top-menu {
-    background-color: $sidebar-color;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 150px;
-    height: 50px;
+  background-color: $sidebar-color;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 150px;
+  height: 50px;
 }
+
+/**************MAIN AREA**************/
 
 .main {
-    height: 100vh;
-    width: 100vw;
-    background-color: $main-background;
-    display:flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: $main-background;
+  display: flex;
 }
 
-.middle {
-    background-color: $container1;
-    display: block;
-    width: 330px;
-    height: 85vh;
+.main-div {
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(50%, -50%);
+    background-color: red;
+    height: 100vh;
+    width: 100%;
     margin: auto;
+    float: right;
+    // position: absolute;
+    // right: 0;
+}
+
+/**************LOGIN PAGE**************/
+
+.middle {
+  background-color: $container1;
+  display: block;
+  width: 330px;
+  height: 85vh;
+  margin: auto;
 }
 
 .logo {
-    display: block;
-    margin: auto;
-    border-radius: 10px;
-    text-shadow: 5px;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  text-shadow: 5px;
 }
 
 .logo-padding {
-padding: 75px 75px 10px 75px;
+  padding: 75px 75px 10px 75px;
 }
 
 .logo-font {
-    color: $clone-wars-color;
-    font-size: 35px;
-    text-align: center;
+  color: $clone-wars-color;
+  font-size: 35px;
+  text-align: center;
 }
 
 .button {
-    background-color: $button1;
-    width: 280px;
-    height: 30px;
-    border-radius: 5px;
-    margin: auto;
-    color: $orange-color;
-    text-align: center;
-    vertical-align: middle;
-    line-height:30px;
-    // flex-direction: row;
-    align-content:center;
+  background-color: $button1;
+  width: 280px;
+  height: 30px;
+  border-radius: 5px;
+  margin: auto;
+  color: $orange-color;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
+  // flex-direction: row;
+  align-content: center;
 }
 
 .button-icon {
-    height:20px;
-    width: 20px;
+  height: 20px;
+  width: 20px;
 }
 
 .center {
-    text-align: center;
-    color: $grey-color;
+  text-align: center;
+  color: $grey-color;
 }
 
-a {
-    text-decoration: none;
+.bottom-links {
+  text-align: center;
+  display: flex;
+  color: white;
 }
