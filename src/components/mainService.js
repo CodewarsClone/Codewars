@@ -2,6 +2,8 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
 
   // $sce.trustAsResourceUrl('/s');
 
+this.user = {}
+
 // POST
   this.testExamples = (solution, examples) => {
     return $http({
@@ -36,6 +38,13 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
 
 
 // GET
+  this.getMe = () => {
+    return $http({
+      method: 'GET',
+      url: `/me`
+    })
+  }
+
   this.getKatas = () => {
     return $http({
       method: 'GET',

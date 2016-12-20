@@ -6,7 +6,7 @@ CREATE TABLE users (
   name varchar(80),
   email varchar(255),
   username varchar (40),
-  picutre_url text
+  picture_url text
 
 );
 
