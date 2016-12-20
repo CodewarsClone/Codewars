@@ -112,6 +112,14 @@ display:flex;
 flex-direction: row;
 
 }
+
+.font12-reg-black {
+  color: #131414;
+  font-family: $font;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
+}
 .side-menu {
   background-color: $sidebar-color;
   height: 100%;
@@ -235,4 +243,3 @@ flex-direction: row;
   display: flex;
   color: white;
 }
-
