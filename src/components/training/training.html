@@ -49,6 +49,10 @@
         <h2 class="font20-reg">Name of Kata</h2>
         <div>
           <p>Here's where the instructions go. We have to think about how to present code samples.</p>
+          <div ng-repeat="test in output">
+              <p>{{test.test}}</p>
+              <p>{{test.result}}</p>
+          </div>
         </div>
       </div>
 
@@ -57,15 +61,16 @@
         <div class="solution-div">
           <p>Solution:</p>
           <form>
-            Function: <textarea name="solution" cols="40" rows="5" id="solution-input" ng-model="solutionInput"></textarea>
+            Function: <textarea name="solution" cols="40" rows="5" id="solution-input" ng-init="solutionInput = 'var a = 1;'"ng-model="solutionInput"></textarea>
           </form>
         </div>
 
         <div class="example-tests-div">
           <p>Example Tests:</p>
           <form>
-            <textarea name="examples" cols="40" rows="5" id="example-tests-input" ng-model="examplesInput"></textarea>
-            <button ng-click="testExamples(solutionInput, examplesInput)" class="run-examples-button font12-reg-blue">RUN EXAMPLES</button>
+            <textarea name="examples" cols="40" rows="5" ng-init="examplesInput = 'Test.assertEquals(a, 1);'" id="example-tests-input" ng-model="examplesInput"></textarea>
+            <button ng-click="testExamples(solutionInput, examplesInput)" class="test-examples-button font12-reg-blue">RUN EXAMPLES</button>
+            <button ng-click="testSuite(solutionInput)" class="test-suite-button font12-reg-black" style=""><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>ATTEMPT</button>
           </form>
         </div>
 

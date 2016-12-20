@@ -96,12 +96,20 @@ hr {
   width: 40vw;
 }
 
-.run-examples-button {
+.test-examples-button {
   border: 1px solid #91b2e7;
   border-radius: 4%;
   width: 113px;
   height: 30px;
   background-color: #3C3C3C;
+}
+
+.test-suite-button {
+  border: 1px solid #91b2e7;
+  border-radius: 4%;
+  width: 113px;
+  height: 30px;
+  background-color: #91b2e7;
 }
 
 .training-body {

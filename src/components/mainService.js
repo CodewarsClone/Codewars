@@ -2,10 +2,10 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
 
   // $sce.trustAsResourceUrl('/s');
 
-  this.testExamples = function(solution, examples, kataid) {
+  this.testExamples = function(solution, examples) {
     return $http({
       method: 'POST',
-      url: `/test/examples/${kataid}`,
+      url: `http://192.168.0.186:3030/test/examples`,
       data: {
         script: solution,
         examples: examples
@@ -16,7 +16,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.testSuite = function(solution, kataid) {
     return $http({
       method: 'POST',
-      url: `/test/${kataid}`,
+      url: `/test/suite/${kataid}`,
       data: {
         script: solution
       }
