@@ -29,8 +29,8 @@ passport.use(new GithubStrategy({
 		} else if (user [0]) {
 			done(null, user);
 		} else {
-			console.log('attempting account creation')
-			db.create.new_user_from_github([profile.id, profile._json.email, profile.displayName, profile._json.avatar_url],
+			console.log('attempting account creation');
+			db.create.new_user_from_github([profile.id, profile._json.name ,profile._json.email, profile.displayName, profile._json.avatar_url],
 				(err) => {
 					if (err) {
 						console.log(err);
