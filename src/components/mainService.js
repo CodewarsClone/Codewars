@@ -24,76 +24,58 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     });
   };
 
-  // this.nameFunction = () => {
-  //   return $http({
-  //     method: 'POST',
-  //     url: ``, /solution/:kataId
-  //     data: {
-
-  //     }
-  //   });
-  // };
+  this.setSolution = (solution, kataid) => {
+    return $http({
+      method: 'POST',
+      url: `/solution/` + kataid,
+      data: {
+         script: solution
+      }
+    });
+  };
 
 
 // GET
-  // this.nameFunction = () => {
-  //   return $http({
-  //     method: 'GET',
-  //     url: ``, /kata
-  //     data: {
+  this.getKatas = () => {
+    return $http({
+      method: 'GET',
+      url: `/kata`
+    });
+  };
 
-  //     }
-  //   });
-  // };
+  this.getKataById = (kataid) => {
+    return $http({
+      method: 'GET',
+      url: `/kata/` + kataid
+    });
+  };
 
-  // this.nameFunction = () => {
-  //   return $http({
-  //     method: 'GET',
-  //     url: ``, /kata/:kataId
-  //     data: {
+  this.completedKatas = () => {
+    return $http({
+      method: 'GET',
+      url: `/kata/completed`
+    });
+  };
 
-  //     }
-  //   });
-  // };
+  this.randomKata = () => {
+    return $http({
+      method: 'GET',
+      url: `/kata/random` 
+    });
+  };
 
-  // this.nameFunction = () => {
-  //   return $http({
-  //     method: 'GET',
-  //     url: ``, /kata/completed
-  //     data: {
+  this.randomKyuKata = (kyu) => {
+    return $http({
+      method: 'GET',
+      url: `/kata/random/` + kyu 
+    });
+  };
 
-  //     }
-  //   });
-  // };
-
-  // this.nameFunction = () => {
-  //   return $http({
-  //     method: 'GET',
-  //     url: ``, /kata/random
-  //     data: {
-
-  //     }
-  //   });
-  // };
-
-  // this.nameFunction = () => {
-  //   return $http({
-  //     method: 'GET',
-  //     url: ``, /kata/random/:kyu
-  //     data: {
-
-  //     }
-  //   });
-  // };
-
-  // this.nameFunction = () => {
-  //   return $http({
-  //     method: 'GET',
-  //     url: ``, /solutions/:kataId
-  //     data: {
-
-  //     }
-  //   });
-  // };
+  this.kataSolutions = (kataid) => {
+    return $http({
+      method: 'GET',
+      url: `/solutions/` + kataid
+    });
+  };
 
 });
