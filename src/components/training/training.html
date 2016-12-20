@@ -1,12 +1,78 @@
 <section class="training-main">
 
   <div class="training-body">
-    
-    <p>Solution</p>
-    <form>
-      Function: <textarea name="solution" cols="40" rows="5" id="solution-input" ng-model="solutionInput"></textarea>
-      <button ng-click="sendSolution(solutionInput)">Submit</button>
-    </form>
+
+    <div class="training-top">
+
+      <div class="kata-name-container">
+
+        <div class="kata-name-container-top">
+          <img src="../src/assets/imgs/5_kyu_icon.png" alt="Difficulty" id="difficulty-icon">
+          <h3 class="font16-reg" id="kata-name">
+            Name of Kata
+          </h3>
+        </div>
+
+        <div class="kata-stats">
+          <p>Here's where stats go</p>
+          <p>Here's where stats go</p>
+          <p>Here's where stats go</p>
+        </div>
+
+      </div> <!--End kata-name-container div-->
+
+      <div class="selection-div">
+        <select class="language-select-dropdown select-dropdown" ng-init="selectedLanguage = languages[0]" ng-model="selectedLanguage" ng-options="x for x in languages">
+
+        </select>
+        <select class="language-version-select-dropdown select-dropdown" ng-init="selectedVersion = versions[0]" ng-model="selectedVersion" ng-options="x for x in versions">
+
+        </select>
+      </div>
+
+      <div class="assorted-options">
+        <div class="view-options">Here's where view options go</div>
+        <div class="view-options">Here's where view options go</div>
+        <div class="view-options">Here's where view options go</div>
+      </div>
+
+    </div>
+
+    <div class="kata">
+
+      <div class="instructions">
+        <div class="instructions-head">
+          <button class="instructions-selector font13-reg-gray">Instructions</button>
+          <button class="instructions-selector font13-reg-gray">Output</button>
+        </div>
+        <hr>
+        <h2 class="font20-reg">Name of Kata</h2>
+        <div>
+          <p>Here's where the instructions go. We have to think about how to present code samples.</p>
+        </div>
+      </div>
+
+      <div class="kata-right">
+
+        <div class="solution-div">
+          <p>Solution:</p>
+          <form>
+            Function: <textarea name="solution" cols="40" rows="5" id="solution-input" ng-model="solutionInput"></textarea>
+          </form>
+        </div>
+
+        <div class="example-tests-div">
+          <p>Example Tests:</p>
+          <form>
+            <textarea name="examples" cols="40" rows="5" id="example-tests-input" ng-model="examplesInput"></textarea>
+            <button ng-click="sendSolution(solutionInput, examplesInput)" class="run-examples-button font12-reg-blue">RUN EXAMPLES</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 
 </section>
