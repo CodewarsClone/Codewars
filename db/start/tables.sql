@@ -40,7 +40,7 @@ INSERT INTO users (github_id, first_name, last_name, email, username, picutre_ur
 VALUES (null, 'bob', 'smith', 'bob@smith.com', 'bobIScool', null);
 
 INSERT INTO katas (kyu, description, starter_code, name, examples, test_script)
-VALUES (8, 'var a should equal 1', 'var a = 1', 'Sumbit This', '[{"test":"Test.assertEquals(a, 1)","result":""}]', '[{"test":"Test.assertEquals(a, 1)","result":""}]');
+VALUES (8, 'var a should equal 1', 'var a = 1', 'Sumbit This', '[{"test":"Test.assertEquals(a, 1)","result":""}]', '[{"test":"Test.assertEquals(a, 0)","result":""},{"test":"Test.assertEquals(a, 2)","result":""},{"test":"Test.assertEquals(a, 1)","result":""}]');
 
 INSERT INTO solutions (user_id, kata_id, script)
 VALUES (1, 1, 'var a = 1'),

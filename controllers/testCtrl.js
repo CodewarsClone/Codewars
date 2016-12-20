@@ -8,7 +8,7 @@
 
 const app = require('../server');
 const db = app.get('db');
-const q = require('q');
+const Q = require('q');
 const exec = require('child_process').exec;
 
 
@@ -22,34 +22,34 @@ module.exports = {
 		db.read.kata_by_id([req.params.kataId], (err, kataArray)=>{
 			if(err) console.log(err);
 			let kata = kataArray[0];
+			let promiseArr = [];
 			
-			let promiseArray = [];
+			
 			
 			
 			kata.test_script.forEach((ele, i) =>{
+				let deffered = Q.defer();
 				
-				
-				
-				
-				console.log(ele.test);
 				exec(`docker run --rm codewars/node-runner run -l javascript -c "${body.script}" -t cw -f "${ele.test}"`,
 					(err, stdOut, stdErr) => {
 						if (err) {
-							console.log(err)
+							console.log(err);
 						} else if (stdOut) {
+							deffered.resolve(stdOut);
 							ele.result = stdOut;
 						} else if (stdErr) {
-							ele.result = stdOut;
+							deffered.resolve(stdErr);
+							ele.result = stdErr;
 						}
 					});
 				
-				
-				
-				
-				
+				promiseArr.push(deffered.promise)
 			});
-			res.json(kata.test_script)
 			
+			
+			Q.all(promiseArr).then((response) => {
+				res.json(kata.test_script);
+			})
 		});
 		
 		
