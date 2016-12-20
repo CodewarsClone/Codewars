@@ -93,8 +93,8 @@ app.get('/auth/github/callback',
 
 
 
-app.get('/kata', kataCtrl.getKata);
-app.get('/kata/:kataId', kataCtrl.getKata);
+app.get('/kata', kataCtrl.getKatas);
+app.get('/kata/:kataId', kataCtrl.getKatas);
 app.get('/kata/completed', kataCtrl.getCompletedKatas);
 app.get('/kata/random', kataCtrl.getRandomKata);
 app.get('/kata/random/:kyu', kataCtrl.getRandomKata);
