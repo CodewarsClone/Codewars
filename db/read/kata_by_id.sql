@@ -1,2 +1,2 @@
 select * from katas
-where id = $1
+where id = $1;
