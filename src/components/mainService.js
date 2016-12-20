@@ -2,6 +2,9 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
 
   // $sce.trustAsResourceUrl('/s');
 
+// this.user = {}
+
+
 // POST
   this.testExamples = (solution, examples) => {
     return $http({
