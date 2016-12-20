@@ -2,6 +2,12 @@
 
 angular.module('app').controller('trainingCtrl', function($scope, $state, mainService) {
 
+var textarea = document.getElementById('solution-input');
+  var myCodeMirror = CodeMirror.fromTextArea(textarea, {
+   lineNumbers: true, 
+   theme: 'tomorrow-night-bright',
+  });
+
   $scope.languages = ['JavaScript', 'Python'];
   $scope.versions = ['Node v0.10.33', 'Node v6.6.0'];
   $scope.output = [];
