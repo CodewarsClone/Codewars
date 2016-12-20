@@ -3,11 +3,10 @@ DROP TABLE IF EXISTS ratings, rating,  solutions, katas, kata, users;
 CREATE TABLE users (
   id serial primary key,
   github_id varchar(255),
-  first_name varchar(40),
-  last_name varchar(40),
+  name varchar(80),
   email varchar(255),
   username varchar (40),
-  picutre_url text
+  picture_url text
 
 );
 
