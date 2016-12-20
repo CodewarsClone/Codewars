@@ -61,6 +61,8 @@ gulp.task('build-js', function () {
     .pipe(gulp.dest(paths.dist));
 });
 
+gulp.task('build', ['clean', 'build-css', 'build-js', 'build-html']);
+
 gulp.task('watch', function () {
   return gulp.watch([paths.jsSource, paths.cssFiles, paths.scssFiles, paths.indexFiles, paths.htmlFiles], ['clean', 'build-css', 'build-js', 'build-html']);
 });
