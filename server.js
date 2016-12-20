@@ -100,8 +100,8 @@ app.get('/kata/random', kataCtrl.getRandomKata);
 app.get('/kata/random/:kyu', kataCtrl.getRandomKata);
 app.get('/solutions/:kataId', kataCtrl.getKataSolutions);
 
-app.post('/test/:kataId', testCtrl.testKata);
-app.post('/test/examples/:kataId', testCtrl.testExamplesKata);
+app.post('/test/suite/:kataId', testCtrl.testKata);
+app.post('/test/examples', testCtrl.testExamplesKata);
 app.post('/solution/:kataId', kataCtrl.postSolution);
 
 
