@@ -37,7 +37,7 @@ CREATE TABLE ratings (
 );
 
 INSERT INTO users (github_id, first_name, last_name, email, username, picutre_url)
-VALUES (null, 'bob', 'smith', 'bob@smith.com', 'bobIScool', null);
+VALUES ('12', 'bob', 'smith', 'bob@smith.com', 'bobIScool', null);
 
 INSERT INTO katas (kyu, description, starter_code, name, examples, test_script)
 VALUES (8, 'var a should equal 1', 'var a = 1', 'Sumbit This', '[{"test":"Test.assertEquals(a, 1)","result":""}]', '[{"test":"Test.assertEquals(a, 0)","result":""},{"test":"Test.assertEquals(a, 2)","result":""},{"test":"Test.assertEquals(a, 1)","result":""}]');
