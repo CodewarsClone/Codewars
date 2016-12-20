@@ -22,10 +22,35 @@ passport.use(new GithubStrategy({
 	clientSecret: config.githubSecret,
 	callbackURL: '/auth/github/callback'
 }, (accessToken, refreshToken, profile, done) => {
-	// code goes here
-	// go to database and look for profile.id
-	// create user using profile.id
-	return done(null/*error*/, profile/*info that goes on session*/);
+	db.read.user_by_github_id([profile.id], (err, user) => {
+		console.log(user);
+		if (err) {
+			console.log(err);
+		} else if (user [0]) {
+			done(null, user);
+		} else {
+			console.log('attempting account creation')
+			db.create.new_user_from_github([profile.id, profile._json.email, profile.displayName, profile._json.avatar_url],
+				(err) => {
+					if (err) {
+						console.log(err);
+					}	else {
+						db.read.user_by_github_id([profile.id], (err, newUser) => {
+							if(err) {
+								console.log(err);
+							} else {
+								console.log(newUser);
+								done(null, newUser[0])
+							}
+						});
+					}
+				})
+		}
+		
+	});
+
+
+//	return done(null, profile);
 }));
 
 
@@ -57,7 +82,7 @@ app.use(passport.session());
 
 
 
-app.get('/auth/github', passport.authenticate('github'));
+app.get('/auth/github', passport.authenticate('github', {scope: ['user:email', 'user']}));
 
 app.get('/auth/github/callback',
 	passport.authenticate('github', {failureRedirect: '/login'}),
@@ -78,8 +103,6 @@ app.get('/solutions/:kataId', kataCtrl.getKataSolutions);
 app.post('/test/:kataId', testCtrl.testKata);
 app.post('/test/examples/:kataId', testCtrl.testExamplesKata);
 app.post('/solution/:kataId', kataCtrl.postSolution);
-
-app.put('/test/:kataId', testCtrl.testScript);
 
 
 

@@ -5,29 +5,16 @@
  *
  */
 
-// This is where wer run a script.. I have verified that so long as we get it in string format we run unit tests
-
-/*exec(`docker run --rm codewars/node-runner run -l javascript -c "${script}" -t cw -f "${test}"`,
- (err, stdout, stderr) => {
- if (err) console.log('err', err);
- console.log(typeof stdout);
- console.log('stdout', stdout);
- console.log('stderr', stderr);
- });*/
 
 const app = require('../server');
-
 const db = app.get('db');
-
+const Q = require('q');
 const exec = require('child_process').exec;
 
-let test = `Test.assertEquals(addTwo(2), 4)`;
 
 module.exports = {
-	testScript: (req, res, next) => {
-		console.log('body');
-		console.log(req.body);
-		console.log('params', req.params);
+	testKata: (req, res, next) => {
+		console.log('hit testCtrl');
 		
 		let body = req.body;
 		
@@ -35,25 +22,36 @@ module.exports = {
 		db.read.kata_by_id([req.params.kataId], (err, kataArray)=>{
 			if(err) console.log(err);
 			let kata = kataArray[0];
+			let promiseArr = [];
 			
-			exec(`docker run --rm codewars/node-runner run -l javascript -c "${body.script}" -t cw -f "${kata.test}"`,
-				(err, stdout, stderr) => {
-					if (err) {
-						console.log('err', err);
-					} else if (stdout) {
-						res.json(stdout);
-					} else if (stderr) {
-						res.json(stderr);
-					}
-					return
-				});
+			
+			
+			
+			kata.test_script.forEach((ele, i) =>{
+				let deffered = Q.defer();
+				
+				exec(`docker run --rm codewars/node-runner run -l javascript -c "${body.script}" -t cw -f "${ele.test}"`,
+					(err, stdOut, stdErr) => {
+						if (err) {
+							console.log(err);
+						} else if (stdOut) {
+							deffered.resolve(stdOut);
+							ele.result = stdOut;
+						} else if (stdErr) {
+							deffered.resolve(stdErr);
+							ele.result = stdErr;
+						}
+					});
+				
+				promiseArr.push(deffered.promise)
+			});
+			
+			
+			Q.all(promiseArr).then((response) => {
+				res.json(kata.test_script);
+			})
 		});
 		
-		
-		
-	},
-	
-	testKata: (req, res, next) => {
 		
 	},
 	

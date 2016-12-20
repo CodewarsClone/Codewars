@@ -34,6 +34,7 @@
     "gulp-uglify": "^2.0.0",
     "massive": "^2.5.0",
     "passport": "^0.3.2",
-    "passport-github2": "^0.1.10"
+    "passport-github2": "^0.1.10",
+    "q": "^1.4.1"
   }
 }
