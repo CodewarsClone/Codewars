@@ -1,5 +1,7 @@
+/************* OUTPUT DIRECTIVE *************/
+
 angular.module('app').directive('showOutput', function() {
   return {
-    templateUrl: './output.html',
+    templateUrl: './components/training/output.html'
   }
 });
