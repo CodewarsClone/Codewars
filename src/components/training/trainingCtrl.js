@@ -25,7 +25,9 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     $scope.showOutput();
     solutions = solutions.replace(/\n/g, " ");
     let examplesArr = [];
+    console.log(examples);
     examples = examples.split(/\n/);
+    console.log(examples);
     examples.forEach(example => examplesArr.push({test: example}));
     mainService.testExamples(solutions, examplesArr).then((response) => $scope.output.push(response.data[0]));
   }

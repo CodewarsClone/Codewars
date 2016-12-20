@@ -13,8 +13,15 @@ let db = massive.connect({
 		if (err) {
 			console.log(err)
 		} else {
-			console.log('Reset the database.');
-			process.exit();
+			db.start.katas([], (err) => {
+				if (err) {
+					console.log(err);
+				} else {
+					console.log('Reset the database.');
+					process.exit();
+				}
+			})
+			
 		}
 	})
 	
