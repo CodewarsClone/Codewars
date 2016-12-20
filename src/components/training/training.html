@@ -58,12 +58,12 @@
 
       <div class="instructions">
           <div class="instructions-head">
-            <button class="instructions-selector font13-reg-gray">Instructions</button>
-            <button class="instructions-selector font13-reg-gray">Output</button>
+            <button class="instructions-selector font13-reg-gray" ng-click="showInstructions()">Instructions</button>
+            <button class="instructions-selector font13-reg-gray" ng-click="showOutput()">Output</button>
           </div>
           <hr>
-          <show-output />
-          <!-- <show-instructions ng-show="showInstructionsShow" /> -->
+          <show-output ng-hide="showOutputShow"></show-output>
+          <show-instructions ng-hide="showInstructionsShow"></show-instructions>
       </div>
 
       <div class="kata-right">

@@ -7,12 +7,21 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
   $scope.output = [];
 
   //NG-SHOWS
-  $scope.showOutputShow = false;
-  $scope.showInstructionsShow = true;
+  $scope.showOutputShow = true;
+  $scope.showInstructionsShow = false;
+  $scope.showOutput = function() {
+    $scope.showOutputShow = false;
+    $scope.showInstructionsShow = true;
+  }
+  $scope.showInstructions = function() {
+    $scope.showOutputShow = true;
+    $scope.showInstructionsShow = false;
+  }
 
 
   //Examples should be an array of objects. Returned results will be an array with the different tests and their results.
   $scope.testExamples = function(solutions, examples) {
+    $scope.showOutput();
     solutions = solutions.replace(/\n/g, " ");
     let examplesArr = [];
     examples = examples.split(/\n/);
@@ -22,6 +31,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
 
 
   $scope.testSuite = function(solutions) {
+    $scope.showOutput();
     solutions = solutions.replace(/\n/g, " ");
     // mainService.testSuite(solutions, kataid).then((response) => console.log(response));
   }
