@@ -23,14 +23,15 @@ passport.use(new GithubStrategy({
 	callbackURL: '/auth/github/callback'
 }, (accessToken, refreshToken, profile, done) => {
 	db.read.user_by_github_id([profile.id], (err, user) => {
-		console.log(user);
 		if (err) {
 			console.log(err);
 		} else if (user [0]) {
 			done(null, user);
 		} else {
+
 			console.log('attempting account creation')
-			db.create.new_user_from_github([profile.id, profile._json.email, profile.displayName, profile._json.avatar_url],
+			db.create.new_user_from_github([profile.id, profile.displayName, profile._json.email, profile.username, profile._json.avatar_url],
+
 				(err) => {
 					if (err) {
 						console.log(err);
@@ -39,7 +40,6 @@ passport.use(new GithubStrategy({
 							if(err) {
 								console.log(err);
 							} else {
-								console.log(newUser);
 								done(null, newUser[0])
 							}
 						});
@@ -88,7 +88,7 @@ app.get('/auth/github/callback',
 	passport.authenticate('github', {failureRedirect: '/login'}),
 	function (req, res) {
 		// Successful authentication, redirect home.
-		res.redirect('/');
+		res.redirect('/#/home');
 	});
 
 
@@ -99,6 +99,9 @@ app.get('/kata/completed', kataCtrl.getCompletedKatas);
 app.get('/kata/random', kataCtrl.getRandomKata);
 app.get('/kata/random/:kyu', kataCtrl.getRandomKata);
 app.get('/solutions/:kataId', kataCtrl.getKataSolutions);
+app.get('/me', (req, res, next) => {
+	return res.status(200).json(req.user);
+})
 
 app.post('/test/suite/:kataId', testCtrl.testKata);
 app.post('/test/examples', testCtrl.testExamplesKata);
