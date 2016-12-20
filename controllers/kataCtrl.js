@@ -4,7 +4,7 @@ const db = app.get('db');
 module.exports = {
     getKata: (req, res, next) => {
         if (!req.params.kataId) {
-            db.read.get_kata([], (err, kata) => {
+            db.read.kata((err, kata) => {
                 if (err) {
                     console.log(err);
                     res.status(500).json(err);
@@ -21,42 +21,39 @@ module.exports = {
             })
         }   
     },
-
+    // GET from mainService must be in the form of req.params.kyu
     getRandomKata: (req, res, next) => {
         if (!req.params.kyu) {
-            db.read.get_random_kata([], (err, katas) => {
+            db.read.kata((err, katas) => {
                 if (err) {
                     console.log(err);
                     res.status(500).json(err);
                 }
-                // math floor for random 
-                return res.status(200).json(katas);
+                return res.status(200).json(katas[Math.floor(Math.random() * katas.length + 1)]);
             })
         } else {
-            db.read.get_random_by_kyu([req.params.kyu], (err, katas) => {
+            db.read.random_by_kyu([req.params.kyu], (err, katas) => {
                 if (err) {
                     console.log(err);
                     res.status(500).json(err);
                 } 
-                // get random kata based on kyu choice
-                return res.status(200).json(katas);
+                return res.status(200).json(katas[Math.floor(Math.random() * katas.length + 1)]);
             })
         }
     },
 
     getCompletedKatas: (req, res, next) => {
-        db.read.get_completed_katas([req.params.userId], (err, katas) => {
+        db.read.completed_katas([req.user.id], (err, katas) => {
             if (err) {
                 console.log(err);
                 res.status(500).json(err);
             }
-            // get kata info based on if they have been completed by that user
             return res.status(200).json(katas);
         })
     },
 
     getKataSolutions: (req, res, next) => {
-        db.read.get_kata_solutions([req.params.kataId], (err, solutions) => {
+        db.read.kata_solutions([req.params.kataId], (err, solutions) => {
            if (err) {
                 console.log(err);
                 res.status(500).json(err);
@@ -66,7 +63,7 @@ module.exports = {
     },
 
     postSolution: (req, res, next) => {
-        db.create.post_solution([req.body.script, req.params.kataId], (err, solution) => {
+        db.create.solution([req.user.id, req.params.kataId, req.body.script, ], (err, solution) => {
             if (err) {
                 console.log(err);
                 res.status(500).json(err);   
