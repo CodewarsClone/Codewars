@@ -37,7 +37,7 @@ $stateProvider
 .state('menu.solutions',{
     url: 'solutions',
     templateUrl:'./components/solutions/solutions.html',
-    // controller: 'solutionsCtrl'
+    controller: 'solutionsCtrl'
 })
 .state('menu.training',{
     url: 'training',
