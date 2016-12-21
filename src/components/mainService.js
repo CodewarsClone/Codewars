@@ -1,3 +1,5 @@
+/************* MAIN SERVICE ***************/
+
 angular.module('app').service('mainService', function($http, $q, $sce) {
 
   // $sce.trustAsResourceUrl('/s');
