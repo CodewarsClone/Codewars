@@ -1,4 +1,21 @@
 /************TRAINING PAGE STYLES*********/
+$sidebar-color: #222222;
+$main-background: #303133;
+$container1: #262729;
+$container2: #2B2C2E;
+$container3: #3C3C3C;
+$container4: #1D1D1F;
+$blueContainer: #363749;
+$button1: #1E1F21;
+
+$font: 'Lato', sans-serif;
+
+$yellow-color: #ECB613;
+$blue-color: #6795DE;
+$orange-color: #CF4B32;
+$clone-wars-color: rgb(217, 217, 217);
+$grey-color: #C0C0C0;
+
 
 // STUFF ALONG THE TOP
 .training-top {
@@ -59,13 +76,16 @@
   padding-top: 2vh;
   height: calc(100vh - 150px);
   width: 50vw;
-  background-color: blue;
+  background-color: $container1;
+  margin: 15px 15px 15px 0px;
 }
 
 .instructions {
   // height: calc(100vh - 150px);
-  width: 40vw;
+  width: 50vw;
   overflow: scroll;
+  margin: 15px;
+  background-color: $container1;
 }
 
 .instructions-head {
@@ -113,5 +133,9 @@ hr {
 }
 
 .training-body {
-  background-color: red;
+  // background-color: red;
+}
+
+#text-input {
+
 }

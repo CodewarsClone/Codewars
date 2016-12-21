@@ -7,7 +7,13 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
 var textarea = document.getElementById('solution-input');
   var myCodeMirror = CodeMirror.fromTextArea(textarea, {
    lineNumbers: true, 
-   theme: 'tomorrow-night-bright',
+   theme: 'seti',
+  });
+
+  var textarea = document.getElementById('example-input');
+  var myCodeMirror = CodeMirror.fromTextArea(textarea, {
+   lineNumbers: true, 
+   theme: 'seti',
   });
 
   $scope.languages = ['JavaScript', 'Python'];
