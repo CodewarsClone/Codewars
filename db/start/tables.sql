@@ -35,7 +35,7 @@ CREATE TABLE ratings (
   liked boolean not null
 );
 
-INSERT INTO users (github_id, name, email, username, picutre_url)
+INSERT INTO users (github_id, name, email, username, picture_url)
 VALUES ('12', 'Bob Smith', 'bob@smith.com', 'bobIScool', null);
 
 INSERT INTO katas (kyu, description, starter_code, name, examples, test_script)
