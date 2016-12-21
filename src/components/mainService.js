@@ -31,7 +31,7 @@ this.user = {}
   this.setSolution = (solution, kataid) => {
     return $http({
       method: 'POST',
-      url: `/solution/` + kataid,
+      url: `/api/solution/` + kataid,
       data: {
          script: solution
       }
@@ -40,52 +40,52 @@ this.user = {}
 
 
 // GET
-  this.getMe = () => {
+  this.getUser = () => {
     return $http({
       method: 'GET',
-      url: `/me`
+      url: `/api/me`
     })
   }
 
   this.getKatas = () => {
     return $http({
       method: 'GET',
-      url: `/kata`
+      url: `/api/katas`
     });
   };
 
   this.getKataById = (kataid) => {
     return $http({
       method: 'GET',
-      url: `http://192.168.0.186:3030/kata/` + kataid
+      url: `http://192.168.0.186:3030/api/kata/` + kataid
     });
   };
 
-  this.completedKatas = () => {
+  this.getCompletedKatas = () => {
     return $http({
       method: 'GET',
-      url: `/kata/completed`
+      url: `/api/completed-katas`
     });
   };
 
-  this.randomKata = () => {
+  this.getRandomKata = (id) => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
     return $http({
       method: 'GET',
-      url: `/kata/random`
+      url: `/api/random-kata` 
     });
   };
 
-  this.randomKyuKata = (kyu) => {
+  this.getRandomKyuKata = (kyu) => {
     return $http({
       method: 'GET',
-      url: `/kata/random/` + kyu
+      url: `/api/kata-random/` + kyu 
     });
   };
 
-  this.kataSolutions = (kataid) => {
+  this.getKataSolutions = (kataid) => {
     return $http({
       method: 'GET',
-      url: `/solutions/` + kataid
+      url: `/api/solutions/` + kataid
     });
   };
 
