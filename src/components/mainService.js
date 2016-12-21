@@ -1,3 +1,5 @@
+/************* MAIN SERVICE ***************/
+
 angular.module('app').service('mainService', function($http, $q, $sce) {
 
   // $sce.trustAsResourceUrl('/s');
@@ -69,14 +71,14 @@ this.user = {}
   this.randomKata = () => {
     return $http({
       method: 'GET',
-      url: `/kata/random` 
+      url: `/kata/random`
     });
   };
 
   this.randomKyuKata = (kyu) => {
     return $http({
       method: 'GET',
-      url: `/kata/random/` + kyu 
+      url: `/kata/random/` + kyu
     });
   };
 
