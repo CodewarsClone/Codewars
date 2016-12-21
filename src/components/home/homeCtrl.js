@@ -24,6 +24,4 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
         $scope.getRandomKata(mainService.user.id);
     }
 
-
-
 });
