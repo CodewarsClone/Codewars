@@ -18,7 +18,7 @@ module.exports = {
                     console.log(err);
                     res.status(500).json(err);
                 }
-                return res.status(200).json(kata);
+                return res.status(200).json(kata[0]);
             })
         }   
     },
@@ -54,7 +54,6 @@ module.exports = {
     },
 
     getKataSolutions: (req, res, next) => {
-        console.log('solutions ran');
         db.read.kata_solutions([req.params.kataId], (err, solutions) => {
            if (err) {
                 console.log(err);
