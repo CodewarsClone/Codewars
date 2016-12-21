@@ -21,11 +21,11 @@ var cachebust = new CacheBuster();
 const paths = {
   jsSource: ['./src/components/**/*.js', './src/components/*.js'],
   cssFiles: './src/**/*.css',
-  indexFiles: './src/index.html',
+  // indexFiles: './src/index.html',
   scssFiles: './src/**/**/*.scss',
-  index: './src/index.html',
-  htmlFiles: './src/**/*.html',
-  dist: './dist',
+  // index: './src/index.html',
+  // htmlFiles: './src/**/*.html',
+  dist: './src/dist',
 };
 
 gulp.task('build-css', function () {
@@ -38,15 +38,13 @@ gulp.task('build-css', function () {
 });
 
 gulp.task('clean', function (cb) {
-  del([
-    'dist'
-  ], cb);
+  del([paths.dist], cb);
 });
 
-gulp.task('build-html', function () {
-  return gulp.src([paths.htmlFiles, paths.indexFiles])
-    .pipe(gulp.dest(paths.dist))
-});
+// gulp.task('build-html', function () {
+//   return gulp.src([paths.htmlFiles, paths.indexFiles])
+//     .pipe(gulp.dest(paths.dist))
+// });
 
 gulp.task('build-js', function () {
   return gulp.src(paths.jsSource)
@@ -61,10 +59,10 @@ gulp.task('build-js', function () {
     .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('build', ['clean', 'build-css', 'build-js', 'build-html']);
+gulp.task('build', ['clean', 'build-css', 'build-js']);
 
 gulp.task('watch', function () {
-  return gulp.watch([paths.jsSource, paths.cssFiles, paths.scssFiles, paths.indexFiles, paths.htmlFiles], ['clean', 'build-css', 'build-js', 'build-html']);
+  return gulp.watch([paths.jsSource, paths.cssFiles, paths.scssFiles], ['clean', 'build-css', 'build-js']);
 });
 
-gulp.task('default', ['clean', 'build-css', 'build-js', 'build-html', 'watch']);
+gulp.task('default', ['clean', 'build-css', 'build-js', 'watch']);
