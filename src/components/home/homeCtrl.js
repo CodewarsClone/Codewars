@@ -1,14 +1,29 @@
 /***********HOME CONTROLLER***********/
 
-// each Ctrl should call  - mainService.user - for access to the user object
-
 angular.module('app').controller('homeCtrl', function($scope, $state, mainService) {
 
-// get random kata using randomKata function on service
+    $scope.getUser = () => {
+        mainService.getUser().then(response => {
+            mainService.user = response.data[0];
+            console.log(mainService.user);
+        })
+    }
 
-    mainService.getMe().then(response => {
-        mainService.user = response.data[0];
-        console.log(mainService.user);
-    })
+    $scope.getRandomKata = (id) => {
+        mainService.getRandomKata(id).then(response => {
+            console.log(response.data);
+            $scope.randomKata = response.data;
+        })
+    }
+
+    // the random kata is stored on $scope.randomKata.
+    // If there is a button you can link the button to $scope.getRandomKata
+
+    $scope.init = () => {
+        $scope.getUser();
+        $scope.getRandomKata(mainService.user.id);
+    }
+
+
 
 });

@@ -3,6 +3,7 @@ const db = app.get('db');
 
 module.exports = {
     getKatas: (req, res, next) => {
+        console.log('get katas ran');
         if (!req.params.kataId) {
             db.read.katas((err, kata) => {
                 if (err) {
@@ -17,22 +18,28 @@ module.exports = {
                     console.log(err);
                     res.status(500).json(err);
                 }
-                return res.status(200).json(kata[0]);
+                return res.status(200).json(kata);
             })
         }   
     },
     
     getRandomKata: (req, res, next) => {
+        console.log(1);
         if (!req.params.kyu) {
-            db.read.kata((err, katas) => {
+            console.log(2);
+            db.read.katas((err, katas) => {
+                console.log(3);
                 if (err) {
                     console.log(err);
                     res.status(500).json(err);
                 }
+                console.log(4);
                 return res.status(200).json(katas[Math.floor(Math.random() * katas.length + 1)]);
             })
         } else {
+            console.log(2.1);
             db.read.random_by_kyu([req.params.kyu], (err, katas) => {
+                console.log(3.1);
                 if (err) {
                     console.log(err);
                     res.status(500).json(err);
