@@ -2,6 +2,10 @@ const app = require('../server.js');
 const db = app.get('db');
 
 module.exports = {
+    getUser: (req, res, next) => {
+	    return res.status(200).json(req.user);
+    },
+
     getKatasByKataId: (req, res, next) => {
         console.log('get katas ran');
             db.read.kata_by_id([req.params.kataId], (err, kata) => {
@@ -14,25 +18,23 @@ module.exports = {
     },
     
     getRandomKata: (req, res, next) => {
-        db.read.random_katas((err, katas) => {
+        db.read.random_kata((err, katas) => {
             if (err) {
                 console.log(err);
                 res.status(500).json(err);
             }
             return res.status(200).json(katas[Math.floor(Math.random() * katas.length + 1)]);
-        })
-            
-                
+        })         
     },
 
-    searchByKataName: (req, res, next) => {
-        db.read.by_kata_name((err, katas) => {
+    getRandomKataList: (req, res, next) => {
+        db.read.random_kata((err, katas) => {
             if (err) {
                 console.log(err);
                 res.status(500).json(err);
             }
             return res.status(200).json(katas);
-        })
+        })         
     },
 
     getKatasByKyu: (req, res, next) => {
@@ -72,6 +74,16 @@ module.exports = {
                 res.status(500).json(err);   
             }
              return res.status(201).json(solution);
+        })
+    },
+
+    searchByKatasName: (req, res, next) => {
+        db.read.by_kata_name([req.body.userInput], (err, katas) => {
+            if (err) {
+                console.log(err);
+                res.status(500).json(err);
+            }
+            return res.status(200).json(katas);
         })
     },
 
