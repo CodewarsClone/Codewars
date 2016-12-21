@@ -102,8 +102,8 @@ app.get('/api/random-kata', kataCtrl.getRandomKata);
 app.get('/api/kata-random/:kyu', kataCtrl.getRandomKata);
 app.get('/api/solutions/:kataId', kataCtrl.getKataSolutions);
 
-app.post('/test/suite/:kataId', testCtrl.testKata);
-app.post('/test/examples', testCtrl.testExamplesKata);
+app.post('/api/test/suite/:kataId', testCtrl.testKata);
+app.post('/api/test/examples', testCtrl.testExamplesKata);
 app.post('/api/solution/:kataId', kataCtrl.postSolution);
 
 
