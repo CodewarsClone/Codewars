@@ -67,7 +67,7 @@ const testCtrl = require('./controllers/testCtrl');
 const kataCtrl = require('./controllers/kataCtrl');
 
 
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/src'));
 app.use(bodyParser.json());
 app.use(cors());
 
