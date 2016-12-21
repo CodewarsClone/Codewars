@@ -80,7 +80,7 @@ a {
 .font12-reg {
   font-family: $font;
   font-size: 12px;
-  font-weight: Light;
+  font-weight: 100;
 }
 
 .font14-reg-gray {
@@ -89,6 +89,14 @@ a {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
+}
+
+.font14-lit-gray {
+  color: #C9C9C9;
+  font-family: $font;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 100;
 }
 
 .font13-reg-gray {

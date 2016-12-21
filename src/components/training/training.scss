@@ -16,70 +16,6 @@ $orange-color: #CF4B32;
 $clone-wars-color: rgb(217, 217, 217);
 $grey-color: #C0C0C0;
 
-/*********FONTSFONTSFONTSFONTSFONTS*********/
-
-.font20-reg {
-  color: #efefef;
-  font-family: $font;
-  font-size: 20px;
-  line-height: 28px;
-  font-weight: 400;
-}
-
-.font16-reg {
-  color: white;
-  font-family: $font;
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: 400;
-}
-
-.font14-reg {
-  color: white;
-  font-family: $font;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
-}
-
-.font14-bold {
-  color: white;
-  font-family: $font;
-  font-size: 14px;
-  line-height: 28px;
-  font-weight: 700;
-  position: absolute;
-}
-
-.font12-reg {
-  font-family: $font;
-  font-size: 12px;
-  font-weight: Light;
-}
-
-.font14-reg-gray {
-  color: #C9C9C9;
-  font-family: $font;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
-}
-
-.font13-reg-gray {
-  color: #cfcfcf;
-  font-family: $font;
-  font-size: 13px;
-  line-height: 40px;
-  font-weight: 400;
-}
-
-.font12-reg-blue {
-  color: #91b2e7;
-  font-family: $font;
-  font-size: 12px;
-  line-height: 12px;
-  font-weight: 400;
-}
 
 // STUFF ALONG THE TOP
 .training-top {
@@ -141,14 +77,15 @@ $grey-color: #C0C0C0;
   height: calc(100vh - 150px);
   width: 50vw;
   background-color: $container1;
-  margin: 10px;
+  margin: 15px;
 }
 
 .instructions {
   // height: calc(100vh - 150px);
-  width: 40vw;
+  width: 50vw;
   overflow: scroll;
-  margin: 5px;
+  margin: 15px;
+  background-color: red;
 }
 
 .instructions-head {
@@ -197,4 +134,8 @@ hr {
 
 .training-body {
   // background-color: red;
+}
+
+#text-input {
+
 }
