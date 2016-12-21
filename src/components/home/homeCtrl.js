@@ -6,9 +6,11 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
 // get random kata using randomKata function on service
 
-    mainService.getMe().then(response => {
+    mainService.getUser().then(response => {
         mainService.user = response.data[0];
-        console.log(mainService.user);
     })
+
+    $scope.getRandomKata
+
 
 });

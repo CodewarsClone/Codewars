@@ -19,7 +19,7 @@ this.user = {}
   this.testSuite = (solution, kataid) => {
     return $http({
       method: 'POST',
-      url: `/test/suite/${kataid}`,
+      url: `api/test/suite/${kataid}`,
       data: {
         script: solution
       }
@@ -29,7 +29,7 @@ this.user = {}
   this.setSolution = (solution, kataid) => {
     return $http({
       method: 'POST',
-      url: `/solution/` + kataid,
+      url: `/api/solution/` + kataid,
       data: {
          script: solution
       }
@@ -38,52 +38,52 @@ this.user = {}
 
 
 // GET
-  this.getMe = () => {
+  this.getUser = () => {
     return $http({
       method: 'GET',
-      url: `/me`
+      url: `/api/me`
     })
   }
 
   this.getKatas = () => {
     return $http({
       method: 'GET',
-      url: `/kata`
+      url: `/api/kata`
     });
   };
 
   this.getKataById = (kataid) => {
     return $http({
       method: 'GET',
-      url: `/kata/` + kataid
+      url: `/api/kata/` + kataid
     });
   };
 
-  this.completedKatas = () => {
+  this.getCompletedKatas = () => {
     return $http({
       method: 'GET',
-      url: `/kata/completed`
+      url: `/api/kata/completed`
     });
   };
 
-  this.randomKata = () => {
+  this.getRandomKata = () => {
     return $http({
       method: 'GET',
-      url: `/kata/random` 
+      url: `/api/kata/random` 
     });
   };
 
-  this.randomKyuKata = (kyu) => {
+  this.getRandomKyuKata = (kyu) => {
     return $http({
       method: 'GET',
-      url: `/kata/random/` + kyu 
+      url: `/api/kata/random/` + kyu 
     });
   };
 
-  this.kataSolutions = (kataid) => {
+  this.getKataSolutions = (kataid) => {
     return $http({
       method: 'GET',
-      url: `/solutions/` + kataid
+      url: `/api/solutions/` + kataid
     });
   };
 
