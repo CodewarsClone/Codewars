@@ -77,7 +77,7 @@ $grey-color: #C0C0C0;
   height: calc(100vh - 150px);
   width: 50vw;
   background-color: $container1;
-  margin: 15px;
+  margin: 15px 15px 15px 0px;
 }
 
 .instructions {
@@ -85,7 +85,7 @@ $grey-color: #C0C0C0;
   width: 50vw;
   overflow: scroll;
   margin: 15px;
-  background-color: red;
+  background-color: $container1;
 }
 
 .instructions-head {
