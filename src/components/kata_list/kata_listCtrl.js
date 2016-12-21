@@ -3,8 +3,13 @@
 angular.module('app').controller('kata_listCtrl', function($scope, $state, mainService) {
 
 
-// a function that does the following things !. gets all the katas according to user ability (kyu level) showing only one level higher and all the levels easier
-// then the function will shuffle the order on the frontend
+    // $scope.getRandomKata (userid)
+
+    // searchKataByName (input) - able to search on the kata_list page by name of kata
+
+    // $scope.getKatasByKyu
+
+    // a function that will allow for the frontend to give the user the option to get all of their completed katas by name
 
 
 });

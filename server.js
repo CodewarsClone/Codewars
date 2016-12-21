@@ -97,10 +97,10 @@ app.get('/api/me', (req, res, next) => {
 })
 app.get('/api/katas', kataCtrl.getKatas);
 app.get('/api/kata/:kataId', kataCtrl.getKatas);
-app.get('/api/completed-katas', kataCtrl.getCompletedKatas);
 app.get('/api/random-kata', kataCtrl.getRandomKata);
-app.get('/api/kata-random/:kyu', kataCtrl.getRandomKata);
+app.get('/api/katas-by-kyu:kyu', kataCtrl.getRandomKata);
 app.get('/api/solutions/:kataId', kataCtrl.getKataSolutions);
+app.get('/api/get-user-katas', kataCtrl.getUserKatas);
 
 app.post('/api/test/suite/:kataId', testCtrl.testKata);
 app.post('/api/test/examples', testCtrl.testExamplesKata);

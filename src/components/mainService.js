@@ -54,20 +54,7 @@ this.user = {}
     });
   };
 
-  this.getKataById = (kataid) => {
-    return $http({
-      method: 'GET',
-      url: `/api/kata/` + kataid
-    });
-  };
-
-  this.getCompletedKatas = () => {
-    return $http({
-      method: 'GET',
-      url: `/api/completed-katas`
-    });
-  };
-
+  // homeCtrl - displaying one kata withing range
   this.getRandomKata = (id) => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
     return $http({
       method: 'GET',
@@ -75,18 +62,43 @@ this.user = {}
     });
   };
 
-  this.getRandomKyuKata = (kyu) => {
+  // trainingCtrl
+  this.getKataById = (kataid) => {
     return $http({
       method: 'GET',
-      url: `/api/kata-random/` + kyu 
+      url: `/api/kata/` + kataid
     });
   };
 
+  //kata_listCtrl
+    // this.getRandomKatas (userid)
+    // this.searchKatasByName (input)
+
+  // kata_listCtrl
+  this.getKatasByKyu = (kyu) => {
+    return $http({
+      method: 'GET',
+      url: `/api/katas-by-kyu` + kyu 
+    });
+  };
+
+  // solutionsCtrl 
   this.getKataSolutions = (kataid) => {
     return $http({
       method: 'GET',
       url: `/api/solutions/` + kataid
     });
   };
+
+  // profileCtrl - brings back a specific users kata information (script, name, kyu, description) - use on kata tab soltion tab
+  this.getUserKatas = () => {
+    return $http({
+      method: 'GET',
+      url: `/api/get-user-katas`
+    });
+  };
+
+
+
 
 });

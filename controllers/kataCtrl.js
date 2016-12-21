@@ -43,8 +43,8 @@ module.exports = {
         }
     },
 
-    getCompletedKatas: (req, res, next) => {
-        db.read.completed_katas([req.user.id], (err, katas) => {
+    getUserKatas: (req, res, next) => {
+        db.read.user_katas([req.user.id], (err, katas) => {
             if (err) {
                 console.log(err);
                 res.status(500).json(err);
