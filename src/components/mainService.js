@@ -21,7 +21,7 @@ this.user = {}
   this.testSuite = (solution, kataid) => {
     return $http({
       method: 'POST',
-      url: `api/test/suite/${kataid}`,
+      url: `/test/suite/${kataid}`,
       data: {
         script: solution
       }
@@ -50,7 +50,7 @@ this.user = {}
   this.getKatas = () => {
     return $http({
       method: 'GET',
-      url: `/api/kata`
+      url: `/api/katas`
     });
   };
 
@@ -64,21 +64,21 @@ this.user = {}
   this.getCompletedKatas = () => {
     return $http({
       method: 'GET',
-      url: `/api/kata/completed`
+      url: `/api/completed-katas`
     });
   };
 
-  this.getRandomKata = () => {
+  this.getRandomKata = (id) => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
     return $http({
       method: 'GET',
-      url: `/api/kata/random` 
+      url: `/api/random-kata` 
     });
   };
 
   this.getRandomKyuKata = (kyu) => {
     return $http({
       method: 'GET',
-      url: `/api/kata/random/` + kyu 
+      url: `/api/kata-random/` + kyu 
     });
   };
 

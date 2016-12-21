@@ -92,17 +92,17 @@ app.get('/auth/github/callback',
 	});
 
 
-app.get('api/me', (req, res, next) => {
+app.get('/api/me', (req, res, next) => {
 	return res.status(200).json(req.user);
 })
-app.get('/api/kata', kataCtrl.getKatas);
+app.get('/api/katas', kataCtrl.getKatas);
 app.get('/api/kata/:kataId', kataCtrl.getKatas);
-app.get('/api/kata/completed', kataCtrl.getCompletedKatas);
-app.get('/api/kata/random', kataCtrl.getRandomKata);
-app.get('/api/kata/random/:kyu', kataCtrl.getRandomKata);
+app.get('/api/completed-katas', kataCtrl.getCompletedKatas);
+app.get('/api/random-kata', kataCtrl.getRandomKata);
+app.get('/api/kata-random/:kyu', kataCtrl.getRandomKata);
 app.get('/api/solutions/:kataId', kataCtrl.getKataSolutions);
 
-app.post('/api/test/suite/:kataId', testCtrl.testKata);
+app.post('/test/suite/:kataId', testCtrl.testKata);
 app.post('/test/examples', testCtrl.testExamplesKata);
 app.post('/api/solution/:kataId', kataCtrl.postSolution);
 
