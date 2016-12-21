@@ -4,15 +4,15 @@
 
 angular.module('app').controller('trainingCtrl', function($scope, $state, mainService) {
 
-var textarea = document.getElementById('solution-input');
-  var myCodeMirror = CodeMirror.fromTextArea(textarea, {
-   lineNumbers: true, 
+  var textarea1 = document.getElementById('solution-input');
+  var solutionsCode = CodeMirror.fromTextArea(textarea1, {
+   lineNumbers: true,
    theme: 'seti',
   });
 
-  var textarea = document.getElementById('example-input');
-  var myCodeMirror = CodeMirror.fromTextArea(textarea, {
-   lineNumbers: true, 
+  var textarea2 = document.getElementById('example-input');
+  var examplesCode = CodeMirror.fromTextArea(textarea2, {
+   lineNumbers: true,
    theme: 'seti',
   });
 
@@ -30,18 +30,21 @@ var textarea = document.getElementById('solution-input');
   $scope.showInstructions = function() {
     $scope.showOutputShow = true;
     $scope.showInstructionsShow = false;
-  }
+  }//comment
 
   //Examples should be an array of objects. Returned results will be an array with the different tests and their results.
-  $scope.testExamples = function(solutions, examples) {
+  $scope.testExamples = function() {
+    let solutions = solutionsCode.getValue();
+    let examples = examplesCode.getValue();
     $scope.showOutput();
     solutions = solutions.replace(/\n/g, " ");
+    solutions = solutions.replace(/\s+/g, " ");
     let examplesArr = [];
-    console.log(examples);
+    console.log("solutions: ", solutions, " examples: ", examples);
     examples = examples.split(/\n/);
     console.log(examples);
-    examples.forEach(example => examplesArr.push({test: example}));
-    mainService.testExamples(solutions, examplesArr).then((response) => $scope.output.push(response.data[0]));
+    // examples.forEach(example => examplesArr.push({test: example}));
+    // mainService.testExamples(solutions, examplesArr).then((response) => $scope.output.push(response.data[0]));
   }
 
 
