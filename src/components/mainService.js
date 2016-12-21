@@ -57,7 +57,7 @@ this.user = {}
   this.getKataById = (kataid) => {
     return $http({
       method: 'GET',
-      url: `/api/kata/` + kataid
+      url: `http://192.168.0.186:3030/api/kata/` + kataid
     });
   };
 
