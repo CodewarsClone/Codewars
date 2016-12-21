@@ -44,6 +44,6 @@ $stateProvider
     templateUrl:'./components/training/training.html',
     controller: 'trainingCtrl'
 });
-
+  
 $urlRouterProvider.otherwise('/login');
 });
