@@ -24,22 +24,16 @@ module.exports = {
     },
     
     getRandomKata: (req, res, next) => {
-        console.log(1);
         if (!req.params.kyu) {
-            console.log(2);
             db.read.katas((err, katas) => {
-                console.log(3);
                 if (err) {
                     console.log(err);
                     res.status(500).json(err);
                 }
-                console.log(4);
                 return res.status(200).json(katas[Math.floor(Math.random() * katas.length + 1)]);
             })
         } else {
-            console.log(2.1);
             db.read.random_by_kyu([req.params.kyu], (err, katas) => {
-                console.log(3.1);
                 if (err) {
                     console.log(err);
                     res.status(500).json(err);
