@@ -74,17 +74,17 @@ $grey-color: #C0C0C0;
   display: flex;
   flex-direction: column;
   padding-top: 2vh;
-  height: calc(100vh - 150px);
-  width: 50vw;
+  height: calc(100vh);
+  width: 60vw;
   background-color: $container1;
-  margin: 15px 15px 15px 0px;
+  margin: 15px;
 }
 
 .instructions {
   // height: calc(100vh - 150px);
-  width: 50vw;
+  width: 40vw;
   overflow: scroll;
-  margin: 15px;
+  margin: 15px 0 15px 15px;
   background-color: $container1;
 }
 
@@ -132,10 +132,24 @@ hr {
   background-color: #91b2e7;
 }
 
-.training-body {
-  // background-color: red;
+// .training-body {
+//   // background-color: red;
+// }
+
+// #text-input {
+
+// }
+
+.solutions-header {
+
 }
 
-#text-input {
-
+.solutions-icon {
+height: 10px;
+width: 10px;
+background-color: red;
 }
+
+// .examples-icon {
+
+// }
