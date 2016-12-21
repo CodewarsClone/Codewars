@@ -60,6 +60,7 @@ module.exports = {
     },
 
     getKataSolutions: (req, res, next) => {
+        console.log('solutions ran');
         db.read.kata_solutions([req.params.kataId], (err, solutions) => {
            if (err) {
                 console.log(err);
