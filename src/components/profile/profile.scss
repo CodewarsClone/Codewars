@@ -1,0 +1,51 @@
+/************* PROFILE **********/
+
+/******** VARIABLES *********/
+$sidebar-color: #222222;
+$main-background: #303133;
+$container1: #262729;
+$container2: #2B2C2E;
+$container3: #3C3C3C;
+$container4: #1D1D1F;
+$blueContainer: #363749;
+$button1: #1E1F21;
+
+$font: 'Lato', sans-serif;
+
+$yellow-color: #ECB613;
+$blue-color: #6795DE;
+$orange-color: #CF4B32;
+$clone-wars-color: rgb(217, 217, 217);
+$grey-color: #C0C0C0;
+
+.profile-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-banner, .profile-ads, .profile-big {
+  margin-vertical: 10vh;
+}
+
+.profile-banner {
+  background-color: $container4;
+  height: 10vh;
+  width: 10vw;
+}
+
+.profile-big-head {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.section-selector {
+  background-color: $container1;
+  width: 120px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
