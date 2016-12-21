@@ -2,54 +2,46 @@ const app = require('../server.js');
 const db = app.get('db');
 
 module.exports = {
-    getKatas: (req, res, next) => {
+    getKatasByKataId: (req, res, next) => {
         console.log('get katas ran');
-        if (!req.params.kataId) {
-            db.read.katas((err, kata) => {
-                if (err) {
-                    console.log(err);
-                    res.status(500).json(err);
-                }
-                return res.status(200).json(kata);
-            }) 
-        } else {
             db.read.kata_by_id([req.params.kataId], (err, kata) => {
                 if (err) {
                     console.log(err);
                     res.status(500).json(err);
                 }
                 return res.status(200).json(kata[0]);
-            })
-        }   
+            })   
     },
     
     getRandomKata: (req, res, next) => {
-        if (!req.params.kyu) {
-            db.read.katas((err, katas) => {
-                if (err) {
-                    console.log(err);
-                    res.status(500).json(err);
-                }
-                return res.status(200).json(katas[Math.floor(Math.random() * katas.length + 1)]);
-            })
-        } else {
-            db.read.random_by_kyu([req.params.kyu], (err, katas) => {
-                if (err) {
-                    console.log(err);
-                    res.status(500).json(err);
-                } 
-                return res.status(200).json(katas[Math.floor(Math.random() * katas.length + 1)]);
-            })
-        }
+        db.read.random_katas((err, katas) => {
+            if (err) {
+                console.log(err);
+                res.status(500).json(err);
+            }
+            return res.status(200).json(katas[Math.floor(Math.random() * katas.length + 1)]);
+        })
+            
+                
     },
 
-    getUserKatas: (req, res, next) => {
-        db.read.user_katas([req.user.id], (err, katas) => {
+    searchByKataName: (req, res, next) => {
+        db.read.by_kata_name((err, katas) => {
             if (err) {
                 console.log(err);
                 res.status(500).json(err);
             }
             return res.status(200).json(katas);
+        })
+    },
+
+    getKatasByKyu: (req, res, next) => {
+        db.read.katas_by_kyu([req.params.kyu], (err, katas) => {
+            if (err) {
+                console.log(err);
+                res.status(500).json(err);
+            } 
+            return res.status(200).json(katas[Math.floor(Math.random() * katas.length + 1)]);
         })
     },
 
@@ -60,6 +52,16 @@ module.exports = {
                 res.status(500).json(err);
             }
             return res.status(200).json(solutions);
+        })
+    },
+
+    getUserKatas: (req, res, next) => {
+        db.read.user_katas([req.user.id], (err, katas) => {
+            if (err) {
+                console.log(err);
+                res.status(500).json(err);
+            }
+            return res.status(200).json(katas);
         })
     },
 

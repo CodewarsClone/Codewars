@@ -3,11 +3,11 @@
 angular.module('app').controller('kata_listCtrl', function($scope, $state, mainService) {
 
 
-    // $scope.getRandomKata (userid)
+    // $scope.getRandomKata (userid) returns katas based on users ability level
 
     // searchKataByName (input) - able to search on the kata_list page by name of kata
 
-    // $scope.getKatasByKyu
+    // $scope.getKatasByKyu ()
 
     // a function that will allow for the frontend to give the user the option to get all of their completed katas by name
 

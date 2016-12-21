@@ -47,21 +47,6 @@ this.user = {}
     })
   }
 
-  this.getKatas = () => {
-    return $http({
-      method: 'GET',
-      url: `/api/katas`
-    });
-  };
-
-  // homeCtrl - displaying one kata withing range
-  this.getRandomKata = (id) => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
-    return $http({
-      method: 'GET',
-      url: `/api/random-kata` 
-    });
-  };
-
   // trainingCtrl
   this.getKataById = (kataid) => {
     return $http({
@@ -70,9 +55,22 @@ this.user = {}
     });
   };
 
+  // homeCtrl - displaying one kata withing range
+  // kata_listCtrl = displays a plethora of katas based on user ability
+  this.getRandomKata = (id) => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
+    return $http({
+      method: 'GET',
+      url: `/api/random-kata` 
+    });
+  };
+
   //kata_listCtrl
-    // this.getRandomKatas (userid)
-    // this.searchKatasByName (input)
+  this.searchKatasByName = (input) => {
+    return $httop({
+      method: 'GET',
+      url: `/api/kata-by-name` + input
+    })
+  }
 
   // kata_listCtrl
   this.getKatasByKyu = (kyu) => {
