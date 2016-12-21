@@ -4,6 +4,7 @@
 
 angular.module('app').controller('trainingCtrl', function($scope, $state, mainService) {
 
+  /** Create text areas **/
   var textarea1 = document.getElementById('solution-input');
   var solutionsCode = CodeMirror.fromTextArea(textarea1, {
    lineNumbers: true,
@@ -30,28 +31,52 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
   $scope.showInstructions = function() {
     $scope.showOutputShow = true;
     $scope.showInstructionsShow = false;
-  }//comment
+  }
+
+  // GET KATA INFORMATION
+  $scope.getKataById = (kataid) => {
+    mainService.getKataById(kataid).then((response) => {
+      console.log(response.data);
+      $scope.name = response.data.name;
+      $scope.instructions = response.data.description;
+      $scope.kyu = response.data.kyu;
+      $scope.starter = response.data.starter_code;
+      $scope.examples = response.data.examples.map((example) => {return example.test});
+      $scope.kataid = response.data.id;
+    }).then(() =>{
+      solutionsCode.setValue($scope.starter);
+      examplesCode.setValue($scope.examples.join(/\n/));
+    });
+  }
+
+  $scope.getKataById(2);
+
+
 
   //Examples should be an array of objects. Returned results will be an array with the different tests and their results.
   $scope.testExamples = function() {
-    let solutions = solutionsCode.getValue();
-    let examples = examplesCode.getValue();
+    var solutions = solutionsCode.getValue();
+    var examples = examplesCode.getValue();
     $scope.showOutput();
     solutions = solutions.replace(/\n/g, " ");
     solutions = solutions.replace(/\s+/g, " ");
-    let examplesArr = [];
+    var examplesArr = [];
     console.log("solutions: ", solutions, " examples: ", examples);
     examples = examples.split(/\n/);
     console.log(examples);
-    // examples.forEach(example => examplesArr.push({test: example}));
-    // mainService.testExamples(solutions, examplesArr).then((response) => $scope.output.push(response.data[0]));
+    examples.forEach(example => examplesArr.push({test: example}));
+    var t0 = performance.now()
+    mainService.testExamples(solutions, examplesArr).then((response) => $scope.output.push(response.data[0]));
+    var t1 = performance.now();
+    $scope.time = "Time: " + Math.round((t1 - t0)*1000) + " ms";
   }
 
-
-  $scope.testSuite = function(solutions) {
+  $scope.testSuite = function() {
+    var solutions = solutionsCode.getValue();
     $scope.showOutput();
     solutions = solutions.replace(/\n/g, " ");
-    // mainService.testSuite(solutions, kataid).then((response) => console.log(response));
+    solutions = solutions.replace(/\s+/g, " ");
+    // mainService.testSuite(solutions, $scope.kataid).then((response) => console.log(response));
   }
 
   // this function needs to call the kata by id when the user selects train on the home page -getKataById
