@@ -1,0 +1,147 @@
+/************ KATA_LEFT ***********/
+
+/******** VARIABLES *********/
+$sidebar-color: #222222;
+$main-background: #303133;
+$container1: #262729;
+$container2: #2B2C2E;
+$container3: #3C3C3C;
+$container4: #1D1D1F;
+$blueContainer: #363749;
+$button1: #1E1F21;
+$selectedButton: #444547;
+$searchBarHighlighted: #131414;
+
+$font: 'Lato', sans-serif;
+
+$yellow-color: #ECB613;
+$blue-color: #6795DE;
+$orange-color: #CF4B32;
+$clone-wars-color: rgb(217, 217, 217);
+$grey-color: #C0C0C0;
+
+/************* KATA_LEFT CSS *********/
+.kata-list-left {
+  width: 25vw;
+  background-color: $container1;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.kata-left-div {
+  border-bottom: 1px solid $selectedButton;
+  padding: 15px;
+  margin-vertical: 5px;
+}
+
+#kata-search {
+  width: calc(25vw * .85);
+  height: 40px;
+  background-color: $sidebar-color;
+  border: none;
+  padding: 10px;
+  color: white;
+}
+
+::-webkit-input-placeholder {
+  font-family: 'Lato', sans-serif;
+  color: $grey-color;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  margin-left: 20px;
+}
+::-moz-placeholder {
+  font-family: 'Lato', sans-serif;
+  color: $grey-color;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  margin-left: 20px;
+}
+::-ms-input-placeholder {
+  font-family: 'Lato', sans-serif;
+  color: $grey-color;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  margin-left: 20px;
+}
+
+#kata-search:focus {
+  background-color: $searchBarHighlighted;
+}
+
+.kata-sort {
+  display: flex;
+  flex-direction: column;
+}
+
+.kata-sort-div {
+  display: flex;
+  flex-direction: row;
+  width: calc(25vw * .85);
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.kata-sort-dropdown {
+  background-color: $sidebar-color;
+  color: #efefef;
+  border: none;
+  height: 35px;
+  width: 175px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-left: 5px;
+}
+
+.sort-box {
+  background-image: url("../assets/imgs/dropdown_icon.png");
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  background-position: 5% 50%;
+  display: flex;
+  padding-left: 30px;
+}
+
+#kata-sort-difficulty {
+  width: calc(25vw * .85);
+}
+
+.assorted-difficulty-icons {
+  // width: calc(25vw * .75);
+  padding: 30px;
+  align-self: flex-start;
+}
+
+.difficulty-top {
+  margin-bottom: 5px;
+}
+
+.kata-sort-tags {
+  width: calc(25vw * .85);
+  padding-vertical: 20px;
+}
+
+.tags-header {
+  align-self: flex-start;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tag {
+  align-self: center;
+  margin-bottom: 5px;
+}
+
+.tag:hover {
+  color: $blue-color;
+  -webkit-user-select: none;
+  cursor: pointer;
+  margin-bottom: 5px;
+}

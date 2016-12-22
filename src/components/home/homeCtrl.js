@@ -4,8 +4,9 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
     $scope.getUser = () => {
         mainService.getUser().then(response => {
-            mainService.user = response.data[0];
-            console.log(mainService.user);
+            console.log(response.data);
+            mainService.user = mainService.rankCalculator(response.data);
+            $scope.getRandomKata(mainService.user.id);
         })
     }
 
@@ -20,8 +21,13 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
     // If there is a button you can link the button to $scope.getRandomKata
 
     $scope.init = () => {
-        $scope.getUser();
+<<<<<<< HEAD
+        // $scope.getUser();
         $scope.getRandomKata(mainService.user.id);
+=======
+        $scope.getUser();
+
+>>>>>>> master
     }
 
 });

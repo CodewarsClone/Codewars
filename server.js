@@ -26,7 +26,7 @@ passport.use(new GithubStrategy({
 		if (err) {
 			console.log(err);
 		} else if (user [0]) {
-			done(null, user);
+			done(null, user[0]);
 		} else {
 
 			console.log('attempting account creation')
@@ -104,6 +104,8 @@ app.post('/api/test/suite/:kataId', testCtrl.testKata);
 app.post('/api/test/examples', testCtrl.testExamplesKata);
 app.post('/api/solution/:kataId', kataCtrl.postSolution);
 app.post('/api/kata-by-name', kataCtrl.searchByKatasName);
+
+app.put('/api/points', kataCtrl.addPointsToUser);
 
 
 

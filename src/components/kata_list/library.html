@@ -1,34 +1,94 @@
 <div class="kata-list-body">
   <div class="kata-list-left">
 
-    <div class="kata-search">
-      <input id='kata-search' ng-model="searchText" placeholder="Search">
+    <!-- ********* SEARCH/SORT STUFF ******** -->
+    <div class="kata-search kata-left-div">
+      <input class="form-control .searchBar-font" id='kata-search' ng-model="searchText" placeholder="Search">
     </div>
-  </div>
 
+    <div class="kata-sort kata-left-div">
+      <div class="kata-sort-div">
+        <p class="font15-reg">Sort by: </p>
+        <select class="kata-sort-dropdown sort-box" ng-init="selectedSort = sortOptions[0]" ng-model="selectedSort" ng-options="x for x in sortOptions"></select>
+      </div>
+      <div class="kata-sort-div">
+        <p class="font15-reg">Language: </p>
+        <select class="kata-sort-dropdown" ng-init="selectedLanguage = languageOptions[0]" ng-model="selectedLanguage" ng-options="x for x in languageOptions"></select>
+      </div>
+      <div class="kata-sort-div">
+        <p class="font15-reg">Status: </p>
+        <select class="kata-sort-dropdown" ng-init="selectedStatus = statusOptions[0]" ng-model="selectedStatus" ng-options="x for x in statusOptions"></select>
+      </div>
+      <div class="kata-sort-div">
+        <p class="font15-reg">Progress: </p>
+        <select class="kata-sort-dropdown" ng-init="selectedProgress = progressOptions[0]" ng-model="selectedProgress" ng-options="x for x in progressOptions"></select>
+      </div>
+    </div>
+
+    <!-- *********** DIFFICULTY SORT STUFF ***********  -->
+    <div class="kata-left-div" id="kata-sort-difficulty">
+      <p class="font15-reg" ng-click="getRandomKataList()">Difficulty:</p>
+      <div class="assorted-difficulty-icons">
+        <img id="difficulty-icon" class="difficulty-top" src="./assets/imgs/8_kyu_icon.png" alt="8kyu" ng-click="getKatasByKyu(8)"/>
+        <img id="difficulty-icon" class="difficulty-top" src="./assets/imgs/7_kyu_icon.png" alt="7kyu" ng-click="getKatasByKyu(7)"/>
+        <img id="difficulty-icon" class="difficulty-top" src="./assets/imgs/6_kyu_icon.png" alt="6kyu" ng-click="getKatasByKyu(6)"/>
+        <img id="difficulty-icon" class="difficulty-top" src="./assets/imgs/5_kyu_icon.png" alt="5kyu" ng-click="getKatasByKyu(5)"/>
+        <img id="difficulty-icon" src="./assets/imgs/4_kyu_icon.png" alt="4kyu" ng-click="getKatasByKyu(4)"/>
+        <img id="difficulty-icon" src="./assets/imgs/3_kyu_icon.png" alt="3kyu" ng-click="getKatasByKyu(3)"/>
+        <img id="difficulty-icon" src="./assets/imgs/2_kyu_icon.png" alt="2kyu" ng-click="getKatasByKyu(2)"/>
+        <img id="difficulty-icon" src="./assets/imgs/1_kyu_icon.png" alt="1kyu" ng-click="getKatasByKyu(1)"/>
+      </div>
+    </div> <!--end of kata-sort-difficulty -->
+
+    <div class="kata-sort-tags">
+      <p class="font15-reg tags-header">Tags:</p>
+      <p class="font14-reg-gray tag" ng-repeat="tag in tags">{{tag}}</p>
+    </div>
+
+  </div> <!-- END OF LEFT SIDE -->
+
+
+  <!-- ************ SO BEGINS THE RIGHT SIDE ********* -->
   <div class="kata-list-right">
 
-    <div class="individual-kata">
+    <p class="font14-reg-gray">{{totalKata}} Kata Found</p>
 
-      <div class="indv-kata-left">
-        <div class="indv-kata-top">
-          <img id="difficulty-icon" src="./assets/imgs/6_kyu_icon.png" alt="6kyu">
-          <h3 class="font17-reg" id="kata-name">Kata Name</h3>
-        </div>
-        <div class="kata-stats">
-          <i class="fa fa-star-o kata-stats-info" aria-hidden="true"></i>
-          <p class="kata-stats-info">2</p>
-          <i class="" aria-hidden="true"></i>
-        </div>
-        <div class="indv-kata-tags">
-          <p class="kata-stats-info">Here's where tags go</p>
-        </div>
-      </div>
+    <div class="individual-kata" ng-repeat="kata in randomKataList | filter: searchText">
 
-      <div class="individual-kata-languages">
-        <img id="difficulty-icon" src="./assets/imgs/6_kyu_icon.png" alt="">
-      </div>
+        <div class="indv-kata-left">
+          <div class="indv-kata-top">
+            <img id="difficulty-icon" src="./assets/imgs/{{kata.kyu}}_kyu_icon.png" alt="{{kata.kyu}}kyu">
+            <h3 class="font17-reg">
+              <a class="font17-reg" id="kata-name" href="/#/training/{{kata.id}}">{{kata.name}}</a>
+            </h3>
+          </div>
+          <div class="kata-stats">
+            <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/bookmarked_icon.png"/>
+            <p class="kata-stats-info">bookmarked</p>
+            <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/collections_icon.png"/>
+            <p class="kata-stats-info">collections</p>
+            <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/satisfaction_icon.png" />
+            <p class="kata-stats-info">satisfaction</p>
+            <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/completion_icon.png"/>
+            <p class="kata-stats-info">completion</p>
+            <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/creator_icon.png"/>
+            <p class="kata-stats-info">creator</p>
+          </div>
+          <div class="indv-kata-tags">
+            <img src="./assets/imgs/tag_icon.png" id="tag-icon" alt="tagggg">
+            <div class="tag-tag-div">
+              <p class="font10-reg-gray" id="tag-tag">Here's where tags go</p>
+            </div>
+          </div>
+        </div>
 
-    </div>
-  </div>
+        <div class="individual-kata-languages">
+          <img id="difficulty-icon" src="./assets/imgs/6_kyu_icon.png" alt="">
+        </div>
+
+      <!-- Created this div with the hope of creating the perfect linear gradient, fading border as on the codewars site.  -->
+      <!-- <hr class="kata-bottom-border-hr" /> -->
+
+    </div> <!--end individual-kata div -->
+  </div> <!--end kata-list-right -->
 </div>

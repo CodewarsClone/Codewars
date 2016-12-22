@@ -35,15 +35,15 @@ $stateProvider
     controller: 'profileCtrl'
 })
 .state('menu.solutions',{
-    url: 'solutions',
+    url: 'solutions/:kataid',
     templateUrl:'./components/solutions/solutions.html',
     controller: 'solutionsCtrl'
 })
 .state('menu.training',{
-    url: 'training',
+    url: 'training/:kataid',
     templateUrl:'./components/training/training.html',
     controller: 'trainingCtrl'
 });
-  
+
 $urlRouterProvider.otherwise('/login');
 });

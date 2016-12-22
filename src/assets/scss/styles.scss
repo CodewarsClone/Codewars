@@ -83,12 +83,28 @@ a {
   font-weight: 400;
 }
 
+.font15-reg {
+  font-size: 15px;
+  line-height: 21px;
+  font-family: $font;
+  color: #efefef;
+  font-weight: 400;
+}
+
 .font14-reg {
   color: white;
   font-family: $font;
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
+}
+
+.searchBar-font {
+  color: #efefef;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  font-family: $font;
 }
 
 .font14-bold {
@@ -144,20 +160,4 @@ a {
   font-size: 12px;
   line-height: 12px;
   font-weight: 400;
-}
-
-/**************MAIN AREA**************/
-
-.main {
-  height: 100vh;
-  width: calc(100vw-55px);
-  background-color: $main-background;
-  display: flex;
-}
-
-.main-div {
-    height: 100vh;
-    width: 100%;
-    margin: auto;
-    float: right;
 }
