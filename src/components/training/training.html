@@ -4,25 +4,25 @@
       <div class="kata-name-container">
         <div class="kata-name-container-top">
           <img src="./assets/imgs/5_kyu_icon.png" alt="Difficulty" id="difficulty-icon">
-          <h3 class="font16-reg" id="kata-name">
-            Name of Kata
-          </h3>
+          <div class="font16-reg" id="kata-name">
+            {{name}}
+          </div>
         </div>
         <div class="kata-stats">
-          <p>Here's where stats go</p>
-          <p>Here's where stats go</p>
-          <p>Here's where stats go</p>
         </div>
       </div>
       <!--End kata-name-container div-->
       <div class="selection-div">
-        <select class="language-select-dropdown select-dropdown" ng-init="selectedLanguage = languages[0]" ng-model="selectedLanguage"
+        <div class='select-dropdown'>
+        <select class="language-select-dropdown " ng-init="selectedLanguage = languages[0]" ng-model="selectedLanguage"
           ng-options="x for x in languages">
+        </select>
+        </div>
+        <div class='select-dropdown'>
+        <select class="language-version-select-dropdown" ng-init="selectedVersion = versions[0]" ng-model="selectedVersion" ng-options="x for x in versions">
 
         </select>
-        <select class="language-version-select-dropdown select-dropdown" ng-init="selectedVersion = versions[0]" ng-model="selectedVersion" ng-options="x for x in versions">
-
-        </select>
+        </div>
       </div>
       <div class="assorted-options">
         <div class="view-options">Here's where view options go</div>
