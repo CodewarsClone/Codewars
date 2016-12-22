@@ -1,0 +1,119 @@
+/************ KATA_LIST ***********/
+
+/******** VARIABLES *********/
+$sidebar-color: #222222;
+$main-background: #303133;
+$container1: #262729;
+$container2: #2B2C2E;
+$container3: #3C3C3C;
+$container4: #1D1D1F;
+$blueContainer: #363749;
+$button1: #1E1F21;
+$selectedButton: #444547;
+
+$font: 'Lato', sans-serif;
+
+$yellow-color: #ECB613;
+$blue-color: #6795DE;
+$orange-color: #CF4B32;
+$clone-wars-color: rgb(217, 217, 217);
+$grey-color: #C0C0C0;
+
+
+/************ ACTUAL KATA LIST STYLES **********/
+// I can't figure out why this isn't working. Only certain changes actually affect the div.
+.tiny-marker {
+  background-color: $container1;
+  position: absolute;
+  top: 0;
+  margin-top: 0;
+  margin-left: 15px;
+  height: 6vh;
+  width: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kata-list-main {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+/************ KATA_LIST TOP BAR **********/
+
+.kata-list-top {
+  width: calc(100vw - 55px);
+  height: 10vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  border-bottom: 1px solid $selectedButton;
+}
+
+.section-selector-kata {
+  width: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#arrow-icon-kata-list {
+  height: 15px;
+  width: 15px;
+  margin-right: 5px;
+}
+
+.kata-list-body {
+  padding: 20px;
+  display: flex;
+  margin: 0;
+}
+
+.kata-list-left {
+  width: 15vw;
+  // height: 100vh;
+  background-color: red;
+  margin-right: 15px;
+}
+
+#kata-search {
+  width: 15vw;
+}
+
+.kata-list-right {
+  width: 85vw;
+  background-color: blue;
+}
+
+/************* INDIVIDUAL KATA DIV *********/
+.individual-kata {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $grey-color;
+  height: 118px;
+}
+
+.indv-kata-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#kata-name {
+  margin-left: 10px;
+}
+
+.kata-stats {
+  display: flex;
+  align-items: center;
+}
+
+.kata-stats-info {
+  color: $grey-color;
+  margin-top: 10px;
+  margin-left: 5px;
+}
