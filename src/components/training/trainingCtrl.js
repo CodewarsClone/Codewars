@@ -2,7 +2,9 @@
 
 // each Ctrl should call  - mainService.user - for access to the user object
 
-angular.module('app').controller('trainingCtrl', function($scope, $state, mainService) {
+angular.module('app').controller('trainingCtrl', function($scope, $state, mainService, $stateParams) {
+
+  $scope.kataid = $stateParams.kataid;
 
   /** Create text areas **/
   var textarea1 = document.getElementById('solution-input');
@@ -49,9 +51,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     });
   }
 
-  $scope.getKataById(2);
-
-
+  $scope.getKataById($scope.kataid);
 
   //Examples should be an array of objects. Returned results will be an array with the different tests and their results.
   $scope.testExamples = function() {
@@ -61,12 +61,13 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     solutions = solutions.replace(/\n/g, " ");
     solutions = solutions.replace(/\s+/g, " ");
     var examplesArr = [];
-    console.log("solutions: ", solutions, " examples: ", examples);
     examples = examples.split(/\n/);
-    console.log(examples);
     examples.forEach(example => examplesArr.push({test: example}));
     var t0 = performance.now()
-    mainService.testExamples(solutions, examplesArr).then((response) => $scope.output.push(response.data[0]));
+    mainService.testExamples(solutions, examplesArr).then((response) => {
+      $scope.output.push(response.data[0])
+      console.log(response.data);
+    });
     var t1 = performance.now();
     $scope.time = "Time: " + Math.round((t1 - t0)*1000) + " ms";
   }

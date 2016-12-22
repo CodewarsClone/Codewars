@@ -1,3 +1,4 @@
+
 angular.module('app').controller('kata_listCtrl', function($scope, $state, mainService) {
 
     $scope.getRandomKataList = (userid) => {

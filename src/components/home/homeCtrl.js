@@ -4,7 +4,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
     $scope.getUser = () => {
         mainService.getUser().then(response => {
-            mainService.user = response.data[0];
+            mainService.user = mainService.rankCalculator(response.data[0]);
             console.log(mainService.user);
         })
     }
