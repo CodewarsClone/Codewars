@@ -3,7 +3,8 @@
 
 angular.module('app').controller('solutionsCtrl', function($scope, $state, mainService) {
 
-// get all solutions for one kata (by kataid) using the getKataSolutions function on service.
+    // $scope.getKataById to be at the top of the page and the solutions will go below
+
     $scope.getKataSolutions = (kataid) => {
         mainService.getKataSolutions(kataid).then(response => {
             $scope.kataSolutions = response.data;
