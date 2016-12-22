@@ -86,7 +86,6 @@ module.exports = {
 						}
 					});
 				
-				
 				promiseArr.push(deffered.promise)
 			} else {
 				return
