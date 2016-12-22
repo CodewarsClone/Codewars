@@ -8,6 +8,7 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
     $scope.getKataById = (kataid) => {
         mainService.getKataById(kataid).then(response => {
             $scope.kataById = response.data;
+            $scope.getKataSolutions($scope.kataid);
             console.log($scope.katabyId);
         })
     }
@@ -20,8 +21,7 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
     }
 
     $scope.init = () => {
-        $scope.getKataById($scope.kataid);
-        $scope.getKataSolutions($scope.kataid);
+        $scope.getKataById($scope.kataid); 
     }
 
 

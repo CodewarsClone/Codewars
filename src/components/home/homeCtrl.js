@@ -4,9 +4,9 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
     $scope.getUser = () => {
         mainService.getUser().then(response => {
+            console.log(response.data);
             mainService.user = mainService.rankCalculator(response.data);
-            $scope.getRandomKata(mainService.user.id);
-            
+            $scope.getRandomKata(mainService.user.id); 
         })
     }
 
