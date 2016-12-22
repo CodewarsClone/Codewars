@@ -83,6 +83,17 @@ $grey-color: #C0C0C0;
   width: 15vw;
 }
 
+.kata-sort {
+  display: flex;
+  flex-direction: column;
+}
+
+.kata-sort-div {
+  display: flex;
+  flex-direction: row;
+  
+}
+
 .kata-list-right {
   width: 85vw;
   background-color: blue;
