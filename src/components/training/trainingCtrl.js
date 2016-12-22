@@ -79,10 +79,8 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     // mainService.testSuite(solutions, $scope.kataid).then((response) => console.log(response));
   }
 
-  // this function needs to call the kata by id when the user selects train on the home page -getKataById
-
-
-  // submit final solution once they have passed the testSuite using setSoluton funciton on the service
+  
+  
 
 
 });
