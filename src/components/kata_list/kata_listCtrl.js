@@ -1,10 +1,27 @@
-// each Ctrl should call  - mainService.user - for access to the user object
-
 angular.module('app').controller('kata_listCtrl', function($scope, $state, mainService) {
 
+    $scope.getRandomKataList = (userid) => {
+        mainService.getRandomKataList(userid).then(response => {
+            console.log(response.data);
+            $scope.randomKataList = response.data;
+        })
+    }
+    
+    $scope.searchKatasByName = (userInput) => {
+        mainService.searchKatasByName(`%${userInput}%`).then(response => {
+            console.log(response.data);
+        })
+    }
 
-// a function that does the following things !. gets all the katas according to user ability (kyu level) showing only one level higher and all the levels easier
-// then the function will shuffle the order on the frontend
+    $scope.getKatasByKyu = (kyu) => {
+        mainService.getKatasByKyu(kyu).then(response => {
+            console.log(response.data);
+            $scope.katasByKyu = response.data;
+        })
+    }
 
+    $scope.init = () => {
+        $scope.getRandomKataList(mainService.user.id);
+    }
 
 });
