@@ -89,7 +89,6 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
 	     response.data.forEach((ele, i) => {
 		     $scope.output.push(ele)
          if (!ele.passed) {$scope.passed = false}
-         
 	     });
 	     console.log(response.data);
      });

@@ -3,6 +3,7 @@ const db = app.get('db');
 
 module.exports = {
     getUser: (req, res, next) => {
+        console.log(req.user);
 	    return res.status(200).json(req.user);
     },
 
