@@ -9,8 +9,8 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
         })
     }
 
-    $scope.getRandomKata = (id) => {
-        mainService.getRandomKata(id).then(response => {
+    $scope.getRandomKata = (userid) => {
+        mainService.getRandomKata(userid).then(response => {
             console.log(response.data);
             $scope.randomKata = response.data;
         })

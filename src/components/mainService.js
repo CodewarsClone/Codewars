@@ -4,7 +4,9 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
 
   // $sce.trustAsResourceUrl('/s');
 
-this.user = {}
+  // Dumby information so I don't have to mess with the server all the time.
+  // this.user = {id: 4, github_id: "20197415", name: "Steven", email: null, picture_url: "https://avatars.githubusercontent.com/u/20197415?v=3", username: "Steven-Nagie"};
+  this.user = {};
 
 // POST
   this.testExamples = (solution, examples) => {
@@ -38,6 +40,17 @@ this.user = {}
     });
   };
 
+   //kata_listCtrl
+  this.searchKatasByName = (input) => {
+    return $http({
+      method: 'POST',
+      url: `/api/kata-by-name`,
+      data: {
+        userInput: input
+      }
+    })
+  }
+
 
 // GET
   this.getUser = () => {
@@ -47,46 +60,59 @@ this.user = {}
     })
   }
 
-  this.getKatas = () => {
-    return $http({
-      method: 'GET',
-      url: `/api/katas`
-    });
-  };
-
+  // trainingCtrl
   this.getKataById = (kataid) => {
     return $http({
       method: 'GET',
-      url: `http://192.168.0.186:3030/api/kata/` + kataid
+      url: `/api/kata/` + kataid
     });
   };
 
-  this.getCompletedKatas = () => {
+  // homeCtrl - displaying one kata withing range
+  // kata_listCtrl = displays a plethora of katas based on user ability
+  this.getRandomKata = (userid) => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
     return $http({
       method: 'GET',
-      url: `/api/completed-katas`
+      url: `/api/random-kata`
     });
   };
 
-  this.getRandomKata = (id) => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
+  this.getRandomKataList = (userid) => {
     return $http({
       method: 'GET',
-      url: `/api/random-kata` 
+      url: `/api/random-kata-list`
     });
-  };
+  }
 
-  this.getRandomKyuKata = (kyu) => {
+  // kata_listCtrl
+  this.getKatasByKyu = (kyu) => {
     return $http({
       method: 'GET',
-      url: `/api/kata-random/` + kyu 
+      url: `/api/katas-by-kyu/` + kyu 
     });
   };
 
+  // solutionsCtrl
   this.getKataSolutions = (kataid) => {
     return $http({
       method: 'GET',
+<<<<<<< HEAD
+      url: `/api/kata-random/` + kyu
+=======
       url: `/api/solutions/` + kataid
+>>>>>>> master
     });
   };
+
+  // profileCtrl - brings back a specific users kata information (script, name, kyu, description) - use on kata tab soltion tab
+  this.getUserKatas = () => {
+    return $http({
+      method: 'GET',
+      url: `/api/get-user-katas`
+    });
+  };
+
+
+
 
 });
