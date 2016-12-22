@@ -3,6 +3,7 @@ const db = app.get('db');
 
 module.exports = {
     getUser: (req, res, next) => {
+        console.log(req.user);
 	    return res.status(200).json(req.user);
     },
 
@@ -86,5 +87,15 @@ module.exports = {
             return res.status(200).json(katas);
         })
     },
+
+    addPointsToUser: (req, res, next) => {
+        db.read.user_points([req.body.points, req.body.id], (err, user) => {
+            if (err) {
+                console.log(err);
+                res.status(500).json(err);
+            }
+            return res.status(200).json(user);
+        })
+    }
 
 }

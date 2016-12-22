@@ -1,11 +1,17 @@
+
 /************ SOLUTIONS CONTROLLER *********/
-// each Ctrl should call  - mainService.user - for access to the user object
 
 angular.module('app').controller('solutionsCtrl', function($scope, $state, mainService, $stateParams) {
 
   $scope.kataid = $stateParams.kataid;
 
-    // $scope.getKataById to be at the top of the page and the solutions will go below
+    $scope.getKataById = (kataid) => {
+        mainService.getKataById(kataid).then(response => {
+            $scope.kataById = response.data;
+            $scope.getKataSolutions($scope.kataid);
+            console.log($scope.katabyId);
+        })
+    }
 
     $scope.getKataSolutions = (kataid) => {
         mainService.getKataSolutions(kataid).then(response => {
@@ -15,7 +21,7 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
     }
 
     $scope.init = () => {
-        $scope.getKataSolutions(1 /* replace 1 with kataid when set up */);
+        $scope.getKataById($scope.kataid); 
     }
 
 
