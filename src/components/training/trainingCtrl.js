@@ -1,7 +1,5 @@
 /**********TRAINING CONTROLLER************/
 
-// each Ctrl should call  - mainService.user - for access to the user object
-
 angular.module('app').controller('trainingCtrl', function($scope, $state, mainService, $stateParams) {
 
   $scope.kataid = $stateParams.kataid;
@@ -96,6 +94,10 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
 	     console.log(response.data);
      });
   };
+
+  $scope.addPointsToUser = (points, userid) => {
+    mainService.addPointsToUser(mainService.pointsCalculator($scope.kyu, mainServive.user.id), mainServive.user.id)
+  }
 
   $scope.submitAnswer = (solution, kataid, userid) => {
     if ($scope.passed){

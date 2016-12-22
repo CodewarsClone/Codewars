@@ -105,6 +105,8 @@ app.post('/api/test/examples', testCtrl.testExamplesKata);
 app.post('/api/solution/:kataId', kataCtrl.postSolution);
 app.post('/api/kata-by-name', kataCtrl.searchByKatasName);
 
+app.put('/api/points', kataCtrl.addPointsToUser);
+
 
 
 app.listen(config.port, function () {
