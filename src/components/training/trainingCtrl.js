@@ -2,7 +2,9 @@
 
 // each Ctrl should call  - mainService.user - for access to the user object
 
-angular.module('app').controller('trainingCtrl', function($scope, $state, mainService) {
+angular.module('app').controller('trainingCtrl', function($scope, $state, mainService, $stateParams) {
+
+  $scope.kataid = $stateParams.kataid;
 
   /** Create text areas **/
   var textarea1 = document.getElementById('solution-input');
@@ -49,7 +51,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     });
   }
 
-  $scope.getKataById(2);
+  $scope.getKataById($scope.kataid);
 
 
 
