@@ -21,6 +21,7 @@ $grey-color: #C0C0C0;
 
 .ul {
 display: flex;
+height:35px;
 }
 
 .li {
@@ -41,16 +42,34 @@ display: flex;
 
 .icon-div {
     width: 55px;
-    margin:auto;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .main-icon {
     width:35px;
     height:35px;
+    left:50px;
 }
 .side-menu-icon {
 //   width: 20px;
-  height: 20px;
+  height: 22px;
+}
+
+#icon1 {
+
+}
+
+#icon2 {
+
+}
+
+#icon3 {
+
+}
+
+#icon4 {
+
 }
 
 .menu-items {

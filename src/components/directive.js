@@ -10,7 +10,9 @@ angular.module('app').directive('animateDir', function () {
           console.log('this is working');
           // $('.side-menu-container').css('width', '160px');
           $('.side-menu').css('width', '215px');
+          setTimeout(function(){
           $('.menu-items').css('display','flex');
+          },200);
         });
         $('.side-menu').on('mouseleave', function () {
           console.log("it's all gone");
