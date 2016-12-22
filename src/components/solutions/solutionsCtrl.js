@@ -9,7 +9,7 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
         mainService.getKataById(kataid).then(response => {
             $scope.kataById = response.data;
             $scope.getKataSolutions($scope.kataid);
-            console.log($scope.katabyId);
+            console.log($scope.kataById);
         })
     }
 

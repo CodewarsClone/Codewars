@@ -151,7 +151,6 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   }
 
 this.rankCalculator = (user) => {
-  console.log(user);
   switch (true) {
     case user.points < 12:
       return user.kyu_level = 8;
