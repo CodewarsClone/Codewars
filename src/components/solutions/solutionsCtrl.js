@@ -1,5 +1,10 @@
 
-angular.module('app').controller('solutionsCtrl', function($scope, $state, mainService) {
+/************ SOLUTIONS CONTROLLER *********/
+// each Ctrl should call  - mainService.user - for access to the user object
+
+angular.module('app').controller('solutionsCtrl', function($scope, $state, mainService, $stateParams) {
+
+  $scope.kataid = $stateParams.kataid;
 
     $scope.getKataById = (kataid) => {
         mainService.getKataById(kataid).then(response => {
@@ -19,7 +24,7 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
         $scope.getKataById(1 /* replace 1 with kataid when set up */);
         $scope.getKataSolutions(1 /* replace 1 with kataid when set up */);
     }
-    
+
 
 
 });

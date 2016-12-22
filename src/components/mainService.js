@@ -90,7 +90,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.getKatasByKyu = (kyu) => {
     return $http({
       method: 'GET',
-      url: `/api/katas-by-kyu/` + kyu 
+      url: `/api/katas-by-kyu/` + kyu
     });
   };
 
