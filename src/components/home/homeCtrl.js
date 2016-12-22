@@ -2,12 +2,14 @@
 
 angular.module('app').controller('homeCtrl', function($scope, $state, mainService) {
 
-    $scope.getUser = () => {
-        mainService.getUser().then(response => {
-            mainService.user = response.data[0];
-            console.log(mainService.user);
-        })
-    }
+  console.log(mainService.user);
+
+    // $scope.getUser = () => {
+    //     mainService.getUser().then(response => {
+    //         mainService.user = response.data[0];
+    //         console.log(mainService.user);
+    //     })
+    // }
 
     $scope.getRandomKata = (userid) => {
         mainService.getRandomKata(userid).then(response => {
@@ -20,7 +22,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
     // If there is a button you can link the button to $scope.getRandomKata
 
     $scope.init = () => {
-        $scope.getUser();
+        // $scope.getUser();
         $scope.getRandomKata(mainService.user.id);
     }
 

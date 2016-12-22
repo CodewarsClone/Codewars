@@ -5,8 +5,8 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   // $sce.trustAsResourceUrl('/s');
 
   // Dumby information so I don't have to mess with the server all the time.
-  // this.user = {id: 4, github_id: "20197415", name: "Steven", email: null, picture_url: "https://avatars.githubusercontent.com/u/20197415?v=3", username: "Steven-Nagie"};
-  this.user = {};
+  this.user = {id: 4, github_id: "20197415", name: "Steven", email: null, picture_url: "https://avatars.githubusercontent.com/u/20197415?v=3", username: "Steven-Nagie"};
+  // this.user = {};
 
   //this.currentKataId = {}
 

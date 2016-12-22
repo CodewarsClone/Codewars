@@ -28,27 +28,41 @@
 
   <div class="kata-list-right">
 
-    <div class="individual-kata">
+    <p class="font14-reg-gray">{{totalKata}} Kata Found</p>
 
-      <div class="indv-kata-left">
-        <div class="indv-kata-top">
-          <img id="difficulty-icon" src="./assets/imgs/6_kyu_icon.png" alt="6kyu">
-          <h3 class="font17-reg" id="kata-name">Kata Name</h3>
-        </div>
-        <div class="kata-stats">
-          <i class="fa fa-star-o kata-stats-info" aria-hidden="true"></i>
-          <p class="kata-stats-info">2</p>
-          <i class="" aria-hidden="true"></i>
-        </div>
-        <div class="indv-kata-tags">
-          <p class="kata-stats-info">Here's where tags go</p>
-        </div>
-      </div>
+    <div class="individual-kata" ng-repeat="kata in randomKataList">
 
-      <div class="individual-kata-languages">
-        <img id="difficulty-icon" src="./assets/imgs/6_kyu_icon.png" alt="">
-      </div>
+        <div class="indv-kata-left">
+          <div class="indv-kata-top">
+            <img id="difficulty-icon" src="./assets/imgs/{{kata.kyu}}_kyu_icon.png" alt="6kyu">
+            <h3 class="font17-reg">
+              <a class="font17-reg" id="kata-name" href="/#/training/{{kata.id}}">{{kata.name}}</a>
+            </h3>
+          </div>
+          <div class="kata-stats">
+            <img class="kata-stats-icon" src="./assets/imgs/bookmarked_icon.png"/>
+            <p class="kata-stats-info">bookmarked</p>
+            <img class="kata-stats-icon" src="./assets/imgs/collections_icon.png"/>
+            <p class="kata-stats-info">collections</p>
+            <img class="kata-stats-icon" src="./assets/imgs/satisfaction_icon.png" />
+            <p class="kata-stats-info">satisfaction</p>
+            <img class="kata-stats-icon" src="./assets/imgs/completion_icon.png"/>
+            <p class="kata-stats-info">completion</p>
+            <img class="kata-stats-icon" src="./assets/imgs/creator_icon.png"/>
+            <p class="kata-stats-info">creator</p>
+          </div>
+          <div class="indv-kata-tags">
+            <p class="kata-stats-info">Here's where tags go</p>
+          </div>
+        </div>
 
-    </div>
-  </div>
+        <div class="individual-kata-languages">
+          <img id="difficulty-icon" src="./assets/imgs/6_kyu_icon.png" alt="">
+        </div>
+
+      <!-- Created this div with the hope of creating the perfect linear gradient, fading border as on the codewars site.  -->
+      <!-- <hr class="kata-bottom-border-hr" /> -->
+
+    </div> <!--end individual-kata div -->
+  </div> <!--end kata-list-right -->
 </div>

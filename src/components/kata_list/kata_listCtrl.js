@@ -4,9 +4,10 @@ angular.module('app').controller('kata_listCtrl', function($scope, $state, mainS
         mainService.getRandomKataList(userid).then(response => {
             console.log(response.data);
             $scope.randomKataList = response.data;
+            $scope.totalKata = $scope.randomKataList.length;
         })
     }
-    
+
     $scope.searchKatasByName = (userInput) => {
         mainService.searchKatasByName(`%${userInput}%`).then(response => {
             console.log(response.data);
