@@ -26,21 +26,27 @@ module.exports = {
 			
 			
 			kata.test_script.forEach((ele, i) =>{
-				let deffered = Q.defer();
 				
+				let deffered = Q.defer();
 				exec(`docker run --rm codewars/node-runner run -l javascript -c "${body.script}" -t cw -f "${ele.test}"`,
 					(err, stdOut, stdErr) => {
 						if (err) {
 							console.log(err);
 						} else if (stdOut) {
-							deffered.resolve(stdOut);
+							console.log(stdOut.search(/passed/gi));
+							if (stdOut.search(/passed/gi) > 0) {
+								ele.passed = true
+							} else {
+								ele.passed = false;
+							}
 							ele.result = stdOut;
+							deffered.resolve(stdOut);
 						} else if (stdErr) {
-							deffered.resolve(stdErr);
+							console.log(stdErr);
 							ele.result = stdErr;
+							deffered.resolve(stdErr);
 						}
 					});
-				
 				promiseArr.push(deffered.promise)
 			});
 			
@@ -59,22 +65,36 @@ module.exports = {
 		console.log(body.script);
 		
 		body.examples.forEach((ele, i) => {
-			let deffered = Q.defer();
+			//Make sure that test is not empty
+			if (ele.test) {
+				let deffered = Q.defer();
+				
+				exec(`docker run --rm codewars/node-runner run -l javascript -c "${body.script}" -t cw -f "${ele.test}"`,
+					(err, stdOut, stdErr) => {
+						if (err) {
+							console.log(err);
+						} else if (stdOut) {
+							console.log(stdOut.search(/passed/gi));
+							if (stdOut.search(/passed/gi) > 0) {
+								ele.passed = true
+							} else {
+								ele.passed = false;
+							}
+							ele.result = stdOut;
+							deffered.resolve(stdOut);
+						} else if (stdErr) {
+							console.log(stdErr);
+							ele.result = stdErr;
+							deffered.resolve(stdErr);
+						}
+					});
+				
+				
+				promiseArr.push(deffered.promise)
+			} else {
+				return
+			}
 			
-			exec(`docker run --rm codewars/node-runner run -l javascript -c "${body.script}" -t cw -f "${ele.test}"`,
-				(err, stdOut, stdErr) => {
-					if (err) {
-						console.log(err);
-					} else if (stdOut) {
-						deffered.resolve(stdOut);
-						ele.result = stdOut;
-					} else if (stdErr) {
-						deffered.resolve(stdErr);
-						ele.result = stdErr;
-					}
-				});
-			
-			promiseArr.push(deffered.promise)
 		});
 		
 		Q.all(promiseArr).then(response => {
