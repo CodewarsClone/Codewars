@@ -53,8 +53,6 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
 
   $scope.getKataById($scope.kataid);
 
-
-
   //Examples should be an array of objects. Returned results will be an array with the different tests and their results.
   $scope.testExamples = function() {
     var solutions = solutionsCode.getValue();
@@ -63,12 +61,13 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     solutions = solutions.replace(/\n/g, " ");
     solutions = solutions.replace(/\s+/g, " ");
     var examplesArr = [];
-    console.log("solutions: ", solutions, " examples: ", examples);
     examples = examples.split(/\n/);
-    console.log(examples);
     examples.forEach(example => examplesArr.push({test: example}));
     var t0 = performance.now()
-    mainService.testExamples(solutions, examplesArr).then((response) => $scope.output.push(response.data[0]));
+    mainService.testExamples(solutions, examplesArr).then((response) => {
+      $scope.output.push(response.data[0])
+      console.log(response.data);
+    });
     var t1 = performance.now();
     $scope.time = "Time: " + Math.round((t1 - t0)*1000) + " ms";
   }
