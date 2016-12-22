@@ -14,7 +14,7 @@ module.exports = {
                     res.status(500).json(err);
                 }
                 return res.status(200).json(kata[0]);
-            })   
+            })
     },
     
     getRandomKata: (req, res, next) => {
@@ -24,7 +24,7 @@ module.exports = {
                 res.status(500).json(err);
             }
             return res.status(200).json(katas[Math.floor(Math.random() * katas.length + 1)]);
-        })         
+        })
     },
 
     getRandomKataList: (req, res, next) => {
@@ -34,7 +34,7 @@ module.exports = {
                 res.status(500).json(err);
             }
             return res.status(200).json(katas);
-        })         
+        })
     },
 
     getKatasByKyu: (req, res, next) => {
@@ -42,7 +42,7 @@ module.exports = {
             if (err) {
                 console.log(err);
                 res.status(500).json(err);
-            } 
+            }
             return res.status(200).json(katas);
         })
     },
