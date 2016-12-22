@@ -21,8 +21,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
     // If there is a button you can link the button to $scope.getRandomKata
 
 
-    $scope.init = () => {
-        $scope.getUser();
-    }
+    $scope.getUser();
+
 
 });

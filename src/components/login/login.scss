@@ -1,0 +1,80 @@
+/**************LOGIN PAGE**************/
+$sidebar-color: #222222;
+$main-background: #303133;
+$container1: #262729;
+$container2: #2B2C2E;
+$container3: #3C3C3C;
+$container4: #1D1D1F;
+$blueContainer: #363749;
+$button1: #1E1F21;
+
+$font: 'Lato', sans-serif;
+
+$yellow-color: #ECB613;
+$blue-color: #6795DE;
+$orange-color: #CF4B32;
+$clone-wars-color: rgb(217, 217, 217);
+$grey-color: #C0C0C0;
+
+.login-main {
+  height: 100vh;
+  width: 100vw;
+  background-color: $main-background;
+  display: flex;
+
+//   margin:auto;
+}
+.middle {
+  background-color: $container1;
+  width: 330px;
+  height: 85vh;
+  margin: auto;
+
+}
+
+.logo {
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  text-shadow: 5px;
+}
+
+.logo-padding {
+  padding: 75px 75px 10px 75px;
+}
+
+.logo-font {
+  color: $clone-wars-color;
+  font-size: 35px;
+  text-align: center;
+}
+
+.button {
+  background-color: $button1;
+  width: 280px;
+  height: 30px;
+  border-radius: 5px;
+  margin: auto;
+  color: $orange-color;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
+  // flex-direction: row;
+  align-content: center;
+}
+
+.button-icon {
+  height: 20px;
+  width: 20px;
+}
+
+.center {
+  text-align: center;
+  color: $grey-color;
+}
+
+.bottom-links {
+  text-align: center;
+  display: flex;
+  color: white;
+}

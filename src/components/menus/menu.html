@@ -1,27 +1,28 @@
 <animate-dir settings='settings'></animate-dir>
 <div class='view'>
-<div class='menu'>
-  <div class="side-menu font14-reg menu-items">
-    <ul class='center'>
-      <li><img src='./assets/imgs/ST-R.png' class='side-menu-icon'></li>
-      <li><img src='./assets/imgs/arrow_icon.png' class='side-menu-icon'></li>
-      <li><img src='./assets/imgs/kumite_icon.png' class='side-menu-icon'></li>
-      <li><img src='./assets/imgs/blurb_icon.png' class='side-menu-icon'></li>
-      <li><img src='./assets/imgs/ST-R.png' class='side-menu-icon'></li>
-    </ul>
-  </div>
-  <div class='side-menu-container font14-reg'>
-    <ul>
-      <li>Home</li>
-      <li>Kata</li>
-      <li>Kumite</li>
-      <li>Forum</li>
-      <li>Docs</li>
-    </ul>
-  </div>
-  <div class="top-menu">
-  </div>
-  <main>
-    <ui-view class='main-div'></ui-view>
-  </main>
+  <div class='menu'>
+    <div class="side-menu font16-reg">
+      <ul>
+        <li class='ul'>
+          <div class='icon-div'><img src='./assets/imgs/ST-R.png' class='main-icon li'></div><span class='menu-items li'>Home</span></li><br>
+        <li class="ul">
+          <div class='icon-div'><img src='./assets/imgs/arrow_icon.png' class='side-menu-icon li' id='icon1'></div><span class='menu-items'>Kata</span></li><br>
+        <li class="ul">
+          <div class='icon-div'><img src='./assets/imgs/kumite_icon.png' class='side-menu-icon li' id='icon2'></div><span class='menu-items'>Kumite</span></li><br>
+        <li class="ul">
+          <div class='icon-div'><img src='./assets/imgs/blurb_icon.png' class='side-menu-icon li' id='icon3'></div><span class='menu-items'>Forum</span></li><br>
+        <li class="ul">
+          <div class='icon-div'><img src='./assets/imgs/asset_23.png' class='side-menu-icon li' id='icon4'></div><span class='menu-items'>Docs</span></li><br>
+      </ul>
+    </div>
+    <div class="top-menu">
+      <ul class='ul-top'>
+        <li><div class='li65'><img src='./assets/imgs/asset_30.png' class='li65-img'></div></li>
+        <li><div class='li65'><img src='./assets/imgs/asset_31.png'class='li65-img'></div></li>
+        <li class='li170'><li>img</li><li>kyu</li><li>lvl</li></li>
+      </ul>
+    </div>
+    <main>
+      <ui-view class='main-div'></ui-view>
+    </main>
   </div>

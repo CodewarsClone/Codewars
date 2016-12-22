@@ -1,0 +1,126 @@
+/**************SIDE MENU**************/
+
+$sidebar-color: #222222;
+$main-background: #303133;
+$container1: #262729;
+$container2: #2B2C2E;
+$container3: #3C3C3C;
+$container4: #1D1D1F;
+$blueContainer: #363749;
+$button1: #1E1F21;
+$font: 'Lato',
+sans-serif;
+$yellow-color: #ECB613;
+$blue-color: #6795DE;
+$orange-color: #CF4B32;
+$clone-wars-color: rgb(217, 217, 217);
+$grey-color: #C0C0C0;
+
+.view {
+  flex-direction: row;
+}
+
+.ul {
+display: flex;
+height:35px;
+}
+
+.li {
+    flex-direction: row;
+}
+
+.side-menu {
+  background-color: $sidebar-color;
+  height: 100%;
+  width: 55px;
+  padding: 5px;
+  float: left;
+  position: fixed;
+  left: 0;
+  transition: width 0.5s;
+  z-index: 99;
+}
+
+.icon-div {
+    width: 55px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.main-icon {
+    width:35px;
+    height:35px;
+    left:50px;
+}
+.side-menu-icon {
+//   width: 20px;
+  height: 22px;
+}
+
+#icon1 {
+
+}
+
+#icon2 {
+
+}
+
+#icon3 {
+
+}
+
+#icon4 {
+
+}
+
+.menu-items {
+  display: none;
+}
+
+
+/**************TOP MENU**************/
+
+.top-menu {
+  background-color: $sidebar-color;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 288.25px;
+  height: 50px;
+}
+
+.ul-top {
+    display: flex;
+    flex-direction: row;
+}
+.li65 {
+    width: 65px;
+}
+.li65-img {
+    margin:auto;
+    vertical-align: center;
+    height: 25px;
+}
+
+.li170 {
+    width: 170px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.li170-img {
+    vertical-align: center;
+}
+
+.li170-1 {
+
+}
+
+.li170-2 {
+
+}
+
+.li170-3 {
+
+}
