@@ -3,7 +3,6 @@ const db = app.get('db');
 
 module.exports = {
     getKatas: (req, res, next) => {
-        console.log('get katas ran');
         if (!req.params.kataId) {
             db.read.katas((err, kata) => {
                 if (err) {
@@ -18,7 +17,7 @@ module.exports = {
                     console.log(err);
                     res.status(500).json(err);
                 }
-                return res.status(200).json(kata);
+                return res.status(200).json(kata[0]);
             })
         }   
     },
