@@ -5,6 +5,7 @@
 angular.module('app').controller('trainingCtrl', function($scope, $state, mainService, $stateParams) {
 
   $scope.kataid = $stateParams.kataid;
+  $scope.passed = false;
 
   /** Create text areas **/
   var textarea1 = document.getElementById('solution-input');
@@ -84,11 +85,22 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     $scope.showOutput();
     solutions = solutions.replace(/\n/g, " ");
     solutions = solutions.replace(/\s+/g, " ");
-    // mainService.testSuite(solutions, $scope.kataid).then((response) => console.log(response));
-  }
+     mainService.testSuite(solutions, $scope.kataid).then((response) => {
+       $scope.passed = true
+	     $scope.output = [];
+	     response.data.forEach((ele, i) => {
+		     $scope.output.push(ele)
+         if (!ele.passed) {$scope.passed = false}
+         
+	     });
+	     console.log(response.data);
+     });
+  };
 
   $scope.submitAnswer = (solution, kataid, userid) => {
-    mainService.submitAnswer(solution, kataid, userid);
+    if ($scope.passed){
+	    mainService.submitAnswer(solution, kataid, userid);
+    }
   }
 
 });
