@@ -1,7 +1,5 @@
 /**********TRAINING CONTROLLER************/
 
-// each Ctrl should call  - mainService.user - for access to the user object
-
 angular.module('app').controller('trainingCtrl', function($scope, $state, mainService) {
 
   /** Create text areas **/
