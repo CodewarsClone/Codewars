@@ -92,12 +92,35 @@ height:35px;
 .ul-top {
     display: flex;
     flex-direction: row;
-    align-items: center;
 }
 .li65 {
     width: 65px;
 }
+.li65-img {
+    margin:auto;
+    vertical-align: center;
+    height: 25px;
+}
 
 .li170 {
     width: 170px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.li170-img {
+    vertical-align: center;
+}
+
+.li170-1 {
+
+}
+
+.li170-2 {
+
+}
+
+.li170-3 {
+
 }
