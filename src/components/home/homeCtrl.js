@@ -2,6 +2,9 @@
 
 angular.module('app').controller('homeCtrl', function($scope, $state, mainService) {
 
+    $scope.languageOptions = ["JavaScript", "Ruby", "C++"];
+    $scope.progressOptions = ["Fundamentals", "Rank Up", "Practice and Repeat", "Beta", "Random"];
+
     $scope.getUser = () => {
         mainService.getUser().then(response => {
             console.log(response.data);

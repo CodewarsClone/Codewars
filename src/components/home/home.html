@@ -1,18 +1,41 @@
 <section class="home" ng-init="init()">
 
-  <div class="next-challenge">
-    <p>Here's the next challenge</p>
-    <p>Here's where we'd have a box to sort according to language</p>
-    <p>Here we have a box where we can sort according to what we want to focus on today</p>
-    <button>Train</button>
-    <button>Skip</button>
-  </div>
+  <div class="home-up">
+    <div class="next-challenge font16-bold">
+      <h3 id="your-next-challenge">Your Next Challenge...</h3>
+      <div class="challenge-selector-div">
+        <select class="home-dropdown" ng-init="selectedLanguage = languageOptions[0]" ng-model="selectedLanguage" ng-options="x for x in languageOptions"></select>
+        <select class="home-dropdown" ng-init="selectedProgress = progressOptions[0]" ng-model="selectedProgress" ng-options="x for x in progressOptions"></select>
+      </div>
+      <div class="challenge-buttons-div">
+        <a ui-sref="training/{{randomKata.id}}"><button id="train-button" class="home-button" href="#/training/{{randomKata.id}}">Train</button></a>
+        <button id="skip-button" class="home-button" ng-click="getRandomKata(mainService.user.id)">Skip</button>
+      </div>
+    </div>
 
-  <div class="challenge-details">
-    <h1>Kata name</h1>
-    <p>more details about kata</p>
-  </div>
+    <div class="challenge-details">
+      <h1>Kata name</h1>
+      <p>more details about kata</p>
+      <button ui-sref="training">Go to next page</button>
+    </div>
+  </div> <!--END OF HOME-UP -->
 
-  <button ui-sref="training">Go to next page</button>
+  <div class="ads">
+    <p>codewars red logo</p>
+    <div>
+      <h6>Upgrade To Clonewars Red!</h6>
+      <p>Support Clonewars and get some fancy upgrades like Pro Stats, Head-to-head comparisons, No ads, Stream Output and more.</p>
+      <a href="https://www.codewars.com/subscribe"><button>Learn About Red</button></a>
+    </div>
+  </div> <!--END OF ADS-->
+
+  <div class="allies">
+    
+  </div> <!--END OF ALLIES-->
+
+  <div class="discourse">
+
+  </div> <!--END OF DISCOURSE-->
+
 
 </section>
