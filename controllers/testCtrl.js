@@ -14,16 +14,13 @@ const exec = require('child_process').exec;
 
 module.exports = {
 	testKata: (req, res, next) => {
-		console.log('hit testCtrl');
 		
 		let body = req.body;
-		console.log(body);
 		
-		db.read.kata_by_id([req.params.kataId], (err, kataArray)=>{
+		db.read.kata_for_test([req.params.kataId], (err, kataArray)=>{
 			if(err) console.log(err);
 			let kata = kataArray[0];
 			let promiseArr = [];
-			
 			
 			kata.test_script.forEach((ele, i) =>{
 				
@@ -88,7 +85,6 @@ module.exports = {
 							deffered.resolve(stdErr);
 						}
 					});
-				
 				
 				promiseArr.push(deffered.promise)
 			} else {
