@@ -8,6 +8,8 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   // this.user = {id: 4, github_id: "20197415", name: "Steven", email: null, picture_url: "https://avatars.githubusercontent.com/u/20197415?v=3", username: "Steven-Nagie"};
   this.user = {};
 
+  //this.currentKataId = {}
+
 // POST
   this.testExamples = (solution, examples) => {
     return $http({
@@ -30,7 +32,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     });
   };
 
-  this.setSolution = (solution, kataid) => {
+  this.submitAnswer = (solution, kataid, userid) => {
     return $http({
       method: 'POST',
       url: `/api/solution/` + kataid,
@@ -96,11 +98,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.getKataSolutions = (kataid) => {
     return $http({
       method: 'GET',
-<<<<<<< HEAD
-      url: `/api/kata-random/` + kyu
-=======
       url: `/api/solutions/` + kataid
->>>>>>> master
     });
   };
 

@@ -79,8 +79,8 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     // mainService.testSuite(solutions, $scope.kataid).then((response) => console.log(response));
   }
 
-  
-  
-
+  $scope.submitAnswer = (solution, kataid, userid) => {
+    mainService.submitAnswer(solution, kataid, userid);
+  }
 
 });
