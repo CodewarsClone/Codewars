@@ -21,7 +21,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
   });
 
   $scope.languages = ['JavaScript', 'Python'];
-  $scope.versions = ['Node v0.10.33', 'Node v6.6.0'];
+  $scope.versions = ['Node v6.6.0'];
   $scope.output = [];
 
   //NG-SHOWS
