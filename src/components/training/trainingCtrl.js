@@ -58,6 +58,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
 
   //Examples should be an array of objects. Returned results will be an array with the different tests and their results.
   $scope.testExamples = function() {
+    console.log('test is working Josh');
     var solutions = solutionsCode.getValue();
     var examples = examplesCode.getValue();
     $scope.showOutput();
