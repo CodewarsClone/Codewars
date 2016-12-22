@@ -96,7 +96,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
   };
 
   $scope.addPointsToUser = (points, userid) => {
-    
+    mainService.addPointsToUser(mainService.pointsCalculator($scope.kyu, mainServive.user.id), mainServive.user.id)
   }
 
   $scope.submitAnswer = (solution, kataid, userid) => {

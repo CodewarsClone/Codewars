@@ -69,7 +69,6 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   };
 
   // homeCtrl - displaying one kata withing range
-  // kata_listCtrl = displays a plethora of katas based on user ability
   this.getRandomKata = (userid) => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
     return $http({
       method: 'GET',
@@ -77,6 +76,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     });
   };
 
+  // kata_listCtrl = displays a plethora of katas based on user ability
   this.getRandomKataList = (userid) => {
     return $http({
       method: 'GET',
@@ -112,12 +112,16 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.addPointsToUser = (points, userid) => {
     return $http({
       method: 'PUT',
-      url: `/api/points`
+      url: `/api/points`,
+      data: {
+        points: points,
+        id: userid
+      }
     })
   }
 
 // OTHER
-  this.pointCalculator = (kyu, user) => {
+  this.pointsCalculator = (kyu, user) => {
     switch (true) {
       case kyu = 8:
         return user.points += 1;
