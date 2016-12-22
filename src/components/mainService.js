@@ -96,11 +96,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.getKataSolutions = (kataid) => {
     return $http({
       method: 'GET',
-<<<<<<< HEAD
-      url: `/api/kata-random/` + kyu
-=======
       url: `/api/solutions/` + kataid
->>>>>>> master
     });
   };
 
