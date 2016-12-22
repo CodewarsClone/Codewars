@@ -1,14 +1,10 @@
 /**********TRAINING CONTROLLER************/
 
-<<<<<<< HEAD
-angular.module('app').controller('trainingCtrl', function($scope, $state, mainService) {
-=======
 // each Ctrl should call  - mainService.user - for access to the user object
 
 angular.module('app').controller('trainingCtrl', function($scope, $state, mainService, $stateParams) {
 
   $scope.kataid = $stateParams.kataid;
->>>>>>> master
 
   /** Create text areas **/
   var textarea1 = document.getElementById('solution-input');
