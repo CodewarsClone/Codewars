@@ -21,7 +21,6 @@ angular.module('app').directive('animateDir', function () {
         });
 
         $('.top-menu').on('mouseleave', function () {
-        console.log('I left the div');
           $('.top-menu').css('background-color', 'rgba(0,0,0,0)')
         });
 
