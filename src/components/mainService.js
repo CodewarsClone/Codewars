@@ -4,7 +4,9 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
 
   // $sce.trustAsResourceUrl('/s');
 
-this.user = {}
+  // Dumby information so I don't have to mess with the server all the time.
+  // this.user = {id: 4, github_id: "20197415", name: "Steven", email: null, picture_url: "https://avatars.githubusercontent.com/u/20197415?v=3", username: "Steven-Nagie"};
+  this.user = {};
 
 // POST
   this.testExamples = (solution, examples) => {
@@ -71,14 +73,14 @@ this.user = {}
   this.getRandomKata = (userid) => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
     return $http({
       method: 'GET',
-      url: `/api/random-kata` 
+      url: `/api/random-kata`
     });
   };
 
   this.getRandomKataList = (userid) => {
     return $http({
       method: 'GET',
-      url: `/api/random-kata-list` 
+      url: `/api/random-kata-list`
     });
   }
 
@@ -90,11 +92,15 @@ this.user = {}
     });
   };
 
-  // solutionsCtrl 
+  // solutionsCtrl
   this.getKataSolutions = (kataid) => {
     return $http({
       method: 'GET',
+<<<<<<< HEAD
+      url: `/api/kata-random/` + kyu
+=======
       url: `/api/solutions/` + kataid
+>>>>>>> master
     });
   };
 
