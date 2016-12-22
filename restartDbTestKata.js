@@ -13,7 +13,8 @@ let db = massive.connect({
 		if (err) {
 			console.log(err)
 		} else {
-			console.log('Kata can be inserted!!')
+			console.log('Kata can be inserted!!');
+			process.exit();
 		}
 	});
 	

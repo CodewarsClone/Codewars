@@ -74,18 +74,21 @@ $grey-color: #C0C0C0;
   display: flex;
   flex-direction: column;
   padding-top: 2vh;
-  height: calc(100vh - 150px);
-  width: 50vw;
+  height: 105vh;
+  width: 60vw;
   background-color: $container1;
-  margin: 15px 15px 15px 0px;
+  margin: 15px 15px 15px 0;
+  padding: 10px;
 }
 
 .instructions {
   // height: calc(100vh - 150px);
-  width: 50vw;
+  width: 40vw;
   overflow: scroll;
   margin: 15px;
   background-color: $container1;
+  padding: 10px;
+  height: 105vh;
 }
 
 .instructions-head {
@@ -106,22 +109,13 @@ hr {
   background-image: -linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
 }
 
-#solution-input {
-  height: 40vh;
-  width: 40vw;
-}
-
-#example-tests-input {
-  height: 25vh;
-  width: 40vw;
-}
-
 .test-examples-button {
   border: 1px solid #91b2e7;
   border-radius: 4%;
   width: 113px;
   height: 30px;
   background-color: #3C3C3C;
+  margin:15px;
 }
 
 .test-suite-button {
@@ -130,12 +124,14 @@ hr {
   width: 113px;
   height: 30px;
   background-color: #91b2e7;
+  margin:15px;
 }
 
-.training-body {
-  // background-color: red;
+.button-div {
+  display:flex;
+  justify-content: right;
 }
 
-#text-input {
-
+.example-tests-div {
+  height: 15vh;
 }

@@ -25,7 +25,6 @@ module.exports = {
 			let promiseArr = [];
 			
 			
-			
 			kata.test_script.forEach((ele, i) =>{
 				let deffered = Q.defer();
 				

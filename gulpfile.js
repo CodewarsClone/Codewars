@@ -69,4 +69,5 @@ gulp.task('watch', function () {
   return gulp.watch([paths.jsSource, paths.cssFiles, paths.scssFiles], ['clean']);
 });
 
+
 gulp.task('default', ['clean', 'watch']);
