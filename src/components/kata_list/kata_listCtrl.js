@@ -10,6 +10,7 @@ angular.module('app').controller('kata_listCtrl', function($scope, $state, mainS
     $scope.searchKatasByName = (userInput) => {
         mainService.searchKatasByName(`%${userInput}%`).then(response => {
             console.log(response.data);
+            $scope.searchResult = response.data;
         })
     }
 
