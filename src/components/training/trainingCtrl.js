@@ -68,7 +68,6 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     var examplesArr = [];
     examples = examples.split(/\n/);
     examples.forEach(example => examplesArr.push({test: example}));
-    var t0 = performance.now()
     mainService.testExamples(solutions, examplesArr).then((response) => {
       $scope.output = [];
       response.data.forEach((ele, i) => {
@@ -76,8 +75,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
       });
       console.log(response.data);
     });
-    var t1 = performance.now();
-    $scope.time = "Time: " + Math.round((t1 - t0)*1000) + " ms";
+    
   }
 
   $scope.testSuite = function() {
