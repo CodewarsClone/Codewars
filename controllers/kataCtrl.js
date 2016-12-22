@@ -43,7 +43,7 @@ module.exports = {
                 console.log(err);
                 res.status(500).json(err);
             } 
-            return res.status(200).json(katas[Math.floor(Math.random() * katas.length + 1)]);
+            return res.status(200).json(katas);
         })
     },
 

@@ -86,7 +86,7 @@ this.user = {}
   this.getKatasByKyu = (kyu) => {
     return $http({
       method: 'GET',
-      url: `/api/katas-by-kyu` + kyu 
+      url: `/api/katas-by-kyu/` + kyu 
     });
   };
 

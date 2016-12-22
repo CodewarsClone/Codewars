@@ -14,12 +14,14 @@ angular.module('app').controller('kata_listCtrl', function($scope, $state, mainS
     }
 
     $scope.getKatasByKyu = (kyu) => {
-
+        mainService.getKatasByKyu(kyu).then(response => {
+            console.log(response.data);
+            $scope.katasByKyu = response.data;
+        })
     }
 
     $scope.init = () => {
         $scope.getRandomKataList(mainService.user.id);
-        $scope.searchKatasByName("s");
     }
 
 });
