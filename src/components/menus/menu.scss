@@ -31,12 +31,13 @@ height:35px;
 
 .side-menu {
   background-color: $sidebar-color;
-  height: 100%;
+  height: 100vh;
   width: 55px;
   padding: 5px;
   float: left;
   position: fixed;
   left: 0;
+  top: 0;
   transition: width 0.5s;
   z-index: 99;
 }
