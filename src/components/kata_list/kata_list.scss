@@ -10,6 +10,7 @@ $container4: #1D1D1F;
 $blueContainer: #363749;
 $button1: #1E1F21;
 $selectedButton: #444547;
+$searchBarHighlighted: #131414;
 
 $font: 'Lato', sans-serif;
 
@@ -72,31 +73,8 @@ $grey-color: #C0C0C0;
   margin: 0;
 }
 
-.kata-list-left {
-  width: 15vw;
-  // height: 100vh;
-  background-color: red;
-  margin-right: 15px;
-}
-
-#kata-search {
-  width: 15vw;
-}
-
-.kata-sort {
-  display: flex;
-  flex-direction: column;
-}
-
-.kata-sort-div {
-  display: flex;
-  flex-direction: row;
-  
-}
-
 .kata-list-right {
-  width: 85vw;
-  background-color: blue;
+  width: 75vw;
 }
 
 /************* INDIVIDUAL KATA DIV *********/
@@ -104,9 +82,19 @@ $grey-color: #C0C0C0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid $grey-color;
   height: 118px;
+  border-bottom: 1px solid $selectedButton;
 }
+
+
+
+// .kata-bottom-border-hr {
+//   background-image: -webkit-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+//   background-image: -moz-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+//   background-image: -ms-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+//   background-image: -o-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+//   background-image: -linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+// }
 
 .indv-kata-top {
   display: flex;
@@ -118,13 +106,56 @@ $grey-color: #C0C0C0;
   margin-left: 10px;
 }
 
+#kata-name:hover {
+  color: $blue-color;
+}
+
 .kata-stats {
   display: flex;
   align-items: center;
+}
+
+.kata-stats-icon {
+  margin-top: 10px;
+  margin-left: 5px;
+  height: 15px;
+  width: 15px;
 }
 
 .kata-stats-info {
   color: $grey-color;
   margin-top: 10px;
   margin-left: 5px;
+}
+
+.indv-kata-tags {
+  margin-left: 6px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#tag-icon {
+  height: 10px;
+  width: 10px;
+  margin-top: 13px;
+}
+
+.tag-tag-div {
+  background-color: $container2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#tag-tag {
+  margin: 0 10px;
+}
+
+#tag-tag:hover {
+  color: $blue-color;
+  -webkit-user-select: none;
+  cursor: pointer;
 }
