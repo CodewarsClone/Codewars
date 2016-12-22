@@ -1,7 +1,5 @@
 /**********TRAINING CONTROLLER************/
 
-// each Ctrl should call  - mainService.user - for access to the user object
-
 angular.module('app').controller('trainingCtrl', function($scope, $state, mainService, $stateParams) {
 
   $scope.kataid = $stateParams.kataid;
@@ -78,6 +76,10 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     solutions = solutions.replace(/\n/g, " ");
     solutions = solutions.replace(/\s+/g, " ");
     // mainService.testSuite(solutions, $scope.kataid).then((response) => console.log(response));
+  }
+
+  $scope.addPointsToUser = (points, userid) => {
+    
   }
 
   $scope.submitAnswer = (solution, kataid, userid) => {

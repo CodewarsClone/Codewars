@@ -108,6 +108,15 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     });
   };
 
+// PUT
+  this.addPointsToUser = (points, userid) => {
+    return $http({
+      method: 'PUT',
+      url: `/api/points`
+    })
+  }
+
+// OTHER
   this.pointCalculator = (kyu, user) => {
     switch (true) {
       case kyu = 8:

@@ -87,4 +87,14 @@ module.exports = {
         })
     },
 
+    addPointsToUser: (req, res, next) => {
+        db.read.user_points([req.params.points, req.user.id], (err, user) => {
+            if (err) {
+                console.log(err);
+                res.status(500).json(err);
+            }
+            return res.status(200).json(user);
+        })
+    }
+
 }
