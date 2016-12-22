@@ -1,84 +1,85 @@
 <section class="training-main">
-  <div class="training-body">
-    <div class="training-top" ng-style='allGone'>
-      <div class="kata-name-container">
-        <div class="kata-name-container-top">
-          <img src="./assets/imgs/5_kyu_icon.png" alt="Difficulty" id="difficulty-icon">
-          <h3 class="font16-reg" id="kata-name">
-            Name of Kata
-          </h3>
-        </div>
-        <div class="kata-stats">
-          <p>Here's where stats go</p>
-          <p>Here's where stats go</p>
-          <p>Here's where stats go</p>
-        </div>
-      </div>
-      <!--End kata-name-container div-->
-      <div class="selection-div">
-        <select class="language-select-dropdown select-dropdown" ng-init="selectedLanguage = languages[0]" ng-model="selectedLanguage"
-          ng-options="x for x in languages">
-
-        </select>
-        <select class="language-version-select-dropdown select-dropdown" ng-init="selectedVersion = versions[0]" ng-model="selectedVersion"
-          ng-options="x for x in versions">
-
-        </select>
-      </div>
-      <div class="assorted-options">
-        <div class="view-options">Here's where view options go</div>
-        <div class="view-options">Here's where view options go</div>
-        <div class="view-options">Here's where view options go</div>
-      </div>
-    </div>
-    <div class="kata">
-      <!-- <div class="instructions">
-        <div class="instructions-head">
-          <button class="instructions-selector font13-reg-gray">Instructions</button>
-          <button class="instructions-selector font13-reg-gray">Output</button>
-        </div>
-        <hr>
-        <h2 class="font20-reg">Name of Kata</h2>
-        <div>
-          <p>Here's where the instructions go. We have to think about how to present code samples.</p>
-          <div ng-repeat="test in output">
-              <p>{{test.test}}</p>
-              <p>{{test.result}}</p>
-          </div>
-        </div>
-      </div> -->
-      <div class="instructions" ng-style="instructionStyle">
-        <div class="instructions-head">
-          <button class="instructions-selector font13-reg-gray" ng-click="showInstructions()">Instructions</button>
-          <button class="instructions-selector font13-reg-gray" ng-click="showOutput()">Output</button>
-        </div>
-        <hr>
-        <show-output ng-hide="showOutputShow"></show-output>
-        <show-instructions ng-hide="showInstructionsShow"></show-instructions>
-      </div>
-      <div class="kata-right" ng-style='kataStyle'>
-        <div class="solution-div font14-lit-gray">
-          <div class="solutions-header">
-            <p>Solution:</p>
-            <button value='small' ng-click="kataStyle={'width':'40vw'}; instructionStyle={'width':'60vw'}; allGone={'height':'100px'}">small</button>
-            <button value='medium' ng-click="kataStyle={'width':'60vw'}; instructionStyle={'width':'40vw'}; allGone={'height':'100px'}">medium</button>
-            <button value='large' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'height':'100px'}">large</button>
-            <button value='full-screen' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'display':'none'}; exampleGone={'display':'none'}">full screen</button>
-          </div>
-          <div ng-style="exampleGone" class='example'>
-            <textarea name="solution" id="solution-input" ng-init="solutionInput = 'var a = 1;'" ng-model="solutionInput"></textarea>
-          </div>
-        </div>
-        <div class="example-tests-div font14-lit-gray">
-          <p>Example Tests:</p>
-          <textarea name="examples" id="example-input" ng-init="examplesInput = 'Test.assertEquals(a, 1);'" id="example-tests-input"
-            ng-model="examplesInput"></textarea>
-          <div class='button-div'>
-            <button ng-click="testExamples()" class="test-examples-button font12-reg-blue">RUN EXAMPLES</button>
-            <button ng-click="testSuite()" class="test-suite-button font12-reg-black"><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>ATTEMPT</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="training-body">
+		<div class="training-top" ng-style='allGone'>
+			<div class="kata-name-container">
+				<div class="kata-name-container-top">
+					<img src="./assets/imgs/5_kyu_icon.png" alt="Difficulty" id="difficulty-icon">
+					<h3 class="font16-reg" id="kata-name">
+						Name of Kata
+					</h3>
+				</div>
+				<div class="kata-stats">
+					<p>Here's where stats go</p>
+					<p>Here's where stats go</p>
+					<p>Here's where stats go</p>
+				</div>
+			</div>
+			<!--End kata-name-container div-->
+			<div class="selection-div">
+				<select class="language-select-dropdown select-dropdown" ng-init="selectedLanguage = languages[0]" ng-model="selectedLanguage"
+						ng-options="x for x in languages">
+				
+				</select>
+				<select class="language-version-select-dropdown select-dropdown" ng-init="selectedVersion = versions[0]" ng-model="selectedVersion"
+						ng-options="x for x in versions">
+				
+				</select>
+			</div>
+			<div class="assorted-options">
+				<div class="view-options">Here's where view options go</div>
+				<div class="view-options">Here's where view options go</div>
+				<div class="view-options">Here's where view options go</div>
+			</div>
+		</div>
+		<div class="kata">
+			<!-- <div class="instructions">
+				<div class="instructions-head">
+					<button class="instructions-selector font13-reg-gray">Instructions</button>
+					<button class="instructions-selector font13-reg-gray">Output</button>
+				</div>
+				<hr>
+				<h2 class="font20-reg">Name of Kata</h2>
+				<div>
+					<p>Here's where the instructions go. We have to think about how to present code samples.</p>
+					<div ng-repeat="test in output">
+							<p>{{test.test}}</p>
+							<p>{{test.result}}</p>
+					</div>
+				</div>
+			</div> -->
+			<div class="instructions" ng-style="instructionStyle">
+				<div class="instructions-head">
+					<button class="instructions-selector font13-reg-gray" ng-click="showInstructions()">Instructions</button>
+					<button class="instructions-selector font13-reg-gray" ng-click="showOutput()">Output</button>
+				</div>
+				<hr>
+				<show-output ng-hide="showOutputShow"></show-output>
+				<show-instructions ng-hide="showInstructionsShow"></show-instructions>
+			</div>
+			<div class="kata-right" ng-style='kataStyle'>
+				<div class="solution-div font14-lit-gray">
+					<div class="solutions-header">
+						<p>Solution:</p>
+						<button value='small' ng-click="kataStyle={'width':'40vw'}; instructionStyle={'width':'60vw'}; allGone={'height':'100px'}">small</button>
+						<button value='medium' ng-click="kataStyle={'width':'60vw'}; instructionStyle={'width':'40vw'}; allGone={'height':'100px'}">medium</button>
+						<button value='large' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'height':'100px'}">large</button>
+						<button value='full-screen' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'display':'none'}; exampleGone={'display':'none'}">full screen</button>
+					</div>
+					<div ng-style="exampleGone" class='example'>
+						<textarea name="solution" id="solution-input" ng-init="solutionInput = 'var a = 1;'" ng-model="solutionInput"></textarea>
+					</div>
+				</div>
+				<div class="example-tests-div font14-lit-gray">
+					<p>Example Tests:</p>
+					<div>
+						<textarea name="examples" id="example-input" ng-init="examplesInput = 'Test.assertEquals(a, 1);'" id="example-tests-input" ng-model="examplesInput"></textarea>
+					</div>
+					<div class='button-div'>
+						<button ng-click="testExamples()" class="test-examples-button font12-reg-blue">RUN EXAMPLES</button>
+						<button ng-click="testSuite()" class="test-suite-button font12-reg-black"><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>ATTEMPT</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>

@@ -33,11 +33,18 @@ module.exports = {
 						if (err) {
 							console.log(err);
 						} else if (stdOut) {
-							deffered.resolve(stdOut);
+							console.log(stdOut.search(/passed/gi));
+							if (stdOut.search(/passed/gi) > 0) {
+								ele.passed = true
+							} else {
+								ele.passed = false;
+							}
 							ele.result = stdOut;
+							deffered.resolve(stdOut);
 						} else if (stdErr) {
-							deffered.resolve(stdErr);
+							console.log(stdErr);
 							ele.result = stdErr;
+							deffered.resolve(stdErr);
 						}
 					});
 				
@@ -66,11 +73,18 @@ module.exports = {
 					if (err) {
 						console.log(err);
 					} else if (stdOut) {
-						deffered.resolve(stdOut);
+						console.log(stdOut.search(/passed/gi));
+						if (stdOut.search(/passed/gi) > 0) {
+							ele.passed = true
+						} else {
+							ele.passed = false;
+						}
 						ele.result = stdOut;
+						deffered.resolve(stdOut);
 					} else if (stdErr) {
-						deffered.resolve(stdErr);
+						console.log(stdErr);
 						ele.result = stdErr;
+						deffered.resolve(stdErr);
 					}
 				});
 			
