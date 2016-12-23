@@ -101,23 +101,6 @@ $grey-color: #C0C0C0;
   padding: 10px;
 }
 
-::-webkit-scrollbar {
-  width: 15px;
-}
-
-::-webkit-scrollbar-track {
-  display: none;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: $sidebar-color;
-  border-radius: 30%;
-}
-
-::-webkit-scrollbar-corner {
-  display: none;
-}
-
 #random-kata-description {
   color: #efefef;
 }
