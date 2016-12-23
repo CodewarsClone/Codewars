@@ -2,10 +2,14 @@
 
 angular.module('app').controller('homeCtrl', function($scope, $state, mainService) {
 
+    $scope.languageOptions = ["JavaScript", "Ruby", "C++"];
+    $scope.progressOptions = ["Fundamentals", "Rank Up", "Practice and Repeat", "Beta", "Random"];
+
     $scope.getUser = () => {
         mainService.getUser().then(response => {
+            console.log(response.data);
             mainService.user = mainService.rankCalculator(response.data[0]);
-            console.log(mainService.user);
+            $scope.getRandomKata(mainService.user.id);
         })
     }
 
@@ -19,9 +23,8 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
     // the random kata is stored on $scope.randomKata.
     // If there is a button you can link the button to $scope.getRandomKata
 
-    $scope.init = () => {
-        $scope.getUser();
-        $scope.getRandomKata(mainService.user.id);
-    }
+
+    $scope.getUser();
+
 
 });

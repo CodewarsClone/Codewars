@@ -5,4 +5,6 @@ test.js
 dist/
 .DS_Store/
 src/dist/
+src/notes.txt
+helpful.js
 jsTests/

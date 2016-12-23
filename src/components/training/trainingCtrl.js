@@ -1,7 +1,5 @@
 /**********TRAINING CONTROLLER************/
 
-// each Ctrl should call  - mainService.user - for access to the user object
-
 angular.module('app').controller('trainingCtrl', function($scope, $state, mainService, $stateParams) {
 
   $scope.kataid = $stateParams.kataid;
@@ -60,6 +58,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
 
   //Examples should be an array of objects. Returned results will be an array with the different tests and their results.
   $scope.testExamples = function() {
+    console.log('test is working Josh');
     var solutions = solutionsCode.getValue();
     var examples = examplesCode.getValue();
     $scope.showOutput();
@@ -92,11 +91,14 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
 	     response.data.forEach((ele, i) => {
 		     $scope.output.push(ele)
          if (!ele.passed) {$scope.passed = false}
-         
 	     });
 	     console.log(response.data);
      });
   };
+
+  $scope.addPointsToUser = (points, userid) => {
+    mainService.addPointsToUser(mainService.pointsCalculator($scope.kyu, mainServive.user.id), mainServive.user.id)
+  }
 
   $scope.submitAnswer = (solution, kataid, userid) => {
     if ($scope.passed){

@@ -1,0 +1,14 @@
+getRandomKataList response:
+[{
+  description: 'var a should equal 1',
+  examples: [{
+    result: "",
+    test: "Test.assertEquals(a, 1)",
+  }],
+  id: 1,
+  kyu: 8,
+  name: "Sumbit This",
+  starter_code: "var a = 1"
+},
+{Problem 2},
+{Problem 3}]

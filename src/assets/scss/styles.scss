@@ -16,6 +16,7 @@ $blue-color: #6795DE;
 $orange-color: #CF4B32;
 $clone-wars-color: rgb(217, 217, 217);
 $grey-color: #C0C0C0;
+$green-color: #5F8120;
 // Thin 100 Italic
 // Light 300
 // Light 300 Italic
@@ -34,7 +35,6 @@ body {
 main {
     width: calc(100vw - 55px);
     margin-left: 55px;
-//   width: 100vw;
 }
 
 a {
@@ -43,6 +43,14 @@ a {
 
 
 /*********FONTSFONTSFONTSFONTSFONTS*********/
+
+.font40-reg {
+  color: #efefef;
+  font-family: $font;
+  font-size: 40px;
+  line-height: 28px;
+  font-weight: 400;
+}
 
 .font20-reg {
   color: #efefef;
@@ -60,11 +68,35 @@ a {
   font-weight: 400;
 }
 
+.font16-bold {
+  color: #efefef;
+  font-family: $font;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+}
+
+.font16-reg-efefef {
+  color: #efefef;
+  font-family: $font;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
 .font16-reg {
   color: white;
   font-family: $font;
   font-size: 16px;
   line-height: 22px;
+  font-weight: 400;
+}
+
+.font15-reg {
+  font-size: 15px;
+  line-height: 21px;
+  font-family: $font;
+  color: #efefef;
   font-weight: 400;
 }
 
@@ -76,6 +108,14 @@ a {
   font-weight: 400;
 }
 
+.searchBar-font {
+  color: #efefef;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  font-family: $font;
+}
+
 .font14-bold {
   color: white;
   font-family: $font;
@@ -85,12 +125,6 @@ a {
   position: absolute;
 }
 
-.font12-reg {
-  font-family: $font;
-  font-size: 12px;
-  font-weight: 100;
-}
-
 .font14-reg-gray {
   color: #C9C9C9;
   font-family: $font;
@@ -98,6 +132,15 @@ a {
   line-height: 22px;
   font-weight: 400;
 }
+
+.font14-reg-efefef {
+  color: #efefef;
+  font-family: $font;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
 
 .font14-lit-gray {
   color: #C9C9C9;
@@ -115,6 +158,12 @@ a {
   font-weight: 400;
 }
 
+.font12-reg {
+  font-family: $font;
+  font-size: 12px;
+  font-weight: 100;
+}
+
 .font12-reg-blue {
   color: #91b2e7;
   font-family: $font;
@@ -129,132 +178,4 @@ a {
   font-size: 12px;
   line-height: 12px;
   font-weight: 400;
-}
-
-/**************SIDE MENU**************/
-.view {
-display:flex;
-flex-direction: row;
-
-}
-
-.side-menu {
-  background-color: $sidebar-color;
-  height: 100%;
-  width: 55px;
-  padding: 5px;
-  float: left;
-  position: fixed;
-  left: 0;
-//   display:none;
-}
-
-.side-menu-icon {
-  width: 35px;
-  height: 35px;
-  margin: auto;
-  align-content: center;
-}
-
-.side-menu-container {
-  background-color: $sidebar-color;
-  height: 100vh;
-  width: 0px;
-  top: 0px;
-  display: flex;
-  overflow: hidden;
-  transition: width 0.5s;
-  position: fixed;
-  left:55px;
-}
-
-.menu-items{
-
-}
-
-/**************TOP MENU**************/
-
-.top-menu {
-  background-color: $sidebar-color;
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  width: 150px;
-  height: 50px;
-}
-
-/**************MAIN AREA**************/
-
-.main {
-  height: 100vh;
-  width: calc(100vw-55px);
-  background-color: $main-background;
-  display: flex;
-}
-
-.main-div {
-
-    height: 100vh;
-    width: 100%;
-    margin: auto;
-    float: right;
-    // position: absolute;
-    // right: 0;
-}
-
-/**************LOGIN PAGE**************/
-
-.middle {
-  background-color: $container1;
-  display: block;
-  width: 330px;
-  height: 85vh;
-  margin: auto;
-}
-
-.logo {
-  display: block;
-  margin: auto;
-  border-radius: 10px;
-  text-shadow: 5px;
-}
-
-.logo-padding {
-  padding: 75px 75px 10px 75px;
-}
-
-.logo-font {
-  color: $clone-wars-color;
-  font-size: 35px;
-  text-align: center;
-}
-
-.button {
-  background-color: $button1;
-  width: 280px;
-  height: 30px;
-  border-radius: 5px;
-  margin: auto;
-  color: $orange-color;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 30px;
-  // flex-direction: row;
-  align-content: center;
-}
-
-.button-icon {
-  height: 20px;
-  width: 20px;
-}
-
-.center {
-  text-align: center;
-  color: $grey-color;
-}
-
-.bottom-links {
-  text-align: center;
-  display: flex;
-  color: white;
 }
