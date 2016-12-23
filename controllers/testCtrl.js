@@ -30,13 +30,12 @@ module.exports = {
 						if (err) {
 							console.log(err);
 						} else if (stdOut) {
-							console.log(stdOut.search(/passed/gi));
 							if (stdOut.search(/passed/gi) > 0) {
 								ele.passed = true
 							} else {
 								ele.passed = false;
 							}
-							ele.result = stdOut;
+							ele.result = stdOut.replace(/</g, '\n<');
 							deffered.resolve(stdOut);
 						} else if (stdErr) {
 							console.log(stdErr);
@@ -71,7 +70,6 @@ module.exports = {
 						if (err) {
 							console.log(err);
 						} else if (stdOut) {
-							console.log(stdOut.search(/passed/gi));
 							if (stdOut.search(/passed/gi) > 0) {
 								ele.passed = true
 							} else {

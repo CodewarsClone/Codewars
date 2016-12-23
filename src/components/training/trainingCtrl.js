@@ -19,7 +19,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
   });
 
   $scope.languages = ['JavaScript', 'Python'];
-  $scope.versions = ['Node v0.10.33', 'Node v6.6.0'];
+  $scope.versions = ['Node v6.6.0'];
   $scope.output = [];
 
   //NG-SHOWS
@@ -67,16 +67,17 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     var examplesArr = [];
     examples = examples.split(/\n/);
     examples.forEach(example => examplesArr.push({test: example}));
-    var t0 = performance.now()
     mainService.testExamples(solutions, examplesArr).then((response) => {
       $scope.output = [];
       response.data.forEach((ele, i) => {
-	      $scope.output.push(ele)
+        if(ele.result){
+	        console.log(typeof  ele.result.replace(/</g, '\n<'));
+	        $scope.output.push(ele)
+        }
       });
       console.log(response.data);
     });
-    var t1 = performance.now();
-    $scope.time = "Time: " + Math.round((t1 - t0)*1000) + " ms";
+    
   }
 
   $scope.testSuite = function() {
