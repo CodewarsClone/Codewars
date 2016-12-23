@@ -8,7 +8,7 @@
         <select class="home-dropdown" ng-init="selectedProgress = progressOptions[0]" ng-model="selectedProgress" ng-options="x for x in progressOptions"></select>
       </div>
       <div class="challenge-buttons-div">
-        <a href="/#/training/{{randomKata.id}}"><button id="train-button" class="home-button">Train</button></a>
+        <a ui-sref="/#/training/{{randomKata.id}}"><button id="train-button" class="home-button">Train</button></a>
         <button id="skip-button" class="home-button" ng-click="getRandomKata(mainService.user.id)">Skip</button>
       </div>
     </div>
@@ -32,7 +32,7 @@
     <div class="adsss-right">
       <h6 class="font16-reg-efefef">Upgrade To Clonewars Red!</h6>
       <p class="font14-reg-efefef">Support Clonewars and get some fancy upgrades like Pro Stats, Head-to-head comparisons, No ads, Stream Output and more.</p>
-      <a href="https://www.codewars.com/subscribe" target="_blank"><button id="learn-about-red">Learn About Red</button></a>
+      <a ui-sref="https://www.codewars.com/subscribe" target="_blank"><button id="learn-about-red">Learn About Red</button></a>
     </div>
   </div> <!--END OF ADS-->
 

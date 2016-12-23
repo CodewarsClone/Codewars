@@ -9,7 +9,7 @@ module.exports = {
 
     getKatasByKataId: (req, res, next) => {
         console.log('get katas ran');
-            db.read.kata_by_id([req.params.kataId], (err, kata) => {
+            db.read.kata_by_id([req.params.kataid], (err, kata) => {
                 if (err) {
                     console.log(err);
                     res.status(500).json(err);
@@ -49,7 +49,7 @@ module.exports = {
     },
 
     getKataSolutions: (req, res, next) => {
-        db.read.kata_solutions([req.params.kataId], (err, solutions) => {
+        db.read.kata_solutions([req.params.kataid], (err, solutions) => {
            if (err) {
                 console.log(err);
                 res.status(500).json(err);
@@ -59,7 +59,7 @@ module.exports = {
     },
 
     getUserKatas: (req, res, next) => {
-        db.read.user_katas([req.user.id], (err, katas) => {
+        db.read.user_katas([req.params.userid], (err, katas) => {
             if (err) {
                 console.log(err);
                 res.status(500).json(err);
@@ -68,8 +68,8 @@ module.exports = {
         })
     },
 
-    postSolution: (req, res, next) => {
-        db.create.solution([req.user.id, req.params.kataId, req.body.script], (err, solution) => {
+    sumbitAnswer: (req, res, next) => {
+        db.create.solution([req.body.userid, req.params.kataid, req.body.script], (err, solution) => {
             if (err) {
                 console.log(err);
                 res.status(500).json(err);   
