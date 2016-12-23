@@ -72,6 +72,11 @@ $green-color: #5F8120;
   padding: 20px;
 }
 
+.solutions-main-head {
+  display: flex;
+  align-items: center;
+}
+
 .solution-code-box {
   height: 30vh;
   width: 30vw;
@@ -82,7 +87,8 @@ $green-color: #5F8120;
 }
 
 .solution-text {
-  background-color: $sidebar-color;
+  //I think this is the background color for the seti theme. The actual color that codewars uses on this page is $sidebar-color
+  background-color: #151718;
   padding: 10px;
   margin-top: 5px;
 }
