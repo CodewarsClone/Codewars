@@ -26,6 +26,7 @@ let describe = {
 let main = {
 	array: [describe],
 	testCount: 1,
+	passedCount: 1
 };
 
 
@@ -36,10 +37,16 @@ let exampleRes = {
 	array: [
 		describe,
 		it,
-		test
+		test,
+		{
+			type: `test`,
+			value: `Test Passed: Value == 'Some Value'`,
+			passed: false
+		},
 		
 	],
-	testCount: 3
+	testCount: 4,
+	passedcount: 3
 };
 
 const app = require('../server');
