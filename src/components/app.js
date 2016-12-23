@@ -43,6 +43,12 @@ $stateProvider
     url: 'training/:kataid',
     templateUrl:'./components/training/training.html',
     controller: 'trainingCtrl'
+})
+
+.state('menu.docs', {
+    url: '/docs',
+    templateUrl: './components/docs/docs.html'
+    // controller: 'docsCtrl'
 });
 
 $urlRouterProvider.otherwise('/login');
