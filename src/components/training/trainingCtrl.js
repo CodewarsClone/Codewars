@@ -43,7 +43,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
 	    });
       console.log(response.data);
       $scope.name = response.data.name;
-      $scope.instructions = response.data.description;
+      $scope.instructions = response.data.description.replace(/\\n/g, '\n');
       $scope.kyu = response.data.kyu;
       $scope.starter = response.data.starter_code;
       $scope.examples = examplesTxt;
@@ -89,7 +89,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
        $scope.passed = true
 	     $scope.output = [];
 	     response.data.forEach((ele, i) => {
-		     $scope.output.push(ele)
+		     $scope.output.push(ele);
          if (!ele.passed) {$scope.passed = false}
 	     });
 	     console.log(response.data);

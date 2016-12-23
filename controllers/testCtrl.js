@@ -6,6 +6,38 @@
  */
 
 
+/*   This is the format of the parsed objects to be returned on a test
+     Describe > It > test (but they may not be nested...
+     
+ let main {
+   array: [],
+   testCount:
+   passedCount:
+ }
+ let describe = {
+	 type: `describe`,
+	 value: `Tests of something`,
+   time: (this will be miliseconds),
+	 array: []
+ 
+ };
+ 
+ let it = {
+	 type: `it`,
+	 value: `Fixed tests or random tests`,
+	 time: 2 (this will be miliseconds)
+	 array: []
+ };
+ 
+ let test = {
+	 type: `test`,
+	 value: `Test Passed: Value == 'my-camel-cased-string'`,
+	 passed: 'boolean'
+ };
+ 
+ */
+
+
 const app = require('../server');
 const db = app.get('db');
 const Q = require('q');
@@ -64,7 +96,7 @@ module.exports = {
 			//Make sure that test is not empty
 			if (ele.test) {
 				let deffered = Q.defer();
-				
+				// Run the CLI runner
 				exec(`docker run --rm codewars/node-runner run -l javascript -c "${body.script}" -t cw -f "${ele.test}"`,
 					(err, stdOut, stdErr) => {
 						if (err) {
@@ -92,7 +124,6 @@ module.exports = {
 		});
 		
 		Q.all(promiseArr).then(response => {
-			console.log(body.examples);
 			res.json(body.examples);
 		})
 		
