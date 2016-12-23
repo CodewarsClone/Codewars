@@ -19,7 +19,8 @@ const _ = {
 	},
 	
 	cleanDesc(str) {
-		str = str.replace(/'/gi, `''`);
+		str = str.replace(/\n/g, '\\n')
+			.replace(/'/gi, `''`);
 		return str
 	},
 	
@@ -57,7 +58,7 @@ let tags = [
 
 let tests = [
 	`
-	Test.describe("generateRange(2, 10, 2)", function() {
+Test.describe("generateRange(2, 10, 2)", function() {
   Test.assertSimilar(generateRange(2, 10, 2), [2,4,6,8,10]);
 });
 
@@ -104,22 +105,30 @@ Test.describe("generateRange for random", function() {
 ];
 
 let examples = [
-	`Test.expect(!isValidWalk(['e','e','e','w','n','s','n','s','e','w']));`,
-	`Test.expect(isValidWalk(['n','s','e','w','n','s','e','w','n','s']));`,
+	`Test.assertSimilar(generateRange(2, 10, 2), [2,4,6,8,10]);`,
+	`Test.assertSimilar(generateRange(1, 10, 1), [1,2,3,4,5,6,7,8,9,10]);`,
 ];
 
 let description =
-	`You live in the city of Cartesia where all roads are laid out in a perfect grid. You arrived ten minutes too early to an appointment, so you decided to take the opportunity to go for a short walk. The city provides its citizens with a Walk Generating App on their phones -- everytime you press the button it sends you an array of one-letter strings representing directions to walk (eg. ['n', 's', 'w', 'e']). You know it takes you one minute to traverse one city block, so create a function that will return true if the walk the app gives you will take you exactly ten minutes (you don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise.
+	`Modify the kebabize function so that it converts a camel case string into a kebab case.
 
-Note: you will always receive a valid array containing a random assortment of direction letters ('n', 's', 'e', or 'w' only). It will never give you an empty array (that's not a walk, that's standing still!).`;
+kebabize('camelsHaveThreeHumps') // camels-have-three-humps
+kebabize('camelsHave3Humps') // camels-have-humps
+Notes:
 
-let startScript = `function kebabize(str) {}`;
+the returned string should only contain lowercase letters
+`;
+
+let startScript = `function generateRange(min, max, step){}`;
 
 let winScript = `
-function fixture (str) {
-    	return str.replace(/\d/g,'')
-      .split(/(?=[A-Z])/).map(s => s.toLowerCase()).join('-')
-    }
+function generateRange(min, max, step){
+  let arr = [];
+  for (let i=min; i<=max; i += step) {
+    arr.push(i);
+  }
+  return arr;
+}
 
 `;
 
