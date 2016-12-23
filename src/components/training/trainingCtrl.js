@@ -71,7 +71,10 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     mainService.testExamples(solutions, examplesArr).then((response) => {
       $scope.output = [];
       response.data.forEach((ele, i) => {
-	      $scope.output.push(ele)
+        if(ele.result){
+	        console.log(typeof  ele.result.replace(/</g, '\n<'));
+	        $scope.output.push(ele)
+        }
       });
       console.log(response.data);
     });
