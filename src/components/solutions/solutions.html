@@ -1,12 +1,14 @@
 <section class="solutions" ng-init="init()">
-  <div class="solutions-upper-div any-solutions-div">
+
+  <!-- THIS IS IN HERE FROM WHEN I THOUGHT THE SOLUTIONS PAGE WOULD BE SPECIFIC TO THE USER. -->
+  <!-- <div class="solutions-upper-div any-solutions-div">
     <div class="solutions-upper-left">
       <img id="solutions-profile-pic" src="{{user.picture_url}}" alt="Here's where your face should be">
     </div>
     <div class="solutions-upper-main">
       <div class="solutions-upper-upper">
         <img id="solutions-rank-icon" src="./assets/imgs/6_kyu_icon.png" alt="Rank: 6_kyu">
-        <h2 class="font20-reg">{{user.name}}</h2>
+        <h2 class="font20-reg">{{user.username}}</h2>
         <p class="font14-lit-gray">Honor</p>
       </div>
       <div class="solutions-upper-mid">
@@ -16,16 +18,18 @@
         <button>View Profile Badges</button>
       </div>
     </div>
-  </div> <!--END SOLUTIONS UPPER DIV-->
+  </div> END SOLUTIONS UPPER DIV-->
 
   <div class="solutions-main any-solutions-div">
     <div class="solutions-main-head">
-      <img src="./assets/imgs/{{kataById.kyu}}_kyu_icon.png" alt="{{kataById.kyu}}_kyu">
+      <img id="difficulty-icon" src="./assets/imgs/{{kataById.kyu}}_kyu_icon.png" alt="{{kataById.kyu}}_kyu">
       <p class="font17-reg">{{kataById.name}}</p>
     </div>
-    <div class="your-solutions" ng-repeat="solution in kataSolutions">
-      <p class="font15-reg">JavaScript</p>
-      <textarea class="solution-code-box"/>
+    <div class="all-solutions" ng-repeat="solution in kataSolutions">
+      <p class="font15-reg">JavaScript:</p>
+      <div class="solution-text">
+        <p class="font15-reg" color-directive>{{solution.script}}</p>
+      </div>
     </div>
   </div> <!--END SOLUTIONS MAIN-->
 

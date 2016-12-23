@@ -14,10 +14,11 @@ module.exports = {
                     console.log(err);
                     res.status(500).json(err);
                 }
+                console.log(kata[0]);
                 return res.status(200).json(kata[0]);
             })
     },
-    
+
     getRandomKata: (req, res, next) => {
         db.read.random_kata((err, katas) => {
             if (err) {
@@ -72,7 +73,7 @@ module.exports = {
         db.create.solution([req.body.userid, req.params.kataid, req.body.script], (err, solution) => {
             if (err) {
                 console.log(err);
-                res.status(500).json(err);   
+                res.status(500).json(err);
             }
              return res.status(201).json(solution);
         })
