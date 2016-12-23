@@ -85,8 +85,64 @@ $grey-color: #C0C0C0;
   height: 35vh;
   width: 40vw;
   background-color: $container3;
+  padding-bottom: 10px;
 }
 
+.challenge-details-top {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.random-kata-description-div {
+  overflow: scroll;
+  width: 40vw;
+  height: calc(25vh - 22px);
+  padding: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $sidebar-color;
+  border-radius: 30%;
+}
+
+::-webkit-scrollbar-corner {
+  display: none;
+}
+
+#random-kata-description {
+  color: #efefef;
+}
+
+.taggg-tag-div {
+  background-color: $container2;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#taggg-tag {
+  margin: 0 10px;
+  color: #c9c9c9;
+}
+
+#taggg-tag:hover {
+  color: $blue-color;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+/***********ADS**********/
 .ads {
   height: 20vh;
   width: 60vw;
@@ -96,10 +152,28 @@ $grey-color: #C0C0C0;
   align-items: center;
 }
 
-.ads-right {
-  // background-color: red;
-//   display: flex;
-//   flex-direction: column;
+.adsss-right {
+  display: flex;
+  flex-direction: column;
+}
+
+#learn-about-red {
+  color: $orange-color;
+  border: 1px solid $orange-color;
+  background-color: rgba(0,0,0,0);
+  border-radius: 5%;
 }
 
 /**********ALLIES ***********/
+.allies {
+  width: 60vw;
+  //For whatever reason, having this height throws off the main page both height and width.
+  // height: 75vh;
+  background-color: $container3;
+}
+
+.allies-icon {
+  height: 15px;
+  width: 15px;
+  margin-horizontal: 10px;
+}

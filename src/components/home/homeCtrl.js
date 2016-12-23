@@ -8,7 +8,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
     $scope.getUser = () => {
         mainService.getUser().then(response => {
             console.log(response.data);
-            mainService.user = mainService.rankCalculator(response.data);
+            mainService.user = mainService.rankCalculator(response.data[0]);
             $scope.getRandomKata(mainService.user.id);
         })
     }

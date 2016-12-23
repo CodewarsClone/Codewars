@@ -76,13 +76,14 @@ a {
   font-weight: 700;
 }
 
-.font16-reg {
-  color: white;
+.font16-reg-efefef {
+  color: #efefef;
   font-family: $font;
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
 }
+
 .font16-reg {
   color: white;
   font-family: $font;
@@ -124,12 +125,6 @@ a {
   position: absolute;
 }
 
-.font12-reg {
-  font-family: $font;
-  font-size: 12px;
-  font-weight: 100;
-}
-
 .font14-reg-gray {
   color: #C9C9C9;
   font-family: $font;
@@ -137,6 +132,15 @@ a {
   line-height: 22px;
   font-weight: 400;
 }
+
+.font14-reg-efefef {
+  color: #efefef;
+  font-family: $font;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
 
 .font14-lit-gray {
   color: #C9C9C9;
@@ -152,6 +156,12 @@ a {
   font-size: 13px;
   line-height: 40px;
   font-weight: 400;
+}
+
+.font12-reg {
+  font-family: $font;
+  font-size: 12px;
+  font-weight: 100;
 }
 
 .font12-reg-blue {

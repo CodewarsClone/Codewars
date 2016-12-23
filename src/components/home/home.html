@@ -8,33 +8,60 @@
         <select class="home-dropdown" ng-init="selectedProgress = progressOptions[0]" ng-model="selectedProgress" ng-options="x for x in progressOptions"></select>
       </div>
       <div class="challenge-buttons-div">
-        <a ui-sref="training/{{randomKata.id}}"><button id="train-button" class="home-button" href="#/training/{{randomKata.id}}">Train</button></a>
+        <a href="/#/training/{{randomKata.id}}"><button id="train-button" class="home-button">Train</button></a>
         <button id="skip-button" class="home-button" ng-click="getRandomKata(mainService.user.id)">Skip</button>
       </div>
     </div>
 
     <div class="challenge-details">
-      <h1>Kata name</h1>
-      <p>more details about kata</p>
-      <button ui-sref="training">Go to next page</button>
+      <div class="challenge-details-top">
+        <img id="difficulty-icon" src="./assets/imgs/{{randomKata.kyu}}_kyu_icon.png" alt="{{randomKata.kyu}}kyu">
+        <h1 class="font16-reg">{{randomKata.name}}</h1>
+      </div>
+      <div class="random-kata-description-div">
+        <p class="font14-reg-gray" id="random-kata-description">{{randomKata.description}}</p>
+      </div>
+      <div class="taggg-tag-div">
+        <p class="font10-reg-gray" id="taggg-tag">Here's where tags go</p>
+      </div>
     </div>
   </div> <!--END OF HOME-UP -->
 
   <div class="ads">
     <p>codewars red logo</p>
-    <div>
-      <h6>Upgrade To Clonewars Red!</h6>
-      <p>Support Clonewars and get some fancy upgrades like Pro Stats, Head-to-head comparisons, No ads, Stream Output and more.</p>
-      <a href="https://www.codewars.com/subscribe"><button>Learn About Red</button></a>
+    <div class="adsss-right">
+      <h6 class="font16-reg-efefef">Upgrade To Clonewars Red!</h6>
+      <p class="font14-reg-efefef">Support Clonewars and get some fancy upgrades like Pro Stats, Head-to-head comparisons, No ads, Stream Output and more.</p>
+      <a href="https://www.codewars.com/subscribe" target="_blank"><button id="learn-about-red">Learn About Red</button></a>
     </div>
   </div> <!--END OF ADS-->
 
   <div class="allies">
-    
+    <div style="display:flex; align-items: center;">
+      <img class="allies-icon" src="./assets/imgs/allies_icon.png" alt="alliesIcon">
+      <p class="font16-bold">Allies</p>
+    </div>
+    <p class="font14-reg">You are automatically given an allegiance with anyone who is in the same clan as you. You can also become allies with other warriors by following each other or inviting new warriors to join.</p>
+    <div class="list-of-allies">
+      <table class="allies-list-header">
+        <tr>
+          <th>Position</th>
+          <th>User</th>
+          <th>Clan</th>
+          <th>Honor</th>
+        </tr>
+        <tr ng-repeat="user in users">
+          <p>{{user.position}}</p>
+          <p>{{user.name}}</p>
+          <p>{{user.clan}}</p>
+          <p>{{user.honor}}</p>
+        </tr>
+      </table>
+    </div>
   </div> <!--END OF ALLIES-->
 
   <div class="discourse">
-
+    <p>Wow, what intelligent discourse.</p>
   </div> <!--END OF DISCOURSE-->
 
 
