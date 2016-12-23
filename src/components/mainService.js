@@ -33,8 +33,9 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.submitAnswer = (solution, kataid, userid) => {
     return $http({
       method: 'POST',
-      url: `/api/solution/` + kataid,
+      url: `/api/submit-answer/` + kataid,
       data: {
+         userid: userid,
          script: solution
       }
     });
@@ -101,10 +102,10 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   };
 
   // profileCtrl - brings back a specific users kata information (script, name, kyu, description) - use on kata tab soltion tab
-  this.getUserKatas = () => {
+  this.getUserKatas = (userid) => {
     return $http({
       method: 'GET',
-      url: `/api/get-user-katas`
+      url: `/api/get-user-katas/` + userid
     });
   };
 
