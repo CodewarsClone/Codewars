@@ -37,11 +37,11 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
   // GET KATA INFORMATION
   $scope.getKataById = (kataid) => {
     mainService.getKataById(kataid).then((response) => {
+      console.log(response.data);
       let examplesTxt = ``;
 	    response.data.examples.forEach((example, i) => {
         examplesTxt = examplesTxt + example.test +`\n`
 	    });
-      console.log(response.data);
       $scope.name = response.data.name;
       $scope.instructions = response.data.description.replace(/\\n/g, '\n');
       $scope.kyu = response.data.kyu;
@@ -52,7 +52,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
       solutionsCode.setValue($scope.starter);
       examplesCode.setValue($scope.examples);
     });
-  }
+  };
 
   $scope.getKataById($scope.kataid);
 
@@ -68,13 +68,6 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     examples = examples.split(/\n/);
     examples.forEach(example => examplesArr.push({test: example}));
     mainService.testExamples(solutions, examplesArr).then((response) => {
-      $scope.output = [];
-      response.data.forEach((ele, i) => {
-        if(ele.result){
-	        console.log(typeof  ele.result.replace(/</g, '\n<'));
-	        $scope.output.push(ele)
-        }
-      });
       console.log(response.data);
     });
     
@@ -98,7 +91,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
 
   $scope.addPointsToUser = (points, userid) => {
     mainService.addPointsToUser(mainService.pointsCalculator($scope.kyu, mainServive.user.id), mainServive.user.id)
-  }
+  };
 
   $scope.submitAnswer = (solution, kataid, userid) => {
     if ($scope.passed){

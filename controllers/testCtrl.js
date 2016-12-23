@@ -6,37 +6,41 @@
  */
 
 
-/*   This is the format of the parsed objects to be returned on a test
-     Describe > It > test (but they may not be nested...
-     
- let main {
-   array: [],
-   testCount:
-   passedCount:
- }
- let describe = {
-	 type: `describe`,
-	 value: `Tests of something`,
-   time: (this will be miliseconds),
-	 array: []
- 
- };
- 
- let it = {
-	 type: `it`,
-	 value: `Fixed tests or random tests`,
-	 time: 2 (this will be miliseconds)
-	 array: []
- };
- 
- let test = {
-	 type: `test`,
-	 value: `Test Passed: Value == 'my-camel-cased-string'`,
-	 passed: 'boolean'
- };
- 
- */
+let test = {
+	type: `test`,
+	value: `Test Passed: Value == 'Some Value'`,
+	passed: true
+};
+let it = {
+	type: `it`,
+	value: `Fixed tests or random tests`,
+	time: 2, //Milliseconds
+	array: [test]
+};
+let describe = {
+	type: `describe`,
+	value: `Tests of something`,
+	time: 2, //Milliseconds
+	array: [it]
+};
+let main = {
+	array: [describe],
+	testCount: 1,
+};
 
+
+
+
+
+let exampleRes = {
+	array: [
+		describe,
+		it,
+		test
+		
+	],
+	testCount: 3
+};
 
 const app = require('../server');
 const db = app.get('db');
@@ -44,17 +48,41 @@ const Q = require('q');
 const exec = require('child_process').exec;
 
 
+
+function testRunner(script, test) {
+	let defer = Q.defer();
+	
+	exec(`docker run --rm codewars/node-runner run -l javascript -c "${script}" -t cw -f "${test}"`,
+		(err, stdOut, stdErr) => {
+			if (err) console.log(err);
+			if (stdErr) {
+				console.log(stdErr);
+				defer.resolve(stdErr);
+			} else {
+				console.log(stdOut)
+				
+			}
+			
+			
+		});
+	
+	
+	return defer.promise
+}
+
+
+
 module.exports = {
 	testKata: (req, res, next) => {
 		
 		let body = req.body;
 		
-		db.read.kata_for_test([req.params.kataId], (err, kataArray)=>{
-			if(err) console.log(err);
+		db.read.kata_for_test([req.params.kataId], (err, kataArray) => {
+			if (err) console.log(err);
 			let kata = kataArray[0];
 			let promiseArr = [];
 			
-			kata.test_script.forEach((ele, i) =>{
+			kata.test_script.forEach((ele, i) => {
 				
 				let deffered = Q.defer();
 				exec(`docker run --rm codewars/node-runner run -l javascript -c "${body.script}" -t cw -f "${ele.test}"`,
@@ -89,44 +117,17 @@ module.exports = {
 	
 	testExamplesKata: (req, res, next) => {
 		let body = req.body;
-		let promiseArr = [];
 		console.log(body.script);
 		
-		body.examples.forEach((ele, i) => {
-			//Make sure that test is not empty
-			if (ele.test) {
-				let deffered = Q.defer();
-				// Run the CLI runner
-				exec(`docker run --rm codewars/node-runner run -l javascript -c "${body.script}" -t cw -f "${ele.test}"`,
-					(err, stdOut, stdErr) => {
-						if (err) {
-							console.log(err);
-						} else if (stdOut) {
-							if (stdOut.search(/passed/gi) > 0) {
-								ele.passed = true
-							} else {
-								ele.passed = false;
-							}
-							ele.result = stdOut;
-							deffered.resolve(stdOut);
-						} else if (stdErr) {
-							console.log(stdErr);
-							ele.result = stdErr;
-							deffered.resolve(stdErr);
-						}
-					});
-				
-				promiseArr.push(deffered.promise)
-			} else {
-				return
-			}
-			
-		});
 		
-		Q.all(promiseArr).then(response => {
-			res.json(body.examples);
-		})
-		
-	},
-	
+		console.log(exampleRes);
+		res.json(exampleRes)
+	}
 };
+
+	
+	
+	
+	
+	
+	

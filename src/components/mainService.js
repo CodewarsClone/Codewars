@@ -63,6 +63,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
 
   // trainingCtrl
   this.getKataById = (kataid) => {
+    console.log('getting kata SVC', kataid);
     return $http({
       method: 'GET',
       url: `/api/kata/` + kataid
