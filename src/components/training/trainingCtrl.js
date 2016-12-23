@@ -28,11 +28,11 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
   $scope.showOutput = function() {
     $scope.showOutputShow = false;
     $scope.showInstructionsShow = true;
-  }
+  };
   $scope.showInstructions = function() {
     $scope.showOutputShow = true;
     $scope.showInstructionsShow = false;
-  }
+  };
 
   // GET KATA INFORMATION
   $scope.getKataById = (kataid) => {
