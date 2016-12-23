@@ -19,26 +19,23 @@ $green-color: #5F8120;
 
 // STUFF ALONG THE TOP
 .training-top {
-  background-color: green;
   height: 60px;
   margin-top: 50px;
   display: flex;
   justify-content: space-between;;
   align-items: center;
   padding: 15px;
-  flex-direction: row;
 }
 
 .kata-name-container {
-  background-color: blue;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: left;
+  width: 40vw;
 }
 
 .kata-name-container-top {
-  background-color: blue;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -62,19 +59,22 @@ $green-color: #5F8120;
   height: 30px;
   width: 50px;
   margin-right: 5px;
+
 }
 
 .select-dropdown {
   height: 52px;
   width: 175px;
   background-color: $button1;
-  // flex-direction: row
+  flex-direction: row;
+  margin: 7.5px;
 }
 
-.select-div {
+.selection-div {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  width: 60vw;
 }
 
 
