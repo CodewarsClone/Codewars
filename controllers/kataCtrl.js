@@ -50,16 +50,8 @@ module.exports = {
 
     sumbitAnswer: (req, res, next) => {
         db.create.solution([req.body.userid, req.params.kataid, req.body.script], (err, solution) => {
-<<<<<<< HEAD
-            if (err) {
-                console.log(err);
-                res.status(500).json(err);
-            }
-             return res.status(201).json(solution);
-=======
             if (err) return next(err);
             return res.status(201).json(solution);
->>>>>>> master
         })
     },
 
