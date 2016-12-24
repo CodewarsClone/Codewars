@@ -12,7 +12,7 @@ module.exports = {
             return res.status(200).json(kata[0]);
         })
     },
-    
+
     getRandomKata: (req, res, next) => {
         db.read.random_kata((err, katas) => {
             if (err) return next(err);

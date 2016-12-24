@@ -1,0 +1,94 @@
+$sidebar-color: #222222;
+$main-background: #303133;
+$container1: #262729;
+$container2: #2B2C2E;
+$container3: #3C3C3C;
+$container4: #1D1D1F;
+$blueContainer: #363749;
+$button1: #1E1F21;
+
+$font: 'Lato', sans-serif;
+
+$yellow-color: #ECB613;
+$blue-color: #6795DE;
+$orange-color: #CF4B32;
+$clone-wars-color: rgb(217, 217, 217);
+$grey-color: #C0C0C0;
+$green-color: #5F8120;
+
+/************** SOLUTIONS STYLES ************/
+.solutions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.any-solutions-div {
+  margin-bottom: 15px;
+}
+
+//SOLUTIONS UPPER DIV
+.solutions-upper-div {
+  margin-top: 55px;
+  width: 60vw;
+  height: 20vh;
+  background-color: $container4;
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.solutions-upper-left {
+  margin-right: 20px;
+}
+
+#solutions-profile-pic {
+  height: 65px;
+  width: 65px;
+}
+
+.solutions-upper-main {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start
+}
+
+.solutions-upper-upper {
+  display: flex;
+}
+
+#solutions-rank-icon {
+  height: 25px;
+  width: 60px;
+}
+
+//SOLUTIONS MAIN
+.solutions-main {
+  background-color: $container1;
+  margin-top: 55px;
+  width: 60vw;
+  padding: 20px;
+}
+
+.solutions-main-head {
+  display: flex;
+  align-items: center;
+}
+
+.solution-code-box {
+  height: 30vh;
+  width: 30vw;
+}
+
+.all-solutions {
+  margin-top: 10px;
+}
+
+.solution-text {
+  //I think this is the background color for the seti theme. The actual color that codewars uses on this page is $sidebar-color
+  background-color: #151718;
+  padding: 10px;
+  margin-top: 5px;
+}

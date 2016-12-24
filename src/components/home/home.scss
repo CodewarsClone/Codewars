@@ -28,6 +28,10 @@ $grey-color: #C0C0C0;
   margin-top: 55px;
 }
 
+.any-home-div {
+  margin-bottom: 15px;
+}
+
 .next-challenge {
   padding-top: 20px;
   padding-bottom: 30px;
@@ -101,23 +105,6 @@ $grey-color: #C0C0C0;
   padding: 10px;
 }
 
-::-webkit-scrollbar {
-  width: 15px;
-}
-
-::-webkit-scrollbar-track {
-  display: none;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: $sidebar-color;
-  border-radius: 30%;
-}
-
-::-webkit-scrollbar-corner {
-  display: none;
-}
-
 #random-kata-description {
   color: #efefef;
 }
@@ -153,8 +140,10 @@ $grey-color: #C0C0C0;
 }
 
 .adsss-right {
+  height: 14vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 #learn-about-red {
@@ -162,6 +151,7 @@ $grey-color: #C0C0C0;
   border: 1px solid $orange-color;
   background-color: rgba(0,0,0,0);
   border-radius: 5%;
+  padding: 7px;
 }
 
 /**********ALLIES ***********/
