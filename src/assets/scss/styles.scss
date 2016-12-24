@@ -179,3 +179,20 @@ a {
   line-height: 12px;
   font-weight: 400;
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $sidebar-color;
+  border-radius: 30%;
+}
+
+::-webkit-scrollbar-corner {
+  display: none;
+}
