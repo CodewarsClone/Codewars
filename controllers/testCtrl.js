@@ -6,7 +6,6 @@
  */
 
 
-
 const app = require('../server');
 const db = app.get('db');
 const Q = require('q');
