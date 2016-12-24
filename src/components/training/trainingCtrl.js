@@ -80,12 +80,6 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     solutions = solutions.replace(/\n/g, " ");
     solutions = solutions.replace(/\s+/g, " ");
      mainService.testSuite(solutions, $scope.kataid).then((response) => {
-       $scope.passed = true
-	     $scope.output = [];
-	     response.data.forEach((ele, i) => {
-		     $scope.output.push(ele);
-         if (!ele.passed) {$scope.passed = false}
-	     });
 	     console.log(response.data);
      });
   };
