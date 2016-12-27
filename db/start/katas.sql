@@ -13,3 +13,30 @@ VALUES (8, 'Generate range of integers', '["ALGORITHMS"]', '["Javascript","C#","
 
 (6, 'Kebabize', '["FUNDAMENTALS","STRINGS"]', '["JavaScript","CoffeeScript","Crystal","Python","Ruby"]', 'function kebabize(str) {}', 'Modify the kebabize function so that it converts a camel case string into a kebab case.\n\nkebabize(''camelsHaveThreeHumps'') // camels-have-three-humps\nkebabize(''camelsHave3Humps'') // camels-have-humps\n\nNotes:\nthe returned string should only contain lowercase letters\n', '[{"test":"Test.assertEquals(kebabize(''myCamelCasedString''), ''my-camel-cased-string'');"},{"test":"Test.assertEquals(kebabize(''myCamelHas3Humps''), ''my-camel-has-humps'');"}]', '[{"test":" Test.describe(''tests'', _ => { Test.it(''fixed tests'', _ => { Test.assertEquals(kebabize(''myCamelCasedString''), ''my-camel-cased-string''); Test.assertEquals(kebabize(''myCamelHas3Humps''), ''my-camel-has-humps''); }); Test.it(''random tests'', _ => { function fixture (str) { return str.replace(/\\d/g,'''').split(/(?=[A-Z])/).map(s => s.toLowerCase()).join(''-''); } for (let i = 0; i <= 100; i += 1) { let token = Test.randomToken(); let camel = token.split('''').map(c => { const rand = Math.random(); return rand > 0.9 ? c.toUpperCase() : c; }).join(''''); Test.assertEquals(kebabize(camel), fixture(camel)); } }); }); "}]')
 ;
+
+
+-- December 27:
+-- Here are some solutions to populate the solutions page. I forget what we decided regarding formatting, so I'm just copy/pasting them directly from codewars. Therefore, they have line breaks in them, which we can exhange with \n if we so desire.
+INSERT INTO solutions (user_id, kata_id, script)
+VALUES (1, 2, "function generateRange(min, max, step){
+  let arr = [];
+  for (let i=min; i<=max; i += step) {
+    arr.push(i);
+  }
+  return arr;
+}"),
+
+(1, 3, "function descendingOrder(n){
+  return parseInt(n.toString().split('').sort((a, b) => b - a).join(''));
+}"),
+
+(1, 4, "function disemvowel(str) {
+  var vowels = ['a', 'e', 'i', 'o', 'u'];
+  return str.split('').map((letter) => {
+    if (vowels.indexOf(letter.toLowerCase()) === -1) {
+      return letter;
+    }
+  }).join('');
+}"),
+
+(1, 5, "")
