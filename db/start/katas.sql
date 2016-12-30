@@ -39,4 +39,92 @@ VALUES (1, 2, "function generateRange(min, max, step){
   }).join('');
 }"),
 
-(1, 5, "")
+(1, 5, "function isValidWalk(walk) {
+
+  var horizontal = 0;
+  var vertical = 0;
+  var total = 0;
+
+  walk.forEach((word) => {
+    switch (word) {
+      case 'n':
+        vertical += 1;
+        total += 1;
+        break;
+      case 's':
+        vertical -= 1;
+        total += 1;
+        break;
+      case 'e':
+        horizontal += 1;
+        total += 1;
+        break;
+      case 'w':
+        horizontal -= 1;
+        total += 1;
+        break;
+      default:
+        console.log("It's broken");
+    }
+
+  });
+
+  if (horizontal === 0 && vertical === 0 && total === 10) {
+    return true;
+  } else {
+    return false;
+  }
+
+}"),
+
+(1, 6, "function solution(number){
+
+  var arr = [];
+
+  for (var i = 3; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      arr.push(i);
+    }
+  }
+
+  var final = 0;
+  if (arr[0]) {
+    final = arr.reduce((a, b) => a + b)
+  }
+
+  return final;
+
+}"),
+
+(1, 7, "function bubblesortOnce(intArr) {
+
+  var bubble;
+
+  for (var i = 0; i < intArr.length; i++) {
+    if (intArr[i] > intArr[i+1]) {
+      bubble = intArr[i+1];
+      intArr.splice(i + 1, 1);
+      intArr.splice(i, 0, bubble);
+    }
+  }
+
+  return intArr;
+}"),
+
+(1, 8, "function kebabize(str) {
+  str = str.split('').map((letter) => {
+    if (!isNaN(parseInt(letter))) {
+      return "";
+    }else if (letter === letter.toUpperCase()) {
+      return "-" + letter.toLowerCase();
+    } else {
+      return letter;
+    }
+  }).join('');
+
+  if (str.charAt(0) === "-") {
+    str = str.slice(1);
+  }
+
+  return str;
+}"),
