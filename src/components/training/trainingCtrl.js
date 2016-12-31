@@ -4,7 +4,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
 
   $scope.kataid = $stateParams.kataid;
   $scope.passed = false;
-
+  
   /** Create text areas **/
   var textarea1 = document.getElementById('solution-input');
   var solutionsCode = CodeMirror.fromTextArea(textarea1, {
@@ -71,7 +71,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     console.log(examples);
     mainService.testExamples(solutions, examples).then((response) => {
     });
-    
+
   }
 
   $scope.testSuite = function() {
