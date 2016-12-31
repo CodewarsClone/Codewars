@@ -65,10 +65,11 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     solutions = solutions.replace(/\n/g, " ");
     solutions = solutions.replace(/\s+/g, " ");
     var examplesArr = [];
-    examples = examples.split(/\n/);
-    examples.forEach(example => examplesArr.push({test: example}));
-    mainService.testExamples(solutions, examplesArr).then((response) => {
-      console.log(response.data);
+    examples = examples.replace(/\n\s*\./g, `.`)
+	    .replace(/\n/g, ` `)
+	    .replace(/\s+/g, ` `);
+    console.log(examples);
+    mainService.testExamples(solutions, examples).then((response) => {
     });
 
   }
@@ -79,12 +80,6 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     solutions = solutions.replace(/\n/g, " ");
     solutions = solutions.replace(/\s+/g, " ");
      mainService.testSuite(solutions, $scope.kataid).then((response) => {
-       $scope.passed = true
-	     $scope.output = [];
-	     response.data.forEach((ele, i) => {
-		     $scope.output.push(ele);
-         if (!ele.passed) {$scope.passed = false}
-	     });
 	     console.log(response.data);
      });
   };

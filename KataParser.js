@@ -41,7 +41,7 @@ const _ = {
 	
 };
 
-
+// Paste the languages into the array
 let languages = [
 	`JavaScript`,
 	`CoffeeScript`,
@@ -49,13 +49,13 @@ let languages = [
 	`Python`,
 	`Ruby`
 ];
-
+// Paste the tags into the array
 let tags = [
 	`FUNDAMENTALS`,
 	`STRINGS`,
 ];
 
-
+// Paste the Test Suite here
 let tests = [
 	`
 Test.describe("generateRange(2, 10, 2)", function() {
@@ -104,11 +104,14 @@ Test.describe("generateRange for random", function() {
 
 ];
 
+
+// Paste the example script here
 let examples = [
 	`Test.assertSimilar(generateRange(2, 10, 2), [2,4,6,8,10]);`,
 	`Test.assertSimilar(generateRange(1, 10, 1), [1,2,3,4,5,6,7,8,9,10]);`,
 ];
 
+// Introduction to the Kata Here
 let description =
 	`Modify the kebabize function so that it converts a camel case string into a kebab case.
 
@@ -118,22 +121,23 @@ Notes:
 
 the returned string should only contain lowercase letters
 `;
-
+// Paste the starting script here
 let startScript = `function generateRange(min, max, step){}`;
 
+
+// Paste your winning script here
 let winScript = `
-function generateRange(min, max, step){
-  let arr = [];
-  for (let i=min; i<=max; i += step) {
-    arr.push(i);
-  }
-  return arr;
+function kebabize(str) {
+  return str.replace(/[^a-z]/ig, '').
+         replace(/^[A-Z]/, c => c.toLowerCase()).
+         replace(/[A-Z]/g, c => \`-\${c.toLowerCase()}\`);
 }
 
 `;
 
 
-
+// When this js file is ran you will get an output in your console of all the info in a format
+// ready to go into the Sql DB Start files to then copy into those tables
 console.log('\nTags');
 console.log(_.JSON(tags));
 console.log('\nLanguages');
