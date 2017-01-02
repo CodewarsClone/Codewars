@@ -23,6 +23,7 @@ $grey-color: #C0C0C0;
 .ul {
 display: flex;
 height:35px;
+cursor: pointer;
 }
 
 .li {
@@ -44,38 +45,29 @@ height:35px;
 
 .icon-div {
     width: 55px;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    
 }
 
 .main-icon {
     width:35px;
     height:35px;
     left:50px;
+    cursor: pointer;
 }
 .side-menu-icon {
 //   width: 20px;
   height: 22px;
 }
 
-#icon1 {
-
-}
-
-#icon2 {
-
-}
-
-#icon3 {
-
-}
-
-#icon4 {
-
-}
-
 .menu-items {
-  display: none;
+    display: none;
+    cursor: pointer;
+    vertical-align: center;
+    margin: auto 0;
+    justify-content: left;
 }
 
 

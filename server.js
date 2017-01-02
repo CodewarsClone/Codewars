@@ -94,8 +94,8 @@ app.get('/auth/github/callback',
 
 app.get('/api/me', kataCtrl.getUser);
 app.get('/api/kata/:kataid', kataCtrl.getKatasByKataId);
-app.get('/api/random-kata', kataCtrl.getRandomKata);
-app.get('/api/random-kata-list', kataCtrl.getRandomKataList);
+app.get('/api/random-kata/:userkyu', kataCtrl.getRandomKata);
+app.get('/api/random-kata-list/:userkyu', kataCtrl.getRandomKataList);
 app.get('/api/katas-by-kyu/:kyu', kataCtrl.getKatasByKyu);
 app.get('/api/solutions/:kataid', kataCtrl.getKataSolutions);
 app.get('/api/get-user-katas/:userid', kataCtrl.getUserKatas);
@@ -106,7 +106,8 @@ app.post('/api/submit-answer/:kataid', kataCtrl.sumbitAnswer);
 app.post('/api/kata-by-name', kataCtrl.searchByKatasName);
 
 app.put('/api/points', kataCtrl.addPointsToUser);
-
+app.put('/api/kata-votes/:kataid', kataCtrl.upVoteKata);
+app.put('/api/solution-votes/:kataid', kataCtrl.upVoteSolution);
 
 
 app.listen(config.port, function () {

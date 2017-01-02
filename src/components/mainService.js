@@ -70,19 +70,19 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     });
   };
 
-  // homeCtrl - displaying one kata withing range
-  this.getRandomKata = () => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
+  // homeCtrl - displaying one kata within range
+  this.getRandomKata = (userkyu) => {
     return $http({
       method: 'GET',
-      url: `/api/random-kata/` 
+      url: `/api/random-kata/${userkyu}` 
     });
   };
 
   // kata_listCtrl = displays a plethora of katas based on user ability
-  this.getRandomKataList = () => {
+  this.getRandomKataList = (userkyu) => {
     return $http({
       method: 'GET',
-      url: `/api/random-kata-list`
+      url: `/api/random-kata-list/${userkyu}`
     });
   }
 
@@ -118,6 +118,28 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
       data: {
         points: points,
         id: userid
+      }
+    })
+  };
+
+  this.upVoteKata = (userid, kataid) => {
+    return $http({
+      method: 'PUT',
+      url: `/api/kata-votes/` + kataid,
+      data: {
+        userid: userid,
+        kataid: kataid
+      }
+    })
+  }
+
+  this.upVoteSolution = (kataid, userid, solutionid) => {
+    return $http({
+      method: 'PUT',
+      url: `/api/solution-votes/` + kataid,
+      data: {
+        userid: userid,
+        solutionid: solutionid
       }
     })
   }
