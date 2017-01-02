@@ -14,7 +14,7 @@ $stateProvider
 .state('menu',{
     url: '/',
     templateUrl:'./components/menus/menu.html',
-    // controller: 'loginCtrl'
+    controller: 'menuCtrl'
 })
 
 //~~~~~~~~~~~~~Child States~~~~~~~~~~~~~
