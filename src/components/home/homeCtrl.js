@@ -15,10 +15,16 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
     }
 
     $scope.getRandomKata = () => {
-        console.log('hi');
-        mainService.getRandomKata().then(response => {
+        mainService.getRandomKata(mainService.user.kyu_level).then(response => {
             console.log(response.data);
             $scope.randomKata = response.data;
+        })
+    }
+
+    $scope.getUserKatas = (userid) => {
+        mainService.getUserKatas(userid).then(response => {
+            $scope.userKatas = response.data;
+            console.log($scope.userKatas);
         })
     }
 
@@ -27,6 +33,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
 
     $scope.getUser();
+    $scope.getUserKatas(mainService.user.id);
 
 
 });
