@@ -12,8 +12,8 @@ angular.module('app').controller('kata_listCtrl', function($scope, $state, mainS
     return kata.name === $scope.Filter;
   }
 
-    $scope.getRandomKataList = (userid) => {
-        mainService.getRandomKataList(userid).then(response => {
+    $scope.getRandomKataList = () => {
+        mainService.getRandomKataList(mainService.user.kyu_level).then(response => {
             console.log(response.data);
             $scope.randomKataList = response.data;
             $scope.totalKata = $scope.randomKataList.length;
@@ -36,7 +36,7 @@ angular.module('app').controller('kata_listCtrl', function($scope, $state, mainS
     }
 
     $scope.init = () => {
-        $scope.getRandomKataList(mainService.user.id);
+        $scope.getRandomKataList();
     }
 
 });
