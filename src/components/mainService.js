@@ -70,7 +70,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     });
   };
 
-  // homeCtrl - displaying one kata withing range
+  // homeCtrl - displaying one kata within range
   this.getRandomKata = (userkyu) => {
     return $http({
       method: 'GET',
@@ -122,17 +122,17 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     })
   };
 
-  this.upVoteKata = () => {
+  this.upVoteKata = (kataid) => {
     return $http({
       method: 'PUT',
-      url: `/api/kata-votes`
+      url: `/api/kata-votes/` + kataid
     })
   }
 
-  this.upVoteSolution = () => {
+  this.upVoteSolution = (kataid) => {
     return $http({
       method: 'PUT',
-      url: `/api/solution-votes`
+      url: `/api/solution-votes/` + kataid
     })
   }
 
