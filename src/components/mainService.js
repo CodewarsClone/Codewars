@@ -74,7 +74,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.getRandomKata = () => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
     return $http({
       method: 'GET',
-      url: `/api/random-kata/` 
+      url: `/api/random-kata/`
     });
   };
 
