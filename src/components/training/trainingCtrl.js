@@ -30,22 +30,22 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
   $scope.showOutput = function() {
     $scope.showOutputShow = false;
     $scope.showInstructionsShow = true;
-  }
+  };
   $scope.showInstructions = function() {
     $scope.showOutputShow = true;
     $scope.showInstructionsShow = false;
-  }
+  };
 
   // GET KATA INFORMATION
   $scope.getKataById = (kataid) => {
     mainService.getKataById(kataid).then((response) => {
+      console.log(response.data);
       let examplesTxt = ``;
 	    response.data.examples.forEach((example, i) => {
         examplesTxt = examplesTxt + example.test +`\n`
 	    });
-      console.log(response.data);
       $scope.name = response.data.name;
-      $scope.instructions = response.data.description;
+      $scope.instructions = response.data.description.replace(/\\n/g, '\n');
       $scope.kyu = response.data.kyu;
       $scope.starter = response.data.starter_code;
       $scope.examples = examplesTxt;
@@ -54,7 +54,7 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
       solutionsCode.setValue($scope.starter);
       examplesCode.setValue($scope.examples);
     });
-  }
+  };
 
   $scope.getKataById($scope.kataid);
 
@@ -67,19 +67,13 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     solutions = solutions.replace(/\n/g, " ");
     solutions = solutions.replace(/\s+/g, " ");
     var examplesArr = [];
-    examples = examples.split(/\n/);
-    examples.forEach(example => examplesArr.push({test: example}));
-    mainService.testExamples(solutions, examplesArr).then((response) => {
-      $scope.output = [];
-      response.data.forEach((ele, i) => {
-        if(ele.result){
-	        console.log(typeof  ele.result.replace(/</g, '\n<'));
-	        $scope.output.push(ele)
-        }
-      });
-      console.log(response.data);
+    examples = examples.replace(/\n\s*\./g, `.`)
+	    .replace(/\n/g, ` `)
+	    .replace(/\s+/g, ` `);
+    console.log(examples);
+    mainService.testExamples(solutions, examples).then((response) => {
     });
-    
+
   }
 
   $scope.testSuite = function() {
@@ -88,19 +82,13 @@ angular.module('app').controller('trainingCtrl', function($scope, $state, mainSe
     solutions = solutions.replace(/\n/g, " ");
     solutions = solutions.replace(/\s+/g, " ");
      mainService.testSuite(solutions, $scope.kataid).then((response) => {
-       $scope.passed = true
-	     $scope.output = [];
-	     response.data.forEach((ele, i) => {
-		     $scope.output.push(ele)
-         if (!ele.passed) {$scope.passed = false}
-	     });
 	     console.log(response.data);
      });
   };
 
   $scope.addPointsToUser = (points, userid) => {
     mainService.addPointsToUser(mainService.pointsCalculator($scope.kyu, mainServive.user.id), mainServive.user.id)
-  }
+  };
 
   $scope.submitAnswer = (solution, kataid, userid) => {
     if ($scope.passed){

@@ -5,14 +5,14 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   // $sce.trustAsResourceUrl('/s');
 
   // Dumby information so I don't have to mess with the server all the time.
-  // this.user = {id: 4, github_id: "20197415", name: "Steven", email: null, picture_url: "https://avatars.githubusercontent.com/u/20197415?v=3", username: "Steven-Nagie"};
-  this.user = {};
+  this.user = {id: 4, github_id: "20197415", name: "Steven", email: null, picture_url: "https://avatars.githubusercontent.com/u/20197415?v=3", username: "Steven-Nagie"};
+  // this.user = {};
 
 // POST
   this.testExamples = (solution, examples) => {
     return $http({
       method: 'POST',
-      url: `http://192.168.0.186:3030/api/test/examples`,
+      url: `/api/test/examples`,
       data: {
         script: solution,
         examples: examples
@@ -33,8 +33,9 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.submitAnswer = (solution, kataid, userid) => {
     return $http({
       method: 'POST',
-      url: `/api/solution/` + kataid,
+      url: `/api/submit-answer/` + kataid,
       data: {
+         userid: userid,
          script: solution
       }
     });
@@ -62,6 +63,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
 
   // trainingCtrl
   this.getKataById = (kataid) => {
+    console.log('getting kata SVC', kataid);
     return $http({
       method: 'GET',
       url: `/api/kata/` + kataid
@@ -69,15 +71,15 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   };
 
   // homeCtrl - displaying one kata withing range
-  this.getRandomKata = (userid) => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
+  this.getRandomKata = () => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
     return $http({
       method: 'GET',
-      url: `/api/random-kata`
+      url: `/api/random-kata/` 
     });
   };
 
   // kata_listCtrl = displays a plethora of katas based on user ability
-  this.getRandomKataList = (userid) => {
+  this.getRandomKataList = () => {
     return $http({
       method: 'GET',
       url: `/api/random-kata-list`
@@ -101,10 +103,10 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   };
 
   // profileCtrl - brings back a specific users kata information (script, name, kyu, description) - use on kata tab soltion tab
-  this.getUserKatas = () => {
+  this.getUserKatas = (userid) => {
     return $http({
       method: 'GET',
-      url: `/api/get-user-katas`
+      url: `/api/get-user-katas/` + userid
     });
   };
 
@@ -121,36 +123,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   }
 
 // OTHER
-  this.pointsCalculator = (kyu, user) => {
-    switch (true) {
-      case kyu = 8:
-        return user.points += 1;
-        break;
-      case kyu = 7:
-        return user.points += 2;
-        break;
-      case kyu = 6:
-        return user.points += 4;
-        break;
-      case kyu = 5:
-        return user.points += 8;
-        break;
-      case kyu = 4:
-        return user.points += 16;
-        break;
-      case kyu = 3:
-        return user.points += 32;
-        break;
-      case kyu = 2:
-        return user.points += 64;
-        break;
-      case kyu = 1:
-        return user.points += 128;
-        break;
-    }
-  }
-
-this.rankCalculator = (user) => {
+  this.rankCalculator = (user) => {
   switch (true) {
     case user.points < 12:
       return user.kyu_level = 8;
@@ -179,5 +152,33 @@ this.rankCalculator = (user) => {
   }
 }
 
+  this.pointsCalculator = (kyu, user) => {
+    switch (true) {
+      case kyu = 8:
+        return user.points += 1;
+        break;
+      case kyu = 7:
+        return user.points += 2;
+        break;
+      case kyu = 6:
+        return user.points += 4;
+        break;
+      case kyu = 5:
+        return user.points += 8;
+        break;
+      case kyu = 4:
+        return user.points += 16;
+        break;
+      case kyu = 3:
+        return user.points += 32;
+        break;
+      case kyu = 2:
+        return user.points += 64;
+        break;
+      case kyu = 1:
+        return user.points += 128;
+        break;
+    }
+  }
 
 });
