@@ -15,12 +15,18 @@
           <div class='icon-div'><img src='./assets/imgs/asset_23.png' class='side-menu-icon li' id='icon4'></div><span class='menu-items'>Docs</span></li><br>
       </ul>
     </div>
+
+    <!--~~~~~~~~~~~~ TOP MENU ~~~~~~~~~~~~~~~~~-->
     <div class="top-menu">
-      <ul class='ul-top'>
-        <li><div class='li65'><img src='./assets/imgs/asset_30.png' class='li65-img'></div></li>
-        <li><div class='li65'><img src='./assets/imgs/asset_31.png'class='li65-img'></div></li>
-        <li class='li170'><li>{{userPic}}</li><li>kyu</li><li>lvl</li></li>
-      </ul>
+      <div class='ul-top'>
+        <div class='li65'><img src='./assets/imgs/asset_30.png' class='li65-img'></div>
+        <div class='li65'><img src='./assets/imgs/asset_31.png'class='li65-img'></div>
+        <div class='li170'>
+          <img src='{{userPic}}' class='li170-img'>
+          <div>{{userKyu}}</div>
+          <div>{{userPoints}}<div>
+        </div>
+      </div>
     </div>
     <main>
       <ui-view class='main-div'></ui-view>

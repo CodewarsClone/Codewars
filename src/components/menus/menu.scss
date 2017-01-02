@@ -34,7 +34,7 @@ cursor: pointer;
   background-color: $sidebar-color;
   height: 100vh;
   width: 55px;
-  padding: 5px;
+  padding: 5px 0 0 0;
   float: left;
   position: fixed;
   left: 0;
@@ -56,6 +56,7 @@ cursor: pointer;
     height:35px;
     left:50px;
     cursor: pointer;
+    
 }
 .side-menu-icon {
 //   width: 20px;
@@ -88,22 +89,33 @@ cursor: pointer;
 }
 .li65 {
     width: 65px;
+    margin:auto;
+    display: flex;
+    justify-content: center;
 }
 .li65-img {
     margin:auto;
     vertical-align: center;
     height: 25px;
+    align-self:center;
+    
 }
 
 .li170 {
     width: 170px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    margin: auto;
+    justify-content: center;
 }
 
 .li170-img {
     vertical-align: center;
+    height: 40px;
+    border-radius: 10px;
+    margin:  5px auto;
+    align-self: center;
+    
 }
 
 .li170-1 {
