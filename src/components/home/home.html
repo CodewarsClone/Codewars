@@ -8,7 +8,7 @@
         <select class="home-dropdown" ng-init="selectedProgress = progressOptions[0]" ng-model="selectedProgress" ng-options="x for x in progressOptions"></select>
       </div>
       <div class="challenge-buttons-div">
-        <a ui-sref="/#/training/{{randomKata.id}}"><button id="train-button" class="home-button">Train</button></a>
+        <a ui-sref="menu.training({kataid: randomKata.id})"><button id="train-button" class="home-button">Train</button></a>
         <button id="skip-button" class="home-button" ng-click="getRandomKata()">Skip</button>
       </div>
     </div>
