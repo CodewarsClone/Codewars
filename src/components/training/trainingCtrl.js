@@ -58,23 +58,25 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		var solutions = solutionsCode.getValue();
 		var examples = examplesCode.getValue();
 		$scope.showOutput();
-		solutions = solutions.replace(/\n/g, " ");
-		solutions = solutions.replace(/\s+/g, " ");
+		solutions = solutions.replace(/\n\s*\./g, `.`)
+			.replace(/\\n/g, " ")
+			.replace(/\s+/g, " ");
 		var examplesArr = [];
 		examples = examples.replace(/\n\s*\./g, `.`)
 			.replace(/\n/g, ` `)
 			.replace(/\s+/g, ` `);
 		console.log(examples);
 		mainService.testExamples(solutions, examples).then((response) => {
+			console.log(response.data);
 		});
-		
-	}
+	};
 	
 	$scope.testSuite = function () {
 		var solutions = solutionsCode.getValue();
 		$scope.showOutput();
-		solutions = solutions.replace(/\n/g, " ");
-		solutions = solutions.replace(/\s+/g, " ");
+		solutions = solutions.replace(/\n\s*\./g, `.`)
+			.replace(/\\n/g, " ")
+			.replace(/\s+/g, " ");
 		mainService.testSuite(solutions, $scope.kataid).then((response) => {
 			console.log(response.data);
 		});

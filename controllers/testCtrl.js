@@ -56,6 +56,11 @@ function objectifer(arr) {
 				value: ele.replace(/<FAILED::>/, ''),
 			}
 			
+		} else if (ele.search(/<ERROR::>/) > -1) {
+			return {
+				type: 'ERROR',
+				value: ele.replace(/<ERROR::>/, '')
+			}
 		} else if (ele.search(/<COMPLETEDIN::>/) > -1) {
 			return {type: 'completed', time: timeParser(ele)}
 		}
@@ -68,32 +73,34 @@ function nester(arr) {
 	let count = 0;
 	let testCount = 0;
 	let passCount = 0;
+	console.log(arr.length);
 	for (let i = arr.length - 1; i >= 0; i--) {
-		if (arr[i].type === 'describe' || arr[i].type === 'it') {
-			
-			count += 1;
-			let j = i + 1;
-			let recurs = true;
-			while (recurs) {
-				
-				if (arr[j].type !== 'completed') {
-					if (arr[j].type == 'it') count += 1;
-					if (arr[j].type == 'test') {
-						testCount += 1;
-						if (arr[j].passed == true) passCount += 1
-					}
-					
-					arr[i].nest.push(arr.splice(j, 1))
-				} else {
-					count -= 1;
-					arr.splice(j, 1);
-					recurs = false
-					
-				}
-				
-				
+		if(arr[i]) {
+			if (arr[i].type == 'test') {
+				testCount += 1;
+				if (arr[i].passed == true) passCount += 1
 			}
+			if (arr[i].type === 'describe' || arr[i].type === 'it') {
+				count += 1;
+				let j = i + 1;
+				let recurs = true;
+				while (recurs) {
+					if (arr[j].type !== 'completed') {
+						if (arr[j].type == 'it') count += 1;
+						arr[i].nest.push(arr.splice(j, 1)[0])
+					} else {
+						count -= 1;
+						arr.splice(j, 1);
+						recurs = false
+					}
+				}
+			}
+		} else {
+			
+			console.log('didn\'t have type');
+			console.log(arr[i]);
 		}
+		
 	}
 	return {
 		nest: arr,
@@ -119,7 +126,8 @@ function testRunner(script, test) {
 				for (let i = output.length - 1; i >= 0; i--) if (output[i] === '') output.splice(i, 1);
 				let newArr = objectifer(output);
 				newArr = nester(newArr);
-				defer.resolve(newArr)
+				defer.resolve(newArr);
+				return
 			}
 		}
 	);
@@ -138,35 +146,27 @@ module.exports = {
 			let test = kataArray[0].test_script[0].test;
 			
 			testRunner(body.script, test).then((response) => {
-				res.json(response)
+				res.json(response);
 				console.log(util.inspect(response, false, null));
+				return
 			});
 		});
 	},
 	
 	testExamplesKata: (req, res, next) => {
 		let body = req.body;
+		console.log(body.script);
 		
 		testRunner(body.script, body.examples).then((response) => {
-			res.json(response)
+			res.json(response);
+			console.log(util.inspect(response, false, null));
+			return
 		});
 	}
 };
 
 
 
-function isValidWalk(walk) {
-	return walk.length == 10 && !walk.reduce(function (w, step) {
-			return w + {"n": -1, "s": 1, "e": 99, "w": -99}[step]
-		}, 0)
-}
 
-function generateRange(min, max, step) {
-	let rtn = [];
-	for (let i = min; i <= max; i += step) {
-		rtn.push(i)
-	}
-	return rtn
-}
 
 	

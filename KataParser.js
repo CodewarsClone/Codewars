@@ -58,7 +58,30 @@ let tags = [
 // Paste the Test Suite here
 let tests = [
 	`
-	
+	Test.describe('tests', _ => {
+  Test.it('fixed tests', _ => {
+    Test.assertEquals(kebabize('myCamelCasedString'), 'my-camel-cased-string');
+    Test.assertEquals(kebabize('myCamelHas3Humps'), 'my-camel-has-humps');
+  });
+  
+  Test.it('random tests', _ => {
+    function fixture (str) {
+    	return str.replace(/\d/g,'')
+        .split(/(?=[A-Z])/).map(s => s.toLowerCase()).join('-')
+    }
+    
+    for (let i = 0; i <= 100; i += 1) {
+      let token = Test.randomToken();
+      
+      let camel = token.split('').map(c => {
+    	  const rand = Math.random();
+    	  return rand > 0.9 ? c.toUpperCase() : c
+      }).join('')
+        
+      Test.assertEquals(kebabize(camel), fixture(camel));
+    }
+  });
+});
 `,
 
 ];
@@ -111,3 +134,6 @@ console.log('\n\n\nExampes');
 console.log(_.testObjectify(examples));
 console.log('\nTests');
 console.log(_.testObjectify(tests));
+
+
+
