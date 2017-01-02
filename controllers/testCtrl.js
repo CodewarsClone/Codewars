@@ -94,9 +94,6 @@ function nester(arr) {
 			}
 		}
 	}
-	
-	
-	
 	return {
 		nest: arr,
 		testCount: testCount,
