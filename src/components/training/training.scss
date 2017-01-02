@@ -16,6 +16,7 @@ $orange-color: #CF4B32;
 $clone-wars-color: rgb(217, 217, 217);
 $grey-color: #C0C0C0;
 $green-color: #5F8120;
+$grey-color2: #3B3C3E;
 
 // STUFF ALONG THE TOP
 .training-top {
@@ -107,13 +108,29 @@ $green-color: #5F8120;
 }
 
 .instructions-head {
-  width: 40vw;
-  height: 5vh;
+  width: 35vw;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
 }
 
 .instructions-selector {
   width: 120px;
   height: 40px;
+  text-align: center;
+  cursor: pointer;
+  vertical-align: center;
+  padding: 5px;
+  background-color: $grey-color2;
+}
+
+.output-selector {
+  width: 90px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 40px;
+  padding: 5px;
 }
 
 hr {

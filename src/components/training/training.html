@@ -3,7 +3,7 @@
     <div class="training-top" ng-style='allGone'>
       <div class="kata-name-container">
         <div class="kata-name-container-top">
-          <img src="./assets/imgs/5_kyu_icon.png" alt="Difficulty" id="difficulty-icon">
+          <img src="./assets/imgs/{{kyu}}_kyu_icon.png" alt="Difficulty" id="difficulty-icon">
           <div class="font16-reg" id="kata-name">
             {{name}}
           </div>
@@ -47,10 +47,12 @@
       </div> -->
       <div class="instructions" ng-style="instructionStyle">
         <div class="instructions-head">
-          <button class="instructions-selector font13-reg-gray" ng-click="showInstructions()">Instructions</button>
-          <button class="instructions-selector font13-reg-gray" ng-click="showOutput()">Output</button>
+          <div class='instructions-selector font14-lit-gray' ng-click='showInstructions()'>Instructions</div>
+          <div class='output-selector font14-lit-gray' ng-click='showOutput()'>Output</div>
+          <!--<button class="instructions-selector font13-reg-gray" ng-click="showInstructions()">Instructions</button>
+          <button class="instructions-selector font13-reg-gray" ng-click="showOutput()">Output</button>-->
         </div>
-        <hr>
+        <!--<hr>-->
         <show-output ng-hide="showOutputShow"></show-output>
         <show-instructions ng-hide="showInstructionsShow"></show-instructions>
       </div>
