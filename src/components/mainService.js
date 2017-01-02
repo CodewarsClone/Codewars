@@ -120,6 +120,20 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
         id: userid
       }
     })
+  };
+
+  this.upVoteKata = () => {
+    return $http({
+      method: 'PUT',
+      url: `/api/kata-votes`
+    })
+  }
+
+  this.upVoteSolution = () => {
+    return $http({
+      method: 'PUT',
+      url: `/api/solution-votes`
+    })
   }
 
 // OTHER
