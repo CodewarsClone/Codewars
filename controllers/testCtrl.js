@@ -119,6 +119,7 @@ function testRunner(script, test) {
 			} else {
 				let output = stdOut.split(/\n/g);
 				for (let i = output.length - 1; i >= 0; i--) if (output[i] === '') output.splice(i, 1);
+				console.log(output);
 				let newArr = objectifer(output);
 				newArr = nester(newArr);
 				defer.resolve(newArr)
