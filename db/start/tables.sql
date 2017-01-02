@@ -45,4 +45,3 @@ CREATE TABLE kata_ratings (
 
 INSERT INTO users (github_id, name, email, username, picture_url, points)
 VALUES ('12', 'Bob Smith', 'bob@smith.com', 'bobIScool', null, 25);
-

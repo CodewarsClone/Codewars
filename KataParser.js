@@ -58,48 +58,30 @@ let tags = [
 // Paste the Test Suite here
 let tests = [
 	`
-Test.describe("generateRange(2, 10, 2)", function() {
-  Test.assertSimilar(generateRange(2, 10, 2), [2,4,6,8,10]);
-});
-
-Test.describe("generateRange(1, 10, 3)", function() {
-  Test.assertSimilar(generateRange(1, 10, 3), [1,4,7,10]);
-});
-
-Test.describe("generateRange(1, 10, 1)", function() {
-  Test.assertSimilar(generateRange(1, 10, 1), [1,2,3,4,5,6,7,8,9,10]);
-});
-
-Test.describe("generateRange(1, 10, 4)", function() {
-  Test.assertSimilar(generateRange(1, 10, 4), [1,5,9]);
-});
-
-Test.describe("generateRange(1, 10, 5)", function() {
-  Test.assertSimilar(generateRange(1, 10, 5), [1,6]);
-});
-
-Test.describe("generateRange for random", function() {
-  var generateRandom = function(min, max){
-    return Math.floor(Math.random() * max) + min;
-  };
+	Test.describe('tests', _ => {
+  Test.it('fixed tests', _ => {
+    Test.assertEquals(kebabize('myCamelCasedString'), 'my-camel-cased-string');
+    Test.assertEquals(kebabize('myCamelHas3Humps'), 'my-camel-has-humps');
+  });
   
-  var range = function(min, max, step){
-    var z = [];
-    for(var i = min; i <= max; i += step){
-      z.push(i);
+  Test.it('random tests', _ => {
+    function fixture (str) {
+    	return str.replace(/\d/g,'')
+        .split(/(?=[A-Z])/).map(s => s.toLowerCase()).join('-')
     }
-    return z;
-  };
-  
-  for(var i = 0; i < 10; i++){
-    var randomMax = generateRandom(30, 100),
-        randomMin = generateRandom(1, 20),
-        randomStep = generateRandom(1, 10);
-  
-    Test.assertSimilar(generateRange(randomMin, randomMax, randomStep), range(randomMin, randomMax, randomStep));
+    
+    for (let i = 0; i <= 100; i += 1) {
+      let token = Test.randomToken();
+      
+      let camel = token.split('').map(c => {
+    	  const rand = Math.random();
+    	  return rand > 0.9 ? c.toUpperCase() : c
+      }).join('')
+        
+      Test.assertEquals(kebabize(camel), fixture(camel));
     }
+  });
 });
-	
 `,
 
 ];
@@ -113,31 +95,31 @@ let examples = [
 
 // Introduction to the Kata Here
 let description =
-	`Modify the kebabize function so that it converts a camel case string into a kebab case.
-
-kebabize('camelsHaveThreeHumps') // camels-have-three-humps
-kebabize('camelsHave3Humps') // camels-have-humps
-Notes:
-
-the returned string should only contain lowercase letters
+	`
+	
 `;
 // Paste the starting script here
-let startScript = `function generateRange(min, max, step){}`;
+let startScript = ``;
 
 
 // Paste your winning script here
 let winScript = `
-function kebabize(str) {
-  return str.replace(/[^a-z]/ig, '').
-         replace(/^[A-Z]/, c => c.toLowerCase()).
-         replace(/[A-Z]/g, c => \`-\${c.toLowerCase()}\`);
-}
 
 `;
 
 
+let solution = `
+function descendingOrder(n){
+  return parseInt(n.toString().split('').sort((a, b) => b - a).join(''));
+}
+
+`
+
+
 // When this js file is ran you will get an output in your console of all the info in a format
 // ready to go into the Sql DB Start files to then copy into those tables
+console.log('Solution');
+console.log(_.cleanSQL(solution));
 console.log('\nTags');
 console.log(_.JSON(tags));
 console.log('\nLanguages');
@@ -152,3 +134,6 @@ console.log('\n\n\nExampes');
 console.log(_.testObjectify(examples));
 console.log('\nTests');
 console.log(_.testObjectify(tests));
+
+
+
