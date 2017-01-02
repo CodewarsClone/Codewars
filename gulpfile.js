@@ -24,7 +24,7 @@ const paths = {
   // indexFiles: './src/index.html',
   scssFiles: './src/**/**/*.scss',
   // index: './src/index.html',
-  // htmlFiles: './src/**/*.html',
+  htmlFiles: './src/**/*.html',
   dist: './src/dist',
 };
 
