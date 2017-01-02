@@ -139,7 +139,7 @@ $grey-color: #C0C0C0;
   align-items: center;
 }
 
-// Original ratio 149 x 250
+// Original ratio 149 x 250 (width x height)
 #codewars-red-icon {
   height: 83.3px;
   width: 49.66px;
@@ -160,6 +160,30 @@ $grey-color: #C0C0C0;
   background-color: rgba(0,0,0,0);
   border-radius: 5%;
   padding: 7px;
+}
+
+/**********USER-COMPLETED-KATAS**********/
+.user-completed-katas {
+  width: 60vw;
+  background-color: $container3;
+}
+
+.repeat-completed-katas {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.home-solutions-div {
+  margin-top: 5px;
+}
+
+.show-solutions {
+  cursor: pointer;
+}
+
+.repeated-completed-solutions {
+  display: none;
 }
 
 /**********ALLIES ***********/

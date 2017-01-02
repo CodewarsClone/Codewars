@@ -1,3 +1,3 @@
-angular.module('app').controller('menuCtrl', function($scope, mainService){
-    $scope.userPic = this.user.picture_url;
+angular.module('app').controller('menuCtrl', function($scope, mainService, $state, $stateParams){
+  
 });
