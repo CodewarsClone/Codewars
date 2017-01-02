@@ -10,6 +10,7 @@ const app = require('../server');
 const db = app.get('db');
 const Q = require('q');
 const exec = require('child_process').exec;
+const util = require('util');
 
 
 
@@ -116,7 +117,6 @@ function testRunner(script, test) {
 			} else {
 				let output = stdOut.split(/\n/g);
 				for (let i = output.length - 1; i >= 0; i--) if (output[i] === '') output.splice(i, 1);
-				console.log(output);
 				let newArr = objectifer(output);
 				newArr = nester(newArr);
 				defer.resolve(newArr)
@@ -139,6 +139,7 @@ module.exports = {
 			
 			testRunner(body.script, test).then((response) => {
 				res.json(response)
+				console.log(util.inspect(response, false, null));
 			});
 		});
 	},
