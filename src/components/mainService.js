@@ -71,18 +71,18 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   };
 
   // homeCtrl - displaying one kata withing range
-  this.getRandomKata = () => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
+  this.getRandomKata = (userkyu) => {
     return $http({
       method: 'GET',
-      url: `/api/random-kata/` 
+      url: `/api/random-kata/${userkyu}` 
     });
   };
 
   // kata_listCtrl = displays a plethora of katas based on user ability
-  this.getRandomKataList = () => {
+  this.getRandomKataList = (userkyu) => {
     return $http({
       method: 'GET',
-      url: `/api/random-kata-list`
+      url: `/api/random-kata-list/${userkyu}`
     });
   }
 
