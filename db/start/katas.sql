@@ -16,11 +16,125 @@ VALUES (8, 'var a should equal 1', 'var a = 1', 'Sumbit This','["Fake"]', '["Jav
 (6, 'Kebabize', '["FUNDAMENTALS","STRINGS"]', '["JavaScript","CoffeeScript","Crystal","Python","Ruby"]', 'function kebabize(str) {}', 'Modify the kebabize function so that it converts a camel case string into a kebab case.\n\nkebabize(''camelsHaveThreeHumps'') // camels-have-three-humps\nkebabize(''camelsHave3Humps'') // camels-have-humps\n\nNotes:\nthe returned string should only contain lowercase letters\n', '[{"test":"Test.assertEquals(kebabize(''myCamelCasedString''), ''my-camel-cased-string'');"},{"test":"Test.assertEquals(kebabize(''myCamelHas3Humps''), ''my-camel-has-humps'');"}]', '[{"test":" Test.describe(''tests'', _ => { Test.it(''fixed tests'', _ => { Test.assertEquals(kebabize(''myCamelCasedString''), ''my-camel-cased-string''); Test.assertEquals(kebabize(''myCamelHas3Humps''), ''my-camel-has-humps''); }); Test.it(''random tests'', _ => { function fixture (str) { return str.replace(/\\d/g,'''').split(/(?=[A-Z])/).map(s => s.toLowerCase()).join(''-''); } for (let i = 0; i <= 100; i += 1) { let token = Test.randomToken(); let camel = token.split('''').map(c => { const rand = Math.random(); return rand > 0.9 ? c.toUpperCase() : c; }).join(''''); Test.assertEquals(kebabize(camel), fixture(camel)); } }); }); "}]')
 ;
 
+
+-- December 27:
+-- Here are some solutions to populate the solutions page. I forget what we decided regarding formatting, so I'm just copy/pasting them directly from codewars. Therefore, they have line breaks in them, which we can exhange with \n if we so desire.
 INSERT INTO solutions (user_id, kata_id, script)
-VALUES (1, 1, 'var a = 1'),
+VALUES (1, 2, "function generateRange(min, max, step){
+  let arr = [];
+  for (let i=min; i<=max; i += step) {
+    arr.push(i);
+  }
+  return arr;
+}"),
+
+(1, 3, "function descendingOrder(n){
+  return parseInt(n.toString().split('').sort((a, b) => b - a).join(''));
+}"),
+
+(1, 4, "function disemvowel(str) {
+  var vowels = ['a', 'e', 'i', 'o', 'u'];
+  return str.split('').map((letter) => {
+    if (vowels.indexOf(letter.toLowerCase()) === -1) {
+      return letter;
+    }
+  }).join('');
+}"),
+
+(1, 5, "function isValidWalk(walk) {
+
+  var horizontal = 0;
+  var vertical = 0;
+  var total = 0;
+
+  walk.forEach((word) => {
+    switch (word) {
+      case 'n':
+        vertical += 1;
+        total += 1;
+        break;
+      case 's':
+        vertical -= 1;
+        total += 1;
+        break;
+      case 'e':
+        horizontal += 1;
+        total += 1;
+        break;
+      case 'w':
+        horizontal -= 1;
+        total += 1;
+        break;
+      default:
+        console.log("It's broken");
+    }
+
+  });
+
+  if (horizontal === 0 && vertical === 0 && total === 10) {
+    return true;
+  } else {
+    return false;
+  }
+
+}"),
+
+(1, 6, "function solution(number){
+
+  var arr = [];
+
+  for (var i = 3; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      arr.push(i);
+    }
+  }
+
+  var final = 0;
+  if (arr[0]) {
+    final = arr.reduce((a, b) => a + b)
+  }
+
+  return final;
+
+}"),
+
+(1, 7, "function bubblesortOnce(intArr) {
+
+  var bubble;
+
+  for (var i = 0; i < intArr.length; i++) {
+    if (intArr[i] > intArr[i+1]) {
+      bubble = intArr[i+1];
+      intArr.splice(i + 1, 1);
+      intArr.splice(i, 0, bubble);
+    }
+  }
+
+  return intArr;
+}"),
+
+(1, 8, "function kebabize(str) {
+  str = str.split('').map((letter) => {
+    if (!isNaN(parseInt(letter))) {
+      return "";
+    }else if (letter === letter.toUpperCase()) {
+      return "-" + letter.toLowerCase();
+    } else {
+      return letter;
+    }
+  }).join('');
+
+  if (str.charAt(0) === "-") {
+    str = str.slice(1);
+  }
+
+  return str;
+}"),
+(1, 1, 'var a = 1'),
 (1,1, 'let a = 1'),
 (1, 8, 'function kebabize(str) { return str.replace(/[^a-z]/ig, ''). replace(/^[A-Z]/, c => c.toLowerCase()). replace(/[A-Z]/g, c => `-${c.toLowerCase()}`); }')
 ;
 
 INSERT INTO ratings (user_id, solution_id, liked)
 VALUES (1, 1, true);
+
