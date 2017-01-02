@@ -71,15 +71,15 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   };
 
   // homeCtrl - displaying one kata withing range
-  this.getRandomKata = (userid) => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
+  this.getRandomKata = () => { // eventually we will want it to return a random kata based on the users experience. THAT IS WHY THERE IS AN ID PARAM
     return $http({
       method: 'GET',
-      url: `/api/random-kata`
+      url: `/api/random-kata/` 
     });
   };
 
   // kata_listCtrl = displays a plethora of katas based on user ability
-  this.getRandomKataList = (userid) => {
+  this.getRandomKataList = () => {
     return $http({
       method: 'GET',
       url: `/api/random-kata-list`
@@ -123,36 +123,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   }
 
 // OTHER
-  this.pointsCalculator = (kyu, user) => {
-    switch (true) {
-      case kyu = 8:
-        return user.points += 1;
-        break;
-      case kyu = 7:
-        return user.points += 2;
-        break;
-      case kyu = 6:
-        return user.points += 4;
-        break;
-      case kyu = 5:
-        return user.points += 8;
-        break;
-      case kyu = 4:
-        return user.points += 16;
-        break;
-      case kyu = 3:
-        return user.points += 32;
-        break;
-      case kyu = 2:
-        return user.points += 64;
-        break;
-      case kyu = 1:
-        return user.points += 128;
-        break;
-    }
-  }
-
-this.rankCalculator = (user) => {
+  this.rankCalculator = (user) => {
   switch (true) {
     case user.points < 12:
       return user.kyu_level = 8;
@@ -181,5 +152,33 @@ this.rankCalculator = (user) => {
   }
 }
 
+  this.pointsCalculator = (kyu, user) => {
+    switch (true) {
+      case kyu = 8:
+        return user.points += 1;
+        break;
+      case kyu = 7:
+        return user.points += 2;
+        break;
+      case kyu = 6:
+        return user.points += 4;
+        break;
+      case kyu = 5:
+        return user.points += 8;
+        break;
+      case kyu = 4:
+        return user.points += 16;
+        break;
+      case kyu = 3:
+        return user.points += 32;
+        break;
+      case kyu = 2:
+        return user.points += 64;
+        break;
+      case kyu = 1:
+        return user.points += 128;
+        break;
+    }
+  }
 
 });
