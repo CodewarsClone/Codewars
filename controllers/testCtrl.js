@@ -97,6 +97,7 @@ function nester(arr) {
 			}
 		} else {
 			
+			
 			console.log('didn\'t have type');
 			console.log(arr[i]);
 		}
