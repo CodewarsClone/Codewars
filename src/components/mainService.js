@@ -122,17 +122,25 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     })
   };
 
-  this.upVoteKata = (kataid) => {
+  this.upVoteKata = (userid, kataid) => {
     return $http({
       method: 'PUT',
-      url: `/api/kata-votes/` + kataid
+      url: `/api/kata-votes/` + kataid,
+      data: {
+        userid: userid,
+        kataid: kataid
+      }
     })
   }
 
-  this.upVoteSolution = (kataid) => {
+  this.upVoteSolution = (kataid, userid, solutionid) => {
     return $http({
       method: 'PUT',
-      url: `/api/solution-votes/` + kataid
+      url: `/api/solution-votes/` + kataid,
+      data: {
+        userid: userid,
+        solutionid: solutionid
+      }
     })
   }
 
