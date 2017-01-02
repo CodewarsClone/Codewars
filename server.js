@@ -106,8 +106,8 @@ app.post('/api/submit-answer/:kataid', kataCtrl.sumbitAnswer);
 app.post('/api/kata-by-name', kataCtrl.searchByKatasName);
 
 app.put('/api/points', kataCtrl.addPointsToUser);
-app.put('/api/kata-votes', kataCtrl.upVoteKata);
-app.put('/api/solution-votes', kataCtrl.upVoteSolution);
+app.put('/api/kata-votes/:kataid', kataCtrl.upVoteKata);
+app.put('/api/solution-votes/:kataid', kataCtrl.upVoteSolution);
 
 
 app.listen(config.port, function () {
