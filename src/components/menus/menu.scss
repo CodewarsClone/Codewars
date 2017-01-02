@@ -34,7 +34,7 @@ cursor: pointer;
   background-color: $sidebar-color;
   height: 100vh;
   width: 55px;
-  padding: 5px;
+  padding: 5px 0 0 0;
   float: left;
   position: fixed;
   left: 0;
@@ -56,6 +56,7 @@ cursor: pointer;
     height:35px;
     left:50px;
     cursor: pointer;
+    
 }
 .side-menu-icon {
 //   width: 20px;
