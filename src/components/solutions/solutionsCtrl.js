@@ -31,8 +31,8 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
         })
     }
 
-    $scope.voteSolution = () => {
-        mainService.voteSolution().then(response => {
+    $scope.voteSolution = (solutionid, vote) => { // the vote is a true or false value
+        mainService.voteSolution(mainService.user.id, solutionid, vote).then(response => {
             $scope.solutionVotes = response.data;
             console.log($scope.solutionVotes);
         })
@@ -42,7 +42,7 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
         $scope.getKataById($scope.kataid);
     }
 
-    $scope.voteSolution();
+    
 
 
 
