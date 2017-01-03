@@ -21,9 +21,8 @@ var cachebust = new CacheBuster();
 const paths = {
   jsSource: ['./src/components/**/*.js', './src/components/*.js'],
   cssFiles: './src/**/*.css',
-  // indexFiles: './src/index.html',
+  indexFile: './src/index.html',
   scssFiles: './src/**/**/*.scss',
-  // index: './src/index.html',
   htmlFiles: './src/**/*.html',
   dist: './src/dist',
 };

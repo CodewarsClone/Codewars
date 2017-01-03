@@ -76,11 +76,19 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	$scope.testSuite = function () {
 		var solutions = solutionsCode.getValue();
 		$scope.showOutput();
+		var t0 = performance.now();
 		solutions = solutions.replace(/\n\s*\./g, `.`)
 			.replace(/\\n/g, " ")
 			.replace(/\s+/g, " ");
 		mainService.testSuite(solutions, $scope.kataid).then((response) => {
-			console.log(response.data);
+			var t1 = performance.now();
+			$scope.answer = response.data.nest;
+			console.log(response.data.nest[0]);
+			
+			$scope.time = Math.round(t1 - t0) + " ms";
+			$scope.testPass = response.data.passCount;
+			$scope.testFail = response.data.testCount - response.data.passCount;
+
 		});
 	};
 	
