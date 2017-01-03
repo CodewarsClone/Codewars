@@ -27,10 +27,8 @@
     </div>
     <div class="all-solutions" ng-repeat="solution in kataSolutions track by $index">
       <p class="font15-reg">JavaScript:</p>
-      <textarea id="solution-text {{$index}}" codemirror-directive>
+      <textarea class="solution-text" id="{{$index}}" codemirror-directive>
       </textarea>
-      <!-- From when I was planning to do everything with a custom directive -->
-      <!-- <p class="font15-reg" color-directive>{{solution.script}}</p> -->
     </div>
   </div> <!--END SOLUTIONS MAIN-->
 

@@ -40,7 +40,7 @@
     <div class="home-completed-top">
       <p class="font20-reg" style="margin-left: 10px">Your Completed Katas:</p>
     </div>
-    <div class="repeat-completed-katas" ng-repeat="kata in userKatas">
+    <div class="repeat-completed-katas" ng-repeat="kata in userKatas track by $index">
       <div class="solutions-main-head">
         <img id="difficulty-icon" src="./assets/imgs/{{kata.kyu}}_kyu_icon.png" alt="{{kata.kyu}}_kyu">
         <p class="font17-reg">{{kata.name}}</p>
@@ -69,9 +69,9 @@
       </div>
       <div class='home-solutions-div'>
         <p class="font16-reg-efefef show-solutions">Your solutions:</p>
-        <div class="repeated-completed-solutions solution-text">
-          <p class="font15-reg" color-directive>Here's where your solutions go. Here's where your solutions go. Here's where your solutions go. Here's where your solutions go. Here's where your solutions go. Here's where your solutions go. Here's where your solutions go. Here's where your solutions go. Here's where your solutions go. Here's where your solutions go. Here's where your solutions go. Here's where your solutions go. </p>
-        </div>
+         <!-- TO CHANGE THIS FOR THE CODEMIRROR, SIMPLY CHANGE THE div to a textarea and include the id {{$index}}, then attach the codemirror-directive -->
+        <textarea class="solution-text repeated-completed-solutions-home" codemirror-directive>
+        </textarea>
       </div>
     </div> <!--END REPEATED COMPLETED-->
   </div> <!--END OF USER-COMPLETED KATAS LIST-->

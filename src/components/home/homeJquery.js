@@ -4,10 +4,10 @@ $(document).ready(function() {
   var showButton = document.getElementsByClassName('show-solutions-1')
   $(document).on('click', '.home-solutions-div', function() {
     if (!flag) {
-      $(this).find('.repeated-completed-solutions').css('display', 'block');
+      $(this).find('.CodeMirror').css('display', 'block');
       flag = true;
     } else {
-      $(this).find('.repeated-completed-solutions').css('display', 'none');
+      $(this).find('.CodeMirror').css('display', 'none');
       flag = false;
     }
   })

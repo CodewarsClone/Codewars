@@ -50,7 +50,7 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
 
     $scope.init = () => {
         $scope.getKataById($scope.kataid);
-    }
+    }//s
 
 
 
