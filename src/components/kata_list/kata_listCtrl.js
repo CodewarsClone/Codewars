@@ -35,17 +35,8 @@ angular.module('app').controller('kata_listCtrl', function($scope, $state, mainS
         })
     }
 
-    // $scope.voteKata = () => {
-    //     mainService.voteKata().then(response => {
-    //         $scope.kataVotes = response.data;
-    //         console.log($scope.kataVotes);
-    //     })
-    // }
-
     $scope.init = () => {
         $scope.getRandomKataList();
     }
-
-    // $scope.voteKata();
 
 });

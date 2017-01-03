@@ -14,9 +14,9 @@ module.exports = {
     },
 
     getRandomKata: (req, res, next) => {
-        var kataLevel = req.params.userkyu;
-        var bottomRange = kataLevel - 1;
-        var topRange = kataLevel + 1;
+        let kataLevel = req.params.userkyu;
+        let bottomRange = kataLevel - 1;
+        let topRange = kataLevel + 1;
         db.read.random_kata([bottomRange, topRange], (err, katas) => {
             if (err) return next(err);
             return res.status(200).json(katas[Math.floor(Math.random() * katas.length)]);
@@ -24,9 +24,9 @@ module.exports = {
     },
 
     getRandomKataList: (req, res, next) => {
-        var kataLevel = req.params.userkyu;
-        var bottomRange = kataLevel - 1;
-        var topRange = kataLevel + 1;
+        let kataLevel = req.params.userkyu;
+        let bottomRange = kataLevel - 1;
+        let topRange = kataLevel + 1;
         db.read.random_kata([bottomRange, topRange], (err, katas) => {
             if (err) return next(err);
             return res.status(200).json(katas);

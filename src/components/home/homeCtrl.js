@@ -28,8 +28,8 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
         })
     }
 
-    $scope.voteKata = () => {
-        mainService.voteKata().then(response => {
+    $scope.voteKata = (kataid, vote) => { // the vote is a true or false value
+        mainService.voteKata(mainService.user.id, kataid, vote).then(response => {
             $scope.kataVotes = response.data;
             console.log($scope.kataVotes);
         })
@@ -41,7 +41,6 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
     $scope.getUser();
     $scope.getUserKatas(mainService.user.id);
-    $scope.voteKata();
 
 
 });
