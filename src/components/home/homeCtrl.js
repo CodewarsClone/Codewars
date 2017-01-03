@@ -29,7 +29,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
     }
 
     $scope.voteKata = () => {
-        mainService.voteKata(1, 1, true).then(response => {
+        mainService.voteKata().then(response => {
             $scope.kataVotes = response.data;
             console.log($scope.kataVotes);
         })

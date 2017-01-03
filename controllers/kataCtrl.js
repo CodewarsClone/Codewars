@@ -93,7 +93,7 @@ module.exports = {
                     if (err) return next(err);
                     db.read.get_solution_votes([req.body.solutionid], (err, votes) => {
                         if (err) return next(err);
-                        return res.status(200).json({likes: likes[0], dislikes: dislikes[0], votes: votes[0]});
+                        return res.status(200).json({likes: likes[0].likes, dislikes: dislikes[0].dislikes, votes: votes[0].votes});
                     })
                 }) 
             })

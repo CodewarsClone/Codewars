@@ -31,9 +31,18 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
         })
     }
 
+    $scope.voteSolution = () => {
+        mainService.voteSolution().then(response => {
+            $scope.solutionVotes = response.data;
+            console.log($scope.solutionVotes);
+        })
+    }
+
     $scope.init = () => {
         $scope.getKataById($scope.kataid);
     }
+
+    $scope.voteSolution();
 
 
 
