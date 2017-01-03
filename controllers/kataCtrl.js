@@ -24,10 +24,7 @@ module.exports = {
     },
 
     getRandomKataList: (req, res, next) => {
-        let kataLevel = req.params.userkyu;
-        let bottomRange = kataLevel - 1;
-        let topRange = kataLevel + 1;
-        db.read.random_kata([bottomRange, topRange], (err, katas) => {
+        db.read.random_kata_list((err, katas) => {
             if (err) return next(err);
             return res.status(200).json(katas);
         })
