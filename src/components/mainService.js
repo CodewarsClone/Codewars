@@ -52,6 +52,29 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     })
   }
 
+    this.voteKata = (userid, kataid, vote) => {
+    return $http({
+      method: 'POST',
+      url: `/api/kata-votes/` + kataid,
+      data: {
+        userid: userid,
+        kataid: kataid,
+        vote: vote
+      }
+    })
+  }
+
+  this.voteSolution = (userid, solutionid, vote) => {
+    return $http({
+      method: 'POST',
+      url: `/api/solution-votes/`,
+      data: {
+        userid: userid,
+        solutionid: solutionid,
+        vote: vote
+      }
+    })
+  }
 
 // GET
   this.getUser = () => {
@@ -121,28 +144,6 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
       }
     })
   };
-
-  this.upVoteKata = (userid, kataid) => {
-    return $http({
-      method: 'PUT',
-      url: `/api/kata-votes/` + kataid,
-      data: {
-        userid: userid,
-        kataid: kataid
-      }
-    })
-  }
-
-  this.upVoteSolution = (kataid, userid, solutionid) => {
-    return $http({
-      method: 'PUT',
-      url: `/api/solution-votes/` + kataid,
-      data: {
-        userid: userid,
-        solutionid: solutionid
-      }
-    })
-  }
 
 // OTHER
   this.rankCalculator = (user) => {
