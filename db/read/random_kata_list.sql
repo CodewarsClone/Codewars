@@ -1,1 +1,1 @@
-SELECT id, kyu, language, description, starter_code, name, examples, tags FROM katas;
+SELECT id, kyu, languages, description, starter_code, name, examples, tags FROM katas;
