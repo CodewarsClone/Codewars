@@ -1,0 +1,1 @@
+SELECT id, kyu, language, description, starter_code, name, examples, tags FROM katas;
