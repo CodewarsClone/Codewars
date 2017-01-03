@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS kata_ratings, sol_ratings, ratings, rating, solutions, katas, kata, users;
+DROP TABLE IF EXISTS kata_ratings, sol_ratings, solutions, katas, users;
 
 CREATE TABLE users (
   id serial primary key,
@@ -41,7 +41,7 @@ CREATE TABLE kata_ratings (
   user_id integer references users(id),
   kata_id integer references katas(id),
   liked boolean not null
-)
+);
 
 INSERT INTO users (github_id, name, email, username, picture_url, points)
 VALUES ('12', 'Bob Smith', 'bob@smith.com', 'bobIScool', null, 25);
