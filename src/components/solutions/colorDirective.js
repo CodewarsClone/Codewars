@@ -26,7 +26,6 @@ angular.module('app').directive('colorDirective', function() {
             return word;
           }
         });
-        console.log(words);
         element.html(words.join(' '));
     }
   }

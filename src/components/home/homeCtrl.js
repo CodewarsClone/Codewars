@@ -31,6 +31,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
 
 
+
     // the random kata is stored on $scope.randomKata.
     // If there is a button you can link the button to $scope.getRandomKata
 
