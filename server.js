@@ -104,11 +104,10 @@ app.post('/api/test/suite/:kataid', testCtrl.testKata);
 app.post('/api/test/examples', testCtrl.testExamplesKata);
 app.post('/api/submit-answer/:kataid', kataCtrl.sumbitAnswer);
 app.post('/api/kata-by-name', kataCtrl.searchByKatasName);
+app.post('/api/kata-votes/:kataid', kataCtrl.voteKata);
+app.post('/api/solution-votes', kataCtrl.voteSolution);
 
 app.put('/api/points', kataCtrl.addPointsToUser);
-app.put('/api/kata-votes/:kataid', kataCtrl.upVoteKata);
-app.put('/api/solution-votes/:kataid', kataCtrl.upVoteSolution);
-
 
 app.listen(config.port, function () {
 	console.log(`listening on port ${this.address().port}`);

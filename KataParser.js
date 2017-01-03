@@ -18,6 +18,8 @@ const _ = {
 		return str
 	},
 	
+	
+	
 	cleanDesc(str) {
 		str = str.replace(/\n/g, '\\n')
 			.replace(/'/gi, `''`);
@@ -37,67 +39,58 @@ const _ = {
 	
 	JSON(obj) {
 		return JSON.stringify(obj)
-	}
+	},
+	
+	cleanExample(str) {
+		str = str.replace(/\n\s*\./g, `.`)
+			.replace(/\n/g, ` \\n`)
+			.replace(/"/gi, `'`)
+			.replace(/'/gi, `''`);
+		return JSON.stringify([
+			{test: str}
+		]).replace(/\\\\n/g, `\\n`)
+	},
 	
 };
 
 // Paste the languages into the array
 let languages = [
-	`JavaScript`,
-	`CoffeeScript`,
-	`Crystal`,
-	`Python`,
-	`Ruby`
+	``,
 ];
 // Paste the tags into the array
 let tags = [
-	`FUNDAMENTALS`,
-	`STRINGS`,
+	``,
 ];
 
 // Paste the Test Suite here
 let tests = [
 	`
-	Test.describe('tests', _ => {
-  Test.it('fixed tests', _ => {
-    Test.assertEquals(kebabize('myCamelCasedString'), 'my-camel-cased-string');
-    Test.assertEquals(kebabize('myCamelHas3Humps'), 'my-camel-has-humps');
-  });
-  
-  Test.it('random tests', _ => {
-    function fixture (str) {
-    	return str.replace(/\d/g,'')
-        .split(/(?=[A-Z])/).map(s => s.toLowerCase()).join('-')
-    }
-    
-    for (let i = 0; i <= 100; i += 1) {
-      let token = Test.randomToken();
-      
-      let camel = token.split('').map(c => {
-    	  const rand = Math.random();
-    	  return rand > 0.9 ? c.toUpperCase() : c
-      }).join('')
-        
-      Test.assertEquals(kebabize(camel), fixture(camel));
-    }
-  });
-});
 `,
-
 ];
 
 
 // Paste the example script here
-let examples = [
-	`Test.assertSimilar(generateRange(2, 10, 2), [2,4,6,8,10]);`,
-	`Test.assertSimilar(generateRange(1, 10, 1), [1,2,3,4,5,6,7,8,9,10]);`,
-];
+let examples =
+	`Test.describe("generateRange(2, 10, 2)", function() {
+  Test.assertSimilar(generateRange(2, 10, 2), [2,4,6,8,10]);
+});`;
 
 // Introduction to the Kata Here
 let description =
-	`
-	
-`;
+	`Implement a function named generateRange(min, max, step), which takes three arguments and generates a range of integers from min to max, with the step. The first integer is the minimum value, the second is the maximum of the range and the third is the step. (min < max)
+
+Task
+
+Implement a function named
+
+generateRange(2, 10, 2) // should return array of [2,4,6,8,10]
+generateRange(1, 10, 3) // should return array of [1,4,7,10]
+, which takes three arguments and generates a range of integers from min to max, with given step. The first is minimum value, second is maximum of range and the third is step.
+
+Note
+
+min < max
+step > 0`;
 // Paste the starting script here
 let startScript = ``;
 
@@ -107,11 +100,9 @@ let winScript = `
 
 `;
 
-
+// Past a solution here and it will corrently parse it into the console for you
 let solution = `
-function descendingOrder(n){
-  return parseInt(n.toString().split('').sort((a, b) => b - a).join(''));
-}
+
 
 `
 
@@ -131,7 +122,7 @@ console.log(_.cleanStr(startScript));
 console.log('\nDescription');
 console.log(_.cleanDesc(description));
 console.log('\n\n\nExampes');
-console.log(_.testObjectify(examples));
+console.log(_.cleanExample(examples));
 console.log('\nTests');
 console.log(_.testObjectify(tests));
 

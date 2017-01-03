@@ -4,7 +4,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
 
   // $sce.trustAsResourceUrl('/s');
 
-  // Dumby information so I don't have to mess with the server all the time.
+  // Dummy information so I don't have to mess with the server all the time.
   this.user = {id: 4, github_id: "20197415", name: "Steven", email: null, picture_url: "https://avatars.githubusercontent.com/u/20197415?v=3", username: "Steven-Nagie"};
   // this.user = {};
 
@@ -54,6 +54,29 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     })
   }
 
+  this.voteKata = (userid, kataid, vote) => {
+    return $http({
+      method: 'POST',
+      url: `/api/kata-votes/` + kataid,
+      data: {
+        userid: userid,
+        kataid: kataid,
+        vote: vote
+      }
+    })
+  }
+
+  this.voteSolution = (userid, solutionid, vote) => {
+    return $http({
+      method: 'POST',
+      url: `/api/solution-votes/`,
+      data: {
+        userid: userid,
+        solutionid: solutionid,
+        vote: vote
+      }
+    })
+  }
 
 // GET
   this.getUser = () => {
@@ -123,28 +146,6 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
       }
     })
   };
-
-  this.upVoteKata = (userid, kataid) => {
-    return $http({
-      method: 'PUT',
-      url: `/api/kata-votes/` + kataid,
-      data: {
-        userid: userid,
-        kataid: kataid
-      }
-    })
-  }
-
-  this.upVoteSolution = (kataid, userid, solutionid) => {
-    return $http({
-      method: 'PUT',
-      url: `/api/solution-votes/` + kataid,
-      data: {
-        userid: userid,
-        solutionid: solutionid
-      }
-    })
-  }
 
 // OTHER
   this.rankCalculator = (user) => {

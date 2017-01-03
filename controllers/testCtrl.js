@@ -17,7 +17,7 @@ const util = require('util');
 function timeParser(str) {
 	str = str.replace(/<COMPLETEDIN::>/, '');
 	if (!parseInt(str)) {
-		return 0
+		return 1
 	} else {
 		return parseInt(str)
 	}
@@ -69,42 +69,32 @@ function objectifer(arr) {
 
 
 
-function nester(arr) {
-	let count = 0;
+function nester(array) {
 	let testCount = 0;
 	let passCount = 0;
-	console.log(arr.length);
-	for (let i = arr.length - 1; i >= 0; i--) {
-		if (arr[i]) {
-			if (arr[i].type == 'test') {
+	for (let i = array.length - 1; i >= 0; i--) {
+		if (array[i]) {
+			if (array[i].type == 'test') {
 				testCount += 1;
-				if (arr[i].passed == true) passCount += 1
+				if (array[i].passed == true) passCount += 1
 			}
-			if (arr[i].type === 'describe' || arr[i].type === 'it') {
-				count += 1;
+			if (array[i].type === 'describe' || array[i].type === 'it') {
 				let j = i + 1;
 				let recurs = true;
 				while (recurs) {
-					if (arr[j].type !== 'completed') {
-						if (arr[j].type == 'it') count += 1;
-						arr[i].nest.push(arr.splice(j, 1)[0])
+					if (array[j].type !== 'completed') {
+						array[i].nest.push(array.splice(j, 1)[0])
 					} else {
-						count -= 1;
-						arr.splice(j, 1);
+						array[i].time = array[j].time;
+						array.splice(j, 1);
 						recurs = false
 					}
 				}
 			}
-		} else {
-			
-			
-			console.log('didn\'t have type');
-			console.log(arr[i]);
 		}
-		
 	}
 	return {
-		nest: arr,
+		nest: array,
 		testCount: testCount,
 		passCount: passCount
 	}
@@ -114,7 +104,6 @@ function nester(arr) {
 
 function testRunner(script, test) {
 	let defer = Q.defer();
-	
 	
 	exec(`docker run --rm codewars/node-runner run -l javascript -c "${script}" -t cw -f "${test}"`,
 		(err, stdOut, stdErr) => {
@@ -126,6 +115,7 @@ function testRunner(script, test) {
 			let output = stdOut.split(/\n/g);
 			for (let i = output.length - 1; i >= 0; i--) if (output[i] === '') output.splice(i, 1);
 			let newArr = objectifer(output);
+//			console.log(output);
 			newArr = nester(newArr);
 			defer.resolve(newArr);
 			return
@@ -148,7 +138,7 @@ module.exports = {
 			
 			testRunner(body.script, test).then((response) => {
 				res.json(response);
-				console.log(util.inspect(response, false, null));
+//				console.log(util.inspect(response, false, null));
 				return
 			});
 		});
@@ -156,11 +146,10 @@ module.exports = {
 	
 	testExamplesKata: (req, res, next) => {
 		let body = req.body;
-		console.log(body.script);
 		
 		testRunner(body.script, body.examples).then((response) => {
 			res.json(response);
-			console.log(util.inspect(response, false, null));
+//			console.log(util.inspect(response, false, null));
 			return
 		});
 	}

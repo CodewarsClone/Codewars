@@ -56,15 +56,18 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	
 	//Examples should be an array of objects. Returned results will be an array with the different tests and their results.
 	$scope.testExamples = function () {
-		console.log('test is working Josh');
 		var solutions = solutionsCode.getValue();
 		var examples = examplesCode.getValue();
 		$scope.showOutput();
-		solutions = solutions.replace(/\n\s*\./g, `.`)
+		solutions = solutions
+			.replace(/\s*\n*\r*\/\/.*\n*\r*/g, '')
+			.replace(/\n\s*\./g, `.`)
 			.replace(/\\n/g, " ")
 			.replace(/\s+/g, " ");
 		var examplesArr = [];
-		examples = examples.replace(/\n\s*\./g, `.`)
+		examples = examples
+			.replace(/\s*\n*\r*\/\/.*\n*\r*/g, '')
+			.replace(/\n\s*\./g, `.`)
 			.replace(/\n/g, ` `)
 			.replace(/\s+/g, ` `);
 		console.log(examples);
@@ -77,7 +80,9 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		var solutions = solutionsCode.getValue();
 		$scope.showOutput();
 		var t0 = performance.now();
-		solutions = solutions.replace(/\n\s*\./g, `.`)
+		solutions = solutions
+			.replace(/\s*\n*\r*\/\/.*\n*\r*/g, '')
+			.replace(/\n\s*\./g, `.`)
 			.replace(/\\n/g, " ")
 			.replace(/\s+/g, " ");
 		mainService.testSuite(solutions, $scope.kataid).then((response) => {

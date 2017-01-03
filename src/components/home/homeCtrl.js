@@ -28,6 +28,13 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
         })
     }
 
+    $scope.voteKata = (kataid, vote) => { // the vote is a true or false value
+        mainService.voteKata(mainService.user.id, kataid, vote).then(response => {
+            $scope.kataVotes = response.data;
+            console.log($scope.kataVotes);
+        })
+    }
+
     // the random kata is stored on $scope.randomKata.
     // If there is a button you can link the button to $scope.getRandomKata
 
