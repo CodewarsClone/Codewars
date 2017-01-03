@@ -75,7 +75,7 @@ function nester(arr) {
 	let passCount = 0;
 	console.log(arr.length);
 	for (let i = arr.length - 1; i >= 0; i--) {
-		if(arr[i]) {
+		if (arr[i]) {
 			if (arr[i].type == 'test') {
 				testCount += 1;
 				if (arr[i].passed == true) passCount += 1
@@ -122,20 +122,19 @@ function testRunner(script, test) {
 			if (stdErr) {
 				console.log('stdErr');
 				console.log(stdErr);
-			} else {
-				let output = stdOut.split(/\n/g);
-				for (let i = output.length - 1; i >= 0; i--) if (output[i] === '') output.splice(i, 1);
-				let newArr = objectifer(output);
-				newArr = nester(newArr);
-				defer.resolve(newArr);
-				return
 			}
+			let output = stdOut.split(/\n/g);
+			for (let i = output.length - 1; i >= 0; i--) if (output[i] === '') output.splice(i, 1);
+			let newArr = objectifer(output);
+			newArr = nester(newArr);
+			defer.resolve(newArr);
+			return
+			
 		}
 	);
 	
 	return defer.promise
 }
-
 
 
 
