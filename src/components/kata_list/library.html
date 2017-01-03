@@ -42,7 +42,7 @@
 
     <div class="kata-sort-tags">
       <p class="font15-reg tags-header">Tags:</p>
-      <p class="font14-reg-gray tag" ng-repeat="tag in tags">{{tag}}</p>
+      <p class="font14-reg-gray tag" ng-repeat="tag in tags track by $index" ng-click="tagClick(tag)">{{tag}}</p>
     </div>
 
   </div> <!-- END OF LEFT SIDE -->
@@ -53,7 +53,7 @@
 
     <p class="font14-reg-gray">{{totalKata}} Kata Found</p>
 
-    <div class="individual-kata" ng-repeat="kata in randomKataList | filter: searchText">
+    <div class="individual-kata" ng-repeat="kata in displayKataList | filter: searchText">
 
         <div class="indv-kata-left">
           <div class="indv-kata-top">
@@ -63,10 +63,6 @@
             </h3>
           </div>
           <div class="kata-stats">
-            <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/bookmarked_icon.png"/>
-            <p class="kata-stats-info">bookmarked</p>
-            <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/collections_icon.png"/>
-            <p class="kata-stats-info">collections</p>
             <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/satisfaction_icon.png" />
             <p class="kata-stats-info">satisfaction</p>
             <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/completion_icon.png"/>
@@ -76,8 +72,8 @@
           </div>
           <div class="indv-kata-tags">
             <img src="./assets/imgs/tag_icon.png" id="tag-icon" alt="tagggg">
-            <div class="tag-tag-div">
-              <p class="font10-reg-gray" id="tag-tag">Here's where tags go</p>
+            <div class="tag-tag-div" ng-repeat="tag in kata.tags">
+              <p class="font10-reg-gray" id="tag-tag">{{tag}}</p>
             </div>
           </div>
         </div>

@@ -26,7 +26,6 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
 
     $scope.getKataById = (kataid) => {
         mainService.getKataById(kataid).then(response => {
-            console.log(response.data);
             $scope.kataById = response.data;
             $scope.getKataSolutions($scope.kataid);
             // console.log($scope.kataById);

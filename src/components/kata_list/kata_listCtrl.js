@@ -16,27 +16,36 @@ angular.module('app').controller('kata_listCtrl', function($scope, $state, mainS
         mainService.getRandomKataList(mainService.user.kyu_level).then(response => {
             console.log(response.data);
             $scope.randomKataList = response.data;
-            $scope.totalKata = $scope.randomKataList.length;
+            $scope.displayKataList = $scope.randomKataList;
+            $scope.totalKata = $scope.displayKataList.length;
         })
     }
 
     $scope.searchKatasByName = (userInput) => {
         mainService.searchKatasByName(`%${userInput}%`).then(response => {
-            console.log(response.data);
             $scope.searchResult = response.data;
         })
     }
 
     $scope.getKatasByKyu = (kyu) => {
         mainService.getKatasByKyu(kyu).then(response => {
-            console.log(response.data);
-            $scope.randomKataList = response.data;
-            $scope.totalKata = $scope.randomKataList.length;
+            $scope.displayKataList = response.data;
+            $scope.totalKata = $scope.displayKataList.length;
         })
     }
 
     $scope.init = () => {
         $scope.getRandomKataList();
+    }
+
+    $scope.tagClick = (filterThing) => {
+      $scope.displayKataList = [];
+      for (let i = 0; i < $scope.randomKataList.length; i++) {
+        if ($scope.randomKataList[i].tags.indexOf(filterThing.toUpperCase()) !== -1) {
+          $scope.displayKataList.push($scope.randomKataList[i])
+        }
+      }
+      $scope.totalKata = $scope.displayKataList.length;
     }
 
 });

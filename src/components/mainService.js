@@ -74,7 +74,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.getRandomKata = (userkyu) => {
     return $http({
       method: 'GET',
-      url: `/api/random-kata/${userkyu}` 
+      url: `/api/random-kata/${userkyu}`
     });
   };
 
@@ -82,7 +82,8 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.getRandomKataList = (userkyu) => {
     return $http({
       method: 'GET',
-      url: `/api/random-kata-list/${userkyu}`
+      url: `/api/random-kata-list/7`
+      // url: `/api/random-kata-list/${userkyu}`
     });
   }
 
