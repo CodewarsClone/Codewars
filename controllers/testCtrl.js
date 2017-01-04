@@ -118,7 +118,6 @@ function testRunner(script, test) {
 //			console.log(output);
 			newArr = nester(newArr);
 			defer.resolve(newArr);
-			return
 			
 		}
 	);
@@ -139,7 +138,6 @@ module.exports = {
 			testRunner(body.script, test).then((response) => {
 				res.json(response);
 //				console.log(util.inspect(response, false, null));
-				return
 			});
 		});
 	},
@@ -150,7 +148,6 @@ module.exports = {
 		testRunner(body.script, body.examples).then((response) => {
 			res.json(response);
 //			console.log(util.inspect(response, false, null));
-			return
 		});
 	}
 };

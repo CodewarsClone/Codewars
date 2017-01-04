@@ -1,6 +1,7 @@
 
 angular.module('app').controller('kata_listCtrl', function($scope, $state, mainService) {
 
+  mainService.checkAuth();
   $scope.tags = ["Fundamentals", "Data Types", "Algorithms", "Logic", "Strings", "Numbers", "Arrays", "Basic Language Features", "Mathematics", "Programming Paradigms", "Control Flow", "Declarative Programming", "Data Structures", "Puzzles", "Games", "Advanced Language Features", "Functions", "Regular Expressions", "Object-oriented Programming", "Lists", "Functional Programming", "Objects", "Bugs", "Utilities", "Arithmetic", "Loops", "Parsing", "Binary", "Integers", "Sorting", "Algebra", "Classes", "Formatting", "Theoretical Computer Science", "Dates/Time", "Security", "Higher-order Functions", "Prototypes", "Computability Theory", "Recursion", "Geometry", "Sequences", "Babel", "Cryptography", "ES2015", "Design Principles", "Graphs", "Hacking Holidays", "Design Patterns", "Validation"]
 
   $scope.sortOptions = ["Newest", "Oldest", "Popularity", "Positive Feedback", "Most Completed", "Least Completed", "Recently Published", "Hardest", "Easiest", "Name"];
