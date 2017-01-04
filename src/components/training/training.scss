@@ -102,7 +102,6 @@ $white: white;
 }
 
 .instructions {
-  // height: calc(100vh - 150px);
   width: 40vw;
   overflow: scroll;
   margin: 15px;
@@ -124,6 +123,7 @@ $white: white;
   text-align: center;
   cursor: pointer;
   background-color: $grey-color2;
+  display:flex;
 }
 
 .output-selector {
@@ -132,10 +132,16 @@ $white: white;
   text-align: center;
   cursor: pointer;
   line-height: 40px;
+  display:flex;
 }
 
 .button-text {
 margin:auto;
+align-self: center;
+}
+
+.instructions-text {
+  padding: 5px 0 0 10px;
 }
 
 hr {
@@ -193,6 +199,17 @@ hr {
   margin: 0 0 0 10px;
   overflow: auto;
 }
+
+.output-header {
+  display:flex;
+  flex-direction: row;
+  align-content: left;
+}
+
+.output-items {
+  justify-content: space-between;
+}
+
 .pass {
   color: $pass;
 }
