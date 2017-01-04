@@ -7,7 +7,7 @@ getRandomKataList response:
   }],
   id: 1,
   kyu: 8,
-  name: "Sumbit This",
+  name: "Submit This",
   starter_code: "var a = 1"
 },
 {Problem 2},

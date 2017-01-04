@@ -17,6 +17,8 @@ $clone-wars-color: rgb(217, 217, 217);
 $grey-color: #C0C0C0;
 $green-color: #5F8120;
 $grey-color2: #3B3C3E;
+$pass: #7C9A44;
+$fail: #C05C40;
 
 // STUFF ALONG THE TOP
 .training-top {
@@ -179,4 +181,20 @@ hr {
 
 .pre-line {
   white-space: pre-line;
+}
+
+.pass {
+  color: $pass;
+}
+
+.fail {
+  color: $fail;
+}
+
+.val1 {
+  padding: 0 0 0 15px;
+}
+
+.val2 {
+  padding: 0 0 0 30px;
 }

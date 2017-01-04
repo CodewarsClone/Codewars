@@ -41,6 +41,7 @@ $grey-color: #C0C0C0;
   background-color: $sidebar-color;
   height: 100vh;
   width: 55px;
+  padding: 5px 0 0 0;
   float: left;
   position: fixed;
   left: 0;
@@ -109,30 +110,39 @@ $grey-color: #C0C0C0;
 
 
 .li65 {
-  width: 65px;
+    width: 65px;
+    margin:auto;
+    display: flex;
+    justify-content: center;
 }
 
 
 
 .li65-img {
-  margin: auto;
-  vertical-align: center;
-  height: 25px;
+    margin:auto;
+    vertical-align: center;
+    height: 25px;
+    align-self:center;
 }
 
 
 
 .li170 {
-  width: 170px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+    width: 170px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
 }
 
 
 
 .li170-img {
-  vertical-align: center;
+    vertical-align: center;
+    height: 40px;
+    border-radius: 10px;
+    margin:  5px auto;
+    align-self: center;
 }
 
 

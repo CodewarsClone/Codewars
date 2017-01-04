@@ -25,11 +25,10 @@
       <img id="difficulty-icon" src="./assets/imgs/{{kataById.kyu}}_kyu_icon.png" alt="{{kataById.kyu}}_kyu">
       <p class="font17-reg">{{kataById.name}}</p>
     </div>
-    <div class="all-solutions" ng-repeat="solution in kataSolutions">
+    <div class="all-solutions" ng-repeat="solution in kataSolutions track by $index">
       <p class="font15-reg">JavaScript:</p>
-      <div class="solution-text">
-        <p class="font15-reg" color-directive>{{solution.script}}</p>
-      </div>
+      <textarea class="solution-text" id="{{$index}}" codemirror-directive>
+      </textarea>
     </div>
   </div> <!--END SOLUTIONS MAIN-->
 

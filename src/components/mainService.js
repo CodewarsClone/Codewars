@@ -12,7 +12,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.testExamples = (solution, examples) => {
     return $http({
       method: 'POST',
-      url: `/api/test/examples`,
+      url: `http://192.168.0.186:3030/api/test/examples`,
       data: {
         script: solution,
         examples: examples
@@ -20,10 +20,12 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     });
   };
 
+  // 192.168.0.186:3030
+
   this.testSuite = (solution, kataid) => {
     return $http({
       method: 'POST',
-      url: `/api/test/suite/${kataid}`,
+      url: `http://192.168.0.186:3030/api/test/suite/${kataid}`,
       data: {
         script: solution
       }
@@ -97,7 +99,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.getRandomKata = (userkyu) => {
     return $http({
       method: 'GET',
-      url: `/api/random-kata/${userkyu}` 
+      url: `/api/random-kata/${userkyu}`
     });
   };
 

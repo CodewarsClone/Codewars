@@ -28,15 +28,55 @@
   </div> <!--END OF HOME-UP -->
 
   <div class="ads any-home-div">
-    <p>codewars red logo</p>
+    <img id="codewars-red-icon" src="./assets/imgs/red_icon.png" alt="codwars_red">
     <div class="adsss-right">
       <h6 class="font16-reg-efefef">Upgrade To Clonewars Red!</h6>
       <p class="font14-reg-efefef">Support Clonewars and get some fancy upgrades like Pro Stats, Head-to-head comparisons, No ads, Stream Output and more.</p>
-      <a ui-sref="https://www.codewars.com/subscribe" target="_blank"><button id="learn-about-red">Learn About Red</button></a>
+      <a href="https://www.codewars.com/subscribe" target="_blank"><button id="learn-about-red">Learn About Red</button></a>
     </div>
   </div> <!--END OF ADS-->
 
-  <div class="allies any-home-div">
+  <div class="user-completed-katas" >
+    <div class="home-completed-top">
+      <p class="font20-reg" style="margin-left: 10px">Your Completed Katas:</p>
+    </div>
+    <div class="repeat-completed-katas" ng-repeat="kata in userKatas track by $index">
+      <div class="solutions-main-head">
+        <img id="difficulty-icon" src="./assets/imgs/{{kata.kyu}}_kyu_icon.png" alt="{{kata.kyu}}_kyu">
+        <p class="font17-reg">{{kata.name}}</p>
+        <i class="fa fa-thumbs-up" style="color: #efefef; margin: 0 10px;" aria-hidden="true"></i>
+        <p class="font14-reg-efefef">Up-Vote</p>
+        <i class="fa fa-thumbs-down" style="color: #efefef; margin: 0 10px;" aria-hidden="true"></i>
+        <p class="font14-reg-efefef">Down-Vote</p>
+      </div>
+      <div class="kata-stats">
+        <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/bookmarked_icon.png"/>
+        <p class="kata-stats-info">bookmarked</p>
+        <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/collections_icon.png"/>
+        <p class="kata-stats-info">collections</p>
+        <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/satisfaction_icon.png" />
+        <p class="kata-stats-info">satisfaction</p>
+        <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/completion_icon.png"/>
+        <p class="kata-stats-info">completion</p>
+        <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/creator_icon.png"/>
+        <p class="kata-stats-info">creator</p>
+      </div>
+      <div class="indv-kata-tags">
+        <img src="./assets/imgs/tag_icon.png" id="tag-icon" alt="tagggg">
+        <div class="tag-tag-div">
+          <p class="font10-reg-gray" id="tag-tag">Here's where tags go</p>
+        </div>
+      </div>
+      <div class='home-solutions-div'>
+        <p class="font16-reg-efefef show-solutions">Your solutions:</p>
+         <!-- TO CHANGE THIS FOR THE CODEMIRROR, SIMPLY CHANGE THE div to a textarea and include the id {{$index}}, then attach the codemirror-directive -->
+        <textarea class="solution-text repeated-completed-solutions-home" codemirror-directive>
+        </textarea>
+      </div>
+    </div> <!--END REPEATED COMPLETED-->
+  </div> <!--END OF USER-COMPLETED KATAS LIST-->
+
+  <!-- <div class="allies any-home-div">
     <div style="display:flex; align-items: center;">
       <img class="allies-icon" src="./assets/imgs/allies_icon.png" alt="alliesIcon">
       <p class="font16-bold">Allies</p>
@@ -58,11 +98,7 @@
         </tr>
       </table>
     </div>
-  </div> <!--END OF ALLIES-->
-
-  <div class="discourse">
-    <p>Wow, what intelligent discourse.</p>
-  </div> <!--END OF DISCOURSE-->
+  </div> --> <!--END OF ALLIES-->
 
 
 </section>
