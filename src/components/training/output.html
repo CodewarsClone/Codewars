@@ -1,13 +1,23 @@
-<div>
-  <p class="font14-reg">Time: {{time}} <span class='pass'> Passed: </span>{{testPass}} <span class='fail'> Failed: </span>{{testFail}} </p>
-  <div class="font14-reg" ng-repeat='val in answer'>
-    <hr>
-    <u>Test Results:</u> <br><br>
-     {{val.value}}
-    <div class='val1'ng-repeat='val1 in val.nest'>
+<div class='output'>
+  <div class="font14-reg val output-header">
+    <div class='output-items'>
+      Time: <span class='white'>{{time}}</span>
+    </div>
+    <div class='pass output-items'>
+      Passed:<span class='white'>{{testPass}}</span>
+    </div>
+    <div class='fail output-items'>
+      Failed: <span class='white'>{{testFail}}</span>
+    </div>
+  </div>
+  <hr>
+  <span class='font14-reg val'><u>Test Results:</u></span> <br><br>
+  <div class="font14-reg-nw val" ng-repeat='val in answer' ng-class="val.passed != undefined ? (val.passed ? 'pass' : 'fail') : 'white'">
+    {{val.value}}
+    <div class='val1' ng-repeat='val1 in val.nest' ng-class="val1.passed != undefined ? (val1.passed ? 'pass' : 'fail') : 'white'">
       <span>{{val1.value}}</span>
       <div class='val2' ng-repeat='val2 in val1.nest'>
-        <span ng-class="val2.passed ? 'pass' : 'fail'">{{val2.value}}</span>
+        <span ng-class="val2.passed != undefined ? (val2.passed ? 'pass' : 'fail') : 'white'">{{val2.value}}</span>
       </div>
     </div>
   </div>
