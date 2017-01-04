@@ -6,6 +6,7 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
   mainService.checkAuth();
   $scope.kataid = $stateParams.kataid;
   $scope.user = mainService.user;
+  $scope.creators = [];
   // $scope.kataSolutions = [{ script:"function dog(x) { var jerk = 'hello' }"}];
 
   // NO LONGER NECESSARY, BUT USEFUL FOR REFERENCE. IT ALSO HAPPENS TO WORK, ALBEIT WITH A DELAY BECAUSE OF THE SETTIMEOUT.
@@ -38,14 +39,19 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
     $scope.getKataSolutions = (kataid) => {
         mainService.getKataSolutions(kataid).then(response => {
             $scope.kataSolutions = response.data;
-            if ($scope.kataSolutions[0]) {
-              // solutionsPageCode.setValue("Here's where your code should be.");
-            } else {
-              // solutionsPageCode.setValue("It looks like you haven't submitted any solutions to this kata.");
-            }
             console.log($scope.kataSolutions)
             // setTimeout(makeCodeMirrors, 1000);
         })
+    }
+
+    $scope.getCreators = () => {
+      $scope.kataSolutions.forEach((kata) => {
+        mainService.getCreators(kata).then(response => {
+          $scope.creators.push(response.data);
+        });
+      })
+
+      console.log($scope.creators);
     }
 
     $scope.voteSolution = (solutionid, vote) => { // the vote is a true or false value
@@ -57,11 +63,11 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
 
     $scope.init = () => {
         $scope.getKataById($scope.kataid);
-    }//s
+    }
 
 
 
-    
+
 
 
 
