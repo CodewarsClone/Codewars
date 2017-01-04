@@ -45,7 +45,7 @@
       <div class="instructions" ng-style="instructionStyle">
         <div class="instructions-head">
           <div class='instructions-selector font14-lit-gray' ng-click='showInstructions()'>Instructions</div>
-          <div class='output-selector font14-lit-gray' ng-click='showOutput()'>Output</div>
+          <div class='output-selector font14-lit-gray' ng-click='showOutput()'><div class='button-text'>Output</div></div>
           <!--<button class="instructions-selector font13-reg-gray" ng-click="showInstructions()">Instructions</button>
           <button class="instructions-selector font13-reg-gray" ng-click="showOutput()">Output</button>-->
         </div>
@@ -57,10 +57,10 @@
         <div class="solution-div font14-lit-gray">
           <div class="solutions-header">
             <p>Solution:</p>
-            <button value='small' ng-click="kataStyle={'width':'40vw'}; instructionStyle={'width':'60vw'}; allGone={'height':'100px'}">small</button>
+            <!--<button value='small' ng-click="kataStyle={'width':'40vw'}; instructionStyle={'width':'60vw'}; allGone={'height':'100px'}">small</button>
             <button value='medium' ng-click="kataStyle={'width':'60vw'}; instructionStyle={'width':'40vw'}; allGone={'height':'100px'}">medium</button>
             <button value='large' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'height':'100px'}">large</button>
-            <button value='full-screen' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'display':'none'}; exampleGone={'display':'none'}">full screen</button>
+            <button value='full-screen' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'display':'none'}; exampleGone={'display':'none'}">full screen</button>-->
           </div>
           <div ng-style="exampleGone" class='example'>
             <textarea name="solution" id="solution-input" ng-init="solutionInput = 'var a = 1;'" ng-model="solutionInput"></textarea>
