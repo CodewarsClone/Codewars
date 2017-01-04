@@ -2,6 +2,7 @@
 
 angular.module('app').controller('trainingCtrl', function ($scope, $state, mainService, $stateParams) {
 	
+	mainService.checkAuth();
 	$scope.kataid = $stateParams.kataid;
 	$scope.passed = false;
 	$scope.showInstruction = true;

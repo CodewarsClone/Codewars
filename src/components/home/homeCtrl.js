@@ -2,6 +2,7 @@
 
 angular.module('app').controller('homeCtrl', function($scope, $state, mainService) {
 
+    mainService.checkAuth();
     $scope.languageOptions = ["JavaScript", "Ruby", "C++"];
     $scope.progressOptions = ["Fundamentals", "Rank Up", "Practice and Repeat", "Beta", "Random"];
 

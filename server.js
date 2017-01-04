@@ -91,6 +91,7 @@ app.get('/auth/github/callback',
 		res.redirect('/#/home');
 	});
 
+app.get('/api/check-auth', kataCtrl.checkAuth);
 
 app.get('/api/me', kataCtrl.getUser);
 app.get('/api/kata/:kataid', kataCtrl.getKatasByKataId);
