@@ -70,9 +70,7 @@ $white: white;
 
 .selection-div {
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
-  align-content: flex-start;
   width: 60vw;
 }
 
@@ -82,6 +80,13 @@ $white: white;
   background-color: $button1;
   flex-direction: row;
   margin: 7.5px;
+}
+
+.select-dropdown-text {
+  margin:auto;
+  align-content: left;
+  padding:15px;
+  
 }
 
 /***********MAIN TRAINING AREA***********/
@@ -232,4 +237,8 @@ hr {
 
 .val2 {
   padding: 0 0 0 30px;
+}
+
+CodeMirror {
+  height: auto;
 }

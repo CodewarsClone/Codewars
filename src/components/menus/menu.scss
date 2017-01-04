@@ -21,21 +21,15 @@ $grey-color: #C0C0C0;
   flex-direction: row;
 }
 
-
-
 .ul {
   display: flex;
   height: 35px;
   cursor: pointer;
 }
 
-
-
 .li {
   flex-direction: row;
 }
-
-
 
 .side-menu {
   background-color: $sidebar-color;
@@ -51,8 +45,6 @@ $grey-color: #C0C0C0;
   overflow: hidden;
 }
 
-
-
 .icon-div {
   width: 55px;
   height: 100%;
@@ -62,8 +54,6 @@ $grey-color: #C0C0C0;
   
 }
 
-
-
 .main-icon {
   width: 35px;
   height: 35px;
@@ -71,14 +61,10 @@ $grey-color: #C0C0C0;
   cursor: pointer;
 }
 
-
-
 .side-menu-icon {
   //   width: 20px;
   height: 22px;
 }
-
-
 
 .menu-items {
   position: absolute;
@@ -98,16 +84,13 @@ $grey-color: #C0C0C0;
   right: 0px;
   width: 288.25px;
   height: 50px;
+  z-index: 99;
 }
-
-
 
 .ul-top {
   display: flex;
   flex-direction: row;
 }
-
-
 
 .li65 {
     width: 65px;
@@ -116,16 +99,12 @@ $grey-color: #C0C0C0;
     justify-content: center;
 }
 
-
-
 .li65-img {
     margin:auto;
     vertical-align: center;
     height: 25px;
     align-self:center;
 }
-
-
 
 .li170 {
     width: 170px;
@@ -135,30 +114,10 @@ $grey-color: #C0C0C0;
     justify-content: center;
 }
 
-
-
 .li170-img {
     vertical-align: center;
     height: 40px;
     border-radius: 10px;
     margin:  5px auto;
     align-self: center;
-}
-
-
-
-.li170-1 {
-  
-}
-
-
-
-.li170-2 {
-  
-}
-
-
-
-.li170-3 {
-  
 }
