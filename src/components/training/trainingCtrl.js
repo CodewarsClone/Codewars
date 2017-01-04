@@ -41,6 +41,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	// GET KATA INFORMATION
 	$scope.getKataById = (kataid) => {
 		mainService.getKataById(kataid).then((response) => {
+			console.log(response.data);
 			$scope.name = response.data.name;
 			$scope.instructions = response.data.description.replace(/\\n/g, '\n');
 			$scope.kyu = response.data.kyu;
