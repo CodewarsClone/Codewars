@@ -57,7 +57,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
   this.voteKata = (userid, kataid, vote) => {
     return $http({
       method: 'POST',
-      url: `/api/kata-votes/` + kataid,
+      url: `/api/kata-votes`,
       data: {
         userid: userid,
         kataid: kataid,
