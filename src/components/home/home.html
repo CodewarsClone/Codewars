@@ -44,10 +44,14 @@
       <div class="solutions-main-head">
         <img id="difficulty-icon" src="./assets/imgs/{{kata.kyu}}_kyu_icon.png" alt="{{kata.kyu}}_kyu">
         <p class="font17-reg">{{kata.name}}</p>
-        <i class="fa fa-thumbs-up" style="color: #efefef; margin: 0 10px;" aria-hidden="true"></i>
-        <p class="font14-reg-efefef">Up-Vote</p>
-        <i class="fa fa-thumbs-down" style="color: #efefef; margin: 0 10px;" aria-hidden="true"></i>
-        <p class="font14-reg-efefef">Down-Vote</p>
+        <button class="vote-button" ng-click="voteKata(kata.id, true)">
+          <i class="fa fa-thumbs-up" style="color: #efefef; margin: 0 10px 0 5px;" aria-hidden="true"></i>
+          <p class="font14-reg-efefef" style="margin: 0 5px 0 0">Up-Vote</p>
+        </button>
+        <button class="vote-button" ng-click="voteKata(kata.id, false)">
+          <i class="fa fa-thumbs-down" style="color: #efefef; margin: 0 10px 0 5px;" aria-hidden="true"></i>
+          <p class="font14-reg-efefef" style="margin: 0 5px 0 0">Down-Vote</p>
+        </button>
       </div>
       <div class="kata-stats">
         <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/bookmarked_icon.png"/>
@@ -69,10 +73,10 @@
       </div>
       <div class='home-solutions-div'>
         <p class="font16-reg-efefef show-solutions">Your solutions:</p>
-         <!-- TO CHANGE THIS FOR THE CODEMIRROR, SIMPLY CHANGE THE div to a textarea and include the id {{$index}}, then attach the codemirror-directive -->
         <textarea class="solution-text repeated-completed-solutions-home" codemirror-directive>
         </textarea>
       </div>
+      <hr class="home-bottom-border-hr">
     </div> <!--END REPEATED COMPLETED-->
   </div> <!--END OF USER-COMPLETED KATAS LIST-->
 
