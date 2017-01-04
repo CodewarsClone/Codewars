@@ -19,6 +19,7 @@ $green-color: #5F8120;
 $grey-color2: #3B3C3E;
 $pass: #7C9A44;
 $fail: #C05C40;
+$output: #151718;
 
 // STUFF ALONG THE TOP
 .training-top {
@@ -183,6 +184,11 @@ hr {
   white-space: pre-line;
 }
 
+.output {
+  background-color: $output;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
 .pass {
   color: $pass;
 }

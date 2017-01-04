@@ -1,8 +1,8 @@
-<div>
+<div class='output'>
   <p class="font14-reg">Time: {{time}} <span class='pass'> Passed: </span>{{testPass}} <span class='fail'> Failed: </span>{{testFail}} </p>
-  <div class="font14-reg" ng-repeat='val in answer'>
     <hr>
-    <u>Test Results:</u> <br><br>
+    <span class='font14-reg'><u>Test Results:</u></span> <br><br>
+  <div class="font14-reg" ng-repeat='val in answer'>
      {{val.value}}
     <div class='val1'ng-repeat='val1 in val.nest'>
       <span>{{val1.value}}</span>
