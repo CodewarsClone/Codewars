@@ -1,11 +1,14 @@
-
-  <h2 class="font20-reg">Output</h2><br>
-    <p class="font14-reg">Time: {{time}}</p>
-  <div>
-    <div class='font20-reg' ng-repeat="test in output">
-    <p>This is the output.</p><br>
-
-        <p class="font14-lit-gray">{{test.test}}</p>
-        <p class="font14-lit-gray">{{test.result}}</p>
+<div>
+  <p class="font14-reg">Time: {{time}} <span class='pass'> Passed: </span>{{testPass}} <span class='fail'> Failed: </span>{{testFail}} </p>
+  <div class="font14-reg" ng-repeat='val in answer'>
+    <hr>
+    <u>Test Results:</u> <br><br>
+     {{val.value}}
+    <div class='val1'ng-repeat='val1 in val.nest'>
+      <span>{{val1.value}}</span>
+      <div class='val2' ng-repeat='val2 in val1.nest'>
+        <span ng-class="val2.passed ? 'pass' : 'fail'">{{val2.value}}</span>
+      </div>
     </div>
   </div>
+</div>
