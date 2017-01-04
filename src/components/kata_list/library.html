@@ -29,14 +29,14 @@
     <div class="kata-left-div" id="kata-sort-difficulty">
       <p class="font15-reg" ng-click="getRandomKataList()">Difficulty:</p>
       <div class="assorted-difficulty-icons">
-        <img id="difficulty-icon" class="difficulty-top" src="./assets/imgs/8_kyu_icon.png" alt="8kyu" ng-click="getKatasByKyu(8)"/>
-        <img id="difficulty-icon" class="difficulty-top" src="./assets/imgs/7_kyu_icon.png" alt="7kyu" ng-click="getKatasByKyu(7)"/>
-        <img id="difficulty-icon" class="difficulty-top" src="./assets/imgs/6_kyu_icon.png" alt="6kyu" ng-click="getKatasByKyu(6)"/>
-        <img id="difficulty-icon" class="difficulty-top" src="./assets/imgs/5_kyu_icon.png" alt="5kyu" ng-click="getKatasByKyu(5)"/>
-        <img id="difficulty-icon" src="./assets/imgs/4_kyu_icon.png" alt="4kyu" ng-click="getKatasByKyu(4)"/>
-        <img id="difficulty-icon" src="./assets/imgs/3_kyu_icon.png" alt="3kyu" ng-click="getKatasByKyu(3)"/>
-        <img id="difficulty-icon" src="./assets/imgs/2_kyu_icon.png" alt="2kyu" ng-click="getKatasByKyu(2)"/>
-        <img id="difficulty-icon" src="./assets/imgs/1_kyu_icon.png" alt="1kyu" ng-click="getKatasByKyu(1)"/>
+        <img id="difficulty-icon" class="difficulty-top" ng-src={{iconDisplay[7]}} alt="8kyu" ng-click="getKatasByKyu(8)" ng-mouseover="iconDisplay[7]=colorIcons[7]" ng-mouseout="iconDisplay[7] = iconFlags[7] ? colorIcons[7] : kyuIcons[7]"/>
+        <img id="difficulty-icon" class="difficulty-top" ng-src={{iconDisplay[6]}} alt="7kyu" ng-click="getKatasByKyu(7)" ng-mouseover="iconDisplay[6]=colorIcons[6]" ng-mouseout="iconDisplay[6] = iconFlags[6] ? colorIcons[6] : kyuIcons[6]"/>
+        <img id="difficulty-icon" class="difficulty-top" ng-src={{iconDisplay[5]}} alt="6kyu" ng-click="getKatasByKyu(6)" ng-mouseover="iconDisplay[5]=colorIcons[5]" ng-mouseout="iconDisplay[5] = iconFlags[5] ? colorIcons[5] : kyuIcons[5]"/>
+        <img id="difficulty-icon" class="difficulty-top" ng-src={{iconDisplay[4]}} alt="5kyu" ng-click="getKatasByKyu(5)" ng-mouseover="iconDisplay[4]=colorIcons[4]" ng-mouseout="iconDisplay[4] = iconFlags[4] ? colorIcons[4] : kyuIcons[4]"/>
+        <img id="difficulty-icon" class="difficulty-top" ng-src={{iconDisplay[3]}} alt="4kyu" ng-click="getKatasByKyu(4)" ng-mouseover="iconDisplay[3]=colorIcons[3]" ng-mouseout="iconDisplay[3] = iconFlags[3] ? colorIcons[3] : kyuIcons[3]"/>
+        <img id="difficulty-icon" class="difficulty-top" ng-src={{iconDisplay[2]}} alt="3kyu" ng-click="getKatasByKyu(3)" ng-mouseover="iconDisplay[2]=colorIcons[2]" ng-mouseout="iconDisplay[2] = iconFlags[2] ? colorIcons[2] : kyuIcons[2]"/>
+        <img id="difficulty-icon" class="difficulty-top" ng-src={{iconDisplay[1]}} alt="2kyu" ng-click="getKatasByKyu(2)" ng-mouseover="iconDisplay[1]=colorIcons[1]" ng-mouseout="iconDisplay[1] = iconFlags[1] ? colorIcons[1] : kyuIcons[1]"/>
+        <img id="difficulty-icon" class="difficulty-top" ng-src={{iconDisplay[0]}} alt="1kyu" ng-click="getKatasByKyu(1)" ng-mouseover="iconDisplay[0]=colorIcons[0]" ng-mouseout="iconDisplay[0] = iconFlags[0] ? colorIcons[0] : kyuIcons[0]"/>
       </div>
     </div> <!--end of kata-sort-difficulty -->
 
