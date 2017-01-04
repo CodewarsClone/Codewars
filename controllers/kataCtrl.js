@@ -102,6 +102,14 @@ module.exports = {
             if (err) return next(err);
             return res.status(200).json(user);
         })
+    },
+
+    checkAuth: (req, res, next) => {
+        if (req.isAuthenticated()) {
+            res.sendStatus(200);
+        } else {
+            res.sendStatus(401);
+        }
     }
 
 };

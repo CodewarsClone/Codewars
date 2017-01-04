@@ -35,9 +35,3 @@ VALUES (1, 2, 'function generateRange(min, max, step){ let arr = []; for (let i=
 (1,1, 'let a = 1'),
 (1, 8, 'function kebabize(str) { return str.replace(/[^a-z]/ig, '').replace(/^[A-Z]/, c => c.toLowerCase()).replace(/[A-Z]/g, c => `-${c.toLowerCase()}`); }')
 ;
-<<<<<<< HEAD
-
-INSERT INTO ratings (user_id, solution_id, liked)
-VALUES (1, 1, true);
-=======
->>>>>>> master
