@@ -2,6 +2,7 @@
 
 angular.module('app').controller('trainingCtrl', function ($scope, $state, mainService, $stateParams) {
 	
+	mainService.checkAuth();
 	$scope.kataid = $stateParams.kataid;
 	$scope.passed = false;
 	$scope.showInstruction = true;
@@ -59,6 +60,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		var solutions = solutionsCode.getValue();
 		var examples = examplesCode.getValue();
 		$scope.showOutput();
+		var t0 = performance.now();
 		solutions = solutions
 			.replace(/\s*\n*\r*\/\/.*\n*\r*/g, '')
 			.replace(/\n\s*\./g, `.`)
@@ -72,7 +74,12 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 			.replace(/\s+/g, ` `);
 		console.log(examples);
 		mainService.testExamples(solutions, examples).then((response) => {
-			console.log(response.data);
+			var t1 = performance.now();
+			$scope.answer = response.data.nest;
+			console.log(response.data.nest[0]);
+			$scope.time = Math.round(t1 - t0) + " ms";
+			$scope.testPass = response.data.passCount;
+			$scope.testFail = response.data.testCount - response.data.passCount;
 		});
 	};
 	
@@ -89,7 +96,6 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 			var t1 = performance.now();
 			$scope.answer = response.data.nest;
 			console.log(response.data.nest[0]);
-			
 			$scope.time = Math.round(t1 - t0) + " ms";
 			$scope.testPass = response.data.passCount;
 			$scope.testFail = response.data.testCount - response.data.passCount;

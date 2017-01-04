@@ -91,6 +91,7 @@ app.get('/auth/github/callback',
 		res.redirect('/#/home');
 	});
 
+app.get('/api/check-auth', kataCtrl.checkAuth);
 
 app.get('/api/me', kataCtrl.getUser);
 app.get('/api/kata/:kataid', kataCtrl.getKatasByKataId);
@@ -104,7 +105,7 @@ app.post('/api/test/suite/:kataid', testCtrl.testKata);
 app.post('/api/test/examples', testCtrl.testExamplesKata);
 app.post('/api/submit-answer/:kataid', kataCtrl.sumbitAnswer);
 app.post('/api/kata-by-name', kataCtrl.searchByKatasName);
-app.post('/api/kata-votes/:kataid', kataCtrl.voteKata);
+app.post('/api/kata-votes', kataCtrl.voteKata);
 app.post('/api/solution-votes', kataCtrl.voteSolution);
 
 app.put('/api/points', kataCtrl.addPointsToUser);

@@ -2,7 +2,8 @@
 /************ SOLUTIONS CONTROLLER *********/
 
 angular.module('app').controller('solutionsCtrl', function($scope, $state, mainService, $stateParams) {
-
+  
+  mainService.checkAuth();
   $scope.kataid = $stateParams.kataid;
   $scope.user = mainService.user;
   // $scope.kataSolutions = [{ script:"function dog(x) { var jerk = 'hello' }"}];

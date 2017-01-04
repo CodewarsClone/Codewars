@@ -1,12 +1,12 @@
 /************* MAIN SERVICE ***************/
 
-angular.module('app').service('mainService', function($http, $q, $sce) {
+angular.module('app').service('mainService', function($http, $q, $sce, $state) {
 
   // $sce.trustAsResourceUrl('/s');
 
   // Dummy information so I don't have to mess with the server all the time.
-  this.user = {id: 4, github_id: "20197415", name: "Steven", email: null, picture_url: "https://avatars.githubusercontent.com/u/20197415?v=3", username: "Steven-Nagie"};
-  // this.user = {};
+  // this.user = {id: 4, github_id: "20197415", name: "Steven", email: null, picture_url: "https://avatars.githubusercontent.com/u/20197415?v=3", username: "Steven-Nagie"};
+  this.user = {};
 
 // POST
   this.testExamples = (solution, examples) => {
@@ -57,7 +57,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.voteKata = (userid, kataid, vote) => {
     return $http({
       method: 'POST',
-      url: `/api/kata-votes/` + kataid,
+      url: `/api/kata-votes`,
       data: {
         userid: userid,
         kataid: kataid,
@@ -175,7 +175,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
       return user.kyu_level = 1;
       break;
   }
-}
+};
 
   this.pointsCalculator = (kyu, user) => {
     switch (true) {
@@ -204,6 +204,18 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
         return user.points += 128;
         break;
     }
-  }
+  };
+
+  this.checkAuth = () => {
+    console.log('Hit check auth');
+    $http({
+      method: 'GET',
+      url: `/api/check-auth`
+    }).then(response => {
+      console.log(response);
+    }, response => {
+      $state.go('login');
+    })
+  };
 
 });
