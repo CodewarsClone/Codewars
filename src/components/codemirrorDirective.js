@@ -3,7 +3,6 @@ angular.module('app').directive('codemirrorDirective', function() {
     link: (scope, element, attr) => {
       var ident = attr.id;
       var textarea = element[0];
-      console.log(textarea);
       var codemirror = CodeMirror.fromTextArea(textarea, {
         lineNumbers: true,
         theme: 'seti',

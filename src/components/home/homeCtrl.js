@@ -24,7 +24,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
     $scope.getUserKatas = (userid) => {
         mainService.getUserKatas(userid).then(response => {
             // $scope.userKatas = response.data;
-            $scope.userKatas = [{kyu: 8, id: 1, name: "Kata name", script: "var a = 1"},{kyu: 8, id: 2, name: "Kata name", script: "var a = 1"},{kyu: 8, id: 3, name: "Kata name", script: "var a = 1"}]
+            $scope.userKatas = [{kyu: 8, id: 1, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS']},{kyu: 8, id: 2, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS']},{kyu: 8, id: 3, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS']}]
             console.log($scope.userKatas);
         })
     }
