@@ -4,7 +4,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
 
   // $sce.trustAsResourceUrl('/s');
 
-  // Dumby information so I don't have to mess with the server all the time.
+  // Dummy information so I don't have to mess with the server all the time.
   this.user = {id: 4, github_id: "20197415", name: "Steven", email: null, picture_url: "https://avatars.githubusercontent.com/u/20197415?v=3", username: "Steven-Nagie"};
   // this.user = {};
 
@@ -12,7 +12,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.testExamples = (solution, examples) => {
     return $http({
       method: 'POST',
-      url: `/api/test/examples`,
+      url: `http://192.168.0.186:3030/api/test/examples`,
       data: {
         script: solution,
         examples: examples
@@ -20,10 +20,12 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     });
   };
 
+  // 192.168.0.186:3030
+
   this.testSuite = (solution, kataid) => {
     return $http({
       method: 'POST',
-      url: `/api/test/suite/${kataid}`,
+      url: `http://192.168.0.186:3030/api/test/suite/${kataid}`,
       data: {
         script: solution
       }
@@ -52,6 +54,29 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     })
   }
 
+  this.voteKata = (userid, kataid, vote) => {
+    return $http({
+      method: 'POST',
+      url: `/api/kata-votes/` + kataid,
+      data: {
+        userid: userid,
+        kataid: kataid,
+        vote: vote
+      }
+    })
+  }
+
+  this.voteSolution = (userid, solutionid, vote) => {
+    return $http({
+      method: 'POST',
+      url: `/api/solution-votes/`,
+      data: {
+        userid: userid,
+        solutionid: solutionid,
+        vote: vote
+      }
+    })
+  }
 
 // GET
   this.getUser = () => {
@@ -70,7 +95,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
     });
   };
 
-  // homeCtrl - displaying one kata withing range
+  // homeCtrl - displaying one kata within range
   this.getRandomKata = (userkyu) => {
     return $http({
       method: 'GET',
@@ -82,8 +107,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
   this.getRandomKataList = (userkyu) => {
     return $http({
       method: 'GET',
-      url: `/api/random-kata-list/7`
-      // url: `/api/random-kata-list/${userkyu}`
+      url: `/api/random-kata-list/${userkyu}`
     });
   }
 
@@ -121,7 +145,7 @@ angular.module('app').service('mainService', function($http, $q, $sce) {
         id: userid
       }
     })
-  }
+  };
 
 // OTHER
   this.rankCalculator = (user) => {

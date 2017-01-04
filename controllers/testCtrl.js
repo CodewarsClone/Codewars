@@ -10,13 +10,14 @@ const app = require('../server');
 const db = app.get('db');
 const Q = require('q');
 const exec = require('child_process').exec;
+const util = require('util');
 
 
 
 function timeParser(str) {
 	str = str.replace(/<COMPLETEDIN::>/, '');
 	if (!parseInt(str)) {
-		return 0
+		return 1
 	} else {
 		return parseInt(str)
 	}
@@ -55,6 +56,11 @@ function objectifer(arr) {
 				value: ele.replace(/<FAILED::>/, ''),
 			}
 			
+		} else if (ele.search(/<ERROR::>/) > -1) {
+			return {
+				type: 'ERROR',
+				value: ele.replace(/<ERROR::>/, '')
+			}
 		} else if (ele.search(/<COMPLETEDIN::>/) > -1) {
 			return {type: 'completed', time: timeParser(ele)}
 		}
@@ -63,42 +69,32 @@ function objectifer(arr) {
 
 
 
-function nester(arr) {
-	let count = 0;
+function nester(array) {
 	let testCount = 0;
 	let passCount = 0;
-	for (let i = arr.length - 1; i >= 0; i--) {
-		if (arr[i].type === 'describe' || arr[i].type === 'it') {
-			
-			count += 1;
-			let j = i + 1;
-			let recurs = true;
-			while (recurs) {
-				
-				if (arr[j].type !== 'completed') {
-					if (arr[j].type == 'it') count += 1;
-					if (arr[j].type == 'test') {
-						testCount += 1;
-						if (arr[j].passed == true) passCount += 1
+	for (let i = array.length - 1; i >= 0; i--) {
+		if (array[i]) {
+			if (array[i].type == 'test') {
+				testCount += 1;
+				if (array[i].passed == true) passCount += 1
+			}
+			if (array[i].type === 'describe' || array[i].type === 'it') {
+				let j = i + 1;
+				let recurs = true;
+				while (recurs) {
+					if (array[j].type !== 'completed') {
+						array[i].nest.push(array.splice(j, 1)[0])
+					} else {
+						array[i].time = array[j].time;
+						array.splice(j, 1);
+						recurs = false
 					}
-					
-					arr[i].nest.push(arr.splice(j, 1))
-				} else {
-					count -= 1;
-					arr.splice(j, 1);
-					recurs = false
-					
 				}
-				
-				
 			}
 		}
 	}
-	
-	
-	
 	return {
-		nest: arr,
+		nest: array,
 		testCount: testCount,
 		passCount: passCount
 	}
@@ -109,20 +105,21 @@ function nester(arr) {
 function testRunner(script, test) {
 	let defer = Q.defer();
 	
-	
 	exec(`docker run --rm codewars/node-runner run -l javascript -c "${script}" -t cw -f "${test}"`,
 		(err, stdOut, stdErr) => {
 			if (err) console.log(err);
 			if (stdErr) {
 				console.log('stdErr');
 				console.log(stdErr);
-			} else {
-				let output = stdOut.split(/\n/g);
-				for (let i = output.length - 1; i >= 0; i--) if (output[i] === '') output.splice(i, 1);
-				let newArr = objectifer(output);
-				newArr = nester(newArr);
-				defer.resolve(newArr)
 			}
+			let output = stdOut.split(/\n/g);
+			for (let i = output.length - 1; i >= 0; i--) if (output[i] === '') output.splice(i, 1);
+			let newArr = objectifer(output);
+//			console.log(output);
+			newArr = nester(newArr);
+			defer.resolve(newArr);
+			return
+			
 		}
 	);
 	
@@ -140,7 +137,9 @@ module.exports = {
 			let test = kataArray[0].test_script[0].test;
 			
 			testRunner(body.script, test).then((response) => {
-				res.json(response)
+				res.json(response);
+//				console.log(util.inspect(response, false, null));
+				return
 			});
 		});
 	},
@@ -149,25 +148,15 @@ module.exports = {
 		let body = req.body;
 		
 		testRunner(body.script, body.examples).then((response) => {
-			res.json(response)
+			res.json(response);
+//			console.log(util.inspect(response, false, null));
+			return
 		});
 	}
 };
 
 
 
-function isValidWalk(walk) {
-	return walk.length == 10 && !walk.reduce(function (w, step) {
-			return w + {"n": -1, "s": 1, "e": 99, "w": -99}[step]
-		}, 0)
-}
 
-function generateRange(min, max, step) {
-	let rtn = [];
-	for (let i = min; i <= max; i += step) {
-		rtn.push(i)
-	}
-	return rtn
-}
 
 	

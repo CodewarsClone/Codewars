@@ -1,5 +1,6 @@
 /**************SIDE MENU**************/
 
+
 $sidebar-color: #222222;
 $main-background: #303133;
 $container1: #262729;
@@ -20,55 +21,72 @@ $grey-color: #C0C0C0;
   flex-direction: row;
 }
 
+
+
 .ul {
-display: flex;
-height:35px;
-cursor: pointer;
+  display: flex;
+  height: 35px;
+  cursor: pointer;
 }
 
+
+
 .li {
-    flex-direction: row;
+  flex-direction: row;
 }
+
+
 
 .side-menu {
   background-color: $sidebar-color;
   height: 100vh;
   width: 55px;
-  padding: 5px;
+  padding: 5px 0 0 0;
   float: left;
   position: fixed;
   left: 0;
   top: 0;
   transition: width 0.5s;
   z-index: 99;
+  overflow: hidden;
 }
+
+
 
 .icon-div {
-    width: 55px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    
+  width: 55px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  
 }
 
+
+
 .main-icon {
-    width:35px;
-    height:35px;
-    left:50px;
-    cursor: pointer;
+  width: 35px;
+  height: 35px;
+  left: 50px;
+  cursor: pointer;
 }
+
+
+
 .side-menu-icon {
-//   width: 20px;
+  //   width: 20px;
   height: 22px;
 }
 
+
+
 .menu-items {
-    display: none;
-    cursor: pointer;
-    vertical-align: center;
-    margin: auto 0;
-    justify-content: left;
+  position: absolute;
+  left: 55px;
+  margin: 7px 0 0 0;
+  cursor: pointer;
 }
+
 
 
 /**************TOP MENU**************/
@@ -82,38 +100,65 @@ cursor: pointer;
   height: 50px;
 }
 
+
+
 .ul-top {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
+
+
+
 .li65 {
     width: 65px;
+    margin:auto;
+    display: flex;
+    justify-content: center;
 }
+
+
+
 .li65-img {
     margin:auto;
     vertical-align: center;
     height: 25px;
+    align-self:center;
 }
+
+
 
 .li170 {
     width: 170px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    margin: auto;
+    justify-content: center;
 }
+
+
 
 .li170-img {
     vertical-align: center;
+    height: 40px;
+    border-radius: 10px;
+    margin:  5px auto;
+    align-self: center;
 }
+
+
 
 .li170-1 {
-
+  
 }
+
+
 
 .li170-2 {
-
+  
 }
 
-.li170-3 {
 
+
+.li170-3 {
+  
 }
