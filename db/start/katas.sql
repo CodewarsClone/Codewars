@@ -18,26 +18,23 @@ VALUES (8, 'Submit This', '["FAKE"]', '["JavaScript"]', 'var a = 1', 'var a shou
 ;
 
 INSERT INTO solutions (user_id, kata_id, script)
-VALUES (1, 2, 'function generateRange(min, max, step){ let arr = []; for (let i=min; i<=max; i += step) { arr.push(i); } return arr; }'),
+VALUES (1, 2, 'function generateRange(min, max, step){\n let arr = [];\n for (let i=min; i<=max; i += step) {\n arr.push(i);\n } return arr;\n }'),
 
-(1, 3, 'function descendingOrder(n){ return parseInt(n.toString().split('''').sort((a, b) => b - a).join('''')); }'),
+(1, 3, 'function descendingOrder(n){\n return parseInt(n.toString().split('''').sort((a, b) => b - a).join(''''));\n }'),
 
-(1, 4, 'function disemvowel(str) { var vowels = [''a'', ''e'', ''i'', ''o'', ''u'']; return str.split('''').map((letter) => { if (vowels.indexOf(letter.toLowerCase()) === -1) { return letter; } }).join(''''); }'),
+(1, 4, 'function disemvowel(str) {\n var vowels = [''a'', ''e'', ''i'', ''o'', ''u''];\n return str.split('''').map((letter) => { if (vowels.indexOf(letter.toLowerCase()) === -1) {\n return letter;\n } }).join('''');\n }'),
 
-(1, 5, 'function isValidWalk(walk) { var horizontal = 0; var vertical = 0; var total = 0; walk.forEach((word) => { switch (word) { case ''n'': vertical += 1; total += 1; break; case ''s'': vertical -= 1; total += 1; break; case ''e'': horizontal += 1; total += 1; break; case ''w'': horizontal -= 1; total += 1; break; default: console.log(''It''s broken''); } }); if (horizontal === 0 && vertical === 0 && total === 10) { return true; } else { return false; } }'),
+(1, 5, 'function isValidWalk(walk) {\n var horizontal = 0;\n var vertical = 0;\n var total = 0;\n walk.forEach((word) => {\n switch (word) {\n case ''n'':\n vertical += 1;\n total += 1;\n break;\n case ''s'':\n vertical -= 1;\n total += 1;\n break;\n case ''e'':\n horizontal += 1;\n total += 1;\n break;\n case ''w'':\n horizontal -= 1;\n total += 1;\n break;\n default:\n console.log(''It''s broken'');\n }\n }); if (horizontal === 0 && vertical === 0 && total === 10) {\n return true;\n } else {\n return false;\n }\n }'),
 
-(1, 6, 'function solution(number){ var arr = []; for (var i = 3; i < number; i++) { if (i % 3 === 0 || i % 5 === 0) { arr.push(i); } } var final = 0; if (arr[0]) { final = arr.reduce((a, b) => a + b) } return final; } '),
+(1, 6, 'function solution(number){\n var arr = [];\n for (var i = 3; i < number; i++) {\n if (i % 3 === 0 || i % 5 === 0) {\n arr.push(i);\n }\n }\n var final = 0;\n if (arr[0]) {\n final = arr.reduce((a, b) => a + b)\n }\n return final;\n } '),
 
-(1, 7, 'function bubblesortOnce(intArr) { var bubble; for (var i = 0; i < intArr.length; i++) { if (intArr[i] > intArr[i+1]) { bubble = intArr[i+1]; intArr.splice(i + 1, 1); intArr.splice(i, 0, bubble); } } return intArr; }'),
+(1, 7, 'function bubblesortOnce(intArr) {\n var bubble;\n for (var i = 0; i < intArr.length; i++) {\n if (intArr[i] > intArr[i+1]) {\n bubble = intArr[i+1];\n intArr.splice(i + 1, 1);\n intArr.splice(i, 0, bubble);\n }\n }\n return intArr;\n }'),
 
-(1, 8, 'function kebabize(str) { str = str.split('''').map((letter) => { if (!isNaN(parseInt(letter))) { return ''''; }else if (letter === letter.toUpperCase()) { return ''-'' + letter.toLowerCase(); } else { return letter; } }).join(''''); if (str.charAt(0) === ''-'') { str = str.slice(1); } return str; } '),
+(1, 8, 'function kebabize(str) {\n str = str.split('''').map((letter) => {\n if (!isNaN(parseInt(letter))) {\n return '''';\n } else if (letter === letter.toUpperCase()) {\n return ''-'' + letter.toLowerCase();\n } else {\n return letter;\n }\n }).join('''');\n if (str.charAt(0) === ''-'') {\n str = str.slice(1);\n }\n return str;\n } '),
 (1, 1, 'var a = 1'),
 (1,1, 'let a = 1'),
-(1, 8, 'function kebabize(str) { return str.replace(/[^a-z]/ig, '').replace(/^[A-Z]/, c => c.toLowerCase()).replace(/[A-Z]/g, c => `-${c.toLowerCase()}`); }')
+(1, 8, 'function kebabize(str) {\n return str.replace(/[^a-z]/ig, '').replace(/^[A-Z]/, c => c.toLowerCase()).replace(/[A-Z]/g, c => `-${c.toLowerCase()}`);\n }')
 ;
-<<<<<<< HEAD
 
 INSERT INTO ratings (user_id, solution_id, liked)
 VALUES (1, 1, true);
-=======
->>>>>>> master
