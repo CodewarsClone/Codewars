@@ -74,7 +74,7 @@ module.exports = {
                 if (err) return next(err);
                 db.read.all_kata_votes([], (err, votes) => {
                     if (err) return next(err);
-                    return res.status(200).json({likes: likes.likes, dislikes: dislikes.dislikes, votes: votes.votes});
+                    return res.status(200).json([likes, dislikes, votes]);
                 })
             })
         })
@@ -87,7 +87,7 @@ module.exports = {
                 if (err) return next(err);
                 db.read.all_solution_votes([], (err, votes) => {
                     if (err) return next(err);
-                    return res.status(200).json({likes: likes.likes, dislikes: dislikes.dislikes, votes: votes.votes});
+                    return res.status(200).json([likes, dislikes, votes]);
                 })
             })
         })

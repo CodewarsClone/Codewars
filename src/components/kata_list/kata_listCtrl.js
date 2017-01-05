@@ -41,6 +41,7 @@ angular.module('app').controller('kata_listCtrl', function($scope, $state, mainS
             $scope.randomKataList = response.data;
             $scope.displayKataList = $scope.randomKataList;
             $scope.totalKata = $scope.displayKataList.length;
+            $scope.getKataVotes();
         })
     }
 
