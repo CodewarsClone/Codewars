@@ -215,7 +215,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
       url: `/api/check-auth`
     }).then(response => {
     }, response => {
-      // $state.go('login');
+       $state.go('login');
     })
   };
 

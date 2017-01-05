@@ -12,6 +12,7 @@ CREATE TABLE users (
 
 CREATE TABLE katas (
   id serial primary key,
+  creator varchar(80),
   kyu integer not null,
   test_script json not null,
   description text,
