@@ -10,7 +10,6 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
     $scope.getUser = () => {
         mainService.getUser().then(response => {
-            console.log(response.data);
             mainService.user = response.data;
             mainService.user.kyu_level = mainService.rankCalculator(mainService.user);
             $scope.getUserKatas(mainService.user.id);
