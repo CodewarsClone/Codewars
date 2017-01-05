@@ -135,6 +135,20 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     });
   };
 
+  this.getKataVotes = () => {
+    return $http({
+      method: 'GET',
+      url: `/api/kata-votes`
+    });
+  };
+
+  this.getSolutionVotes = () => {
+    return $http({
+      method: 'GET',
+      url: `/api/solution-votes/`
+    })
+  }
+
 // PUT
   this.addPointsToUser = (points, userid) => {
     return $http({

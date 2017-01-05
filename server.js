@@ -100,6 +100,8 @@ app.get('/api/random-kata-list/:userkyu', kataCtrl.getRandomKataList);
 app.get('/api/katas-by-kyu/:kyu', kataCtrl.getKatasByKyu);
 app.get('/api/solutions/:kataid', kataCtrl.getKataSolutions);
 app.get('/api/get-user-katas/:userid', kataCtrl.getUserKatas);
+app.get('/api/kata-votes', kataCtrl.getKataVotes);
+app.get('/api/solution-votes/', kataCtrl.getSolutionVotes);
 
 app.post('/api/test/suite/:kataid', testCtrl.testKata);
 app.post('/api/test/examples', testCtrl.testExamplesKata);

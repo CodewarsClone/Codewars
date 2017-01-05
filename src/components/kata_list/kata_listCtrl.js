@@ -96,4 +96,11 @@ angular.module('app').controller('kata_listCtrl', function($scope, $state, mainS
       $scope.totalKata = $scope.displayKataList.length;
     }
 
+    $scope.getKataVotes = () => {
+        mainService.getKataVotes().then(response => {
+            $scope.allKataVotes = response.data
+            console.log($scope.allKataVotes);
+        })
+    }
+
 });

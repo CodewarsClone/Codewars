@@ -65,10 +65,11 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
         $scope.getKataById($scope.kataid);
     }
 
-
-
-
-
-
+    $scope.getSolutionVotes = () => {
+        mainService.getSolutionVotes().then(response => {
+            $scope.allSolutionVotes = response.data
+            console.log($scope.allSolutionVotes);
+        })
+    }
 
 });
