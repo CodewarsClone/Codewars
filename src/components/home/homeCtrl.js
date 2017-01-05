@@ -1,6 +1,6 @@
 /***********HOME CONTROLLER***********/
 
-angular.module('app').controller('homeCtrl', function($scope, $state, mainService) {
+angular.module('app').controller('homeCtrl', function($scope, $state, mainService, $stateParams) {
 
     mainService.checkAuth();
     $scope.languageOptions = ["JavaScript", "Ruby", "C++"];
@@ -10,13 +10,13 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
     $scope.getUser = () => {
         mainService.getUser().then(response => {
-            console.log(response.data);
             mainService.user = response.data;
             mainService.user.kyu_level = mainService.rankCalculator(mainService.user);
             $scope.getUserKatas(mainService.user.id);
+            $scope.getKataVotes();
             $scope.getRandomKata();
         })
-    }
+    };
 
     $scope.getRandomKata = () => {
         let oldId;
@@ -38,8 +38,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
     $scope.getUserKatas = (userid) => {
         mainService.getUserKatas(userid).then(response => {
-            // $scope.userKatas = response.data;
-            console.log($scope.userKatas);
+            $scope.userKatas = response.data;
         })
     }
 
@@ -47,6 +46,13 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
         mainService.voteKata(mainService.user.id, kataid, vote).then(response => {
             $scope.kataVotes = response.data;
             console.log($scope.kataVotes);
+        })
+    }
+
+    $scope.getKataVotes = () => {
+        mainService.getKataVotes().then(response => {
+            $scope.allKataVotes = response.data
+            console.log($scope.allKataVotes);
         })
     }
 

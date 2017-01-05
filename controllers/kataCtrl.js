@@ -3,7 +3,10 @@ const db = app.get('db');
 
 module.exports = {
     getUser: (req, res, next) => {
-	    return res.status(200).json(req.user);
+        db.read.user_by_id([req.user.id], (err, user) => {
+            if (err) return next(err);
+	          return res.status(200).json(user[0]);
+        });
     },
 
     getKatasByKataId: (req, res, next) => {
@@ -17,10 +20,8 @@ module.exports = {
         let kataLevel = parseInt(req.params.userkyu);
         let bottomRange = kataLevel - 1;
         let topRange = kataLevel + 1;
-        console.log(topRange);
         db.read.random_kata([bottomRange, topRange], (err, katas) => {
             if (err) return next(err);
-            console.log(katas);
             return res.status(200).json(katas[Math.floor(Math.random() * katas.length)]);
         })
     },
@@ -64,6 +65,32 @@ module.exports = {
         db.create.solution([req.body.userid, req.params.kataid, req.body.script], (err, solution) => {
             if (err) return next(err);
             return res.status(201).json(solution);
+        })
+    },
+
+    getKataVotes: (req, res, next) => {
+        db.read.all_kata_likes([], (err, likes) => {
+            if (err) return next(err);
+            db.read.all_kata_dislikes([], (err, dislikes) => {
+                if (err) return next(err);
+                db.read.all_kata_votes([], (err, votes) => {
+                    if (err) return next(err);
+                    return res.status(200).json([likes, dislikes, votes]);
+                })
+            })
+        })
+    },
+
+    getSolutionVotes: (req, res, next) => {
+        db.read.all_solution_likes([], (err, likes) => {
+            if (err) return next(err);
+            db.read.all_solution_dislikes([], (err, dislikes) => {
+                if (err) return next(err);
+                db.read.all_solution_votes([], (err, votes) => {
+                    if (err) return next(err);
+                    return res.status(200).json([likes, dislikes, votes]);
+                })
+            })
         })
     },
 
@@ -140,9 +167,9 @@ module.exports = {
     },
 
     addPointsToUser: (req, res, next) => {
-        db.update.user_points([req.body.points, req.body.id], (err, user) => {
+        db.update.user_points([req.body.points, req.user.id], (err) => {
             if (err) return next(err);
-            return res.status(200).json(user);
+            return res.sendStatus(200)
         })
     },
 

@@ -28,7 +28,7 @@
     <div class="kata-left-div" id="kata-sort-difficulty">
       <p class="font15-reg" ng-click="getRandomKataList()" id="difficulty-header-text">Difficulty:</p>
       <div class="assorted-difficulty-icons">
-        <img id="difficulty-icon" class="difficulty-top" ng-src={{icon}} alt="{{$index}}kyu" ng-click="getKatasByKyu($index+1)" ng-mouseover="icon=colorIcons[$index]" ng-mouseout="icon = iconFlags[$index] ? colorIcons[$index] : kyuIcons[$index]" ng-repeat="icon in iconDisplay track by $index"/>
+        <img class="difficulty-icon" class="difficulty-top" ng-src={{icon}} alt="{{$index}}kyu" ng-click="getKatasByKyu($index+1)" ng-mouseover="icon=colorIcons[$index]" ng-mouseout="icon = iconFlags[$index] ? colorIcons[$index] : kyuIcons[$index]" ng-repeat="icon in iconDisplay track by $index"/>
 
       </div>
     </div> <!--end of kata-sort-difficulty-->
@@ -50,7 +50,7 @@
 
         <div class="indv-kata-left">
           <div class="indv-kata-top">
-            <img id="difficulty-icon" src="./assets/imgs/{{kata.kyu}}_kyu_icon.png" alt="{{kata.kyu}}kyu">
+            <img class="difficulty-icon" ng-src="./assets/imgs/{{kata.kyu}}_kyu_icon.png" alt="{{kata.kyu}}kyu">
             <h3 class="font17-reg">
               <a class="font17-reg" id="kata-name" href="/#/training/{{kata.id}}">{{kata.name}}</a>
             </h3>
