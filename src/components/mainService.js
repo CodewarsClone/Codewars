@@ -214,7 +214,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     }).then(response => {
       console.log(response);
     }, response => {
-      $state.go('login');
+      // $state.go('login');
     })
   };
 

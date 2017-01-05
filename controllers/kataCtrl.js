@@ -92,7 +92,7 @@ module.exports = {
                         if (err) return next(err);
                         return res.status(200).json({likes: likes[0].likes, dislikes: dislikes[0].dislikes, votes: votes[0].votes});
                     })
-                }) 
+                })
             })
         })
     },
