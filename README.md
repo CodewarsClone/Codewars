@@ -12,18 +12,18 @@ We made this as a group project for our dev bootcamp
 
 
 ### Major Techs Used
--Angular
--Express
--Node
--Postgres
+* Angular
+* Express
+* Node
+* Postgres
 
 
 ### Minor Techs used
 
-*JQuery
-*Codemirror
-*Docker
-*Codewars Runner Cli (Mocha)
+* JQuery
+* Codemirror
+* Docker
+* Codewars Runner Cli (Mocha)
 
 ## Docker & Unit tests
 
