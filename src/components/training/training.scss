@@ -89,31 +89,56 @@ $white: white;
   
 }
 
-/***********MAIN TRAINING AREA***********/
+/***********MAIN TRAINING AREA LEFT***********/
 .kata {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto !important;
+}
+
 .kata-right {
   display: flex;
   flex-direction: column;
   padding-top: 2vh;
-  height: 105vh;
-  width: 60vw;
+  height: calc(100vh - 145px);
+  width: calc(60vw - 30px);
   background-color: $container1;
   margin: 15px 15px 15px 0;
   padding: 10px;
 }
 
+.solution-div {
+  height: 30vh;
+}
+
+.solutions-header {
+  height: 40px;
+}
+
+.solution {
+height: calc(30vh - 40px);
+}
+
+.example-header {
+  height: 40px;
+}
+
+.example-tests-div{
+  height:20vh;
+}
+
 .instructions {
-  width: 40vw;
+  width: calc(40vw - 15px);
   overflow: scroll;
   margin: 15px;
   background-color: $container1;
   // padding: 10px;
-  height: 105vh;
+  height: calc(100vh - 145px);
 }
 
 .instructions-head {
@@ -158,6 +183,9 @@ hr {
   background-image: -linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
 }
 
+/***********MAIN TRAINING AREA RIGHT***********/
+
+
 .test-examples-button {
   border: 1px solid #91b2e7;
   border-radius: 4%;
@@ -166,6 +194,7 @@ hr {
   background-color: #3C3C3C;
   margin:15px;
 }
+
 
 .test-suite-button {
   border: 1px solid #91b2e7;
@@ -239,6 +268,3 @@ hr {
   padding: 0 0 0 30px;
 }
 
-CodeMirror {
-  height: auto;
-}

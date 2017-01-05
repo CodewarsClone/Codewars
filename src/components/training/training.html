@@ -17,37 +17,17 @@
           <div class='font14-lit-gray select-dropdown-text' ng-repeat="language in languages">
             {{language}}
           </div>
-          <!--<select class="language-select-dropdown " ng-init="selectedLanguage = languages[0]" ng-model="selectedLanguage"
-          ng-options="x for x in languages">
-        </select>-->
         </div>
         <div class='select-dropdown'>
           <div class='font14-lit-gray select-dropdown-text'>
             {{versions}}
           </div>
-          <!--<select class="language-version-select-dropdown" ng-init="selectedVersion = versions[0]" ng-model="selectedVersion" ng-options="x for x in versions">
-        </select>-->
         </div>
         <div class="assorted-options">
         </div>
       </div>
     </div>
     <div class="kata">
-      <!-- <div class="instructions">
-        <div class="instructions-head">
-          <button class="instructions-selector font13-reg-gray">Instructions</button>
-          <button class="instructions-selector font13-reg-gray">Output</button>
-        </div>
-        <hr>
-        <h2 class="font20-reg">Name of Kata</h2>
-        <div>
-          <p>Here's where the instructions go. We have to think about how to present code samples.</p>
-          <div ng-repeat="test in output">
-              <p>{{test.test}}</p>
-              <p>{{test.result}}</p>
-          </div>
-        </div>
-      </div> -->
       <div class="instructions" ng-style="instructionStyle">
         <div class="instructions-head">
           <div class='instructions-selector font14-lit-gray' ng-click='showInstructions()'>
@@ -56,14 +36,12 @@
           <div class='output-selector font14-lit-gray' ng-click='showOutput()'>
             <div class='button-text'>Output</div>
           </div>
-          <!--<button class="instructions-selector font13-reg-gray" ng-click="showInstructions()">Instructions</button>
-          <button class="instructions-selector font13-reg-gray" ng-click="showOutput()">Output</button>-->
         </div>
-        <!--<hr>-->
         <show-output ng-hide="showOutputShow"></show-output>
         <show-instructions ng-hide="showInstructionsShow"></show-instructions>
       </div>
       <div class="kata-right" ng-style='kataStyle'>
+        <!--*****************SOLUTIONS DIV*********************-->
         <div class="solution-div font14-lit-gray">
           <div class="solutions-header">
             <p>Solution:</p>
@@ -72,16 +50,14 @@
             <button value='large' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'height':'100px'}">large</button>
             <button value='full-screen' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'display':'none'}; exampleGone={'display':'none'}">full screen</button>-->
           </div>
-          <div ng-style="exampleGone" class='example'>
-            <textarea name="solution" id="solution-input" ng-init="solutionInput = 'var a = 1;'" ng-model="solutionInput"></textarea>
-          </div>
+          <textarea ng-style="exampleGone" name="solution" id="solution-input" ng-model="solutionInput"
+            class='CodeMirror solution'></textarea>
         </div>
+        <!--*****************EXAMPLES DIV*********************-->
         <div class="example-tests-div font14-lit-gray">
           <p>Example Tests:</p>
-          <div>
-            <textarea name="examples" id="example-input" ng-init="examplesInput = 'Test.assertEquals(a, 1);'" id="example-tests-input"
-              ng-model="examplesInput"></textarea>
-          </div>
+          <textarea name="examples" id="example-input" ng-init="examplesInput = 'Test.assertEquals(a, 1);'" id="example-tests-input"
+            ng-model="examplesInput" class='CodeMirror'></textarea>
           <div class='button-div'>
             <button ng-click="testExamples()" class="test-examples-button font12-reg-blue">RUN EXAMPLES</button>
             <button ng-click="testSuite()" class="test-suite-button font12-reg-black"><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>ATTEMPT</button>
