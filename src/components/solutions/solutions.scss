@@ -99,6 +99,11 @@ $green-color: #5F8120;
   margin-right: 8px;
 }
 
+.solutions-page-solutions-div {
+  height: 200px;
+  width: calc(60vw - 40px);
+}
+
 .solution-text {
   //I think this is the background color for the seti theme. The actual color that codewars uses on this page is $sidebar-color
   background-color: #151718;
