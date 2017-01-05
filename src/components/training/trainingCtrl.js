@@ -28,6 +28,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	$scope.languages = ['JavaScript'];
 	$scope.versions = 'Node v6.6.0';
 	$scope.output = [];
+	$scope.instruction = true;
 	
 	//NG-SHOWS
 	$scope.showOutputShow = true;
@@ -61,6 +62,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	
 	//Examples should be an array of objects. Returned results will be an array with the different tests and their results.
 	$scope.testExamples = function () {
+		console.log('clicked examples');
 		var solutions = solutionsCode.getValue();
 		var examples = examplesCode.getValue();
 		$scope.showOutput();
@@ -88,6 +90,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	};
 	
 	$scope.testSuite = function () {
+		console.log('clicked attempt');
 		var solutions = solutionsCode.getValue();
 		$scope.showOutput();
 		var t0 = performance.now();
@@ -107,6 +110,10 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 //			console.log($scope.submit)
 		});
 	};
+
+	$scope.reset = function(){
+		console.log('something extravegant');
+	}
 	
 	$scope.submitAnswer = () => {
 		var solution = solutionsCode.getValue();
