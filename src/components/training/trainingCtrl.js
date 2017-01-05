@@ -24,7 +24,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	});
 	
 	$scope.languages = ['JavaScript', 'Python'];
-	$scope.versions = ['Node v6.6.0'];
+	$scope.versions = 'Node v6.6.0';
 	$scope.output = [];
 	
 	//NG-SHOWS
@@ -42,6 +42,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	// GET KATA INFORMATION
 	$scope.getKataById = (kataid) => {
 		mainService.getKataById(kataid).then((response) => {
+			console.log(response.data);
 			$scope.name = response.data.name;
 			$scope.instructions = response.data.description.replace(/\\n/g, '\n');
 			$scope.kyu = response.data.kyu;
@@ -100,7 +101,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 			$scope.time = Math.round(t1 - t0) + " ms";
 			$scope.testPass = response.data.passCount;
 			$scope.testFail = response.data.testCount - response.data.passCount;
-
+			$scope.submit = (response.data.testCount === response.data.passCount ? true : false);
 		});
 	};
 	
