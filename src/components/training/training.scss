@@ -24,6 +24,7 @@ $white: white;
 
 // STUFF ALONG THE TOP
 .training-top {
+  width: calc(100vw-55px);
   height: 60px;
   margin-top: 50px;
   display: flex;
@@ -67,6 +68,14 @@ $white: white;
 
 }
 
+.selection-div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-content: flex-start;
+  width: 60vw;
+}
+
 .select-dropdown {
   height: 52px;
   width: 175px;
@@ -74,14 +83,6 @@ $white: white;
   flex-direction: row;
   margin: 7.5px;
 }
-
-.selection-div {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  width: 60vw;
-}
-
 
 /***********MAIN TRAINING AREA***********/
 .kata {
