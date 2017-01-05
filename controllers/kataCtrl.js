@@ -14,11 +14,13 @@ module.exports = {
     },
 
     getRandomKata: (req, res, next) => {
-        let kataLevel = req.params.userkyu;
+        let kataLevel = parseInt(req.params.userkyu);
         let bottomRange = kataLevel - 1;
         let topRange = kataLevel + 1;
+        console.log(topRange);
         db.read.random_kata([bottomRange, topRange], (err, katas) => {
             if (err) return next(err);
+            console.log(katas);
             return res.status(200).json(katas[Math.floor(Math.random() * katas.length)]);
         })
     },
@@ -66,32 +68,50 @@ module.exports = {
     },
 
     voteKata: (req, res, next) => {
-        db.create.kata_likes([req.body.userid, req.body.kataid, req.body.vote], (err, rating) => {
+        db.read.check_kata_vote([req.body.userid, req.body.kataid], (err, data) => {
             if (err) return next(err);
-            db.read.get_kata_likes([req.body.kataid], (err, likes) => {
-                if (err) return next(err);
-                db.read.get_kata_dislikes([req.body.kataid], (err, dislikes) => {
+            if (data.length > 0) {
+                db.update.change_kata_vote([req.body.userid, req.body.kataid, req.body.vote], (err, change) => {
                     if (err) return next(err);
-                    db.read.get_kata_votes([req.body.kataid], (err, votes) => {
-                        if (err) return next(err);
-                        return res.status(200).json({likes: likes[0].likes, dislikes: dislikes[0].dislikes, votes: votes[0].votes});
-                    })
+                })
+            } else {
+                db.create.kata_likes([req.body.userid, req.body.kataid, req.body.vote], (err, rating) => {
+                    if (err) return next(err);
+                })
+            }
+        })
+        db.read.get_kata_likes([req.body.kataid], (err, likes) => {
+            if (err) return next(err);
+            db.read.get_kata_dislikes([req.body.kataid], (err, dislikes) => {
+                if (err) return next(err);
+                db.read.get_kata_votes([req.body.kataid], (err, votes) => {
+                    if (err) return next(err);
+                    return res.status(200).json({likes: likes[0].likes, dislikes: dislikes[0].dislikes, votes: votes[0].votes});
                 })
             })
         })
     },
 
     voteSolution: (req, res, next) => {
-        db.create.solution_likes([req.body.userid, req.body.solutionid, req.body.vote], (err, rating) => {
+        db.read.check_solution_vote([req.body.userid, req.body.solutionid], (err, data) => {
             if (err) return next(err);
-            db.read.get_solution_likes([req.body.solutionid], (err, likes) => {
-                if (err) return next(err);
-                db.read.get_solution_dislikes([req.body.solutionid], (err, dislikes) => {
+            if (data.length > 0) {
+                db.update.change_solution_vote([req.body.userid, req.body.solutionid, req.body.vote], (err, change) => {
                     if (err) return next(err);
-                    db.read.get_solution_votes([req.body.solutionid], (err, votes) => {
-                        if (err) return next(err);
-                        return res.status(200).json({likes: likes[0].likes, dislikes: dislikes[0].dislikes, votes: votes[0].votes});
-                    })
+                })
+            } else {
+                db.create.solution_likes([req.body.userid, req.body.solutionid, req.body.vote], (err, rating) => {
+                    if (err) return next(err);
+                })
+            }
+        })
+        db.read.get_solution_likes([req.body.solutionid], (err, likes) => {
+            if (err) return next(err);
+            db.read.get_solution_dislikes([req.body.solutionid], (err, dislikes) => {
+                if (err) return next(err);
+                db.read.get_solution_votes([req.body.solutionid], (err, votes) => {
+                    if (err) return next(err);
+                    return res.status(200).json({likes: likes[0].likes, dislikes: dislikes[0].dislikes, votes: votes[0].votes});
                 })
             })
         })

@@ -13,13 +13,25 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
             console.log(response.data);
             mainService.user = response.data;
             mainService.user.kyu_level = mainService.rankCalculator(mainService.user);
+            $scope.getUserKatas(mainService.user.id);
             $scope.getRandomKata();
         })
     }
 
     $scope.getRandomKata = () => {
+        let oldId;
+        if ($scope.randomKata) {
+            oldId = $scope.randomKata.id
+        }
         mainService.getRandomKata(mainService.user.kyu_level).then(response => {
-            console.log(response.data);
+            
+            if (oldId) {
+                if (response.data.id === oldId) {
+                return $scope.getRandomKata(mainService.user.kyu_level);
+                } else {
+                    return $scope.randomKata = response.data;
+                }
+            } 
             $scope.randomKata = response.data;
         })
     }
@@ -43,7 +55,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
 
     $scope.getUser();
-    $scope.getUserKatas(mainService.user.id);
+    
 
 
 });

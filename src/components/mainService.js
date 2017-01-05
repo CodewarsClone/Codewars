@@ -57,7 +57,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
   this.voteKata = (userid, kataid, vote) => {
     return $http({
       method: 'POST',
-      url: `/api/kata-votes/` + kataid,
+      url: `/api/kata-votes`,
       data: {
         userid: userid,
         kataid: kataid,
@@ -207,12 +207,10 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
   };
 
   this.checkAuth = () => {
-    console.log('Hit check auth');
     $http({
       method: 'GET',
       url: `/api/check-auth`
     }).then(response => {
-      console.log(response);
     }, response => {
       // $state.go('login');
     })
