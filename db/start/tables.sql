@@ -12,6 +12,7 @@ CREATE TABLE users (
 
 CREATE TABLE katas (
   id serial primary key,
+  creator varchar(80),
   kyu integer not null,
   test_script json not null,
   description text,
@@ -44,4 +45,4 @@ CREATE TABLE kata_ratings (
 );
 
 INSERT INTO users (github_id, name, email, username, picture_url, points)
-VALUES ('12', 'Bob Smith', 'bob@smith.com', 'bobIScool', null, 25);
+VALUES ('22752236', 'Joshua Baert', 'developer@baert.io', 'JoshuaBaert', 'https://avatars.githubusercontent.com/u/22752236?v=3', 49);

@@ -16,7 +16,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
             $scope.getUserKatas(mainService.user.id);
             $scope.getRandomKata();
         })
-    }
+    };
 
     $scope.getRandomKata = () => {
         let oldId;
@@ -38,8 +38,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
     $scope.getUserKatas = (userid) => {
         mainService.getUserKatas(userid).then(response => {
-            // $scope.userKatas = response.data;
-            console.log($scope.userKatas);
+            $scope.userKatas = response.data;
         })
     }
 
