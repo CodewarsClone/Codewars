@@ -190,6 +190,11 @@ $grey-color: #C0C0C0;
   cursor: pointer;
 }
 
+.home-repeated-solutions-div {
+  height: 0px;
+  width: calc(60vw - 20px);
+}
+
 .vote-button {
   background-color: rgba(0, 0, 0, 0);
   display: flex;
