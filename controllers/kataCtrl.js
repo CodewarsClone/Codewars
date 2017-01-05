@@ -68,6 +68,32 @@ module.exports = {
         })
     },
 
+    getKataVotes: (req, res, next) => {
+        db.read.all_kata_likes([], (err, likes) => {
+            if (err) return next(err);
+            db.read.all_kata_dislikes([], (err, dislikes) => {
+                if (err) return next(err);
+                db.read.all_kata_votes([], (err, votes) => {
+                    if (err) return next(err);
+                    return res.status(200).json([likes, dislikes, votes]);
+                })
+            })
+        })
+    },
+
+    getSolutionVotes: (req, res, next) => {
+        db.read.all_solution_likes([], (err, likes) => {
+            if (err) return next(err);
+            db.read.all_solution_dislikes([], (err, dislikes) => {
+                if (err) return next(err);
+                db.read.all_solution_votes([], (err, votes) => {
+                    if (err) return next(err);
+                    return res.status(200).json([likes, dislikes, votes]);
+                })
+            })
+        })
+    },
+
     voteKata: (req, res, next) => {
         db.read.check_kata_vote([req.body.userid, req.body.kataid], (err, data) => {
             if (err) return next(err);

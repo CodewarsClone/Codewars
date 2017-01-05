@@ -1,6 +1,6 @@
 /***********HOME CONTROLLER***********/
 
-angular.module('app').controller('homeCtrl', function($scope, $state, mainService) {
+angular.module('app').controller('homeCtrl', function($scope, $state, mainService, $stateParams) {
 
     mainService.checkAuth();
     $scope.languageOptions = ["JavaScript", "Ruby", "C++"];
@@ -13,6 +13,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
             mainService.user = response.data;
             mainService.user.kyu_level = mainService.rankCalculator(mainService.user);
             $scope.getUserKatas(mainService.user.id);
+            $scope.getKataVotes();
             $scope.getRandomKata();
         })
     };
@@ -45,6 +46,13 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
         mainService.voteKata(mainService.user.id, kataid, vote).then(response => {
             $scope.kataVotes = response.data;
             console.log($scope.kataVotes);
+        })
+    }
+
+    $scope.getKataVotes = () => {
+        mainService.getKataVotes().then(response => {
+            $scope.allKataVotes = response.data
+            console.log($scope.allKataVotes);
         })
     }
 
