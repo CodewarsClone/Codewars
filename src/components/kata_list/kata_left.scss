@@ -113,10 +113,27 @@ $grey-color: #C0C0C0;
   width: calc(25vw * .85);
 }
 
+#difficulty-header-text {
+  margin-left: -15px;
+}
+
 .assorted-difficulty-icons {
-  // width: calc(25vw * .75);
-  padding: 30px;
+  max-width: 250px;
+  width: 25vw;
+  padding: 5px;
   align-self: flex-start;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
+  margin-left: -25px;
+  margin-top: 10px;
+}
+
+@media (max-width: 950px) {
+  .assorted-difficulty-icons {
+    width: 15vw;
+  }
 }
 
 .difficulty-top {

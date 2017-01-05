@@ -25,7 +25,7 @@ passport.use(new GithubStrategy({
 	db.read.user_by_github_id([profile.id], (err, user) => {
 		if (err) {
 			console.log(err);
-		} else if (user [0]) {
+		} else if (user[0]) {
 			done(null, user[0]);
 		} else {
 

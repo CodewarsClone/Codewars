@@ -76,7 +76,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
         vote: vote
       }
     })
-  }
+  };
 
 // GET
   this.getUser = () => {
@@ -84,11 +84,10 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
       method: 'GET',
       url: `/api/me`
     })
-  }
+  };
 
   // trainingCtrl
   this.getKataById = (kataid) => {
-    console.log('getting kata SVC', kataid);
     return $http({
       method: 'GET',
       url: `/api/kata/` + kataid
@@ -109,7 +108,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
       method: 'GET',
       url: `/api/random-kata-list/${userkyu}`
     });
-  }
+  };
 
   // kata_listCtrl
   this.getKatasByKyu = (kyu) => {
@@ -150,14 +149,18 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
   }
 
 // PUT
-  this.addPointsToUser = (points, userid) => {
+  this.addPointsToUser = (points) => {
     return $http({
       method: 'PUT',
       url: `/api/points`,
       data: {
         points: points,
-        id: userid
       }
+    }).then( () => {
+    	this.getUser().then(res => {
+    		this.user = res.data;
+		    $state.reload();
+	    })
     })
   };
 
@@ -191,33 +194,33 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
   }
 };
 
-  this.pointsCalculator = (kyu, user) => {
-    switch (true) {
-      case kyu = 8:
-        return user.points += 1;
-        break;
-      case kyu = 7:
-        return user.points += 2;
-        break;
-      case kyu = 6:
-        return user.points += 4;
-        break;
-      case kyu = 5:
-        return user.points += 8;
-        break;
-      case kyu = 4:
-        return user.points += 16;
-        break;
-      case kyu = 3:
-        return user.points += 32;
-        break;
-      case kyu = 2:
-        return user.points += 64;
-        break;
-      case kyu = 1:
-        return user.points += 128;
-        break;
-    }
+  this.pointsCalculator = (kyu) => {
+    
+	  if (kyu === 8) {
+	  	this.user.points += 1;
+	  	return this.user.points
+	  }else if (kyu === 7) {
+	  	this.user.points += 2;
+	  	return this.user.points
+	  }else if (kyu === 6) {
+	  	this.user.points += 4;
+	  	return this.user.points
+	  }else if (kyu === 5) {
+	  	this.user.points += 8;
+	  	return this.user.points
+	  }else if (kyu === 4) {
+	  	this.user.points += 16;
+	  	return this.user.points
+	  }else if (kyu === 3) {
+	  	this.user.points += 32;
+	  	return this.user.points
+	  }else if (kyu === 2) {
+	  	this.user.points += 64;
+	  	return this.user.points
+	  }else if (kyu === 1) {
+	  	this.user.points += 128;
+	  	return this.user.points
+	  }
   };
 
   this.checkAuth = () => {
@@ -226,7 +229,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
       url: `/api/check-auth`
     }).then(response => {
     }, response => {
-      // $state.go('login');
+       $state.go('login');
     })
   };
 
