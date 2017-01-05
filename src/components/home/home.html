@@ -15,7 +15,7 @@
 
     <div class="challenge-details">
       <div class="challenge-details-top">
-        <img id="difficulty-icon" src="./assets/imgs/{{randomKata.kyu}}_kyu_icon.png" alt="{{randomKata.kyu}}kyu">
+        <img class="difficulty-icon" src="./assets/imgs/{{randomKata.kyu}}_kyu_icon.png" alt="{{randomKata.kyu}}kyu">
         <h1 class="font16-reg">{{randomKata.name}}</h1>
       </div>
       <div class="random-kata-description-div">
@@ -42,7 +42,7 @@
     </div>
     <div class="repeat-completed-katas" ng-repeat="kata in userKatas track by $index">
       <div class="solutions-main-head">
-        <img id="difficulty-icon" src="./assets/imgs/{{kata.kyu}}_kyu_icon.png" alt="{{kata.kyu}}_kyu">
+        <img class="difficulty-icon" ng-src="./assets/imgs/{{kata.kyu}}_kyu_icon.png" alt="{{kata.kyu}}_kyu">
         <p class="font17-reg">{{kata.name}}</p>
         <button class="vote-button" ng-click="voteKata(kata.id, true)">
           <i class="fa fa-thumbs-up" style="color: #efefef; margin: 0 10px 0 5px;" aria-hidden="true"></i>
@@ -69,8 +69,10 @@
       </div>
       <div class='home-solutions-div'>
         <p class="font16-reg-efefef show-solutions">Your solutions:</p>
-        <textarea class="solution-text repeated-completed-solutions-home" id="{{$index}}" codemirror-directive>
-        </textarea>
+        <div class="home-repeated-solutions-div">
+          <textarea class="solution-text repeated-completed-solutions-home" id="{{$index}}" codemirror-directive>
+          </textarea>
+        </div>
       </div>
       <hr class="home-bottom-border-hr">
     </div> <!--END REPEATED COMPLETED-->

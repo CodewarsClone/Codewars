@@ -25,7 +25,7 @@ passport.use(new GithubStrategy({
 	db.read.user_by_github_id([profile.id], (err, user) => {
 		if (err) {
 			console.log(err);
-		} else if (user [0]) {
+		} else if (user[0]) {
 			done(null, user[0]);
 		} else {
 
@@ -100,15 +100,17 @@ app.get('/api/random-kata-list/:userkyu', kataCtrl.getRandomKataList);
 app.get('/api/katas-by-kyu/:kyu', kataCtrl.getKatasByKyu);
 app.get('/api/solutions/:kataid', kataCtrl.getKataSolutions);
 app.get('/api/get-user-katas/:userid', kataCtrl.getUserKatas);
+app.get('/api/kata-votes', kataCtrl.getKataVotes);
+app.get('/api/solution-votes/', kataCtrl.getSolutionVotes);
 
 app.post('/api/test/suite/:kataid', testCtrl.testKata);
 app.post('/api/test/examples', testCtrl.testExamplesKata);
 app.post('/api/submit-answer/:kataid', kataCtrl.sumbitAnswer);
 app.post('/api/kata-by-name', kataCtrl.searchByKatasName);
-app.post('/api/kata-votes', kataCtrl.voteKata);
-app.post('/api/solution-votes', kataCtrl.voteSolution);
 
 app.put('/api/points', kataCtrl.addPointsToUser);
+app.post('/api/kata-votes', kataCtrl.voteKata);
+app.post('/api/solution-votes', kataCtrl.voteSolution);
 
 app.listen(config.port, function () {
 	console.log(`listening on port ${this.address().port}`);

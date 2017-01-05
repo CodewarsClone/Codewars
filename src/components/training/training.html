@@ -3,7 +3,7 @@
     <div class="training-top" ng-style='allGone'>
       <div class="kata-name-container">
         <div class="kata-name-container-top">
-          <img src="./assets/imgs/{{kyu}}_kyu_icon.png" alt="Difficulty" id="difficulty-icon">
+          <img src="./assets/imgs/{{kyu}}_kyu_icon.png" alt="Difficulty" class="difficulty-icon">
           <div class="font16-reg" id="kata-name">
             {{name}}
           </div>
@@ -60,13 +60,15 @@
             <p>Example Tests:</p>
           </div>
           <div class='CodeMirror'><textarea name="examples" id="example-input" id="example-tests-input" ng-model="examplesInput" ></textarea></div>
+
           <!--*******************BUTTONS***********************-->
           <div class='button-div'>
             <button ng-click="" class="reset-button font12-reg-blue"><i class="fa fa-forward" style="margin-right: 2px" aria-hidden="true"></i>SKIP</button>
             <button ng-click="reset()" class="reset-button font12-reg-blue">RESET</button>
             <button ng-click="testExamples()" class="test-examples-button font12-reg-blue">RUN EXAMPLES</button>
             <button ng-click="testSuite()" class="test-suite-button font12-reg-black"><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>ATTEMPT</button>
-            <button ng-click="submitAnswer()" class="submit-button font12-reg-black"><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>SUBMIT</button>
+
+            <button ng-click="submitAnswer()" class="submit-button font12-reg-black" ng-class="submit != true ? 'hide':'show'"><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>SUBMIT</button>
           </div>
         </div>
       </div>

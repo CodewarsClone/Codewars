@@ -22,7 +22,7 @@
 
   <div class="solutions-main any-solutions-div">
     <div class="solutions-main-head">
-      <img id="difficulty-icon" src="./assets/imgs/{{kataById.kyu}}_kyu_icon.png" alt="{{kataById.kyu}}_kyu">
+      <img class="difficulty-icon" src="./assets/imgs/{{kataById.kyu}}_kyu_icon.png" alt="{{kataById.kyu}}_kyu">
       <p class="font17-reg">{{kataById.name}}</p>
     </div>
     <div class="all-solutions" ng-repeat="solution in kataSolutions track by $index">
@@ -30,8 +30,10 @@
         <img class="solution-creator-icon" src="./assets/imgs/creator_icon.png" alt="user">
         <p class="font15-reg">Username</p>
       </div>
-      <textarea class="solution-text" id="{{$index}}" codemirror-directive>
-      </textarea>
+      <div class="solutions-page-solutions-div">
+        <textarea class="solution-text" id="{{$index}}" codemirror-directive>
+        </textarea>
+      </div>
       <div class="solutions-vote-buttons-div">
         <button class="vote-button" ng-click="voteSolution(solution.id, true)">
           <i class="fa fa-thumbs-up" style="color: #efefef; margin: 0 10px 0 5px;" aria-hidden="true"></i>

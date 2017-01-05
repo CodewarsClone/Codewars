@@ -7,9 +7,11 @@ angular.module('app').directive('codemirrorDirective', function() {
         lineNumbers: true,
         theme: 'seti',
         readOnly: true,
-        lineSeparator: '\\n'
+        lineSeparator: '\\n',
+        viewportMargin: Infinity
       });
-      codemirror.setSize(null, 100);
+      //Keeping this here for reference. This is how to adjust codemirror size.
+      // codemirror.setSize("calc(60vw - 20px)", null);
       if (attr.class.includes('home')) {
         codemirror.setValue(scope.userKatas[ident].script);
         codemirror.getWrapperElement().style.display="none";

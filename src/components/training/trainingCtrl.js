@@ -7,6 +7,8 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	$scope.passed = false;
 	$scope.showInstruction = true;
 	$scope.showOutput = false;
+	$scope.submit = false;
+	
 	
 	
 	/** Create text areas **/
@@ -43,7 +45,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	// GET KATA INFORMATION
 	$scope.getKataById = (kataid) => {
 		mainService.getKataById(kataid).then((response) => {
-			console.log(response.data);
+//			console.log(response.data);
 			$scope.name = response.data.name;
 			$scope.instructions = response.data.description.replace(/\\n/g, '\n');
 			$scope.kyu = response.data.kyu;
@@ -76,11 +78,11 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 			.replace(/\n\s*\./g, `.`)
 			.replace(/\n/g, ` `)
 			.replace(/\s+/g, ` `);
-		console.log(examples);
+//		console.log(examples);
 		mainService.testExamples(solutions, examples).then((response) => {
 			var t1 = performance.now();
 			$scope.answer = response.data.nest;
-			console.log(response.data.nest[0]);
+//			console.log(response.data.nest[0]);
 			$scope.time = Math.round(t1 - t0) + " ms";
 			$scope.testPass = response.data.passCount;
 			$scope.testFail = response.data.testCount - response.data.passCount;
@@ -100,11 +102,12 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		mainService.testSuite(solutions, $scope.kataid).then((response) => {
 			var t1 = performance.now();
 			$scope.answer = response.data.nest;
-			console.log(response.data.nest[0]);
+//			console.log(response.data.nest[0]);
 			$scope.time = Math.round(t1 - t0) + " ms";
 			$scope.testPass = response.data.passCount;
 			$scope.testFail = response.data.testCount - response.data.passCount;
 			$scope.submit = (response.data.testCount === response.data.passCount ? true : false);
+//			console.log($scope.submit)
 		});
 	};
 
@@ -112,13 +115,13 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		console.log('something extravegant');
 	}
 	
-	$scope.addPointsToUser = (points, userid) => {
-		mainService.addPointsToUser(mainService.pointsCalculator($scope.kyu, mainServive.user.id), mainServive.user.id)
-	};
-	
-	$scope.submitAnswer = (solution, kataid, userid) => {
-		if ($scope.passed) {
-			mainService.submitAnswer(solution, kataid, userid);
+	$scope.submitAnswer = () => {
+		var solution = solutionsCode.getValue();
+		
+		if ($scope.submit) {
+			mainService.submitAnswer(solution, $scope.kataid, mainService.user.id);
+			$state.go('menu.solutions',{kataid: $scope.kataid});
+			mainService.addPointsToUser(mainService.pointsCalculator($scope.kyu));
 		}
 	}
 	

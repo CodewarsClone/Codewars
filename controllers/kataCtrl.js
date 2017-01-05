@@ -3,7 +3,10 @@ const db = app.get('db');
 
 module.exports = {
     getUser: (req, res, next) => {
-	    return res.status(200).json(req.user);
+        db.read.user_by_id([req.user.id], (err, user) => {
+            if (err) return next(err);
+	          return res.status(200).json(user[0]);
+        });
     },
 
     getKatasByKataId: (req, res, next) => {
@@ -17,10 +20,8 @@ module.exports = {
         let kataLevel = parseInt(req.params.userkyu);
         let bottomRange = kataLevel - 1;
         let topRange = kataLevel + 1;
-        console.log(topRange);
         db.read.random_kata([bottomRange, topRange], (err, katas) => {
             if (err) return next(err);
-            console.log(katas);
             return res.status(200).json(katas[Math.floor(Math.random() * katas.length)]);
         })
     },
@@ -67,60 +68,108 @@ module.exports = {
         })
     },
 
-    voteKata: (req, res, next) => {
-        db.read.check_kata_vote([req.body.userid, req.body.kataid], (err, data) => {
+    getKataVotes: (req, res, next) => {
+        db.read.all_kata_likes([], (err, likes) => {
             if (err) return next(err);
-            if (data.length > 0) {
-                db.update.change_kata_vote([req.body.userid, req.body.kataid, req.body.vote], (err, change) => {
-                    if (err) return next(err);
-                })
-            } else {
-                db.create.kata_likes([req.body.userid, req.body.kataid, req.body.vote], (err, rating) => {
-                    if (err) return next(err);
-                })
-            }
-        })
-        db.read.get_kata_likes([req.body.kataid], (err, likes) => {
-            if (err) return next(err);
-            db.read.get_kata_dislikes([req.body.kataid], (err, dislikes) => {
+            db.read.all_kata_dislikes([], (err, dislikes) => {
                 if (err) return next(err);
-                db.read.get_kata_votes([req.body.kataid], (err, votes) => {
+                db.read.all_kata_votes([], (err, votes) => {
                     if (err) return next(err);
-                    return res.status(200).json({likes: likes[0].likes, dislikes: dislikes[0].dislikes, votes: votes[0].votes});
+                    return res.status(200).json([likes, dislikes, votes]);
                 })
             })
         })
+    },
+
+    getSolutionVotes: (req, res, next) => {
+        db.read.all_solution_likes([], (err, likes) => {
+            if (err) return next(err);
+            db.read.all_solution_dislikes([], (err, dislikes) => {
+                if (err) return next(err);
+                db.read.all_solution_votes([], (err, votes) => {
+                    if (err) return next(err);
+                    return res.status(200).json([likes, dislikes, votes]);
+                })
+            })
+        })
+    },
+
+    voteKata: (req, res, next) => {
+        db.read.check_kata_vote([req.body.userid, req.body.kataid], (err, data) => {
+            if (err) return next(err);
+            if (data.length === 0) {
+                db.create.kata_likes([req.body.userid, req.body.kataid, req.body.vote], (err, change) => {
+                    if (err) return next(err);
+                    db.read.get_kata_likes([req.body.kataid], (err, likes) => {
+                        if (err) return next(err);
+                        db.read.get_kata_dislikes([req.body.kataid], (err, dislikes) => {
+                            if (err) return next(err);
+                            db.read.get_kata_votes([req.body.kataid], (err, votes) => {
+                                if (err) return next(err);
+                                return res.status(200).json({likes: likes[0].likes, dislikes: dislikes[0].dislikes, votes: votes[0].votes});
+                            })
+                        })
+                    })
+                })
+            } else {
+                db.update.change_kata_vote([req.body.userid, req.body.kataid, req.body.vote], (err, rating) => {
+                    if (err) return next(err);
+                    db.read.get_kata_likes([req.body.kataid], (err, likes) => {
+                        if (err) return next(err);
+                        db.read.get_kata_dislikes([req.body.kataid], (err, dislikes) => {
+                            if (err) return next(err);
+                            db.read.get_kata_votes([req.body.kataid], (err, votes) => {
+                                if (err) return next(err);
+                                return res.status(200).json({likes: likes[0].likes, dislikes: dislikes[0].dislikes, votes: votes[0].votes});
+                            })
+                        })
+                    })
+                })
+            }
+        })
+        
     },
 
     voteSolution: (req, res, next) => {
         db.read.check_solution_vote([req.body.userid, req.body.solutionid], (err, data) => {
             if (err) return next(err);
-            if (data.length > 0) {
-                db.update.change_solution_vote([req.body.userid, req.body.solutionid, req.body.vote], (err, change) => {
+            if (data.length === 0) {
+                db.create.solution_likes([req.body.userid, req.body.solutionid, req.body.vote], (err, change) => {
                     if (err) return next(err);
+                    db.read.get_solution_likes([req.body.solutionid], (err, likes) => {
+                        if (err) return next(err);
+                        db.read.get_solution_dislikes([req.body.solutionid], (err, dislikes) => {
+                            if (err) return next(err);
+                            db.read.get_solution_votes([req.body.solutionid], (err, votes) => {
+                                if (err) return next(err);
+                                return res.status(200).json({likes: likes[0].likes, dislikes: dislikes[0].dislikes, votes: votes[0].votes});
+                            })
+                        })
+                    })
                 })
             } else {
-                db.create.solution_likes([req.body.userid, req.body.solutionid, req.body.vote], (err, rating) => {
+                db.update.change_solution_vote([req.body.userid, req.body.solutionid, req.body.vote], (err, rating) => {
                     if (err) return next(err);
+                    db.read.get_solution_likes([req.body.solutionid], (err, likes) => {
+                        if (err) return next(err);
+                        db.read.get_solution_dislikes([req.body.solutionid], (err, dislikes) => {
+                            if (err) return next(err);
+                            db.read.get_solution_votes([req.body.solutionid], (err, votes) => {
+                                if (err) return next(err);
+                                return res.status(200).json({likes: likes[0].likes, dislikes: dislikes[0].dislikes, votes: votes[0].votes});
+                            })
+                        })
+                    })
                 })
             }
         })
-        db.read.get_solution_likes([req.body.solutionid], (err, likes) => {
-            if (err) return next(err);
-            db.read.get_solution_dislikes([req.body.solutionid], (err, dislikes) => {
-                if (err) return next(err);
-                db.read.get_solution_votes([req.body.solutionid], (err, votes) => {
-                    if (err) return next(err);
-                    return res.status(200).json({likes: likes[0].likes, dislikes: dislikes[0].dislikes, votes: votes[0].votes});
-                })
-            })
-        })
+        
     },
 
     addPointsToUser: (req, res, next) => {
-        db.update.user_points([req.body.points, req.body.id], (err, user) => {
+        db.update.user_points([req.body.points, req.user.id], (err) => {
             if (err) return next(err);
-            return res.status(200).json(user);
+            return res.sendStatus(200)
         })
     },
 

@@ -1,5 +1,4 @@
 /************TRAINING PAGE STYLES*********/
-
 $sidebar-color: #222222;
 $main-background: #303133;
 $container1: #262729;
@@ -8,8 +7,9 @@ $container3: #3C3C3C;
 $container4: #1D1D1F;
 $blueContainer: #363749;
 $button1: #1E1F21;
-$font: 'Lato',
-sans-serif;
+
+$font: 'Lato', sans-serif;
+
 $yellow-color: #ECB613;
 $blue-color: #6795DE;
 $orange-color: #CF4B32;
@@ -21,6 +21,7 @@ $pass: #7C9A44;
 $fail: #C05C40;
 $output: #151718;
 $white: white;
+
 // STUFF ALONG THE TOP
 .training-top {
   width: calc(100vw-55px);
@@ -28,7 +29,6 @@ $white: white;
   margin-top: 50px;
   display: flex;
   justify-content: space-between;
-  ;
   align-items: center;
   padding: 15px;
 }
@@ -61,7 +61,7 @@ $white: white;
   margin-right: 5px;
 }
 
-#difficulty-icon {
+.difficulty-icon {
   height: 30px;
   width: 50px;
   margin-right: 5px;
@@ -71,6 +71,14 @@ $white: white;
   display: flex;
   flex-direction: row;
   width: 66vw;
+}
+
+.selection-div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-content: flex-start;
+  width: 60vw;
 }
 
 .select-dropdown {
@@ -291,4 +299,3 @@ hr {
 .val2 {
   padding: 0 0 0 35px;
 }
-
