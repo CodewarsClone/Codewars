@@ -12,10 +12,10 @@ We made this as a group project for our dev bootcamp
 
 
 ### Major Techs Used
-*Angular
-*Express
-*Node
-*Postgres
+-Angular
+-Express
+-Node
+-Postgres
 
 
 ### Minor Techs used
