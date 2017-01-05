@@ -94,6 +94,9 @@ $white: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: calc(100vw - 70px);
+  margin:0;
+  height: calc(100vh - 145px);
 }
 
 .CodeMirror {
@@ -107,7 +110,7 @@ $white: white;
   height: calc(100vh - 145px);
   width: calc(60vw - 30px);
   background-color: $container1;
-  margin: 15px 15px 15px 0;
+  margin: 15px 0px 15px 0;
 }
 
 .solution-div {
@@ -135,7 +138,7 @@ $white: white;
 }
 
 .instructions {
-  width: calc(40vw - 15px);
+  width: calc(36vw - 15px);
   overflow: scroll;
   margin: 15px;
   background-color: $container1;
@@ -144,7 +147,7 @@ $white: white;
 }
 
 .instructions-head {
-  width: 35vw;
+  width: calc(34vw - 15px);
   height: 40px;
   display: flex;
   flex-direction: row;
@@ -155,8 +158,16 @@ $white: white;
   height: 40px;
   text-align: center;
   cursor: pointer;
-  background-color: $grey-color2;
+  
   display: flex;
+}
+
+.selector-bg-on {
+  background-color: $grey-color2;
+}
+
+.selector-bg-off {
+  background-color: $container1;
 }
 
 .output-selector {
@@ -166,6 +177,7 @@ $white: white;
   cursor: pointer;
   line-height: 40px;
   display: flex;
+  
 }
 
 .button-text {
@@ -200,6 +212,7 @@ hr {
   height: 30px;
   background-color: #3C3C3C;
   margin: 15px;
+  z-index: 99;
 }
 
 .test-suite-button {
@@ -230,6 +243,7 @@ hr {
 .button-div {
   display: flex;
   justify-content: flex-end;
+  
 }
 
 .pre-line {
@@ -240,7 +254,7 @@ hr {
   background-color: $output;
   width: 100%;
   height: 93%;
-  margin: 0 0 0 10px;
+  margin:0;
   overflow: auto;
 }
 
@@ -267,14 +281,14 @@ hr {
 }
 
 .val {
-  padding: 5px 0 0 5px;
+  padding: 5px 0 0 10px;
 }
 
 .val1 {
-  padding: 0 0 0 15px;
+  padding: 0 0 0 20px;
 }
 
 .val2 {
-  padding: 0 0 0 30px;
+  padding: 0 0 0 35px;
 }
 
