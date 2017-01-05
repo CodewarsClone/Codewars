@@ -12,9 +12,11 @@ We made this as a group project for our dev bootcamp
 
 
 ### Major Techs Used
-* Angular
+
+* Angular 1.5
 * Express
 * Node
+  * (most javascript was written with ES2015 complied by gulp)
 * Postgres
 
 
