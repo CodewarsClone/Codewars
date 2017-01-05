@@ -100,7 +100,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 			$scope.time = Math.round(t1 - t0) + " ms";
 			$scope.testPass = response.data.passCount;
 			$scope.testFail = response.data.testCount - response.data.passCount;
-
+			$scope.submit = (response.data.testCount === response.data.passCount ? true : false);
 		});
 	};
 	

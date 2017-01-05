@@ -50,18 +50,21 @@
             <button value='large' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'height':'100px'}">large</button>
             <button value='full-screen' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'display':'none'}; exampleGone={'display':'none'}">full screen</button>-->
           </div>
-          <textarea ng-style="exampleGone" name="solution" id="solution-input" ng-model="solutionInput"
-            class='CodeMirror solution'></textarea>
+          <textarea ng-style="exampleGone" name="solution" id="solution-input" ng-model="solutionInput" class='CodeMirror'></textarea>
         </div>
         <!--*****************EXAMPLES DIV*********************-->
         <div class="example-tests-div font14-lit-gray">
-          <p>Example Tests:</p>
-          <textarea name="examples" id="example-input" ng-init="examplesInput = 'Test.assertEquals(a, 1);'" id="example-tests-input"
-            ng-model="examplesInput" class='CodeMirror'></textarea>
+          <div class='example-header'>
+            <p>Example Tests:</p>
+          </div>
+          <textarea name="examples" id="example-input" id="example-tests-input" ng-model="examplesInput" class='CodeMirror'></textarea>
+          <!--*******************BUTTONS***********************-->
           <div class='button-div'>
+            <button ng-click="" class="reset-button font12-reg-blue"><i class="fa fa-forward" style="margin-right: 2px" aria-hidden="true"></i>SKIP</button>
+            <button ng-click="" class="reset-button font12-reg-blue">RESET</button>
             <button ng-click="testExamples()" class="test-examples-button font12-reg-blue">RUN EXAMPLES</button>
             <button ng-click="testSuite()" class="test-suite-button font12-reg-black"><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>ATTEMPT</button>
-            <button ng-click="submitAnswer()" class="submit-button font12-reg-black"><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>SUBMIT</button>
+            <button ng-click="submitAnswer()" class="submit-button font12-reg-black" ng-class="{{submit}} != true ? 'hide':'show'"><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>SUBMIT</button>
           </div>
         </div>
       </div>

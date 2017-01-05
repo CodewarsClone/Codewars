@@ -1,4 +1,5 @@
 /************TRAINING PAGE STYLES*********/
+
 $sidebar-color: #222222;
 $main-background: #303133;
 $container1: #262729;
@@ -7,9 +8,8 @@ $container3: #3C3C3C;
 $container4: #1D1D1F;
 $blueContainer: #363749;
 $button1: #1E1F21;
-
-$font: 'Lato', sans-serif;
-
+$font: 'Lato',
+sans-serif;
 $yellow-color: #ECB613;
 $blue-color: #6795DE;
 $orange-color: #CF4B32;
@@ -21,14 +21,14 @@ $pass: #7C9A44;
 $fail: #C05C40;
 $output: #151718;
 $white: white;
-
 // STUFF ALONG THE TOP
 .training-top {
   width: calc(100vw-55px);
   height: 60px;
   margin-top: 50px;
   display: flex;
-  justify-content: space-between;;
+  justify-content: space-between;
+  ;
   align-items: center;
   padding: 15px;
 }
@@ -65,31 +65,31 @@ $white: white;
   height: 30px;
   width: 50px;
   margin-right: 5px;
-
 }
 
 .selection-div {
   display: flex;
   flex-direction: row;
-  width: 60vw;
+  width: 66vw;
 }
 
 .select-dropdown {
   height: 52px;
   width: 175px;
-  background-color: $button1;
+  background-color: $container2;
   flex-direction: row;
   margin: 7.5px;
 }
 
 .select-dropdown-text {
-  margin:auto;
+  margin: auto;
   align-content: left;
-  padding:15px;
-  
+  padding: 15px;
 }
 
+
 /***********MAIN TRAINING AREA LEFT***********/
+
 .kata {
   display: flex;
   flex-direction: row;
@@ -97,7 +97,6 @@ $white: white;
 }
 
 .CodeMirror {
-  border: 1px solid #eee;
   height: auto !important;
 }
 
@@ -109,27 +108,30 @@ $white: white;
   width: calc(60vw - 30px);
   background-color: $container1;
   margin: 15px 15px 15px 0;
-  padding: 10px;
 }
 
 .solution-div {
-  height: 30vh;
+  height: 53%;
+  display: flex;
+  flex-direction: column;
 }
 
 .solutions-header {
-  height: 40px;
+  height: 30px;
+  padding: 0 0 0 15px;
+  display: block;
+  line-height: 15px;
 }
 
-.solution {
-height: calc(30vh - 40px);
+.example-tests-div {
+  height: 44%;
+  display: flex;
+  flex-direction: column;
 }
 
 .example-header {
   height: 40px;
-}
-
-.example-tests-div{
-  height:20vh;
+  padding: 0 0 0 15px;
 }
 
 .instructions {
@@ -154,7 +156,7 @@ height: calc(30vh - 40px);
   text-align: center;
   cursor: pointer;
   background-color: $grey-color2;
-  display:flex;
+  display: flex;
 }
 
 .output-selector {
@@ -163,12 +165,12 @@ height: calc(30vh - 40px);
   text-align: center;
   cursor: pointer;
   line-height: 40px;
-  display:flex;
+  display: flex;
 }
 
 .button-text {
-margin:auto;
-align-self: center;
+  margin: auto;
+  align-self: center;
 }
 
 .instructions-text {
@@ -176,51 +178,58 @@ align-self: center;
 }
 
 hr {
-  background-image: -webkit-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
-  background-image: -moz-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
-  background-image: -ms-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
-  background-image: -o-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
-  background-image: -linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+  background-image: -webkit-linear-gradient(left, transparent, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, transparent);
+  background-image: -moz-linear-gradient(left, transparent, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, transparent);
+  background-image: -ms-linear-gradient(left, transparent, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, transparent);
+  background-image: -o-linear-gradient(left, transparent, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, transparent);
+  background-image: -linear-gradient(left, transparent, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, transparent);
 }
 
-/***********MAIN TRAINING AREA RIGHT***********/
-
-
+.reset-button{
+  border: 1px solid #3C3C3C;
+  border-radius: 5px;
+  width: 60px;
+  height: 30px;
+  background-color: #3C3C3C;
+  margin: 15px;
+}
 .test-examples-button {
   border: 1px solid #91b2e7;
-  border-radius: 4%;
+  border-radius: 5px;
   width: 113px;
   height: 30px;
   background-color: #3C3C3C;
-  margin:15px;
+  margin: 15px;
 }
-
 
 .test-suite-button {
   border: 1px solid #91b2e7;
-  border-radius: 4%;
+  border-radius: 5px;
   width: 113px;
   height: 30px;
   background-color: #91b2e7;
-  margin:15px;
+  margin: 15px;
 }
 
 .submit-button {
   border: 1px solid $green-color;
-  border-radius: 4%;
+  border-radius: 5px;
   width: 113px;
   height: 30px;
   background-color: $green-color;
-  margin:15px;
+  margin: 15px;
+}
+
+.hide {
+  display:none;
+}
+.show {
+  display:flex;
 }
 
 .button-div {
-  display:flex;
-  justify-content: right;
-}
-
-.example-tests-div {
-  height: 15vh;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .pre-line {
@@ -236,7 +245,7 @@ hr {
 }
 
 .output-header {
-  display:flex;
+  display: flex;
   flex-direction: row;
   align-content: left;
 }
@@ -260,6 +269,7 @@ hr {
 .val {
   padding: 5px 0 0 5px;
 }
+
 .val1 {
   padding: 0 0 0 15px;
 }
