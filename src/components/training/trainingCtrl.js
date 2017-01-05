@@ -7,7 +7,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	$scope.passed = false;
 	$scope.showInstruction = true;
 	$scope.showOutput = false;
-	$scope.submit = false;
+	$scope.submit = true;
 	
 	
 	
