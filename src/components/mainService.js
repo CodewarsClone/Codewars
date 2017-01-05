@@ -12,7 +12,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
   this.testExamples = (solution, examples) => {
     return $http({
       method: 'POST',
-      url: `http://192.168.0.186:3030/api/test/examples`,
+      url: `/api/test/examples`,
       data: {
         script: solution,
         examples: examples
@@ -25,7 +25,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
   this.testSuite = (solution, kataid) => {
     return $http({
       method: 'POST',
-      url: `http://192.168.0.186:3030/api/test/suite/${kataid}`,
+      url: `/api/test/suite/${kataid}`,
       data: {
         script: solution
       }
