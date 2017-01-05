@@ -8,6 +8,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	$scope.showInstruction = true;
 	$scope.showOutput = false;
 	
+	
 	/** Create text areas **/
 	var textarea1 = document.getElementById('solution-input');
 	var solutionsCode = CodeMirror.fromTextArea(textarea1, {

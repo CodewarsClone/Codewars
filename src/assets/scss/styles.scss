@@ -217,5 +217,9 @@ a {
 }
 
 ::-webkit-scrollbar-corner {
-  display: none;
+  background-color: rgba(0,0,0,0);
+}
+
+body::-webkit-scrollbar-corner {
+  background-color: $main-background;
 }

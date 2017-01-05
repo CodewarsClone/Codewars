@@ -163,6 +163,13 @@ $grey-color: #C0C0C0;
   cursor: pointer;
 }
 
+#learn-about-red:active {
+  transform: translateY(2px);
+  -webkit-box-shadow: inset -6px 5px 22px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -6px 5px 22px -4px rgba(0,0,0,0.75);
+  box-shadow: inset -6px 5px 22px -4px rgba(0,0,0,0.75);
+}
+
 /**********USER-COMPLETED-KATAS**********/
 .user-completed-katas {
   width: 60vw;
@@ -171,7 +178,7 @@ $grey-color: #C0C0C0;
 
 .repeat-completed-katas {
   margin-left: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -181,6 +188,38 @@ $grey-color: #C0C0C0;
 
 .show-solutions {
   cursor: pointer;
+}
+
+.vote-button {
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.vote-button:hover {
+  border: 1px solid #c9c9c9;
+  border-radius: 4%;
+}
+
+.vote-button:active {
+  transform: translateY(2px);
+  -webkit-box-shadow: inset -6px 5px 22px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -6px 5px 22px -4px rgba(0,0,0,0.75);
+  box-shadow: inset -6px 5px 22px -4px rgba(0,0,0,0.75);
+}
+
+.home-bottom-border-hr {
+  width: 59vw;
+  margin-left: -5px;
+  background-image: -webkit-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+  background-image: -moz-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+  background-image: -ms-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+  background-image: -o-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+  background-image: -linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
 }
 
 /**********ALLIES ***********/

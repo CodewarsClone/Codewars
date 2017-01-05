@@ -112,6 +112,4 @@ app.put('/api/points', kataCtrl.addPointsToUser);
 
 app.listen(config.port, function () {
 	console.log(`listening on port ${this.address().port}`);
-	
-	
 });

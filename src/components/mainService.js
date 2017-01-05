@@ -207,12 +207,10 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
   };
 
   this.checkAuth = () => {
-    console.log('Hit check auth');
     $http({
       method: 'GET',
       url: `/api/check-auth`
     }).then(response => {
-      console.log(response);
     }, response => {
       // $state.go('login');
     })

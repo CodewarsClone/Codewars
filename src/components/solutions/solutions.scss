@@ -86,9 +86,39 @@ $green-color: #5F8120;
   margin-top: 10px;
 }
 
+.solution-username {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.solution-creator-icon {
+  height: 13px;
+  width: 13px;
+  margin-right: 8px;
+}
+
 .solution-text {
   //I think this is the background color for the seti theme. The actual color that codewars uses on this page is $sidebar-color
   background-color: #151718;
   padding: 10px;
   margin-top: 5px;
+}
+
+.solutions-vote-buttons-div {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  margin-left: -10px;
+}
+
+.solutions-bottom-border-div {
+  width: 59vw;
+  margin-left: -10px;
+  background-image: -webkit-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+  background-image: -moz-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+  background-image: -ms-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+  background-image: -o-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+  background-image: -linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
 }

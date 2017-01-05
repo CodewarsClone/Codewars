@@ -14,11 +14,13 @@ module.exports = {
     },
 
     getRandomKata: (req, res, next) => {
-        let kataLevel = req.params.userkyu;
+        let kataLevel = parseInt(req.params.userkyu);
         let bottomRange = kataLevel - 1;
         let topRange = kataLevel + 1;
+        console.log(topRange);
         db.read.random_kata([bottomRange, topRange], (err, katas) => {
             if (err) return next(err);
+            console.log(katas);
             return res.status(200).json(katas[Math.floor(Math.random() * katas.length)]);
         })
     },

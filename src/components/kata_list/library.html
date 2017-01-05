@@ -13,7 +13,7 @@
       </div>
       <div class="kata-sort-div">
         <p class="font15-reg">Language: </p>
-        <select class="kata-sort-dropdown" ng-init="selectedLanguage = languageOptions[0]" ng-model="selectedLanguage" ng-options="x for x in languageOptions"></select>
+        <select class="kata-sort-dropdown" ng-init="selectedLanguage = languageOptions[0]" ng-model="selectedLanguage" ng-options="x for x in languageOptions"  ng-change="languageSort(selectedLanguage)"></select>
       </div>
       <div class="kata-sort-div">
         <p class="font15-reg">Status: </p>
@@ -25,6 +25,17 @@
       </div>
     </div>
 
+    <!-- PRETTY CODE BUT ROUGH JS -->
+    <!-- *********** DIFFICULTY SORT STUFF ***********  -->
+    <!-- <div class="kata-left-div" id="kata-sort-difficulty">
+      <p class="font15-reg" ng-click="getRandomKataList()">Difficulty:</p>
+      <div class="assorted-difficulty-icons">
+        <img id="difficulty-icon" class="difficulty-top" ng-src={{icon}} alt="{{$index}}kyu" ng-click="getKatasByKyu($index+1)" ng-mouseover="icon=colorIcons[$index]" ng-mouseout="icon = iconFlags[$index] ? colorIcons[$index] : kyuIcons[$index]" ng-repeat="icon in iconDisplay | orderBy: '-$index' : true track by $index"/>
+
+      </div>
+    </div> <!--end of kata-sort-difficulty -->
+
+    <!-- UGLY CODE BUT BETTER PRODUCT -->
     <!-- *********** DIFFICULTY SORT STUFF ***********  -->
     <div class="kata-left-div" id="kata-sort-difficulty">
       <p class="font15-reg" ng-click="getRandomKataList()">Difficulty:</p>
@@ -38,7 +49,7 @@
         <img id="difficulty-icon" class="difficulty-top" ng-src={{iconDisplay[1]}} alt="2kyu" ng-click="getKatasByKyu(2)" ng-mouseover="iconDisplay[1]=colorIcons[1]" ng-mouseout="iconDisplay[1] = iconFlags[1] ? colorIcons[1] : kyuIcons[1]"/>
         <img id="difficulty-icon" class="difficulty-top" ng-src={{iconDisplay[0]}} alt="1kyu" ng-click="getKatasByKyu(1)" ng-mouseover="iconDisplay[0]=colorIcons[0]" ng-mouseout="iconDisplay[0] = iconFlags[0] ? colorIcons[0] : kyuIcons[0]"/>
       </div>
-    </div> <!--end of kata-sort-difficulty -->
+    </div> <!--end of kata-sort-difficulty-->
 
     <div class="kata-sort-tags">
       <p class="font15-reg tags-header">Tags:</p>
