@@ -4,8 +4,6 @@ angular.module('app', ['ui.router'])
 .config(function($stateProvider, $urlRouterProvider){
 $stateProvider
 
-
-
 //~~~~~~~~~~~~~Parent States~~~~~~~~~~~~~
 
 .state('login',{
