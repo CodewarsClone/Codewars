@@ -25,7 +25,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		theme: 'seti',
 	});
 	
-	$scope.languages = ['JavaScript', 'Python'];
+	$scope.languages = ['JavaScript'];
 	$scope.versions = 'Node v6.6.0';
 	$scope.output = [];
 	

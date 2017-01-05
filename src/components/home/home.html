@@ -21,8 +21,8 @@
       <div class="random-kata-description-div">
         <p class="font14-reg-gray" id="random-kata-description">{{randomKata.description}}</p>
       </div>
-      <div class="taggg-tag-div">
-        <p class="font10-reg-gray" id="taggg-tag">Here's where tags go</p>
+      <div class="taggg-tag-div" ng-repeat="tag in randomKata.tags | limitTo: 3">
+        <p class="font10-reg-gray" id="taggg-tag">{{tag}}</p>
       </div>
     </div>
   </div> <!--END OF HOME-UP -->
@@ -75,30 +75,6 @@
       <hr class="home-bottom-border-hr">
     </div> <!--END REPEATED COMPLETED-->
   </div> <!--END OF USER-COMPLETED KATAS LIST-->
-
-  <!-- <div class="allies any-home-div">
-    <div style="display:flex; align-items: center;">
-      <img class="allies-icon" src="./assets/imgs/allies_icon.png" alt="alliesIcon">
-      <p class="font16-bold">Allies</p>
-    </div>
-    <p class="font14-reg">You are automatically given an allegiance with anyone who is in the same clan as you. You can also become allies with other warriors by following each other or inviting new warriors to join.</p>
-    <div class="list-of-allies">
-      <table class="allies-list-header">
-        <tr>
-          <th>Position</th>
-          <th>User</th>
-          <th>Clan</th>
-          <th>Honor</th>
-        </tr>
-        <tr ng-repeat="user in users">
-          <p>{{user.position}}</p>
-          <p>{{user.name}}</p>
-          <p>{{user.clan}}</p>
-          <p>{{user.honor}}</p>
-        </tr>
-      </table>
-    </div>
-  </div> --> <!--END OF ALLIES-->
 
 
 </section>

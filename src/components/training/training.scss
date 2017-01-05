@@ -28,7 +28,7 @@ $white: white;
   height: 60px;
   margin-top: 50px;
   display: flex;
-  justify-content: space-between;;
+  justify-content: space-between;
   align-items: center;
   padding: 15px;
 }
@@ -66,6 +66,10 @@ $white: white;
   width: 50px;
   margin-right: 5px;
 
+.selection-div {
+  display: flex;
+  flex-direction: row;
+  width: 66vw;
 }
 
 .selection-div {
@@ -79,36 +83,71 @@ $white: white;
 .select-dropdown {
   height: 52px;
   width: 175px;
-  background-color: $button1;
+  background-color: $container2;
   flex-direction: row;
   margin: 7.5px;
 }
 
-/***********MAIN TRAINING AREA***********/
+.select-dropdown-text {
+  margin: auto;
+  align-content: left;
+  padding: 15px;
+}
+
+
+/***********MAIN TRAINING AREA LEFT***********/
+
 .kata {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
+.CodeMirror {
+  height: auto !important;
+}
+
 .kata-right {
   display: flex;
   flex-direction: column;
   padding-top: 2vh;
-  height: 105vh;
-  width: 60vw;
+  height: calc(100vh - 145px);
+  width: calc(60vw - 30px);
   background-color: $container1;
   margin: 15px 15px 15px 0;
-  padding: 10px;
+}
+
+.solution-div {
+  height: 53%;
+  display: flex;
+  flex-direction: column;
+}
+
+.solutions-header {
+  height: 30px;
+  padding: 0 0 0 15px;
+  display: block;
+  line-height: 15px;
+}
+
+.example-tests-div {
+  height: 44%;
+  display: flex;
+  flex-direction: column;
+}
+
+.example-header {
+  height: 40px;
+  padding: 0 0 0 15px;
 }
 
 .instructions {
-  width: 40vw;
+  width: calc(40vw - 15px);
   overflow: scroll;
   margin: 15px;
   background-color: $container1;
   // padding: 10px;
-  height: 105vh;
+  height: calc(100vh - 145px);
 }
 
 .instructions-head {
@@ -124,7 +163,7 @@ $white: white;
   text-align: center;
   cursor: pointer;
   background-color: $grey-color2;
-  display:flex;
+  display: flex;
 }
 
 .output-selector {
@@ -133,12 +172,12 @@ $white: white;
   text-align: center;
   cursor: pointer;
   line-height: 40px;
-  display:flex;
+  display: flex;
 }
 
 .button-text {
-margin:auto;
-align-self: center;
+  margin: auto;
+  align-self: center;
 }
 
 .instructions-text {
@@ -146,47 +185,58 @@ align-self: center;
 }
 
 hr {
-  background-image: -webkit-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
-  background-image: -moz-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
-  background-image: -ms-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
-  background-image: -o-linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
-  background-image: -linear-gradient(left, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent);
+  background-image: -webkit-linear-gradient(left, transparent, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, transparent);
+  background-image: -moz-linear-gradient(left, transparent, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, transparent);
+  background-image: -ms-linear-gradient(left, transparent, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, transparent);
+  background-image: -o-linear-gradient(left, transparent, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, transparent);
+  background-image: -linear-gradient(left, transparent, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, transparent);
 }
 
+.reset-button{
+  border: 1px solid #3C3C3C;
+  border-radius: 5px;
+  width: 60px;
+  height: 30px;
+  background-color: #3C3C3C;
+  margin: 15px;
+}
 .test-examples-button {
   border: 1px solid #91b2e7;
-  border-radius: 4%;
+  border-radius: 5px;
   width: 113px;
   height: 30px;
   background-color: #3C3C3C;
-  margin:15px;
+  margin: 15px;
 }
 
 .test-suite-button {
   border: 1px solid #91b2e7;
-  border-radius: 4%;
+  border-radius: 5px;
   width: 113px;
   height: 30px;
   background-color: #91b2e7;
-  margin:15px;
+  margin: 15px;
 }
 
 .submit-button {
   border: 1px solid $green-color;
-  border-radius: 4%;
+  border-radius: 5px;
   width: 113px;
   height: 30px;
   background-color: $green-color;
-  margin:15px;
+  margin: 15px;
+}
+
+.hide {
+  display:none;
+}
+.show {
+  display:flex;
 }
 
 .button-div {
-  display:flex;
-  justify-content: right;
-}
-
-.example-tests-div {
-  height: 15vh;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .pre-line {
@@ -202,7 +252,7 @@ hr {
 }
 
 .output-header {
-  display:flex;
+  display: flex;
   flex-direction: row;
   align-content: left;
 }
@@ -226,6 +276,7 @@ hr {
 .val {
   padding: 5px 0 0 5px;
 }
+
 .val1 {
   padding: 0 0 0 15px;
 }
@@ -233,3 +284,4 @@ hr {
 .val2 {
   padding: 0 0 0 30px;
 }
+
