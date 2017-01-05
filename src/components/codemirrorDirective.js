@@ -9,7 +9,7 @@ angular.module('app').directive('codemirrorDirective', function() {
         readOnly: true,
         lineSeparator: '\\n'
       });
-      codemirror.setSize(null, 100);
+//      codemirror.setSize(null, 100);
       if (attr.class.includes('home')) {
         codemirror.setValue(scope.userKatas[ident].script);
         codemirror.getWrapperElement().style.display="none";

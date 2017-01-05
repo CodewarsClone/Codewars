@@ -44,4 +44,4 @@ CREATE TABLE kata_ratings (
 );
 
 INSERT INTO users (github_id, name, email, username, picture_url, points)
-VALUES ('12', 'Bob Smith', 'bob@smith.com', 'bobIScool', null, 25);
+VALUES ('22752236', 'Joshua Baert', 'developer@baert.io', 'JoshuaBaert', 'https://avatars.githubusercontent.com/u/22752236?v=3', 49);

@@ -1,6 +1,5 @@
 /**************SIDE MENU**************/
 
-
 $sidebar-color: #222222;
 $main-background: #303133;
 $container1: #262729;
@@ -110,39 +109,42 @@ $grey-color: #C0C0C0;
 
 
 .li65 {
-    width: 65px;
-    margin:auto;
-    display: flex;
-    justify-content: center;
+  width: 65px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 
 
 .li65-img {
-    margin:auto;
-    vertical-align: center;
-    height: 25px;
-    align-self:center;
+  margin: auto;
+  vertical-align: center;
+  height: 25px;
+  align-self: center;
 }
 
 
 
 .li170 {
-    width: 170px;
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    justify-content: center;
+  width: 170px;
+  padding-right: 20px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  
 }
 
 
 
 .li170-img {
-    vertical-align: center;
-    height: 40px;
-    border-radius: 10px;
-    margin:  5px auto;
-    align-self: center;
+  vertical-align: center;
+  height: 40px;
+  border-radius: 10px;
+  margin: 5px 5px;
+  align-self: center;
 }
 
 
