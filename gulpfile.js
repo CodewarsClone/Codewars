@@ -40,7 +40,7 @@ gulp.task('clean', function (cb) {
   return del([
     'src/dist/**'
   ], cb).then(() => {
-    gulp.start(['build-css', 'build-js']);
+     return gulp.start(['build-css', 'build-js']);
   });
 });
 
@@ -69,4 +69,6 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('default', ['clean', 'watch']);
+gulp.task('default', ['clean'], () =>{
+  return gulp.start(['watch']);
+});
