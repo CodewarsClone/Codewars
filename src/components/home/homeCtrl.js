@@ -25,6 +25,8 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
         }
         mainService.getRandomKata(mainService.user.kyu_level).then(response => {
 
+          console.log(response.data.description);
+          response.data.description = response.data.description.replace(/\\n/g, "\n");
             if (oldId) {
                 if (response.data.id === oldId) {
                 return $scope.getRandomKata(mainService.user.kyu_level);
@@ -33,6 +35,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
                 }
             }
             $scope.randomKata = response.data;
+
         })
     }
 
@@ -45,7 +48,6 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
     $scope.voteKata = (kataid, vote) => { // the vote is a true or false value
         mainService.voteKata(mainService.user.id, kataid, vote).then(response => {
             $scope.kataVotes = response.data;
-            console.log($scope.kataVotes);
             $scope.userKatas.forEach(kata => {
               if (kata.id === kataid) {
                 kata.votes = $scope.kataVotes.votes;
@@ -72,7 +74,6 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
               }
               vote.satisfaction = (vote.likes/vote.votes)*100;
             });
-            console.log("votes ", $scope.votes);
             $scope.userKatas.forEach((kata) => {
               kata.satisfaction = 0;
               kata.votes = 0;

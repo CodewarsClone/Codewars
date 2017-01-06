@@ -35,6 +35,10 @@
         </textarea>
       </div>
       <div class="solutions-vote-buttons-div">
+        <div class="solution-satisfaction-div">
+          <img class="solution-stats-icon .font14-reg-gray" src="./assets/imgs/satisfaction_icon.png" />
+          <p class="solution-stats-info">{{solution.satisfaction}}% satisfied of {{solution.votes}} votes</p>
+        </div>
         <button class="vote-button" ng-click="voteSolution(solution.id, true)">
           <i class="fa fa-thumbs-up" style="color: #efefef; margin: 0 10px 0 5px;" aria-hidden="true"></i>
           <p class="font14-reg-efefef" style="margin: 0 5px 0 0">Up-Vote</p>
