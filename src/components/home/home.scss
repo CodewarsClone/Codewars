@@ -78,6 +78,13 @@ $grey-color: #C0C0C0;
   color: $blue-color;
 }
 
+.home-button:active {
+  transform: translateY(2px);
+  -webkit-box-shadow: inset -6px 5px 22px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -6px 5px 22px -4px rgba(0,0,0,0.75);
+  box-shadow: inset -6px 5px 22px -4px rgba(0,0,0,0.75);
+}
+
 .home-button {
   height: 30px;
   width: 70px;

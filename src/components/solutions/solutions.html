@@ -28,7 +28,7 @@
     <div class="all-solutions" ng-repeat="solution in kataSolutions track by $index">
       <div class="solution-username">
         <img class="solution-creator-icon" src="./assets/imgs/creator_icon.png" alt="user">
-        <p class="font15-reg">Username</p>
+        <p class="font15-reg">{{solution.username}}</p>
       </div>
       <div class="solutions-page-solutions-div">
         <textarea class="solution-text" id="{{$index}}" codemirror-directive>
