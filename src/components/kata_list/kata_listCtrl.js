@@ -101,6 +101,29 @@ angular.module('app').controller('kata_listCtrl', function($scope, $state, mainS
         mainService.getKataVotes().then(response => {
             $scope.allKataVotes = response.data
             console.log($scope.allKataVotes);
+            $scope.likes = $scope.allKataVotes[0];
+            $scope.dislikes = $scope.allKataVotes[1];
+            $scope.votes = $scope.allKataVotes[2];
+            $scope.votes.forEach((vote) => {
+              vote.likes = 0;
+              vote.votes = parseInt(vote.votes);
+              for (let i = 0; i < $scope.likes.length; i++) {
+                if ($scope.likes[i].kata_id === vote.kata_id) {
+                    vote.likes += 1;
+                }
+              }
+              vote.satisfaction = (vote.likes/vote.votes)*100;
+            });
+            $scope.displayKataList.forEach((kata) => {
+              kata.satisfaction = 0;
+              kata.votes = 0;
+              for (let i of $scope.votes) {
+                if (i.kata_id === kata.id) {
+                  kata.satisfaction = i.satisfaction;
+                  kata.votes = i.votes;
+                }
+              }
+            });
         })
     }
 

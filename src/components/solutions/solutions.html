@@ -1,52 +1,58 @@
 <section class="solutions" ng-init="init()">
-
-  <!-- THIS IS IN HERE FROM WHEN I THOUGHT THE SOLUTIONS PAGE WOULD BE SPECIFIC TO THE USER. -->
-  <!-- <div class="solutions-upper-div any-solutions-div">
-    <div class="solutions-upper-left">
-      <img id="solutions-profile-pic" src="{{user.picture_url}}" alt="Here's where your face should be">
-    </div>
-    <div class="solutions-upper-main">
-      <div class="solutions-upper-upper">
-        <img id="solutions-rank-icon" src="./assets/imgs/6_kyu_icon.png" alt="Rank: 6_kyu">
-        <h2 class="font20-reg">{{user.username}}</h2>
-        <p class="font14-lit-gray">Honor</p>
-      </div>
-      <div class="solutions-upper-mid">
-        <p class="font14-reg-efefef">Tons of info goes here</p>
-      </div>
-      <div class="solutions-upper-bottom">
-        <button>View Profile Badges</button>
-      </div>
-    </div>
-  </div> END SOLUTIONS UPPER DIV-->
-
-  <div class="solutions-main any-solutions-div">
-    <div class="solutions-main-head">
-      <img class="difficulty-icon" src="./assets/imgs/{{kataById.kyu}}_kyu_icon.png" alt="{{kataById.kyu}}_kyu">
-      <p class="font17-reg">{{kataById.name}}</p>
-    </div>
-    <div class="all-solutions" ng-repeat="solution in kataSolutions track by $index">
-      <div class="solution-username">
-        <img class="solution-creator-icon" src="./assets/imgs/creator_icon.png" alt="user">
-        <p class="font15-reg">{{solution.username}}</p>
-      </div>
-      <div class="solutions-page-solutions-div">
+	
+	<!-- THIS IS IN HERE FROM WHEN I THOUGHT THE SOLUTIONS PAGE WOULD BE SPECIFIC TO THE USER. -->
+	<!-- <div class="solutions-upper-div any-solutions-div">
+		<div class="solutions-upper-left">
+			<img id="solutions-profile-pic" src="{{user.picture_url}}" alt="Here's where your face should be">
+		</div>
+		<div class="solutions-upper-main">
+			<div class="solutions-upper-upper">
+				<img id="solutions-rank-icon" src="./assets/imgs/6_kyu_icon.png" alt="Rank: 6_kyu">
+				<h2 class="font20-reg">{{user.username}}</h2>
+				<p class="font14-lit-gray">Honor</p>
+			</div>
+			<div class="solutions-upper-mid">
+				<p class="font14-reg-efefef">Tons of info goes here</p>
+			</div>
+			<div class="solutions-upper-bottom">
+				<button>View Profile Badges</button>
+			</div>
+		</div>
+	</div> END SOLUTIONS UPPER DIV-->
+	
+	<div class="solutions-main any-solutions-div">
+		<div class="solutions-main-head">
+			<img class="difficulty-icon" src="./assets/imgs/{{kataById.kyu}}_kyu_icon.png" alt="{{kataById.kyu}}_kyu">
+			<p class="font17-reg">{{kataById.name}}</p>
+		</div>
+		<div class="all-solutions" ng-repeat="solution in kataSolutions track by $index">
+			<div class="solution-username">
+				<img class="solution-creator-icon" src="./assets/imgs/creator_icon.png" alt="user">
+				<p class="font15-reg">{{solution.username}}</p>
+			</div>
+			<div class="solutions-page-solutions-div">
         <textarea class="solution-text" id="{{$index}}" codemirror-directive>
         </textarea>
-      </div>
-      <div class="solutions-vote-buttons-div">
-        <button class="vote-button" ng-click="voteSolution(solution.id, true)">
-          <i class="fa fa-thumbs-up" style="color: #efefef; margin: 0 10px 0 5px;" aria-hidden="true"></i>
-          <p class="font14-reg-efefef" style="margin: 0 5px 0 0">Up-Vote</p>
-        </button>
-        <button class="vote-button" ng-click="voteSolution(solution.id, false)">
-          <i class="fa fa-thumbs-down" style="color: #efefef; margin: 0 10px 0 5px;" aria-hidden="true"></i>
-          <p class="font14-reg-efefef" style="margin: 0 5px 0 0">Down-Vote</p>
-        </button>
-      </div>
-      <hr class="solutions-bottom-border-hr">
-    </div>
-  </div> <!--END SOLUTIONS MAIN-->
+			</div>
+			<div class="solutions-vote-buttons-div">
+				<div class="solution-satisfaction-div">
+					<img class="solution-stats-icon .font14-reg-gray" src="./assets/imgs/satisfaction_icon.png"/>
+					<p class="solution-stats-info">Considered best practice by {{solution.satisfaction}}% of {{solution.votes}} votes</p>
+				</div>
+				<div class="solution-button-wrapper">
+					<button class="vote-button" ng-click="voteSolution(solution.id, true)">
+						<i class="fa fa-thumbs-up" style="color: #efefef; margin: 0 10px 0 5px;" aria-hidden="true"></i>
+						<p class="font14-reg-efefef" style="margin: 0 5px 0 0">Best Practice</p>
+					</button>
+					<button class="vote-button" ng-click="voteSolution(solution.id, false)">
+						<i class="fa fa-thumbs-down" style="color: #efefef; margin: 0 10px 0 5px;" aria-hidden="true"></i>
+						<p class="font14-reg-efefef" style="margin: 0 5px 0 0">No Good</p>
+					</button>
+				</div>
+			</div>
+			<hr class="solutions-bottom-border-hr">
+		</div>
+	</div> <!--END SOLUTIONS MAIN-->
 
 
 </section>

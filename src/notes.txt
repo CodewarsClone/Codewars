@@ -1,3 +1,6 @@
 Jan 04 Found a use case for RxJS:
 
 On the kata_list page, we can filter/sort available kata by languages, tags, search text, and difficulty, all separately. If we want to do all at once, we can build a big series of functions using flags to determine whether a language has been determined, etc. Or, we can set up a couple of RxJS observables on each of those variables, and on change move into a function that correctly formats the kataDisplayList.
+
+
+Remembered to erase all instances of dummy text before pushing official "production" version. 

@@ -212,7 +212,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
 	  	this.user.points += 128;
 	  	return this.user.points
 	  }
-  };
+  };//s
 
   this.checkAuth = () => {
     $http({
@@ -220,7 +220,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
       url: `/api/check-auth`
     }).then(response => {
     }, response => {
-//       $state.go('login');
+       $state.go('login');
     })
   };
 
