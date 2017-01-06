@@ -4,15 +4,13 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
 
   // $sce.trustAsResourceUrl('/s');
 
-  // Dummy information so I don't have to mess with the server all the time.
-  // this.user = {id: 4, github_id: "20197415", name: "Steven", email: null, picture_url: "https://avatars.githubusercontent.com/u/20197415?v=3", username: "Steven-Nagie"};
   this.user = {};
 
 // POST
   this.testExamples = (solution, examples) => {
     return $http({
       method: 'POST',
-      url: `/api/test/examples`,
+      url: `http://code.baert.io/api/test/examples`,
       data: {
         script: solution,
         examples: examples
@@ -25,7 +23,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
   this.testSuite = (solution, kataid) => {
     return $http({
       method: 'POST',
-      url: `/api/test/suite/${kataid}`,
+      url: `http://code.baert.io/api/test/suite/${kataid}`,
       data: {
         script: solution
       }
@@ -43,7 +41,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     });
   };
 
-   //kata_listCtrl
   this.searchKatasByName = (input) => {
     return $http({
       method: 'POST',
@@ -86,7 +83,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     })
   };
 
-  // trainingCtrl
   this.getKataById = (kataid) => {
     return $http({
       method: 'GET',
@@ -94,7 +90,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     });
   };
 
-  // homeCtrl - displaying one kata within range
   this.getRandomKata = (userkyu) => {
     return $http({
       method: 'GET',
@@ -102,7 +97,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     });
   };
 
-  // kata_listCtrl = displays a plethora of katas based on user ability
   this.getRandomKataList = (userkyu) => {
     return $http({
       method: 'GET',
@@ -110,7 +104,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     });
   };
 
-  // kata_listCtrl
   this.getKatasByKyu = (kyu) => {
     return $http({
       method: 'GET',
@@ -118,7 +111,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     });
   };
 
-  // solutionsCtrl
   this.getKataSolutions = (kataid) => {
     return $http({
       method: 'GET',
@@ -126,7 +118,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     });
   };
 
-  // profileCtrl - brings back a specific users kata information (script, name, kyu, description) - use on kata tab soltion tab
   this.getUserKatas = (userid) => {
     return $http({
       method: 'GET',
@@ -229,7 +220,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
       url: `/api/check-auth`
     }).then(response => {
     }, response => {
-//       $state.go('login');
+       $state.go('login');
     })
   };
 

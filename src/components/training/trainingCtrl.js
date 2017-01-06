@@ -25,6 +25,8 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		lineNumbers: true,
 		theme: 'seti',
 	});
+
+
 	
 	$scope.languages = ['JavaScript'];
 	$scope.versions = 'Node v6.6.0';
@@ -59,11 +61,18 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		});
 	};
 	
+	$scope.reset = () => {
+		examplesCode.setValue($scope.examples);
+	}
+
+	solutionsCode.on('change', () => {
+		$scope.submit = false;
+	})
+
 	$scope.getKataById($scope.kataid);
 	
 	//Examples should be an array of objects. Returned results will be an array with the different tests and their results.
 	$scope.testExamples = function () {
-		console.log('clicked examples');
 		var solutions = solutionsCode.getValue();
 		var examples = examplesCode.getValue();
 		$scope.showOutput();
@@ -81,6 +90,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 			.replace(/\s+/g, ` `);
 //		console.log(examples);
 		mainService.testExamples(solutions, examples).then((response) => {
+			$scope.submit = false;
 			var t1 = performance.now();
 			console.log(response.data);
 			if (typeof response.data === 'string') {
@@ -104,7 +114,6 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	};
 	
 	$scope.testSuite = function () {
-		console.log('clicked attempt');
 		var solutions = solutionsCode.getValue();
 		$scope.showOutput();
 		var t0 = performance.now();
@@ -126,19 +135,15 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 				$scope.error = null;
 				$scope.gotError = false;
 				$scope.answer = response.data.nest;
-//			console.log(response.data.nest[0]);
 				$scope.time = Math.round(t1 - t0) + " ms";
 				$scope.testPass = response.data.passCount;
 				$scope.testFail = response.data.testCount - response.data.passCount;
+
 				console.log($scope.testFail);
+
 				$scope.submit = (response.data.testCount === response.data.passCount ? true : false);
 			}
 		});
-	};
-	
-
-	$scope.reset = function(){
-		console.log('something extravegant');
 	};
 	
 	$scope.submitAnswer = () => {

@@ -30,12 +30,10 @@
     <div class="kata">
       <div class="instructions" ng-style="instructionStyle">
         <div class="instructions-head">
-<!--ng-style='instructionStyle' instructionStyle={'background-color':'#3B3C3E'}-->
-          <div class='instructions-selector font14-lit-gray' ng-click='showInstructions(); instruction = !instruction' ng-class="instruction == true ? 'selector-bg-on': 'selector-bg-off'">
+          <div class='instructions-selector font14-lit-gray' ng-click='showInstructions()'>
             <div class='button-text'>Instructions</div>
           </div>
-<!--ng-style='outputStyle' instructionStyle={'background-color':'#262729'}; outputStyle={'background-color': '#3B3C3E'}-->
-          <div class='output-selector font14-lit-gray' ng-click='showOutput(); instruction = !instruction' ng-class="instruction == true ? 'selector-bg-off': 'selector-bg-on'">
+          <div class='output-selector font14-lit-gray' ng-click='showOutput()'>
             <div class='button-text'>Output</div>
           </div>
         </div>
@@ -63,11 +61,10 @@
 
           <!--*******************BUTTONS***********************-->
           <div class='button-div'>
-            <button ng-click="" class="reset-button font12-reg-blue"><i class="fa fa-forward" style="margin-right: 2px" aria-hidden="true"></i>SKIP</button>
+            <button ui-sref='menu.home' class="reset-button font12-reg-blue"><i class="fa fa-forward" style="margin-right: 2px" aria-hidden="true"></i>SKIP</button>
             <button ng-click="reset()" class="reset-button font12-reg-blue">RESET</button>
             <button ng-click="testExamples()" class="test-examples-button font12-reg-blue">RUN EXAMPLES</button>
             <button ng-click="testSuite()" class="test-suite-button font12-reg-black"><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>ATTEMPT</button>
-
             <button ng-click="submitAnswer()" class="submit-button font12-reg-black" ng-class="submit != true ? 'hide' : 'show'"><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>SUBMIT</button>
           </div>
         </div>
