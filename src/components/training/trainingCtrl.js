@@ -48,7 +48,6 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	// GET KATA INFORMATION
 	$scope.getKataById = (kataid) => {
 		mainService.getKataById(kataid).then((response) => {
-//			console.log(response.data);
 			$scope.name = response.data.name;
 			$scope.instructions = response.data.description.replace(/\\n/g, '\n');
 			$scope.kyu = response.data.kyu;
@@ -67,7 +66,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 
 	solutionsCode.on('change', () => {
 		$scope.submit = false;
-	})
+	});
 
 	$scope.getKataById($scope.kataid);
 	
@@ -77,34 +76,33 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		var examples = examplesCode.getValue();
 		$scope.showOutput();
 		var t0 = performance.now();
+		console.log(solutions);
 		solutions = solutions
+			.replace(/\\n/g, '\n')
 			.replace(/\s*\n*\r*\/\/.*\n*\r*/g, '')
 			.replace(/\n\s*\./g, `.`)
 			.replace(/\\n/g, " ")
 			.replace(/\s+/g, " ");
+		console.log(solutions);
 		var examplesArr = [];
 		examples = examples
+			.replace(/\\n/g, '\n')
 			.replace(/\s*\n*\r*\/\/.*\n*\r*/g, '')
 			.replace(/\n\s*\./g, `.`)
 			.replace(/\n/g, ` `)
 			.replace(/\s+/g, ` `);
-//		console.log(examples);
 		mainService.testExamples(solutions, examples).then((response) => {
 			$scope.submit = false;
 			var t1 = performance.now();
-			console.log(response.data);
 			if (typeof response.data === 'string') {
 				$scope.gotError = true;
 				$scope.answer = null;
 				$scope.error = response.data.replace(/\\n/g, '\n');
-				console.log($scope.error);
 				$scope.error = $scope.error.replace(/\\s/g, ' ');
-				console.log($scope.error);
 			} else {
 				$scope.error = null;
 				$scope.gotError = false;
 				$scope.answer = response.data.nest;
-//			console.log(response.data.nest[0]);
 				$scope.time = Math.round(t1 - t0) + " ms";
 				$scope.testPass = response.data.passCount;
 				$scope.testFail = response.data.testCount - response.data.passCount;
@@ -118,19 +116,19 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		$scope.showOutput();
 		var t0 = performance.now();
 		solutions = solutions
+			.replace(/\\n/g, '\n')
 			.replace(/\s*\n*\r*\/\/.*\n*\r*/g, '')
 			.replace(/\n\s*\./g, `.`)
 			.replace(/\\n/g, " ")
 			.replace(/\s+/g, " ");
+		console.log(solutions);
 		mainService.testSuite(solutions, $scope.kataid).then((response) => {
 			var t1 = performance.now();
 			if (typeof response.data === 'string') {
 				$scope.gotError = true;
 				$scope.answer = null;
 				$scope.error = response.data.replace(/\\n/g, '\n');
-				console.log($scope.error);
 				$scope.error = $scope.error.replace(/\\s/g, ' ');
-				console.log($scope.error);
 			} else {
 				$scope.error = null;
 				$scope.gotError = false;
@@ -138,8 +136,6 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 				$scope.time = Math.round(t1 - t0) + " ms";
 				$scope.testPass = response.data.passCount;
 				$scope.testFail = response.data.testCount - response.data.passCount;
-
-				console.log($scope.testFail);
 
 				$scope.submit = (response.data.testCount === response.data.passCount ? true : false);
 			}
