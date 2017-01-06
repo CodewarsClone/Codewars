@@ -1,10 +1,10 @@
 # Codewars Clone
 
 This is a project with 
-Alexis Graff, 
-Steven Nagie, 
-Joshua Baert, and 
-Sterling Chin
+* Alexis Graff
+* Steven Nagie
+* Joshua Baert
+* Sterling Chin
 
 We made this as a group project for our dev bootcamp
 
