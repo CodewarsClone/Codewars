@@ -32,7 +32,7 @@ VALUES (1, 2, 'function generateRange(min, max, step){\n  let arr = [];\n  for (
 
 (1, 8, 'function kebabize(str) {\n  str = str.split('''').map((letter) => {\n  if (!isNaN(parseInt(letter))) {\n    return '''';\n  } else if (letter === letter.toUpperCase()) {\n    return ''-'' + letter.toLowerCase();\n  } else {\n    return letter;\n  }\n  }).join('''');\n  if (str.charAt(0) === ''-'') {\n    str = str.slice(1);\n  }\n  return str;\n} '),
 (1, 1, 'var a = 1'),
-(1,1, 'let a = 1'),
+(1, 1, 'let a = 1'),
 (1, 8, 'function kebabize(str) {\n return str.replace(/[^a-z]/ig, '').replace(/^[A-Z]/, c => c.toLowerCase()).replace(/[A-Z]/g, c => `-${c.toLowerCase()}`);\n}')
 ;
 

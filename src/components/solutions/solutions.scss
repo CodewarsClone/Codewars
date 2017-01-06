@@ -114,16 +114,21 @@ $green-color: #5F8120;
 .solutions-vote-buttons-div {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 5px;
   margin-left: -10px;
 }
 
+.solution-button-wrapper {
+  display: flex;
+}
+
 .solution-satisfaction-div {
   margin-left: 1vw;
   display: flex;
-  justify-content: space-between;
-  width: 290px;
+  justify-content: flex-start;
+  width: 350px;
 }
 
 .solution-stats-icon {
@@ -133,6 +138,7 @@ $green-color: #5F8120;
 
 .solution-stats-info {
   color: $grey-color;
+  margin-left: 10px;
 }
 
 .solutions-bottom-border-div {
