@@ -41,12 +41,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
     $scope.getUserKatas = (userid) => {
         mainService.getUserKatas(userid).then(response => {
-<<<<<<< HEAD
             $scope.userKatas = response.data;
-=======
-             $scope.userKatas = response.data;
-             console.log($scope.userKatas);
->>>>>>> master
         })
     }
 
