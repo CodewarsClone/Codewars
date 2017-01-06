@@ -1,4 +1,4 @@
-<div class='output'>
+<div class='output' ng-class="submit === false ? 'border-off':'border-on'">
   <div class="font14-reg val output-header">
     <div class='output-items'>
       Time: <span class='white'>{{time}}</span>
@@ -12,7 +12,7 @@
   </div>
   <hr>
   <span class='font14-reg val'><u>Test Results:</u></span> <br><br>
-  <span class="font14-reg-nw val fail" ng-class="error ? 'show' : 'hide'" ><pre>{{error}}</pre></span>
+  <span class="font14-reg-nw val fail" ng-class="error ? 'show' : 'hide'"><pre>{{error}}</pre></span>
   <div class="font14-reg-nw val" ng-repeat='val in answer' ng-class="val.passed != undefined ? (val.passed ? 'pass' : 'fail') : 'white'">
     {{val.value}}
     <div class='val1' ng-repeat='val1 in val.nest' ng-class="val1.passed != undefined ? (val1.passed ? 'pass' : 'fail') : 'white'">
@@ -22,4 +22,6 @@
       </div>
     </div>
   </div>
+  <div class='congrats font14-reg-nw' ng-class="submit === false ? 'hide':'show'">You have passed all tests! :)</div>
 </div>
+
