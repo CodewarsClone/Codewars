@@ -66,7 +66,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 
 	solutionsCode.on('change', () => {
 		$scope.submit = false;
-	})
+	});
 
 	$scope.getKataById($scope.kataid);
 	
