@@ -62,7 +62,7 @@ gulp.task('build-js', function () {
     .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('build', ['clean', 'build-css', 'build-js']);
+gulp.task('build', ['clean']);
 
 gulp.task('watch', function () {
   return gulp.watch([paths.jsSource, paths.cssFiles, paths.scssFiles], ['clean']);
