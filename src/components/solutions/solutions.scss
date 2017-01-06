@@ -114,8 +114,25 @@ $green-color: #5F8120;
 .solutions-vote-buttons-div {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   margin-top: 5px;
   margin-left: -10px;
+}
+
+.solution-satisfaction-div {
+  margin-left: 1vw;
+  display: flex;
+  justify-content: space-between;
+  width: 290px;
+}
+
+.solution-stats-icon {
+  height: 15px;
+  width: 15px;
+}
+
+.solution-stats-info {
+  color: $grey-color;
 }
 
 .solutions-bottom-border-div {

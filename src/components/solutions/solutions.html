@@ -35,13 +35,17 @@
         </textarea>
       </div>
       <div class="solutions-vote-buttons-div">
+        <div class="solution-satisfaction-div">
+          <img class="solution-stats-icon .font14-reg-gray" src="./assets/imgs/satisfaction_icon.png" />
+          <p class="solution-stats-info">Considered best practice by {{solution.satisfaction}}% of {{solution.votes}} votes</p>
+        </div>
         <button class="vote-button" ng-click="voteSolution(solution.id, true)">
           <i class="fa fa-thumbs-up" style="color: #efefef; margin: 0 10px 0 5px;" aria-hidden="true"></i>
-          <p class="font14-reg-efefef" style="margin: 0 5px 0 0">Up-Vote</p>
+          <p class="font14-reg-efefef" style="margin: 0 5px 0 0">Best Practice</p>
         </button>
         <button class="vote-button" ng-click="voteSolution(solution.id, false)">
           <i class="fa fa-thumbs-down" style="color: #efefef; margin: 0 10px 0 5px;" aria-hidden="true"></i>
-          <p class="font14-reg-efefef" style="margin: 0 5px 0 0">Down-Vote</p>
+          <p class="font14-reg-efefef" style="margin: 0 5px 0 0">No Good</p>
         </button>
       </div>
       <hr class="solutions-bottom-border-hr">

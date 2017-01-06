@@ -221,7 +221,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
 	  	this.user.points += 128;
 	  	return this.user.points
 	  }
-  };
+  };//s
 
   this.checkAuth = () => {
     $http({
