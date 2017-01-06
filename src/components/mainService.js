@@ -195,7 +195,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
 };
 
   this.pointsCalculator = (kyu) => {
-    
+
 	  if (kyu === 8) {
 	  	this.user.points += 1;
 	  	return this.user.points

@@ -4,7 +4,7 @@
       Time: <span class='white'>{{time}}</span>
     </div>
     <div class='pass output-items'>
-      Passed:<span class='white'>{{testPass}}</span>
+      Passed: <span class='white'>{{testPass}}</span>
     </div>
     <div class='fail output-items'>
       Failed: <span class='white'>{{testFail}}</span>
@@ -12,6 +12,7 @@
   </div>
   <hr>
   <span class='font14-reg val'><u>Test Results:</u></span> <br><br>
+  <span class="font14-reg-nw val fail" ng-class="error ? 'show' : 'hide'" ><pre>{{error}}</pre></span>
   <div class="font14-reg-nw val" ng-repeat='val in answer' ng-class="val.passed != undefined ? (val.passed ? 'pass' : 'fail') : 'white'">
     {{val.value}}
     <div class='val1' ng-repeat='val1 in val.nest' ng-class="val1.passed != undefined ? (val1.passed ? 'pass' : 'fail') : 'white'">

@@ -8,6 +8,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	$scope.showInstruction = true;
 	$scope.showOutput = false;
 	$scope.submit = false;
+	$scope.gotError = false;
 	
 	
 	
@@ -87,11 +88,24 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 //		console.log(examples);
 		mainService.testExamples(solutions, examples).then((response) => {
 			var t1 = performance.now();
-			$scope.answer = response.data.nest;
+			console.log(response.data);
+			if (typeof response.data === 'string') {
+				$scope.gotError = true;
+				$scope.answer = null;
+				$scope.error = response.data.replace(/\\n/g, '\n');
+				console.log($scope.error);
+				$scope.error = $scope.error.replace(/\\s/g, ' ');
+				console.log($scope.error);
+			} else {
+				$scope.error = null;
+				$scope.gotError = false;
+				$scope.answer = response.data.nest;
 //			console.log(response.data.nest[0]);
-			$scope.time = Math.round(t1 - t0) + " ms";
-			$scope.testPass = response.data.passCount;
-			$scope.testFail = response.data.testCount - response.data.passCount;
+				$scope.time = Math.round(t1 - t0) + " ms";
+				$scope.testPass = response.data.passCount;
+				$scope.testFail = response.data.testCount - response.data.passCount;
+			}
+			
 		});
 	};
 	
@@ -106,13 +120,22 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 			.replace(/\s+/g, " ");
 		mainService.testSuite(solutions, $scope.kataid).then((response) => {
 			var t1 = performance.now();
-			$scope.answer = response.data.nest;
-			// console.log(response.data);
-			$scope.time = Math.round(t1 - t0) + " ms";
-			$scope.testPass = response.data.passCount;
-			$scope.testFail = response.data.testCount - response.data.passCount;
-			$scope.submit = (response.data.testCount === response.data.passCount ? true : false);
-//			console.log($scope.submit)
+			if (typeof response.data === 'string') {
+				$scope.gotError = true;
+				$scope.answer = null;
+				$scope.error = response.data.replace(/\\n/g, '\n');
+				console.log($scope.error);
+				$scope.error = $scope.error.replace(/\\s/g, ' ');
+				console.log($scope.error);
+			} else {
+				$scope.error = null;
+				$scope.gotError = false;
+				$scope.answer = response.data.nest;
+				$scope.time = Math.round(t1 - t0) + " ms";
+				$scope.testPass = response.data.passCount;
+				$scope.testFail = response.data.testCount - response.data.passCount;
+				$scope.submit = (response.data.testCount === response.data.passCount ? true : false);
+			}
 		});
 	};
 	
