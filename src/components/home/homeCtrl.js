@@ -6,7 +6,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
     $scope.languageOptions = ["JavaScript", "Ruby", "C++"];
     $scope.progressOptions = ["Fundamentals", "Rank Up", "Practice and Repeat", "Beta", "Random"];
     //Dummy userKatas for purposes of styling.
-    $scope.userKatas = [{kyu: 8, id: 1, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS'], user_id: 2},{kyu: 8, id: 2, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS'], user_id: 2},{kyu: 8, id: 3, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS']}]
+    // $scope.userKatas = [{kyu: 8, id: 1, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS'], user_id: 2},{kyu: 8, id: 2, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS'], user_id: 2},{kyu: 8, id: 3, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS']}]
 
     $scope.getUser = () => {
         mainService.getUser().then(response => {
@@ -25,7 +25,6 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
         }
         mainService.getRandomKata(mainService.user.kyu_level).then(response => {
 
-          console.log(response.data.description);
           response.data.description = response.data.description.replace(/\\n/g, "\n");
             if (oldId) {
                 if (response.data.id === oldId) {
