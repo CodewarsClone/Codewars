@@ -10,7 +10,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
   this.testExamples = (solution, examples) => {
     return $http({
       method: 'POST',
-      url: `/api/test/examples`,
+      url: `http://code.baert.io/api/test/examples`,
       data: {
         script: solution,
         examples: examples
@@ -23,7 +23,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
   this.testSuite = (solution, kataid) => {
     return $http({
       method: 'POST',
-      url: `/api/test/suite/${kataid}`,
+      url: `http://code.baert.io/api/test/suite/${kataid}`,
       data: {
         script: solution
       }
@@ -212,7 +212,7 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
 	  	this.user.points += 128;
 	  	return this.user.points
 	  }
-  };//s
+  };
 
   this.checkAuth = () => {
     $http({

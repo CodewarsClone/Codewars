@@ -73,14 +73,6 @@ $white: white;
   width: 66vw;
 }
 
-.selection-div {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  align-content: flex-start;
-  width: 60vw;
-}
-
 .select-dropdown {
   height: 52px;
   width: 175px;
@@ -239,6 +231,7 @@ hr {
   height: 30px;
   background-color: $green-color;
   margin: 15px;
+  padding: 0 0 0 28px;
 }
 
 .hide {
@@ -261,10 +254,30 @@ hr {
 .output {
   background-color: $output;
   width: 100%;
-  height: 93%;
+  height: 92%;
   margin:0;
   overflow: auto;
 }
+
+.border-on {
+  border: 3px solid $pass;
+}
+
+.border-off {
+  border: 3px solid $output;
+}
+
+.congrats {
+  color: $pass;
+  width: 90%;
+  height: 40px;
+  border: 2px dotted $pass;
+  text-align: center;
+  padding: 6px;
+  margin: 15px auto;
+  border-radius: 5px;
+}
+
 
 .output-header {
   display: flex;
@@ -274,6 +287,7 @@ hr {
 
 .output-items {
   justify-content: space-between;
+  margin: 0 7px 0 0;
 }
 
 .pass {
