@@ -57,11 +57,12 @@
           </div>
           <div class="kata-stats">
             <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/satisfaction_icon.png" />
-            <p class="kata-stats-info">satisfaction</p>
-            <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/completion_icon.png"/>
-            <p class="kata-stats-info">completion</p>
+            <p class="kata-stats-info">{{kata.satisfaction}} satisfied of {{kata.votes}} votes</p>
+            <!-- For later, when we decide we want to include these stats in our kata -->
+            <!-- <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/completion_icon.png"/>
+            <!--<p class="kata-stats-info">completion</p>-->
             <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/creator_icon.png"/>
-            <p class="kata-stats-info">creator</p>
+            <p class="kata-stats-info">{{kata.creator}}</p>
           </div>
           <div class="indv-kata-tags">
             <img src="./assets/imgs/tag_icon.png" id="tag-icon" alt="tagggg">

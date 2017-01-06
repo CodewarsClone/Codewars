@@ -138,6 +138,9 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 				$scope.time = Math.round(t1 - t0) + " ms";
 				$scope.testPass = response.data.passCount;
 				$scope.testFail = response.data.testCount - response.data.passCount;
+
+				console.log($scope.testFail);
+
 				$scope.submit = (response.data.testCount === response.data.passCount ? true : false);
 			}
 		});
@@ -145,7 +148,6 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	
 	$scope.submitAnswer = () => {
 		var solution = solutionsCode.getValue();
-		
 		if ($scope.submit) {
 			mainService.submitAnswer(solution, $scope.kataid, mainService.user.id);
 			$state.go('menu.solutions',{kataid: $scope.kataid});

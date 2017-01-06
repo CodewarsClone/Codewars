@@ -6,7 +6,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
     $scope.languageOptions = ["JavaScript", "Ruby", "C++"];
     $scope.progressOptions = ["Fundamentals", "Rank Up", "Practice and Repeat", "Beta", "Random"];
     //Dummy userKatas for purposes of styling.
-    $scope.userKatas = [{kyu: 8, id: 1, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS'], user_id: 2},{kyu: 8, id: 2, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS'], user_id: 2},{kyu: 8, id: 3, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS']}]
+    // $scope.userKatas = [{kyu: 8, id: 1, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS'], user_id: 2},{kyu: 8, id: 2, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS'], user_id: 2},{kyu: 8, id: 3, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS']}]
 
     $scope.getUser = () => {
         mainService.getUser().then(response => {
@@ -25,6 +25,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
         }
         mainService.getRandomKata(mainService.user.kyu_level).then(response => {
 
+          response.data.description = response.data.description.replace(/\\n/g, "\n");
             if (oldId) {
                 if (response.data.id === oldId) {
                 return $scope.getRandomKata(mainService.user.kyu_level);
@@ -33,19 +34,20 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
                 }
             }
             $scope.randomKata = response.data;
+
         })
     }
 
     $scope.getUserKatas = (userid) => {
         mainService.getUserKatas(userid).then(response => {
-            // $scope.userKatas = response.data;
+             $scope.userKatas = response.data;
+             console.log($scope.userKatas);
         })
     }
 
     $scope.voteKata = (kataid, vote) => { // the vote is a true or false value
         mainService.voteKata(mainService.user.id, kataid, vote).then(response => {
             $scope.kataVotes = response.data;
-            console.log($scope.kataVotes);
             $scope.userKatas.forEach(kata => {
               if (kata.id === kataid) {
                 kata.votes = $scope.kataVotes.votes;
@@ -53,7 +55,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
               }
             })
         })
-    }
+    };
 
 
     $scope.getKataVotes = () => {
@@ -72,7 +74,6 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
               }
               vote.satisfaction = (vote.likes/vote.votes)*100;
             });
-            console.log("votes ", $scope.votes);
             $scope.userKatas.forEach((kata) => {
               kata.satisfaction = 0;
               kata.votes = 0;
