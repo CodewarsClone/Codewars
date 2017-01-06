@@ -46,7 +46,7 @@ passport.use(new GithubStrategy({
 					}
 				})
 		}
-		
+
 	});
 
 
@@ -110,7 +110,7 @@ app.post('/api/kata-by-name', kataCtrl.searchByKatasName);
 
 app.put('/api/points', kataCtrl.addPointsToUser);
 app.post('/api/kata-votes', kataCtrl.voteKata);
-app.post('/api/solution-votes', kataCtrl.voteSolution);
+app.post('/api/solution-votes', function(req, res, next) {console.log('endpoint working'); next();}, kataCtrl.voteSolution);
 
 app.listen(config.port, function () {
 	console.log(`listening on port ${this.address().port}`);

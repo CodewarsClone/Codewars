@@ -46,16 +46,16 @@
         <p class="font17-reg">{{kata.name}}</p>
         <button class="vote-button" ng-click="voteKata(kata.id, true)">
           <i class="fa fa-thumbs-up" style="color: #efefef; margin: 0 10px 0 5px;" aria-hidden="true"></i>
-          <p class="font14-reg-efefef" style="margin: 0 5px 0 0">Up-Vote</p>
+          <p class="font14-reg-efefef" style="margin: 0 5px 0 0">Satisfied</p>
         </button>
         <button class="vote-button" ng-click="voteKata(kata.id, false)">
           <i class="fa fa-thumbs-down" style="color: #efefef; margin: 0 10px 0 5px;" aria-hidden="true"></i>
-          <p class="font14-reg-efefef" style="margin: 0 5px 0 0">Down-Vote</p>
+          <p class="font14-reg-efefef" style="margin: 0 5px 0 0">Not Satisfied</p>
         </button>
       </div>
       <div class="kata-stats">
         <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/satisfaction_icon.png" />
-        <p class="kata-stats-info">satisfaction</p>
+        <p class="kata-stats-info">{{kata.satisfaction}}% satisfied of {{kata.votes}} votes</p>
         <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/completion_icon.png"/>
         <p class="kata-stats-info">completion</p>
         <img class="kata-stats-icon .font14-reg-gray" src="./assets/imgs/creator_icon.png"/>

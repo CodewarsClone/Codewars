@@ -7,30 +7,14 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
   $scope.kataid = $stateParams.kataid;
   $scope.user = mainService.user;
   $scope.creators = [];
-  // $scope.kataSolutions = [{ script:"function dog(x) { var jerk = 'hello' }"}];
 
-  // NO LONGER NECESSARY, BUT USEFUL FOR REFERENCE. IT ALSO HAPPENS TO WORK, ALBEIT WITH A DELAY BECAUSE OF THE SETTIMEOUT.
-  // var textareas = [];
-  // var codemirrors =[];//s
-  // function makeCodeMirrors() {
-  //   for (let i = 0; i < $scope.kataSolutions.length; i++) {
-  //     textareas[i] = document.getElementById(`solution-text${$scope.kataSolutions[i].id}`);
-  //     console.log("within controller", textareas[i]);
-  //     codemirrors[i] = CodeMirror.fromTextArea(textareas[i], {
-  //       lineNumbers: true,
-  //       theme: 'seti',
-  //       readOnly: true,
-  //     });
-  //     codemirrors[i].setValue($scope.kataSolutions[i].script)
-  //   }
-  // }
 
 
     $scope.getKataById = (kataid) => {
         mainService.getKataById(kataid).then(response => {
             $scope.kataById = response.data;
             $scope.getKataSolutions($scope.kataid);
-            // console.log($scope.kataById);
+            $scope.getSolutionVotes();
         })
     }
 
