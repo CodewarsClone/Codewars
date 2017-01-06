@@ -193,8 +193,17 @@ $grey-color: #C0C0C0;
   margin-top: 5px;
 }
 
+.home-solution-button-div {
+  display: flex;
+}
+
 .show-solutions {
   cursor: pointer;
+  margin-right: 30px;
+}
+
+.show-solutions:hover {
+  color: $blue-color;
 }
 
 .home-repeated-solutions-div {

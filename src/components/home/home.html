@@ -68,7 +68,12 @@
         </div>
       </div>
       <div class='home-solutions-div'>
-        <p class="font16-reg-efefef show-solutions">Your solutions:</p>
+        <div class="home-solution-button-div">
+          <p class="font16-reg-efefef show-solutions">Your solutions</p>
+          <a class="font16-reg-efefef" id="kata-name" href="/#/solutions/{{kata.id}}">
+            <p>See Other Solutions</p>
+          </a>
+        </div>
         <div class="home-repeated-solutions-div">
           <textarea class="solution-text repeated-completed-solutions-home" id="{{$index}}" codemirror-directive>
           </textarea>
