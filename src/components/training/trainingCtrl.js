@@ -116,6 +116,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		mainService.testSuite(solutions, $scope.kataid).then((response) => {
 			var t1 = performance.now();
 			console.log(response.data);
+			console.log(response.data);
 			if (typeof response.data === 'string') {
 				$scope.gotError = true;
 				$scope.answer = null;
