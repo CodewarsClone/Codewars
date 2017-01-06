@@ -127,7 +127,7 @@ module.exports = {
                 })
             }
         })
-        
+
     },
 
     voteSolution: (req, res, next) => {
@@ -163,7 +163,7 @@ module.exports = {
                 })
             }
         })
-        
+
     },
 
     addPointsToUser: (req, res, next) => {
