@@ -115,8 +115,6 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 			.replace(/\s+/g, " ");
 		mainService.testSuite(solutions, $scope.kataid).then((response) => {
 			var t1 = performance.now();
-			console.log(response.data);
-			console.log(response.data);
 			if (typeof response.data === 'string') {
 				$scope.gotError = true;
 				$scope.answer = null;
@@ -132,17 +130,18 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 				$scope.time = Math.round(t1 - t0) + " ms";
 				$scope.testPass = response.data.passCount;
 				$scope.testFail = response.data.testCount - response.data.passCount;
+				console.log($scope.testFail);
+				$scope.submit = (response.data.testCount === response.data.passCount ? true : false);
 			}
 		});
 	};
 
 	$scope.reset = function(){
 		console.log('something extravegant');
-	}
+	};
 	
 	$scope.submitAnswer = () => {
 		var solution = solutionsCode.getValue();
-		
 		if ($scope.submit) {
 			mainService.submitAnswer(solution, $scope.kataid, mainService.user.id);
 			$state.go('menu.solutions',{kataid: $scope.kataid});
