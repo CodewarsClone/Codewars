@@ -65,6 +65,9 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		examplesCode.setValue($scope.examples);
 	}
 
+	solutionsCode.on('change', () => {
+		$scope.submit = false;
+	})
 
 	$scope.getKataById($scope.kataid);
 	
@@ -87,6 +90,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 			.replace(/\s+/g, ` `);
 //		console.log(examples);
 		mainService.testExamples(solutions, examples).then((response) => {
+			$scope.submit = false;
 			var t1 = performance.now();
 			console.log(response.data);
 			if (typeof response.data === 'string') {
