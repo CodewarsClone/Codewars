@@ -26,15 +26,6 @@ We made this as a group project for our dev bootcamp
 * Docker
 * Codewars Runner Cli (Mocha)
 
-## Docker & Unit tests
-
-To run our unit test we are using Codewars Runner CLI [link] (https://github.com/Codewars/codewars-runner-cli).
-
-We have docker installed and brought down codewars/base-runner & codewars/node-runner.. This allows us to run the code within a Docker image that protect our server from any unhealthy code that may be ran inside hopefully preventing anything from bringing down the server.
-
-Codewars Runner uses the Mocha unit-testing framework so the test have been written in mocha. 
-
-In node we are using exec to run a CLI to invoke docker and this image and then parsing the response into an object that allows the front-end to display with the describes and its correctly
 
 ## How the Site Works
 
@@ -61,3 +52,15 @@ See all the solutions for that kata . . .
 ### List of All Katas 
 
 Sort through all of the katas and choose one to train . . .
+
+## Docker & Unit tests
+
+To run our unit test we are using Codewars Runner CLI [link] (https://github.com/Codewars/codewars-runner-cli).
+
+We have docker installed and brought down codewars/base-runner & codewars/node-runner.. This allows us to run the code within a Docker image that protect our server from any unhealthy code that may be ran inside hopefully preventing anything from bringing down the server.
+
+Codewars Runner uses the Mocha unit-testing framework so the test have been written in mocha. 
+
+In node we are using exec to run a CLI to invoke docker and this image and then parsing the response into an object that allows the front-end to display with the describes and its correctly
+
+
