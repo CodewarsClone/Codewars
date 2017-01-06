@@ -56,11 +56,6 @@ function objectifer(arr) {
 				value: ele.replace(/<FAILED::>/, ''),
 			}
 			
-		} else if (ele.search(/<ERROR::>/) > -1) {
-			return {
-				type: 'ERROR',
-				value: ele.replace(/<ERROR::>/, '')
-			}
 		} else if (ele.search(/<COMPLETEDIN::>/) > -1) {
 			return {type: 'completed', time: timeParser(ele)}
 		}
@@ -108,17 +103,24 @@ function testRunner(script, test) {
 	exec(`docker run --rm codewars/node-runner run -l javascript -c "${script}" -t cw -f "${test}"`,
 		(err, stdOut, stdErr) => {
 			if (err) console.log(err);
-			let output = stdOut.split(/\n/g);
-			for (let i = output.length - 1; i >= 0; i--) if (output[i] === '') output.splice(i, 1);
-			let newArr = objectifer(output);
-//			console.log(output);
-			newArr = nester(newArr);
 			
 			if (stdErr && !stdOut) {
-				stdErr = stdErr.replace(/\n/g , '\\n').replace(/\s/g, '\\s');
-				defer.resolve(stdErr);
+					stdErr = stdErr.replace(/\n/g , '\\n')
+					.replace(/\s/g, '\\s');
+				return defer.resolve(stdErr);
 			} else {
-				defer.resolve(newArr);
+				if (stdOut.search(/<ERROR::>/) > -1) {
+					stdOut = stdOut.replace(/<:LF:>/g, '\\n')
+						.replace(/\s/g, '\\s');
+					return defer.resolve(stdOut);
+				} else {
+					let output = stdOut.split(/\n/g);
+					for (let i = output.length - 1; i >= 0; i--) if (output[i] === '') output.splice(i, 1);
+					let newArr = objectifer(output);
+					newArr = nester(newArr);
+					return defer.resolve(newArr);
+				}
+				
 			}
 			
 		}
@@ -153,7 +155,6 @@ module.exports = {
 		});
 	}
 };
-
 
 
 
