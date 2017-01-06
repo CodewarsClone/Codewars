@@ -19,6 +19,14 @@ We made this as a group project for our dev bootcamp
   * (most javascript was written with ES2015 compiled by gulp)
 * Postgres
 
+## Express
+
+
+## Node
+
+
+## Postgres
+
 
 ### Minor Techs used
 

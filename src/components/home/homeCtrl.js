@@ -5,8 +5,6 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
     mainService.checkAuth();
     $scope.languageOptions = ["JavaScript", "Ruby", "C++"];
     $scope.progressOptions = ["Fundamentals", "Rank Up", "Practice and Repeat", "Beta", "Random"];
-    //Dummy userKatas for purposes of styling.
-    $scope.userKatas = [{kyu: 8, id: 1, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS'], user_id: 2},{kyu: 8, id: 2, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS'], user_id: 2},{kyu: 8, id: 3, name: "Kata name", script: "var a = 1", tags: ['FUNDAMENTALS']}]
 
     $scope.getUser = () => {
         mainService.getUser().then(response => {
@@ -38,7 +36,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
 
     $scope.getUserKatas = (userid) => {
         mainService.getUserKatas(userid).then(response => {
-            // $scope.userKatas = response.data;
+            $scope.userKatas = response.data;
         })
     }
 

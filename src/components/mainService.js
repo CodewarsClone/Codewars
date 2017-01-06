@@ -4,8 +4,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
 
   // $sce.trustAsResourceUrl('/s');
 
-  // Dummy information so I don't have to mess with the server all the time.
-  // this.user = {id: 4, github_id: "20197415", name: "Steven", email: null, picture_url: "https://avatars.githubusercontent.com/u/20197415?v=3", username: "Steven-Nagie"};
   this.user = {};
 
 // POST
@@ -43,7 +41,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     });
   };
 
-   //kata_listCtrl
   this.searchKatasByName = (input) => {
     return $http({
       method: 'POST',
@@ -86,7 +83,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     })
   };
 
-  // trainingCtrl
   this.getKataById = (kataid) => {
     return $http({
       method: 'GET',
@@ -94,7 +90,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     });
   };
 
-  // homeCtrl - displaying one kata within range
   this.getRandomKata = (userkyu) => {
     return $http({
       method: 'GET',
@@ -102,7 +97,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     });
   };
 
-  // kata_listCtrl = displays a plethora of katas based on user ability
   this.getRandomKataList = (userkyu) => {
     return $http({
       method: 'GET',
@@ -110,7 +104,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     });
   };
 
-  // kata_listCtrl
   this.getKatasByKyu = (kyu) => {
     return $http({
       method: 'GET',
@@ -118,7 +111,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     });
   };
 
-  // solutionsCtrl
   this.getKataSolutions = (kataid) => {
     return $http({
       method: 'GET',
@@ -126,7 +118,6 @@ angular.module('app').service('mainService', function($http, $q, $sce, $state) {
     });
   };
 
-  // profileCtrl - brings back a specific users kata information (script, name, kyu, description) - use on kata tab soltion tab
   this.getUserKatas = (userid) => {
     return $http({
       method: 'GET',
