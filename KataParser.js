@@ -64,34 +64,31 @@ let tags = [
 
 // Paste the Test Suite here
 let tests = [
-	`Test.assertEquals(disemvowel("This website is for losers LOL!"),"Ths wbst s fr lsrs LL!");
-Test.assertEquals(disemvowel("What are you, a communist?"),"Wht r y,  cmmnst?");
-Test.assertEquals(disemvowel(	"No offense but,Your writing is among the worst I've ever read"),"N ffns bt,Yr wrtng s mng th wrst 'v vr rd");`,
-	'No offense but,Your writing is among the worst I\'ve ever readN ffns bt,Yr wrtng s mng th wrst \'v vr rd'
+	`Test.assertEquals(multiply(1,1), 1);
+Test.assertEquals(multiply(2,1), 2);
+Test.assertEquals(multiply(2,2), 4);
+Test.assertEquals(multiply(3,5), 15);`
 ];
 
 
 // Paste the example script here
 let examples =
-	``;
+	`Test.assertEquals(multiply(2,2), 4);`;
 
 // Introduction to the Kata Here
 let description =
 	``;
 // Paste the starting script here
-let startScript = ``;
+let startScript = `function multiply(a, b){
+  a * b
+}`;
 
 
 // Paste your winning script here
-let winScript = `
-
-`;
+let winScript = ``;
 
 // Past a solution here and it will corrently parse it into the console for you
-let solution = `
-
-
-`;
+let solution = `const multiply = (a,b) => a * b;`;
 
 
 // When this js file is ran you will get an output in your console of all the info in a format

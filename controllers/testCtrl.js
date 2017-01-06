@@ -108,16 +108,18 @@ function testRunner(script, test) {
 	exec(`docker run --rm codewars/node-runner run -l javascript -c "${script}" -t cw -f "${test}"`,
 		(err, stdOut, stdErr) => {
 			if (err) console.log(err);
-			if (stdErr) {
-				console.log('stdErr');
-				console.log(stdErr);
-			}
 			let output = stdOut.split(/\n/g);
 			for (let i = output.length - 1; i >= 0; i--) if (output[i] === '') output.splice(i, 1);
 			let newArr = objectifer(output);
 //			console.log(output);
 			newArr = nester(newArr);
-			defer.resolve(newArr);
+			
+			if (stdErr && !stdOut) {
+				stdErr = stdErr.replace(/\n/g , '\\n').replace(/\s/g, '\\s');
+				defer.resolve(stdErr);
+			} else {
+				defer.resolve(newArr);
+			}
 			
 		}
 	);
