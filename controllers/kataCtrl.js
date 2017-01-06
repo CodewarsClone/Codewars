@@ -50,7 +50,6 @@ module.exports = {
     getUserKatas: (req, res, next) => {
         db.read.user_katas([req.params.userid], (err, katas) => {
             if (err) return next(err);
-            console.log(katas);
             return res.status(200).json(katas);
         })
     },

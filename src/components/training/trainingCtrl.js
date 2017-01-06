@@ -76,14 +76,12 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		var examples = examplesCode.getValue();
 		$scope.showOutput();
 		var t0 = performance.now();
-		console.log(solutions);
 		solutions = solutions
 			.replace(/\\n/g, '\n')
 			.replace(/\s*\n*\r*\/\/.*\n*\r*/g, '')
 			.replace(/\n\s*\./g, `.`)
 			.replace(/\\n/g, " ")
 			.replace(/\s+/g, " ");
-		console.log(solutions);
 		var examplesArr = [];
 		examples = examples
 			.replace(/\\n/g, '\n')
@@ -121,7 +119,6 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 			.replace(/\n\s*\./g, `.`)
 			.replace(/\\n/g, " ")
 			.replace(/\s+/g, " ");
-		console.log(solutions);
 		mainService.testSuite(solutions, $scope.kataid).then((response) => {
 			var t1 = performance.now();
 			if (typeof response.data === 'string') {
