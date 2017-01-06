@@ -33,25 +33,41 @@ We made this as a group project for our dev bootcamp
 
 Using Github OAuth . . . 
 
+![image](https://cloud.githubusercontent.com/assets/22752236/21735649/b018a778-d428-11e6-811a-51eaea8f2f1a.png)
+
 ### Home
 
-See completed katas and your solutions to them
+See completed katas and your solutions to them . . .
+
+![image](https://cloud.githubusercontent.com/assets/22752236/21735721/363c3a54-d429-11e6-9bc1-6321994fb1fe.png)
 
 Choose a random kata according to your kyu level range . . .
 
+![image](https://cloud.githubusercontent.com/assets/22752236/21735824/b6ad8ab2-d429-11e6-91b7-85f0f8951932.png)
+
 ### Training
 
-Complete the function
+Complete the function . . .
+
+![image](https://cloud.githubusercontent.com/assets/22752236/21735888/3221c366-d42a-11e6-82f1-f081a2dee587.png)
 
 run tests and see if you have passed . . .
+
+![image](https://cloud.githubusercontent.com/assets/22752236/21735936/715b1438-d42a-11e6-81f9-4f4cac34ac14.png)
 
 ### Solutions 
 
 See all the solutions for that kata . . .
 
+![image](https://cloud.githubusercontent.com/assets/22752236/21735959/9a71f576-d42a-11e6-9623-2e5c82d3b9aa.png)
+
 ### List of All Katas 
 
+![image](https://cloud.githubusercontent.com/assets/22752236/21735994/c682b02e-d42a-11e6-81ac-6b1310c850bc.png)
+
 Sort through all of the katas and choose one to train . . .
+
+![image](https://cloud.githubusercontent.com/assets/22752236/21736005/e28afe3e-d42a-11e6-8759-85181c971664.png)
 
 ## Docker & Unit tests
 
