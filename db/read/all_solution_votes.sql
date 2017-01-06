@@ -1,1 +1,1 @@
-SELECT COUNT(*) AS dislikes, solution_id FROM sol_ratings GROUP BY solution_id;
+SELECT COUNT(*) AS votes, solution_id FROM sol_ratings GROUP BY solution_id;

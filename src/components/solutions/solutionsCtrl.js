@@ -24,7 +24,7 @@ angular.module('app').controller('solutionsCtrl', function($scope, $state, mainS
         mainService.getKataSolutions(kataid).then(response => {
             $scope.kataSolutions = response.data;
             console.log($scope.kataSolutions)
-            // setTimeout(makeCodeMirrors, 1000);
+            $scope.getSolutionVotes();
         })
     }
 
