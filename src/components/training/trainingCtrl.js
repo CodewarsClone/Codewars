@@ -7,7 +7,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	$scope.passed = false;
 	$scope.showInstruction = true;
 	$scope.showOutput = false;
-	$scope.submit = true;
+	$scope.submit = false;
 	
 	
 	
@@ -24,6 +24,8 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		lineNumbers: true,
 		theme: 'seti',
 	});
+
+
 	
 	$scope.languages = ['JavaScript'];
 	$scope.versions = 'Node v6.6.0';
@@ -58,11 +60,15 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		});
 	};
 	
+	$scope.reset = () => {
+		examplesCode.setValue($scope.examples);
+	}
+
+
 	$scope.getKataById($scope.kataid);
 	
 	//Examples should be an array of objects. Returned results will be an array with the different tests and their results.
 	$scope.testExamples = function () {
-		console.log('clicked examples');
 		var solutions = solutionsCode.getValue();
 		var examples = examplesCode.getValue();
 		$scope.showOutput();
@@ -90,7 +96,6 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	};
 	
 	$scope.testSuite = function () {
-		console.log('clicked attempt');
 		var solutions = solutionsCode.getValue();
 		$scope.showOutput();
 		var t0 = performance.now();
@@ -102,7 +107,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		mainService.testSuite(solutions, $scope.kataid).then((response) => {
 			var t1 = performance.now();
 			$scope.answer = response.data.nest;
-//			console.log(response.data.nest[0]);
+			// console.log(response.data);
 			$scope.time = Math.round(t1 - t0) + " ms";
 			$scope.testPass = response.data.passCount;
 			$scope.testFail = response.data.testCount - response.data.passCount;
@@ -110,10 +115,6 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 //			console.log($scope.submit)
 		});
 	};
-
-	$scope.reset = function(){
-		console.log('something extravegant');
-	}
 	
 	$scope.submitAnswer = () => {
 		var solution = solutionsCode.getValue();
