@@ -135,6 +135,7 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 			}
 		});
 	};
+	
 
 	$scope.reset = function(){
 		console.log('something extravegant');
