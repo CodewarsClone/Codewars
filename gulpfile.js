@@ -49,6 +49,7 @@ gulp.task('clean', function (cb) {
 //     .pipe(gulp.dest(paths.dist))
 // });
 
+
 gulp.task('build-js', function () {
   return gulp.src(paths.jsSource)
     .pipe(sourcemaps.init())
@@ -62,7 +63,7 @@ gulp.task('build-js', function () {
     .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('build', ['clean', 'build-css', 'build-js']);
+gulp.task('build', ['clean']);
 
 gulp.task('watch', function () {
   return gulp.watch([paths.jsSource, paths.cssFiles, paths.scssFiles], ['clean']);
