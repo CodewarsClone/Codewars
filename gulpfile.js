@@ -40,7 +40,7 @@ gulp.task('clean', function (cb) {
   return del([
     'src/dist/**'
   ], cb).then(() => {
-    gulp.start(['build-css', 'build-js']);
+     return gulp.start(['build-css', 'build-js']);
   });
 });
 
@@ -48,6 +48,7 @@ gulp.task('clean', function (cb) {
 //   return gulp.src([paths.htmlFiles, paths.indexFiles])
 //     .pipe(gulp.dest(paths.dist))
 // });
+
 
 gulp.task('build-js', function () {
   return gulp.src(paths.jsSource)
@@ -62,11 +63,13 @@ gulp.task('build-js', function () {
     .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('build', ['clean', 'build-css', 'build-js']);
+gulp.task('build', ['clean']);
 
 gulp.task('watch', function () {
   return gulp.watch([paths.jsSource, paths.cssFiles, paths.scssFiles], ['clean']);
 });
 
 
-gulp.task('default', ['clean', 'watch']);
+gulp.task('default', ['clean'], () =>{
+  return gulp.start(['watch']);
+});

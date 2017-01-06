@@ -43,7 +43,7 @@ angular.module('app').controller('homeCtrl', function($scope, $state, mainServic
         mainService.getUserKatas(userid).then(response => {
             $scope.userKatas = response.data;
         })
-    }
+    };
 
     $scope.voteKata = (kataid, vote) => { // the vote is a true or false value
         mainService.voteKata(mainService.user.id, kataid, vote).then(response => {
