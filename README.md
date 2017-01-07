@@ -1,12 +1,11 @@
-# Codewars Clone
+# Codewars Clone a.k.a CLONEWARS!
 
-This is a project with 
-* Alexis Graff
-* Steven Nagie
+Team Members: 
 * Joshua Baert
 * Sterling Chin
+* Alexis Graff 
+* Steven Nagie
 
-We made this as a group project for our dev bootcamp
 
 ## Technologies Used
 
@@ -26,6 +25,16 @@ We made this as a group project for our dev bootcamp
 * Docker
 * Codewars Runner Cli (Mocha)
 
+### Summary
+
+As our final group project, we chose to clone codewars.com.  We were given 2 weeks to complete our project.  Codewars.com is a massive website with multiple aspects.  We focused solely on the purpose of codewars: **unit testing**.  This choice effected the content we showed in our views.  For instance, the home page now is a users dashboard, omitting the social aspect of the clans.  
+
+**Project Challenges**
+* Running tests in commandline and making sure the string being passed is valid commandline syntax.
+* Receiving the response as a string and parsing the response in the correct format to pass through the service.
+* Formatting the return object with the nested 'its', 'describes', & 'tests'.  These were often 4 deep depending on the tests being run.
+* Implmentation of the codeMirror library and its full functionality.
+* We made the effort to make this Clonewars pixel perfect.
 
 ## How the Site Works
 
