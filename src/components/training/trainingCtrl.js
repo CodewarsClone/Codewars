@@ -9,6 +9,8 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 	$scope.showOutput = false;
 	$scope.submit = false;
 	$scope.gotError = false;
+	$scope.instructionBg = true;
+	$scope.outputBg = false;
 	
 	
 	
@@ -75,6 +77,8 @@ angular.module('app').controller('trainingCtrl', function ($scope, $state, mainS
 		var solutions = solutionsCode.getValue();
 		var examples = examplesCode.getValue();
 		$scope.showOutput();
+		$scope.instructionBg = false;
+		$scope.outputBg = true;
 		var t0 = performance.now();
 		solutions = solutions
 			.replace(/\\n/g, '\n')

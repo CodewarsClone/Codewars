@@ -30,10 +30,10 @@
     <div class="kata">
       <div class="instructions" ng-style="instructionStyle">
         <div class="instructions-head">
-          <div class='instructions-selector font14-lit-gray' ng-click='showInstructions()'>
+          <div class='instructions-selector font14-lit-gray selector-bg-on' ng-style="instructionbg" ng-click="showInstructions(); outputbg={'background-color':'#262729'}; instructionbg={'background-color':'#3B3C3E'}">
             <div class='button-text'>Instructions</div>
           </div>
-          <div class='output-selector font14-lit-gray' ng-click='showOutput()'>
+          <div class='output-selector font14-lit-gray' ng-style="outputbg" ng-click="showOutput(); outputbg={'background-color':'#3B3C3E'}; instructionbg={'background-color':'#262729'}">
             <div class='button-text'>Output</div>
           </div>
         </div>
@@ -45,10 +45,10 @@
         <div class="solution-div font14-lit-gray">
           <div class="solutions-header">
             <p>Solution:</p>
-            <!--<button value='small' ng-click="kataStyle={'width':'40vw'}; instructionStyle={'width':'60vw'}; allGone={'height':'100px'}">small</button>
+            <button value='small' ng-click="kataStyle={'width':'40vw'}; instructionStyle={'width':'60vw'}; allGone={'height':'100px'}">small</button>
             <button value='medium' ng-click="kataStyle={'width':'60vw'}; instructionStyle={'width':'40vw'}; allGone={'height':'100px'}">medium</button>
             <button value='large' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'height':'100px'}">large</button>
-            <button value='full-screen' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'display':'none'}; exampleGone={'display':'none'}">full screen</button>-->
+            <button value='full-screen' ng-click="kataStyle={'width':'100vw','margin':'15px'}; instructionStyle={'display':'none'}; allGone={'display':'none'}; exampleGone={'display':'none'}">full screen</button>
           </div>
           <div class='CodeMirror'><textarea ng-style="exampleGone" name="solution" id="solution-input" ng-model="solutionInput" ></textarea></div>
         </div>
@@ -63,7 +63,7 @@
           <div class='button-div'>
             <button ui-sref='menu.home' class="reset-button font12-reg-blue"><i class="fa fa-forward" style="margin-right: 2px" aria-hidden="true"></i>SKIP</button>
             <button ng-click="reset()" class="reset-button font12-reg-blue">RESET</button>
-            <button ng-click="testExamples()" class="test-examples-button font12-reg-blue">RUN EXAMPLES</button>
+            <button ng-click="testExamples(); outputbg={'background-color':'#3B3C3E'}; instructionbg={'background-color':'#262729'}" class="test-examples-button font12-reg-blue">RUN EXAMPLES</button>
             <button ng-click="testSuite()" class="test-suite-button font12-reg-black"><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>ATTEMPT</button>
             <button ng-click="submitAnswer()" class="submit-button font12-reg-black" ng-class="submit != true ? 'hide' : 'show'"><i class="fa fa-caret-right fa-lg" style="margin-right: 2px" aria-hidden="true"></i>SUBMIT</button>
           </div>
@@ -72,5 +72,3 @@
     </div>
   </div>
 </section>
-
-<!--ng-class="{{submit}} != true ? 'hide':'show'"-->
