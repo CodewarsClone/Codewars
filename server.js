@@ -6,7 +6,6 @@ const config = require('./config.js');
 const massive = require('massive');
 const passport = require('passport');
 const GithubStrategy = require('passport-github2').Strategy;
-const LocalStrategy = require('passport-local').Strategy;
 const connectionString = config.connectionString;
 
 
@@ -51,14 +50,6 @@ passport.use(new GithubStrategy({
 
 	});
 }));
-
-passport.use(new LocalStrategy(
-	function(username, password, done) {
-		
-		console.log(user);
-		done(null, user);
-	}
-));
 
 
 
