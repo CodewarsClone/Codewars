@@ -64,10 +64,27 @@ let tags = [
 
 // Paste the Test Suite here
 let tests = [
-	`Test.assertEquals(multiply(1,1), 1);
-Test.assertEquals(multiply(2,1), 2);
-Test.assertEquals(multiply(2,2), 4);
-Test.assertEquals(multiply(3,5), 15);`
+	`function test(n, expected) {
+  let actual = solution(n);
+  Test.assertEquals(actual, expected, \`Expected \${expected}, got \${actual}\`);
+}
+
+Test.describe("basic tests", function(){
+  test(10,23);
+  test(20,78);
+  test(200,9168);
+})
+
+Test.describe("smallest cases", function() {
+  test(-1,0);
+  test(0,0);
+  test(1,0);
+  test(2,0);
+  test(3,0);
+  test(4,3);
+  test(5,3);
+  test(6,8);
+})`
 ];
 
 
