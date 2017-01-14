@@ -26,10 +26,11 @@ passport.use(new GithubStrategy({
 		if (err) {
 			console.log(err);
 		} else if (user[0]) {
+			console.log(user[0])
 			done(null, user[0]);
 		} else {
 
-			console.log('attempting account creation')
+			console.log('attempting account creation');
 			db.create.new_user_from_github([profile.id, profile.displayName, profile._json.email, profile.username, profile._json.avatar_url],
 
 				(err) => {
@@ -48,10 +49,8 @@ passport.use(new GithubStrategy({
 		}
 
 	});
-
-
-//	return done(null, profile);
 }));
+
 
 
 const app = module.exports = express();
@@ -90,6 +89,24 @@ app.get('/auth/github/callback',
 		// Successful authentication, redirect home.
 		res.redirect('/#/home');
 	});
+
+app.post('/dummy', (req, res, next) => {
+	console.log('hit endpoint');
+	let user = {
+		id: 1,
+		github_id: '22752236',
+		name: 'Joshua Baert',
+		email: 'developer@baert.io',
+		username: 'JoshuaBaert',
+		picture_url: 'https://avatars.githubusercontent.com/u/22752236?v=3',
+		points: 6,
+	};
+	req.login(user, (err) => {
+		if (err) return next(err);
+		res.sendStatus(200);
+	});
+	
+})
 
 app.get('/api/check-auth', kataCtrl.checkAuth);
 
